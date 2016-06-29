@@ -12,15 +12,19 @@ public class Grid : MonoBehaviour
         {
             for (int j = 0; j < cells.GetLength(1); j++)
             {
-                GameObject newCellGo = Instantiate(cellPrefab);
-
-                newCellGo.transform.position = new Vector3(j, i, 0);
-                newCellGo.name = "Cell " + i + " " + j;
-                cells[i, j] = newCellGo.GetComponent<Cell>();
+                GameObject newCell = Instantiate(cellPrefab);
+                newCell.transform.position = new Vector3(i, j, 0);
+                newCell.name = "Cell " + i + " " + j;
+                cells[i, j] = newCell.GetComponent<Cell>();
+                cells[i, j].pos = new Vector2(i, j);
             }
         }
+        PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        pm.SetPlayerPosition();
     }
 	
+
+
 	void Update ()
     {
 	
