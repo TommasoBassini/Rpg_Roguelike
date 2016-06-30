@@ -23,12 +23,18 @@ public class PlayerMovement : MonoBehaviour
 
 
     // Imposta la destinazione che il giocatore deve raggiungere
-    public void PlayerMove(Vector2 _pos)
-    {        
-        grid = GameObject.Find("Grid").GetComponent<Grid>();        
-        this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
-        playerPos = _pos;
-        fog.Fog(_pos);
+    public virtual void PlayerMove(Vector2 _pos)
+    {
+        if (((int)_pos.x >= 0) && ((int)_pos.y >= 0) && ((int)_pos.x < 20) && ((int)_pos.y < 20))
+        {
+            grid = GameObject.Find("Grid").GetComponent<Grid>();
+            if (grid.cells[(int)_pos.x, (int)_pos.y].isWall == false)
+            {
+                this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
+                playerPos = _pos;
+                fog.Fog(_pos);
+            }
+        }
     }
         
     void Update()

@@ -9,14 +9,11 @@ public class FogOfWarManager : MonoBehaviour
 
 	void Start ()
     {
-
+        grid = FindObjectOfType<Grid>();
     }
 
     public void Fog(Vector2 pos)
-    {
-        grid = FindObjectOfType<Grid>();
-        
-        List<Cell> cellNear = new List<Cell>();
+    {              
         int _x = (int)pos.x;
         int _y = (int)pos.y;
 
@@ -42,17 +39,31 @@ public class FogOfWarManager : MonoBehaviour
                 if (y > 19)
                     continue;
 
-
-                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (vista))
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista))
                 {
-                    SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
-                    sr.color = Color.gray;
+                    if (!grid.cells[i, y].isWall)
+                    {
+                        SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
+                        sr.color = new Color (0.25f,0.25f,0.25f);
+                    }
                 }
 
-                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (vista /2))
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista - 1))
                 {
-                    SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
-                    sr.color = Color.white;
+                    if (!grid.cells[i, y].isWall)
+                    {
+                        SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
+                        sr.color = new Color(0.75f, 0.75f, 0.75f);
+                    }
+                }
+
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) < (vista - 1))
+                {
+                    if (!grid.cells[i, y].isWall)
+                    {
+                        SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
+                        sr.color = Color.white;
+                    }
                 }
             }
         }
