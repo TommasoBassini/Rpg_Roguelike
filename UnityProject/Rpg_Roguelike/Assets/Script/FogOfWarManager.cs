@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class FogOfWarManager : MonoBehaviour
 {
     private Grid grid;
-    private int vista = 2;
+    private int vista = 4;
 
 	void Start ()
     {
@@ -15,6 +15,7 @@ public class FogOfWarManager : MonoBehaviour
     public void Fog(Vector2 pos)
     {
         grid = FindObjectOfType<Grid>();
+        
         List<Cell> cellNear = new List<Cell>();
         int _x = (int)pos.x;
         int _y = (int)pos.y;
@@ -36,22 +37,22 @@ public class FogOfWarManager : MonoBehaviour
                     continue;
                 if (y < 0)
                     continue;
-                if (i > 20)
+                if (i > 19)
                     continue;
-                if (y > 20)
+                if (y > 19)
                     continue;
 
 
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (vista))
+                {
+                    SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
+                    sr.color = Color.gray;
+                }
 
-                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista / 2))
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (vista /2))
                 {
                     SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
                     sr.color = Color.white;
-                }
-                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista))
-                {
-                    SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
-                    sr.color = Color.grey;
                 }
             }
         }
