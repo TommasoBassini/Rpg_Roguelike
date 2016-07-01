@@ -3,14 +3,19 @@ using System.Collections;
 
 public class Grid : MonoBehaviour
 {
-    public Cell[,] cells = new Cell[20, 20];
+    public int width;
+    public int height;
+
+    public Cell[,] cells ;
     public GameObject cellPrefab;
 
     void Start ()
     {
-        for (int i = 0; i < cells.GetLength(0); i++)
+
+        cells = new Cell[width, height];
+        for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < cells.GetLength(1); j++)
+            for (int j = 0; j < height; j++)
             {
                 GameObject newCell = Instantiate(cellPrefab);
                 newCell.transform.position = new Vector3(i, j, 0);
@@ -24,6 +29,7 @@ public class Grid : MonoBehaviour
         }
         PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
         pm.SetPlayerPosition();
+
     }
 	
 

@@ -34,9 +34,9 @@ public class FogOfWarManager : MonoBehaviour
                     continue;
                 if (y < 0)
                     continue;
-                if (i > 19)
+                if (i > grid.width -1)
                     continue;
-                if (y > 19)
+                if (y > grid.height - 1)
                     continue;
 
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista))
