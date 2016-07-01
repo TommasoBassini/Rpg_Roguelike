@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Grid : MonoBehaviour
 {
@@ -18,17 +19,23 @@ public class Grid : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 GameObject newCell = Instantiate(cellPrefab);
-                newCell.transform.position = new Vector3(i, j, 0);
+                newCell.transform.position = new Vector3(i + this.transform.position.x, j , 0);
                 newCell.name = "Cell " + i + " " + j;
                 cells[i, j] = newCell.GetComponent<Cell>();
                 cells[i, j].pos = new Vector2(i, j);
 
-                SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
-                sr.color = Color.clear;
+                if (SceneManager.GetActiveScene().name == "ProvaTommy")
+                {
+                    SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
+                    sr.color = Color.clear;
+                }
             }
         }
-        PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        pm.SetPlayerPosition();
+        if (SceneManager.GetActiveScene().name == "ProvaTommy")
+        {
+            PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
+            pm.SetPlayerPosition();
+        }
 
     }
 	
