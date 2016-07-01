@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
                 if (Random.Range(randomEncounterProbably, 150) > 140)
                 {
                     randomEncounterProbably = 0;
-                   // gc.RandomEncounter();
+                    gc.RandomEncounter();
                 }
             }
         }
