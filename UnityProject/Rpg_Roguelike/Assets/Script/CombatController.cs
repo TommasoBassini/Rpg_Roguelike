@@ -85,7 +85,6 @@ public class CombatController : MonoBehaviour
         UpdateTurnPortrait();
         if(player[turno].GetComponent<Enemy>() != null)
         {
-            Debug.Log("enemyTurno");
             player[turno].GetComponent<Enemy>().Ai();
         }
     }

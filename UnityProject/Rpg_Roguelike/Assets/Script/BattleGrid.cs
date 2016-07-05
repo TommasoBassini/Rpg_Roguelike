@@ -19,6 +19,7 @@ public class BattleGrid : MonoBehaviour
 
     public GameObject enemy;
     public List<int> nUsatiEnemy = new List<int>();
+
     void Start()
     {
         cells = new CombatCell[width, height];
@@ -64,13 +65,13 @@ public class BattleGrid : MonoBehaviour
             int enemX = Random.Range(0, nUsatiEnemy.Count);
             int enemY = Random.Range(3, 8);
             GameObject newEnemy = Instantiate(enemy);
-            enemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
+            newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
             SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
             srEnemy.sortingOrder = 1;
             Character characterEnemy = newEnemy.GetComponent<Character>();
             characterEnemy.velocita = Random.Range(0.7f, 1.1f);
             characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
-            characterEnemy.passi = Random.Range(2, 4);
+            characterEnemy.passi = 4;
             cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
 
             for (int z = 1; z < 100; z++)
@@ -78,6 +79,7 @@ public class BattleGrid : MonoBehaviour
                 cc.tempo.Add(characterEnemy.velocita * z);
                 cc.player.Add(newEnemy);
             }
+            nUsatiEnemy.RemoveAt(enemX);
         }
  
 
@@ -144,11 +146,14 @@ public class BattleGrid : MonoBehaviour
         cellWalkable.Clear();
     }
 
-    public void EnemyCheckPlayer(Vector2 _pos, int raggio)
+    public void EnemyCheckPlayer(Vector2 _pos, int raggio, GameObject _enemy)
     {
+
+        // Questo è il metodo che controlla se c'è il player nel raggio di azione del nemico 
+        
         int _x = (int)_pos.x;
         int _y = (int)_pos.y;
-
+        bool isNear = false;
         Vector2[] directions = new Vector2[4];
 
         directions[0] = new Vector2(-1, 0);
@@ -156,12 +161,14 @@ public class BattleGrid : MonoBehaviour
         directions[2] = new Vector2(1, 0);
         directions[3] = new Vector2(0, 1);
 
+        // incomincia a scansionare l'area
         for (int i = (_x - raggio); i <= (_x + raggio); i++)
         {
+            bool isFind = false;
             for (int y = (_y - raggio); y <= (_y + raggio); y++)
             {
 
-
+                // Controlla se il raggio non esce dalla griglia
                 if (i < 0)
                     continue;
                 if (y < 0)
@@ -171,16 +178,31 @@ public class BattleGrid : MonoBehaviour
                 if (y > height - 1)
                     continue;
 
+                // Distanza manhattan
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (raggio))
                 {
-                    if (cells[i, y].occupier.GetComponent<Player>() != null)
+                    // controlla se la cella è occupata
+                    if (cells[i, y].occupier != null)
                     {
-                        Debug.Log("C'è il player");
+                        // Controlla se la cella occupata è occupata dal gameobjcet con il tag "Player"
+                        if (cells[i, y].occupier.CompareTag("Player"))
+                        {
+                            isNear = true;
+                            isFind = true;
+                            Debug.Log("C'è il player");
+                            break;
+                        }
                     }
-                    else
-                        Debug.Log("Non c'è il player");
                 }
             }
+            if (isFind)
+            {
+                break;
+            }
+        }
+        if (!isNear)
+        {
+            _enemy.GetComponent<Enemy>().FindNearestPlayer();
         }
     }
 }
