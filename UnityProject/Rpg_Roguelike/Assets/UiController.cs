@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class UiController : MonoBehaviour
 {
     private CombatController cc;
+    public GameObject UI;
     public GameObject MainPanel;
     public GameObject MovePanel;
     public GameObject ActionPanel;

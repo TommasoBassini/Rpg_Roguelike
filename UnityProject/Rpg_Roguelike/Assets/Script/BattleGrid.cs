@@ -63,7 +63,7 @@ public class BattleGrid : MonoBehaviour
         for (int p = 0; p < 3; p++)
         {
             int enemX = Random.Range(0, nUsatiEnemy.Count);
-            int enemY = Random.Range(3, 8);
+            int enemY = Random.Range(0, 12);
             GameObject newEnemy = Instantiate(enemy);
             newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
             SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
@@ -91,13 +91,6 @@ public class BattleGrid : MonoBehaviour
     {
         int _x = (int)_pos.x;
         int _y = (int)_pos.y;
-
-        Vector2[] directions = new Vector2[4];
-
-        directions[0] = new Vector2(-1, 0);
-        directions[1] = new Vector2(0, -1);
-        directions[2] = new Vector2(1, 0);
-        directions[3] = new Vector2(0, 1);
 
         for (int i = (_x - raggio); i <= (_x + raggio); i++)
         {
@@ -148,18 +141,14 @@ public class BattleGrid : MonoBehaviour
 
     public void EnemyCheckPlayer(Vector2 _pos, int raggio, GameObject _enemy)
     {
-
         // Questo è il metodo che controlla se c'è il player nel raggio di azione del nemico 
         
         int _x = (int)_pos.x;
         int _y = (int)_pos.y;
         bool isNear = false;
-        Vector2[] directions = new Vector2[4];
+        
+        Vector2 targetPos = new Vector2 (0,0);
 
-        directions[0] = new Vector2(-1, 0);
-        directions[1] = new Vector2(0, -1);
-        directions[2] = new Vector2(1, 0);
-        directions[3] = new Vector2(0, 1);
 
         // incomincia a scansionare l'area
         for (int i = (_x - raggio); i <= (_x + raggio); i++)
@@ -190,6 +179,7 @@ public class BattleGrid : MonoBehaviour
                             isNear = true;
                             isFind = true;
                             Debug.Log("C'è il player");
+                            targetPos = cells[i, y].occupier.GetComponent<Player>().pos;
                             break;
                         }
                     }
@@ -204,5 +194,49 @@ public class BattleGrid : MonoBehaviour
         {
             _enemy.GetComponent<Enemy>().FindNearestPlayer();
         }
+        else
+        {
+            if (isEnemyNearPlayer(targetPos))
+            {
+                Debug.Log(cells[(int)targetPos.x, (int)targetPos.y].occupier.name + " is attacked");
+                cc.EndOfTurn();
+            }
+            else
+                StartCoroutine(_enemy.GetComponent<Enemy>().GoToCellNearPlayer(_pos, targetPos));
+        }
+    }
+
+    public bool isEnemyNearPlayer(Vector2 targetPos)
+    {
+        Vector2[] directions = new Vector2[4];
+
+        directions[0] = new Vector2(-1, 0);
+        directions[1] = new Vector2(0, -1);
+        directions[2] = new Vector2(1, 0);
+        directions[3] = new Vector2(0, 1);
+
+        foreach (Vector2 dir in directions)
+        {
+            int new_x = (int)targetPos.x + (int)dir.x;
+            int new_y = (int)targetPos.y + (int)dir.y;
+
+            if (new_x < 0)
+                continue;
+            if (new_y < 0)
+                continue;
+            if (new_x > width - 1)
+                continue;
+            if (new_y > height - 1)
+                continue;
+
+            if (cells[new_x, new_y].occupier != null)
+            {
+                if (cells[new_x, new_y].occupier.CompareTag("Enemy"))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

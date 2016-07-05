@@ -81,12 +81,16 @@ public class CombatController : MonoBehaviour
 
     public void EndOfTurn()
     {
+        UiController ui = FindObjectOfType<UiController>();
         turno++;
         UpdateTurnPortrait();
         if(player[turno].GetComponent<Enemy>() != null)
         {
+            ui.UI.SetActive(false);
             player[turno].GetComponent<Enemy>().Ai();
         }
+        else
+            ui.UI.SetActive(true);
     }
 
     void TurnPrediction()
