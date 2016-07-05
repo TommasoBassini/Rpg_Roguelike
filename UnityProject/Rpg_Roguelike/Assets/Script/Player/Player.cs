@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : Character
+public abstract class Player : Character
 {
-    
+
 }

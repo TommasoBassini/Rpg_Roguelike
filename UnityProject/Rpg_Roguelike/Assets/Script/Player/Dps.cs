@@ -4,13 +4,8 @@ using System.Collections;
 public class Dps : Player
 {
 
-	void Start ()
+    void start()
     {
-	    
-	}
-	
-	void Update ()
-    {
-	
-	}
+        velocita = 0.6f;
+    }
 }

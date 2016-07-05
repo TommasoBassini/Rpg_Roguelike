@@ -4,13 +4,8 @@ using System.Collections;
 public class Mage : Player
 {
 
-	void Start ()
+    void start()
     {
-	
-	}
-	
-	void Update ()
-    {
-	
-	}
+        velocita = 0.8f;
+    }
 }

@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     // Imposta la destinazione che il giocatore deve raggiungere
-    public virtual void PlayerMove(Vector2 _pos)
+    public void PlayerMove(Vector2 _pos)
     {
         if (((int)_pos.x >= 0) && ((int)_pos.y >= 0) && ((int)_pos.x < grid.width) && ((int)_pos.y < grid.height))
         {
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
                 randomEncounterProbably += 5;
                 Debug.Log(randomEncounterProbably);
-                if (Random.Range(randomEncounterProbably, 150) > 140)
+                if (Random.Range(randomEncounterProbably, 255) > 240)
                 {
                     randomEncounterProbably = 0;
                     gc.RandomEncounter();

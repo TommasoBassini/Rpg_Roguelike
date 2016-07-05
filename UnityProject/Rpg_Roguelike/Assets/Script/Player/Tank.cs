@@ -4,13 +4,8 @@ using System.Collections;
 public class Tank : Player
 {
 
-	void Start ()
+    void start()
     {
-	
-	}
-	
-	void Update ()
-    {
-	
-	}
+        velocita = 1.1f;
+    }
 }
