@@ -8,9 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private FogOfWarManager fog;
     private GameControl gc;
     private Vector2 playerPos = new Vector2(0,0);
-
+    public bool isMoving;
     private int randomEncounterProbably = 0;
-
+    private Vector3 distance;
+    private Vector3 direction;
 
     void Start ()
     {
@@ -37,9 +38,11 @@ public class PlayerMovement : MonoBehaviour
             grid = GameObject.Find("Grid").GetComponent<Grid>();
             if (grid.cells[(int)_pos.x, (int)_pos.y].isWall == false)
             {
-                this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
+                
+                //this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
                 playerPos = _pos;
-                fog.Fog(_pos);
+                isMoving = true;
+                
 
                 randomEncounterProbably += 5;
                 Debug.Log(randomEncounterProbably);
@@ -54,22 +57,36 @@ public class PlayerMovement : MonoBehaviour
         
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+        if (isMoving)
+        {
+            distance = grid.cells[(int)playerPos.x, (int)playerPos.y].gameObject.transform.position - this.transform.position ;
+            direction = distance.normalized;
+            this.transform.position = this.transform.position + direction * Time.deltaTime * 3;
+
+            if (distance.sqrMagnitude < 0.01f)
+            {
+                fog.Fog(playerPos);
+                this.transform.position = new Vector3(grid.cells[(int)playerPos.x, (int)playerPos.y].transform.position.x, grid.cells[(int)playerPos.x, (int)playerPos.y].transform.position.y, 0);
+                isMoving = false;
+            }
+        }
+
+        if(Input.GetKey(KeyCode.W) && !isMoving)
         {
             PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && !isMoving)
         {
             PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !isMoving)
         {
             PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && !isMoving)
         {
             PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
         }
