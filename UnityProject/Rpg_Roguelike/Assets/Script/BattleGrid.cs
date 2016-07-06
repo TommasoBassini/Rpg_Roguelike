@@ -63,7 +63,7 @@ public class BattleGrid : MonoBehaviour
         for (int p = 0; p < 3; p++)
         {
             int enemX = Random.Range(0, nUsatiEnemy.Count);
-            int enemY = Random.Range(0, 12);
+            int enemY = Random.Range(0, 10);
             GameObject newEnemy = Instantiate(enemy);
             newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
             SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
@@ -73,6 +73,7 @@ public class BattleGrid : MonoBehaviour
             characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
             characterEnemy.passi = 4;
             cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
+            cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
 
             for (int z = 1; z < 100; z++)
             {
@@ -142,12 +143,14 @@ public class BattleGrid : MonoBehaviour
     public void EnemyCheckPlayer(Vector2 _pos, int raggio, GameObject _enemy)
     {
         // Questo è il metodo che controlla se c'è il player nel raggio di azione del nemico 
-        
+        SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
+        sr.color = Color.red;
+
         int _x = (int)_pos.x;
         int _y = (int)_pos.y;
         bool isNear = false;
         
-        Vector2 targetPos = new Vector2 (0,0);
+        Vector2 targetPos = _pos;
 
 
         // incomincia a scansionare l'area
@@ -178,8 +181,8 @@ public class BattleGrid : MonoBehaviour
                         {
                             isNear = true;
                             isFind = true;
-                            Debug.Log("C'è il player");
                             targetPos = cells[i, y].occupier.GetComponent<Player>().pos;
+                            Debug.Log(targetPos);
                             break;
                         }
                     }
@@ -196,17 +199,17 @@ public class BattleGrid : MonoBehaviour
         }
         else
         {
-            if (isEnemyNearPlayer(targetPos))
+            if (isEnemyNearPlayer(targetPos,_enemy))
             {
-                Debug.Log(cells[(int)targetPos.x, (int)targetPos.y].occupier.name + " is attacked");
-                cc.EndOfTurn();
+                StartCoroutine(_enemy.GetComponent<Enemy>().AttackPlayer(cells[(int)targetPos.x, (int)targetPos.y].occupier.name));
+                
             }
             else
                 StartCoroutine(_enemy.GetComponent<Enemy>().GoToCellNearPlayer(_pos, targetPos));
         }
     }
 
-    public bool isEnemyNearPlayer(Vector2 targetPos)
+    public bool isEnemyNearPlayer(Vector2 targetPos, GameObject _enemyCheck)
     {
         Vector2[] directions = new Vector2[4];
 
@@ -231,7 +234,7 @@ public class BattleGrid : MonoBehaviour
 
             if (cells[new_x, new_y].occupier != null)
             {
-                if (cells[new_x, new_y].occupier.CompareTag("Enemy"))
+                if (cells[new_x, new_y].occupier == _enemyCheck)
                 {
                     return true;
                 }
