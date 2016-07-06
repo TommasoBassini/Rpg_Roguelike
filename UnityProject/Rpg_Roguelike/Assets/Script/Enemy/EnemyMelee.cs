@@ -5,6 +5,7 @@ public class EnemyMelee : Enemy
 {
 
     public bool isPlayerNear = false;
+    private Vector2 endPos;
 
     public override void Ai()
     {
@@ -14,6 +15,8 @@ public class EnemyMelee : Enemy
 
     void CheckPlayerNear()
     {
-        base.grid.EnemyCheckPlayer(pos,passi);
+        base.grid.EnemyCheckPlayer(pos,passi,this.gameObject);
     }
+
+
 }

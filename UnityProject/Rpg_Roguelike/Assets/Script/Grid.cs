@@ -43,6 +43,5 @@ public class Grid : MonoBehaviour
 
 	void Update ()
     {
-	
 	}
 }
