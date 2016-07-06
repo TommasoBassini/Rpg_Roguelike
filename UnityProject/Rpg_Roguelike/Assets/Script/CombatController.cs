@@ -81,12 +81,22 @@ public class CombatController : MonoBehaviour
 
     public void EndOfTurn()
     {
+        if (player[turno].CompareTag("Enemy"))
+        {
+            SpriteRenderer sr = player[turno].GetComponent<SpriteRenderer>();
+            sr.color = Color.white;
+        }
+            UiController ui = FindObjectOfType<UiController>();
         turno++;
         UpdateTurnPortrait();
-        if(player[turno].GetComponent<Enemy>() != null)
+        if (player[turno].GetComponent<Enemy>() != null)
         {
-            Debug.Log("enemyTurno");
+            ui.UI.SetActive(false);
             player[turno].GetComponent<Enemy>().Ai();
+        }
+        else
+        {
+            ui.UI.SetActive(true);
         }
     }
 
