@@ -67,9 +67,4 @@ public abstract class Character : MonoBehaviour
             }
         }
     }
-
-    public void Attack(Vector2 _pos)
-    {
-
-    }
 }

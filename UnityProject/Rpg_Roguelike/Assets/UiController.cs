@@ -58,6 +58,7 @@ public class UiController : MonoBehaviour
 
     public void Attack()
     {
-
+        Player player = cc.player[cc.turno].GetComponent<Player>();
+        
     }
 }
