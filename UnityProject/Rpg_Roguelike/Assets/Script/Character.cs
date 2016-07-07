@@ -2,11 +2,32 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class Character : MonoBehaviour
+[System.Serializable]
+public class Statistiche
 {
+    //Statistiche
+    public int hp;
+    public int mp;
+
     public int forza;
     public int destrezza;
-    public int Intelligenza;
+    public int Spirito;
+
+    public int attMelee;
+    public int attMagico;
+    public int attDistanza;
+
+    public int difFisica;
+    public int difMagica;
+
+    public int evasione;
+    public int precisione;
+    public int velocita;
+}
+
+public abstract class Character : MonoBehaviour
+{
+    
     public int passi;
     public float velocita;
     public Vector2 pos;
@@ -14,6 +35,8 @@ public abstract class Character : MonoBehaviour
     public  List<float> turn = new List<float>();
     public int n = -1;
     public BattleGrid grid;
+
+    public Statistiche statistiche;
 
     public void Start()
     {

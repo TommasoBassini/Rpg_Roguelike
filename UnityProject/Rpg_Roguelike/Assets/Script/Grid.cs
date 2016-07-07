@@ -19,11 +19,23 @@ public class Grid : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 GameObject newCell = Instantiate(cellPrefab);
-                newCell.transform.position = new Vector3(i + this.transform.position.x, j , 0);
+                newCell.transform.position = new Vector3(i + 0.5f, j + 0.5f, 0);
                 newCell.name = "Cell " + i + " " + j;
                 cells[i, j] = newCell.GetComponent<Cell>();
                 cells[i, j].pos = new Vector2(i, j);
 
+                Cell cell = newCell.GetComponent<Cell>();
+                cell.tileEditorCell = GameObject.Find("Tile(" + i +","+ j + ")");
+
+                if (cell.tileEditorCell != null)
+                {
+                    SpriteRenderer sr1 = cell.tileEditorCell.GetComponent<SpriteRenderer>();
+                    sr1.color = Color.clear;
+                    if (cell.tileEditorCell.transform.parent.name == "Muri")
+                    {
+                        cell.isWall = true;
+                    }
+                }
                 if (SceneManager.GetActiveScene().name == "ProvaTommy")
                 {
                     SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();

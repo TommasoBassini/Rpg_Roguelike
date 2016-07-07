@@ -103,8 +103,12 @@ public abstract class Enemy : Character
             yield return new WaitForSeconds(0.2f);
             //
         }
+
+        //Prendo l'ultima cella trovata se c'è
         if (cellToCross.Count != 0)
             x = (int)cellToCross[cellToCross.Count - 1].GetComponent<CombatCell>().pos.x;
+        else
+            x = (int)_pos.x;
 
         if (y != 0)
         {
@@ -132,7 +136,6 @@ public abstract class Enemy : Character
     public IEnumerator GoToCellNearPlayer(Vector2 _pos, Vector2 PlayerPos)
     {
         // prendo i componenti che mi servono
-        CombatController cc = FindObjectOfType<CombatController>();
         BattleGrid grid = FindObjectOfType<BattleGrid>();
 
         // mi setto la posizione del player
@@ -190,11 +193,13 @@ public abstract class Enemy : Character
                     yield return new WaitForSeconds(0.2f);
                     //
                 }
-                //Prendo l'ultima cella trovata se c'è
-                if (cellToCross.Count != 0)
-                    x = (int)cellToCross[cellToCross.Count - 1].GetComponent<CombatCell>().pos.x;
-
             }
+
+            //Prendo l'ultima cella trovata se c'è
+            if (cellToCross.Count != 0)
+                x = (int)cellToCross[cellToCross.Count - 1].GetComponent<CombatCell>().pos.x;
+            else
+                x = (int)_pos.x;
 
             if (y != 0)
             {

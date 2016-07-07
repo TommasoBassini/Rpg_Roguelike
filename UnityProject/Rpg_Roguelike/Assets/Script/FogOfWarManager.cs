@@ -41,27 +41,27 @@ public class FogOfWarManager : MonoBehaviour
 
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista))
                 {
-                    if (!grid.cells[i, y].isWall)
+                    if (grid.cells[i, y].tileEditorCell != null)
                     {
-                        SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
+                        SpriteRenderer sr = grid.cells[i, y].tileEditorCell.GetComponent<SpriteRenderer>();
                         sr.color = new Color (0.25f,0.25f,0.25f);
                     }
                 }
 
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista - 1))
                 {
-                    if (!grid.cells[i, y].isWall)
+                    if (grid.cells[i, y].tileEditorCell != null)
                     {
-                        SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
+                        SpriteRenderer sr = grid.cells[i, y].tileEditorCell.GetComponent<SpriteRenderer>();
                         sr.color = new Color(0.75f, 0.75f, 0.75f);
                     }
                 }
 
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) < (vista - 1))
                 {
-                    if (!grid.cells[i, y].isWall)
+                    if (grid.cells[i, y].tileEditorCell != null)
                     {
-                        SpriteRenderer sr = grid.cells[i, y].gameObject.GetComponent<SpriteRenderer>();
+                        SpriteRenderer sr = grid.cells[i, y].tileEditorCell.GetComponent<SpriteRenderer>();
                         sr.color = Color.white;
                     }
                 }
