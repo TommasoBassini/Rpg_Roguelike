@@ -45,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
                 
 
                 randomEncounterProbably += 5;
-                Debug.Log(randomEncounterProbably);
                 if (Random.Range(randomEncounterProbably, 255) > 240)
                 {
                     randomEncounterProbably = 0;

@@ -2,10 +2,39 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
+public class Statistiche
+{
+    //Statistiche
+    public int hpMax;
+    public int hp;
+    public int mp;
+
+    public int attMelee;
+    public int attMagico;
+    public int attDistanza;
+
+    public int difFisica;
+    public int difMagica;
+
+    public int evasione;
+    public int precisione;
+    public int velocita;
+}
+
 public abstract class Player : Character
 {
-
+    public Statistiche stats;
+    public abstract void TakeStats();
     public List<GameObject> enemyDisp = new List<GameObject>();
+    public GameObject uiInfo;
+
+    new void Start()
+    {
+        TakeStats();
+    }
+
+ 
 
     public void CheckAttack()
     {

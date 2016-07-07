@@ -16,6 +16,7 @@ public class BattleGrid : MonoBehaviour
     public List<CombatCell> cellWalkable = new List<CombatCell>();
 
     private CombatController cc;
+    private UiController ui;
 
     public GameObject enemy;
     public List<int> nUsatiEnemy = new List<int>();
@@ -23,6 +24,7 @@ public class BattleGrid : MonoBehaviour
     void Start()
     {
         cells = new CombatCell[width, height];
+        ui = FindObjectOfType<UiController>();
         cc = FindObjectOfType<CombatController>();
         for (int i = 0; i < width; i++)
         {
@@ -56,7 +58,6 @@ public class BattleGrid : MonoBehaviour
                 cc.player.Add(NewPlayer);
 
             }
-
             nUsatiPlayer.RemoveAt(n);
         }
 
@@ -82,8 +83,8 @@ public class BattleGrid : MonoBehaviour
             }
             nUsatiEnemy.RemoveAt(enemX);
         }
- 
 
+        ui.SetUiPlayer(playerPrefab);
         cc.TurnOrder(cc.tempo,cc.tempo.Count);
     }
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+
 public class UiController : MonoBehaviour
 {
     private CombatController cc;
@@ -14,12 +15,30 @@ public class UiController : MonoBehaviour
     public bool isPlayerMove = false;
 
     public Button SelectEnemyButton;
-     
 
+    public GameObject[] infoPlayers = new GameObject[3];
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
 	}
+
+    public void SetUiPlayer(GameObject[] listPlayer)
+    {
+        for (int i = 0; i < listPlayer.Length; i++)
+        {
+            Player player = listPlayer[i].GetComponent<Player>();
+            player.uiInfo = infoPlayers[i];
+        }
+    }
+
+    public IEnumerator AggiornaVita(float hpMax,float hp, GameObject info)
+    {
+        Image image = transform.Find(info.name + "/Vita").GetComponent<Image>();
+        
+        float fill = ((100 * hp) / hpMax) / 100;
+        image.fillAmount = Mathf.Lerp(fill, 1.0f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+    }
 
     public void Move()
     {
