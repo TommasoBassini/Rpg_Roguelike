@@ -67,6 +67,7 @@ public class PlayerStatsControl : MonoBehaviour
         //Statistiche
         public int hpMax;
         public int hp;
+        public int mpMax;
         public int mp;
 
         public int forza;
@@ -148,6 +149,7 @@ public class PlayerStatsControl : MonoBehaviour
         //Statistiche
         public int hpMax;
         public int hp;
+        public int mpMax;
         public int mp;
 
         public int forza;
@@ -228,6 +230,7 @@ public class PlayerStatsControl : MonoBehaviour
         //Statistiche
         public int hpMax;
         public int hp;
+        public int mpMax;
         public int mp;
 
         public int forza;
@@ -265,6 +268,7 @@ public class PlayerStatsControl : MonoBehaviour
     {
         statsDps.hpMax = 35 + (statsDps.forza * incrementiDps.hpPerForza) + (statsDps.destrezza * incrementiDps.hpPerDestrezza) + (statsDps.Spirito * incrementiDps.hpPerSpirito);
         statsDps.hp = 35 + (statsDps.forza * incrementiDps.hpPerForza) + (statsDps.destrezza * incrementiDps.hpPerDestrezza) + (statsDps.Spirito * incrementiDps.hpPerSpirito);
+        statsDps.mpMax = 15 + (statsDps.forza * incrementiDps.mpPerForza) + (statsDps.destrezza * incrementiDps.mpPerDestrezza) + (statsDps.Spirito * incrementiDps.mpPerSpirito);
         statsDps.mp = 15 + (statsDps.forza * incrementiDps.mpPerForza) + (statsDps.destrezza * incrementiDps.mpPerDestrezza) + (statsDps.Spirito * incrementiDps.mpPerSpirito);
 
         statsDps.attMelee = 10 + (statsDps.forza * incrementiDps.attMeleePerForza) + (statsDps.destrezza * incrementiDps.attMeleePerDestrezza) + (statsDps.Spirito * incrementiDps.attMeleePerSpirito);
@@ -284,6 +288,7 @@ public class PlayerStatsControl : MonoBehaviour
         statsTank.hpMax = 50 + (statsTank.forza * incrementiTank.hpPerForza) + (statsTank.destrezza * incrementiTank.hpPerDestrezza) + (statsTank.Spirito * incrementiTank.hpPerSpirito);
         statsTank.hp = 50 + (statsTank.forza * incrementiTank.hpPerForza) + (statsTank.destrezza * incrementiTank.hpPerDestrezza) + (statsTank.Spirito * incrementiTank.hpPerSpirito);
         statsTank.mp = 10 + (statsTank.forza * incrementiTank.mpPerForza) + (statsTank.destrezza * incrementiTank.mpPerDestrezza) + (statsTank.Spirito * incrementiTank.mpPerSpirito);
+        statsTank.mpMax = 10 + (statsTank.forza * incrementiTank.mpPerForza) + (statsTank.destrezza * incrementiTank.mpPerDestrezza) + (statsTank.Spirito * incrementiTank.mpPerSpirito);
 
         statsTank.attMelee = 20 + (statsTank.forza * incrementiTank.attMeleePerForza) + (statsTank.destrezza * incrementiTank.attMeleePerDestrezza) + (statsTank.Spirito * incrementiTank.attMeleePerSpirito);
         statsTank.attMagico = 5 + (statsTank.forza * incrementiTank.attMagicoPerForza) + (statsTank.destrezza * incrementiTank.attMagicoPerDestrezza) + (statsTank.Spirito * incrementiTank.attMagicoPerSpirito);
@@ -302,6 +307,7 @@ public class PlayerStatsControl : MonoBehaviour
         statsMago.hpMax = 25 + (statsMago.forza * incrementiMago.hpPerForza) + (statsMago.destrezza * incrementiMago.hpPerDestrezza) + (statsMago.Spirito * incrementiMago.hpPerSpirito);
         statsMago.hp = 25 + (statsMago.forza * incrementiMago.hpPerForza) + (statsMago.destrezza * incrementiMago.hpPerDestrezza) + (statsMago.Spirito * incrementiMago.hpPerSpirito);
         statsMago.mp = 25 + (statsMago.forza * incrementiMago.mpPerForza) + (statsMago.destrezza * incrementiMago.mpPerDestrezza) + (statsMago.Spirito * incrementiMago.mpPerSpirito);
+        statsMago.mpMax = 25 + (statsMago.forza * incrementiMago.mpPerForza) + (statsMago.destrezza * incrementiMago.mpPerDestrezza) + (statsMago.Spirito * incrementiMago.mpPerSpirito);
 
         statsMago.attMelee = 5 + (statsMago.forza * incrementiMago.attMeleePerForza) + (statsMago.destrezza * incrementiMago.attMeleePerDestrezza) + (statsMago.Spirito * incrementiMago.attMeleePerSpirito);
         statsMago.attMagico = 20 + (statsMago.forza * incrementiMago.attMagicoPerForza) + (statsMago.destrezza * incrementiMago.attMagicoPerDestrezza) + (statsMago.Spirito * incrementiMago.attMagicoPerSpirito);

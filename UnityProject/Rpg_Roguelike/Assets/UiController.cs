@@ -17,6 +17,7 @@ public class UiController : MonoBehaviour
     public Button SelectEnemyButton;
 
     public GameObject[] infoPlayers = new GameObject[3];
+
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
@@ -27,17 +28,23 @@ public class UiController : MonoBehaviour
         for (int i = 0; i < listPlayer.Length; i++)
         {
             Player player = listPlayer[i].GetComponent<Player>();
+            player.TakeStats();
             player.uiInfo = infoPlayers[i];
+
+            Image imageLife = transform.Find("PlayersPanel" + "/"+infoPlayers[i].name + "/Health").GetComponent<Image>();
+            imageLife.fillAmount = ((100 *  (float)player.stats.hp) / (float)player.stats.hpMax) / 100;
+
+            Image imageMp = transform.Find("PlayersPanel" + "/" + infoPlayers[i].name + "/Mana").GetComponent<Image>();
+            imageMp.fillAmount = ((100 * (float)player.stats.mp) / (float)player.stats.mpMax) / 100;
         }
     }
 
-    public IEnumerator AggiornaVita(float hpMax,float hp, GameObject info)
+    public void AggiornaVita(float hpMax,float hp, GameObject info)
     {
-        Image image = transform.Find(info.name + "/Vita").GetComponent<Image>();
+        Image image = transform.Find("PlayersPanel" + "/" + info.name + "/Health").GetComponent<Image>();
         
         float fill = ((100 * hp) / hpMax) / 100;
-        image.fillAmount = Mathf.Lerp(fill, 1.0f, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        image.fillAmount = ((100 * hp) / hpMax) / 100;
     }
 
     public void Move()

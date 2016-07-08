@@ -7,7 +7,9 @@ public abstract class Enemy : Character
 
     public abstract void Ai();
     public List<CombatCell> cellToCross = new List<CombatCell>();
-
+    public int hp;
+    public int difesa;
+    public int att;
 
     public void FindNearestPlayer()
     {
@@ -17,7 +19,7 @@ public abstract class Enemy : Character
         // Cerca il GO player più vicino
         foreach (GameObject player in players)
         {
-            Player pl = player.GetComponent<Player>();
+            Character pl = player.GetComponent<Character>();
             int distance = Mathf.Abs((int)pl.pos.x - (int)pos.x) + Mathf.Abs((int)pl.pos.y - (int)pos.y);
             if (distance <= (nearestPlayerDistance))
             {
@@ -229,15 +231,17 @@ public abstract class Enemy : Character
         grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = true;
         grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = this.gameObject;
         cellToCross.Clear();
-        StartCoroutine(AttackPlayer(base.grid.cells[(int)oldPlayerPos.x, (int)oldPlayerPos.y].occupier.name));
+        StartCoroutine(AttackPlayer(base.grid.cells[(int)oldPlayerPos.x, (int)oldPlayerPos.y].occupier));
     }
 
-    public IEnumerator AttackPlayer(string nomeTarget)
+    public IEnumerator AttackPlayer(GameObject Target)
     {
         CombatController cc = FindObjectOfType<CombatController>();
         SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
         sr.color = Color.red;
-        Debug.Log("il nemico nella posizione " + this.pos + "ha attaccato il giocatore " + nomeTarget);
+        Debug.Log("il nemico nella posizione " + this.pos + "ha attaccato il giocatore " + Target.name);
+        Player player = Target.GetComponent<Player>();
+        player.SubisciDanno(att);
         yield return new WaitForSeconds(2);
         cc.EndOfTurn();
     } 

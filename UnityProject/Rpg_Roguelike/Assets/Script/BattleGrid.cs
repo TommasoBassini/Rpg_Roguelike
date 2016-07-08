@@ -46,7 +46,7 @@ public class BattleGrid : MonoBehaviour
             NewPlayer.transform.position = cells[nUsatiPlayer[n],y].gameObject.transform.position;
             SpriteRenderer sr = NewPlayer.GetComponent<SpriteRenderer>();
             sr.sortingOrder = 1;
-            Character character = NewPlayer.GetComponent<Character>();
+            Player character = NewPlayer.GetComponent<Player>();
             character.pos = new Vector2(nUsatiPlayer[n], y);
             character.passi = Random.Range(2, 4);
             cells[nUsatiPlayer[n], y].isOccupied = true;
@@ -202,7 +202,7 @@ public class BattleGrid : MonoBehaviour
         {
             if (isEnemyNearPlayer(targetPos,_enemy))
             {
-                StartCoroutine(_enemy.GetComponent<Enemy>().AttackPlayer(cells[(int)targetPos.x, (int)targetPos.y].occupier.name));
+                StartCoroutine(_enemy.GetComponent<Enemy>().AttackPlayer(cells[(int)targetPos.x, (int)targetPos.y].occupier));
                 
             }
             else

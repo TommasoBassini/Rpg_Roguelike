@@ -19,6 +19,8 @@ public class CombatController : MonoBehaviour
     void Start ()
     {
         grid = FindObjectOfType<BattleGrid>();
+
+
 	}
 
     public void TurnOrder(List<float> _players, int n)

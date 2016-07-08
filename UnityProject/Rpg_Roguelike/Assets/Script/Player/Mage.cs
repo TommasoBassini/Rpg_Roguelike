@@ -3,23 +3,18 @@ using System.Collections;
 
 public class Mage : Player
 {
-
-    new void Start()
-    {
-        Invoke("Prova", 3);
-        
-    }
     void Prova()
     {
         UiController ui = FindObjectOfType<UiController>();
-       StartCoroutine (ui.AggiornaVita(35, 15, uiInfo));
     }
+
     public override void TakeStats()
     {
         PlayerStatsControl playerstats = FindObjectOfType<PlayerStatsControl>();
 
         stats.hpMax = playerstats.statsMago.hpMax;
         stats.hp = playerstats.statsMago.hp;
+        stats.mpMax = playerstats.statsMago.mpMax;
         stats.mp = playerstats.statsMago.mp;
 
         stats.attMelee = playerstats.statsMago.attMelee;
@@ -32,5 +27,12 @@ public class Mage : Player
         stats.evasione = playerstats.statsMago.evasione;
         stats.precisione = playerstats.statsMago.precisione;
         stats.velocita = playerstats.statsMago.precisione;
+    }
+
+    public override void SubisciDanno(int danni)
+    {
+        stats.hp = stats.hp - Mathf.RoundToInt(((((danni / stats.difFisica) * 100) * (danni / 2)) / 100) + (Random.Range(1, 1.125f)));
+        UiController ui = FindObjectOfType<UiController>();
+        ui.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
     }
 }

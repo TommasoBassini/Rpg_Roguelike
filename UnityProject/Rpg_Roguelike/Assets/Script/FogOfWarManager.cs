@@ -41,6 +41,7 @@ public class FogOfWarManager : MonoBehaviour
 
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista))
                 {
+                    
                     if (grid.cells[i, y].tileEditorCell != null)
                     {
                         SpriteRenderer sr = grid.cells[i, y].tileEditorCell.GetComponent<SpriteRenderer>();

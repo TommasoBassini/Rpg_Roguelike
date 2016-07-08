@@ -8,6 +8,7 @@ public class Statistiche
     //Statistiche
     public int hpMax;
     public int hp;
+    public int mpMax;
     public int mp;
 
     public int attMelee;
@@ -26,13 +27,9 @@ public abstract class Player : Character
 {
     public Statistiche stats;
     public abstract void TakeStats();
+    public abstract void SubisciDanno(int danni);
     public List<GameObject> enemyDisp = new List<GameObject>();
     public GameObject uiInfo;
-
-    new void Start()
-    {
-        TakeStats();
-    }
 
  
 
@@ -74,4 +71,5 @@ public abstract class Player : Character
         UiController ui = FindObjectOfType<UiController>();
         ui.PassaTurno();
     }
+
 }
