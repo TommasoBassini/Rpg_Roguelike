@@ -8,6 +8,7 @@ public abstract class Enemy : Character
     public abstract void Ai();
     public List<CombatCell> cellToCross = new List<CombatCell>();
     public int hp;
+    public int mp;
     public int difesa;
     public int att;
 
@@ -244,5 +245,23 @@ public abstract class Enemy : Character
         player.SubisciDanno(att);
         yield return new WaitForSeconds(2);
         cc.EndOfTurn();
-    } 
+    }
+
+    public void SubisciDanno(int danni)
+    {
+        hp = hp - Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) + (Random.Range(1.0f, 1.125f)));
+        CombatController cc = FindObjectOfType<CombatController>();
+        UiController ui = FindObjectOfType<UiController>();
+        if(hp <= 0)
+        {
+            base.grid.cells[(int)this.pos.x,(int) this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            cc.player.RemoveAll(item => item.name == this.gameObject.name);
+            Destroy(this.gameObject);
+            if (!cc.CheckWinner())
+                cc.UpdateTurnPortrait();
+            else
+                cc.Win();
+        }
+    }
 }

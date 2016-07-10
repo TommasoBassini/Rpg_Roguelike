@@ -7,24 +7,26 @@ public class Tank : Player
     {
         PlayerStatsControl playerstats = FindObjectOfType<PlayerStatsControl>();
 
-        stats.hpMax = playerstats.statsTank.hpMax;
-        stats.hp = playerstats.statsTank.hp;
-        stats.mpMax = playerstats.statsTank.mpMax;
-        stats.mp = playerstats.statsTank.mp;
+        this.stats.hpMax = playerstats.statsTank.hpMax;
+        this.stats.hp = playerstats.statsTank.hp;
+        this.stats.mpMax = playerstats.statsTank.mpMax;
+        this.stats.mp = playerstats.statsTank.mp;
 
-        stats.attMelee = playerstats.statsTank.attMelee;
-        stats.attMagico = playerstats.statsTank.attMagico;
-        stats.attDistanza = playerstats.statsTank.attDistanza;
+        this.stats.attMelee = playerstats.statsTank.attMelee;
+        this.stats.attMagico = playerstats.statsTank.attMagico;
+        this.stats.attDistanza = playerstats.statsTank.attDistanza;
 
-        stats.difFisica = playerstats.statsTank.difFisica;
-        stats.difMagica = playerstats.statsTank.difMagica;
+        this.stats.difFisica = playerstats.statsTank.difFisica;
+        this.stats.difMagica = playerstats.statsTank.difMagica;
 
-        stats.evasione = playerstats.statsTank.evasione;
-        stats.precisione = playerstats.statsTank.precisione;
-        stats.velocita = playerstats.statsTank.precisione;
+        this.stats.evasione = playerstats.statsTank.evasione;
+        this.stats.precisione = playerstats.statsTank.precisione;
+        this.stats.velocita = playerstats.statsTank.precisione;
+        UiController ui = FindObjectOfType<UiController>();
+        ui.SetUiPlayer(this.gameObject);
     }
 
-    public override void SubisciDanno(int danni)
+    public override void SubisciDanno(float danni)
     {
         stats.hp = stats.hp - Mathf.RoundToInt(((((danni/stats.difFisica)*100) * (danni /2))/ 100) + (Random.Range(1,1.125f)));
         UiController ui = FindObjectOfType<UiController>();

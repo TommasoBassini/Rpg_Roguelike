@@ -27,7 +27,7 @@ public abstract class Player : Character
 {
     public Statistiche stats;
     public abstract void TakeStats();
-    public abstract void SubisciDanno(int danni);
+    public abstract void SubisciDanno(float danni);
     public List<GameObject> enemyDisp = new List<GameObject>();
     public GameObject uiInfo;
 
@@ -65,9 +65,11 @@ public abstract class Player : Character
         }
     }
 
-    public void Attack(GameObject enemy)
+    public void Attack(GameObject _enemy)
     {
+        Enemy enemy = _enemy.GetComponent<Enemy>();
         Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
+        enemy.SubisciDanno(stats.attMelee);
         UiController ui = FindObjectOfType<UiController>();
         ui.PassaTurno();
     }

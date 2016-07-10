@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class CombatController : MonoBehaviour
@@ -49,7 +50,7 @@ public class CombatController : MonoBehaviour
 
     }
 
-    void UpdateTurnPortrait()
+    public void UpdateTurnPortrait()
     {
         for (int i = 0; i < turnImage.Length; i++)
         {
@@ -65,7 +66,15 @@ public class CombatController : MonoBehaviour
             {
                 turnImage[i].sprite = turnPortrait[2];
             }
-            if (player[i + turno].name == "Enemy1(Clone)")
+            if (player[i + turno].name == "Enemy0")
+            {
+                turnImage[i].sprite = turnPortrait[3];
+            }
+            if (player[i + turno].name == "Enemy1")
+            {
+                turnImage[i].sprite = turnPortrait[3];
+            }
+            if (player[i + turno].name == "Enemy2")
             {
                 turnImage[i].sprite = turnPortrait[3];
             }
@@ -102,8 +111,22 @@ public class CombatController : MonoBehaviour
         }
     }
 
-    void TurnPrediction()
+    public bool CheckWinner()
     {
-
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log(enemies.Length - 1);
+        if (enemies.Length - 1 <= 0)
+        {
+            return true;
+        }
+        else
+            return false;
     }
+
+    public void Win()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaTommy"));
+        SceneManager.UnloadScene(1);
+    }
+
 }

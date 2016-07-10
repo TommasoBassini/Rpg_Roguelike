@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BattleGrid : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class BattleGrid : MonoBehaviour
 
     void Start()
     {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Battle"));
         cells = new CombatCell[width, height];
         ui = FindObjectOfType<UiController>();
         cc = FindObjectOfType<CombatController>();
@@ -31,22 +33,26 @@ public class BattleGrid : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 GameObject newCell = Instantiate(cellPrefab);
-                newCell.transform.position = new Vector3(i + this.transform.position.x, j, 0);
+                newCell.transform.position = new Vector3(i + this.transform.position.x + 0.5f, j + 0.5f, 0);
                 newCell.name = "Cell " + i + " " + j;
                 cells[i, j] = newCell.GetComponent<CombatCell>();
                 cells[i, j].pos = new Vector2(i, j);
             }
         }
-
+        int uiinfo = 1;
         foreach (GameObject player in playerPrefab)
         {
+            string info = "InfoP" + uiinfo;
             int n = Random.Range(0, nUsatiPlayer.Count);
             int y = Random.Range(3, 8);
             GameObject NewPlayer = Instantiate(player);
             NewPlayer.transform.position = cells[nUsatiPlayer[n],y].gameObject.transform.position;
             SpriteRenderer sr = NewPlayer.GetComponent<SpriteRenderer>();
-            sr.sortingOrder = 1;
+            sr.sortingOrder = 3;
             Player character = NewPlayer.GetComponent<Player>();
+            character.uiInfo = GameObject.Find(info);
+            uiinfo++;
+            character.TakeStats();
             character.pos = new Vector2(nUsatiPlayer[n], y);
             character.passi = Random.Range(2, 4);
             cells[nUsatiPlayer[n], y].isOccupied = true;
@@ -64,11 +70,12 @@ public class BattleGrid : MonoBehaviour
         for (int p = 0; p < 3; p++)
         {
             int enemX = Random.Range(0, nUsatiEnemy.Count);
-            int enemY = Random.Range(0, 10);
+            int enemY = Random.Range(0, 8);
             GameObject newEnemy = Instantiate(enemy);
+            newEnemy.name = "Enemy" + p;
             newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
             SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
-            srEnemy.sortingOrder = 1;
+            srEnemy.sortingOrder = 3;
             Character characterEnemy = newEnemy.GetComponent<Character>();
             characterEnemy.velocita = Random.Range(0.7f, 1.1f);
             characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
@@ -83,8 +90,6 @@ public class BattleGrid : MonoBehaviour
             }
             nUsatiEnemy.RemoveAt(enemX);
         }
-
-        ui.SetUiPlayer(playerPrefab);
         cc.TurnOrder(cc.tempo,cc.tempo.Count);
     }
 

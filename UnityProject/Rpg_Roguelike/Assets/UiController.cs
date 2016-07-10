@@ -15,28 +15,23 @@ public class UiController : MonoBehaviour
     public bool isPlayerMove = false;
 
     public Button SelectEnemyButton;
-
+    public GameObject enemyInfoPanel;
     public GameObject[] infoPlayers = new GameObject[3];
 
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
+        MoveButton.Select();
 	}
 
-    public void SetUiPlayer(GameObject[] listPlayer)
+    public void SetUiPlayer(GameObject Player)
     {
-        for (int i = 0; i < listPlayer.Length; i++)
-        {
-            Player player = listPlayer[i].GetComponent<Player>();
-            player.TakeStats();
-            player.uiInfo = infoPlayers[i];
+        Player player = Player.GetComponent<Player>();
+        Image imageLife = transform.Find("PlayersPanel" + "/"+player.uiInfo.name + "/Health").GetComponent<Image>();
+        imageLife.fillAmount = ((100 *  (float)player.stats.hp) / (float)player.stats.hpMax) / 100;
 
-            Image imageLife = transform.Find("PlayersPanel" + "/"+infoPlayers[i].name + "/Health").GetComponent<Image>();
-            imageLife.fillAmount = ((100 *  (float)player.stats.hp) / (float)player.stats.hpMax) / 100;
-
-            Image imageMp = transform.Find("PlayersPanel" + "/" + infoPlayers[i].name + "/Mana").GetComponent<Image>();
-            imageMp.fillAmount = ((100 * (float)player.stats.mp) / (float)player.stats.mpMax) / 100;
-        }
+        Image imageMp = transform.Find("PlayersPanel" + "/" + player.uiInfo.name + "/Mana").GetComponent<Image>();
+        imageMp.fillAmount = ((100 * (float)player.stats.mp) / (float)player.stats.mpMax) / 100;
     }
 
     public void AggiornaVita(float hpMax,float hp, GameObject info)
@@ -111,7 +106,7 @@ public class UiController : MonoBehaviour
 
             EnemyButton enemyButton = newButton.GetComponent<EnemyButton>();
             enemyButton.enemy = enemy;
-
+            enemyButton.enemyInfoPanel = enemyInfoPanel;
             Text text = newButton.GetComponentInChildren<Text>();
             text.text = enemy.name;
         }

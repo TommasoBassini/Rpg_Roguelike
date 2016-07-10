@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
         fog = this.GetComponent<FogOfWarManager>();
         gc = GameObject.Find("GameControl").GetComponent<GameControl>();
 
-        //fog.Fog(playerPos);
+        fog.Fog(playerPos);
 
     }
 
