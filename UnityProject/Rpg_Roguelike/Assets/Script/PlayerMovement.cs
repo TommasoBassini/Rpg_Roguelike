@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Grid grid;
     private FogOfWarManager fog;
     private GameControl gc;
-    private Vector2 playerPos = new Vector2(0,0);
+    private Vector2 playerPos = new Vector2(1,1);
     public bool isMoving;
     private int randomEncounterProbably = 0;
     private Vector3 distance;
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetPlayerPosition()
     {
         grid = GameObject.Find("Grid").GetComponent<Grid>();
-        this.transform.position = grid.cells[0, 0].gameObject.transform.position;
+        this.transform.position = grid.cells[1, 1].gameObject.transform.position;
     }
 
 
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
                 if (Random.Range(randomEncounterProbably, 255) > 240)
                 {
                     randomEncounterProbably = 0;
-                    gc.RandomEncounter();
+                    //gc.RandomEncounter();
                 }
             }
         }

@@ -39,10 +39,15 @@ public class EnemyButton : MonoBehaviour
     {
         CombatController cc = FindObjectOfType<CombatController>();
         Player player = cc.player[cc.turno].GetComponent<Player>();
-        player.Attack(enemy);
-        enemyInfoPanel.SetActive(false);
         SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
+        UiController ui = FindObjectOfType<UiController>();
+        ui.EnemyListPanel.SetActive(false);
+        ui.MainPanel.SetActive(true);
+        enemyInfoPanel.SetActive(false);
+        Button actionButton = ui.MainPanel.transform.Find("Action").GetComponent<Button>();
+        actionButton.interactable = false;
+        player.Attack(enemy);
 
     }
 }

@@ -27,10 +27,8 @@ public abstract class Character : MonoBehaviour
 
     public void Move()
     {
-        {
-            isMovible = true;
-            grid.AvailableMovement(pos, passi);
-        }
+        isMovible = true;
+        grid.AvailableMovement(pos, passi);
     }
 
     public void Update()

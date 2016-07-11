@@ -35,24 +35,6 @@ public class FogOfWarManager : MonoBehaviour
                 {
                     farCell.Add(new Vector2(i + 0.5f, y + 0.5f));
                 }
-/*
-                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista - 1))
-                {
-                    if (grid.cells[i, y].tileEditorCell != null)
-                    {
-                        SpriteRenderer sr = grid.cells[i, y].tileEditorCell.GetComponent<SpriteRenderer>();
-                        sr.color = new Color(0.75f, 0.75f, 0.75f);
-                    }
-                }
-
-                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) < (vista - 1))
-                {
-                    if (grid.cells[i, y].tileEditorCell != null)
-                    {
-                        SpriteRenderer sr = grid.cells[i, y].tileEditorCell.GetComponent<SpriteRenderer>();
-                        sr.color = Color.white;
-                    }
-                }*/
             }
         }
         pos = new Vector2(pos.x + 0.5f, pos.y + 0.5f);

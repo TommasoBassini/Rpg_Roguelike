@@ -29,10 +29,10 @@ public abstract class Enemy : Character
 
             }
         }
-        StartCoroutine(NearestCellToPlayer(this.pos, this.passi, nearestPlayer));
+       NearestCellToPlayer(this.pos, this.passi, nearestPlayer);
     }
 
-    IEnumerator NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
+    void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
     {
         Player player = playerNear.GetComponent<Player>();
         CombatCell nearestCell = null;
@@ -67,10 +67,6 @@ public abstract class Enemy : Character
 
                     nearestCellDistance = distance;
                     nearestCell = base.grid.cells[i, y];
-                    SpriteRenderer sr = nearestCell.gameObject.GetComponent<SpriteRenderer>();
-                    sr.color = Color.blue;
-                    yield return new WaitForSeconds(0.2f);
-
                 }
             }
         }
@@ -86,10 +82,6 @@ public abstract class Enemy : Character
 
         CombatController cc = FindObjectOfType<CombatController>();
         BattleGrid grid = FindObjectOfType<BattleGrid>();
-        //
-        SpriteRenderer sr = base.grid.cells[((int)_pos.x), (int)_pos.y].GetComponent<SpriteRenderer>();
-        sr.color = Color.white;
-        //
 
         grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
         int x = (int)endPos.x - (int)_pos.x;
@@ -100,11 +92,6 @@ public abstract class Enemy : Character
         for (int i = 1; i < Mathf.Abs(x) + 1; i++)
         {
             cellToCross.Add(base.grid.cells[((int)this.pos.x + (zx * i)), (int)this.pos.y]);
-            //
-            SpriteRenderer sr1 = base.grid.cells[((int)this.pos.x + (zx * i)), (int)this.pos.y].GetComponent<SpriteRenderer>();
-            sr1.color = Color.blue;
-            yield return new WaitForSeconds(0.2f);
-            //
         }
 
         //Prendo l'ultima cella trovata se c'è
@@ -190,11 +177,6 @@ public abstract class Enemy : Character
                 for (int i = 1; i < Mathf.Abs(x) + 1; i++)
                 {
                     cellToCross.Add(base.grid.cells[((int)this.pos.x + (zx * i)), (int)this.pos.y]);
-                    //
-                    SpriteRenderer sr1 = base.grid.cells[((int)this.pos.x + (zx * i)), (int)this.pos.y].GetComponent<SpriteRenderer>();
-                    sr1.color = Color.blue;
-                    yield return new WaitForSeconds(0.2f);
-                    //
                 }
             }
 
@@ -209,13 +191,7 @@ public abstract class Enemy : Character
                 int zy = y / Mathf.Abs(y);
                 for (int j = 1; j < Mathf.Abs(y) + 1; j++)
                 {
-
                     cellToCross.Add(base.grid.cells[x, (int)this.pos.y + (zy * j)]);
-                    //
-                    SpriteRenderer sr1 = base.grid.cells[x, (int)this.pos.y + (zy * j)].GetComponent<SpriteRenderer>();
-                    sr1.color = Color.blue;
-                    yield return new WaitForSeconds(0.2f);
-                    //
                 }
             }
         }
@@ -238,8 +214,8 @@ public abstract class Enemy : Character
     public IEnumerator AttackPlayer(GameObject Target)
     {
         CombatController cc = FindObjectOfType<CombatController>();
-        SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
-        sr.color = Color.red;
+        // SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
+        // sr.color = Color.red;
         Debug.Log("il nemico nella posizione " + this.pos + "ha attaccato il giocatore " + Target.name);
         Player player = Target.GetComponent<Player>();
         player.SubisciDanno(att);

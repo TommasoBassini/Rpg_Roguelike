@@ -35,6 +35,11 @@ public class Grid : MonoBehaviour
                     {
                         cell.isWall = true;
                     }
+                    if (cell.tileEditorCell.transform.parent.name == "Angoli")
+                    {
+                        cell.isAngle = true;
+                        cell.CheckNearWall();
+                    }
                 }
                 if (SceneManager.GetActiveScene().name == "ProvaTommy")
                 {
@@ -50,10 +55,5 @@ public class Grid : MonoBehaviour
         }
 
     }
-	
 
-
-	void Update ()
-    {
-	}
 }

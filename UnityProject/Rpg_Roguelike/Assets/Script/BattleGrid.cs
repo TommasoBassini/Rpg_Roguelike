@@ -21,6 +21,8 @@ public class BattleGrid : MonoBehaviour
 
     public GameObject enemy;
     public List<int> nUsatiEnemy = new List<int>();
+    public GameObject availableMovementPrefab;
+    public List<GameObject> nBlocchiMovement = new List<GameObject>();
 
     void Start()
     {
@@ -118,39 +120,44 @@ public class BattleGrid : MonoBehaviour
                 {
                     if (!cells[i, y].isOccupied)
                     {
-                        SpriteRenderer sr = cells[i, y].gameObject.GetComponent<SpriteRenderer>();
+                        GameObject newMovement = Instantiate(availableMovementPrefab);
+                        newMovement.transform.position = cells[i, y].gameObject.transform.position;
+                        nBlocchiMovement.Add(newMovement);
                         cells[i, y].isWalkable = true;
                         cellWalkable.Add(cells[i, y]);
-                        sr.color = Color.blue;
+                        
                     }
                 }
-                cells[_x,_y].isWalkable = true;
-                cellWalkable.Add(cells[_x, _y]);
-                SpriteRenderer sr2 = cells[_x, _y].gameObject.GetComponent<SpriteRenderer>();
-                sr2.color = Color.blue;
             }
         }
+        cells[_x, _y].isWalkable = true;
+        cellWalkable.Add(cells[_x, _y]);
+        GameObject newMovement1 = Instantiate(availableMovementPrefab);
+        newMovement1.transform.position = cells[_x, _y].gameObject.transform.position;
+        nBlocchiMovement.Add(newMovement1);
     }
 
     public void ResetWalkableCell ()
     {
         foreach (CombatCell cell in cellWalkable)
         {
-            SpriteRenderer sr = cell.GetComponent<SpriteRenderer>();
-            sr.color = Color.white;
             cell.isWalkable = false;
             cell.isOccupied = false;
             cell.occupier = null;
         }
-        
         cellWalkable.Clear();
+        foreach (GameObject cell in nBlocchiMovement)
+        {
+            Destroy(cell);
+        }
+        nBlocchiMovement.Clear();
     }
 
     public void EnemyCheckPlayer(Vector2 _pos, int raggio, GameObject _enemy)
     {
         // Questo è il metodo che controlla se c'è il player nel raggio di azione del nemico 
-        SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
-        sr.color = Color.red;
+       // SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
+       // sr.color = Color.red;
 
         int _x = (int)_pos.x;
         int _y = (int)_pos.y;

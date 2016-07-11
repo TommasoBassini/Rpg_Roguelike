@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: dc98706bf66201f43b40b7bede6afcd7
-timeCreated: 1467897487
+guid: df2a57d513d2be74da635f0685327e7f
+timeCreated: 1468233327
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Tile_ground_0
+    21300000: Sprite sheet Cursore-blu_0
+    21300002: Sprite sheet Cursore-blu_1
+    21300004: Sprite sheet Cursore-blu_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +53,37 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Tile_ground_0
+    - name: Sprite sheet Cursore-blu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -100, y: 100}
+        - {x: -100, y: -100}
+        - {x: 100, y: -100}
+        - {x: 100, y: 100}
+    - name: Sprite sheet Cursore-blu_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -100, y: 100}
+        - {x: -100, y: -100}
+        - {x: 100, y: -100}
+        - {x: 100, y: 100}
+    - name: Sprite sheet Cursore-blu_2
       rect:
         serializedVersion: 2
         x: 0
