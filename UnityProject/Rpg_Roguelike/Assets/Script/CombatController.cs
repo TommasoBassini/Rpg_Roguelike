@@ -20,8 +20,6 @@ public class CombatController : MonoBehaviour
     void Start ()
     {
         grid = FindObjectOfType<BattleGrid>();
-
-
 	}
 
     public void TurnOrder(List<float> _players, int n)
@@ -45,13 +43,12 @@ public class CombatController : MonoBehaviour
                 }
             }
         }
-
         UpdateTurnPortrait();
-
     }
 
     public void UpdateTurnPortrait()
     {
+        
         for (int i = 0; i < turnImage.Length; i++)
         {
             if (player[i + turno].name == "Dps(Clone)")
@@ -97,7 +94,7 @@ public class CombatController : MonoBehaviour
             SpriteRenderer sr = player[turno].GetComponent<SpriteRenderer>();
             sr.color = Color.white;
         }
-            UiController ui = FindObjectOfType<UiController>();
+        UiController ui = FindObjectOfType<UiController>();
         turno++;
         UpdateTurnPortrait();
         if (player[turno].GetComponent<Enemy>() != null)
@@ -114,7 +111,6 @@ public class CombatController : MonoBehaviour
     public bool CheckWinner()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length - 1);
         if (enemies.Length - 1 <= 0)
         {
             return true;

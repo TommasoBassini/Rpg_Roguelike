@@ -60,7 +60,7 @@ public class Cell : MonoBehaviour
     {
         Invoke("CoCheckNearWall",0.5f);
         if (isAngle)
-            InvokeRepeating("CheckNearPlayer", 0.5f, 0.3f);
+            InvokeRepeating("CheckNearPlayer", 0.5f, 0.1f);
     }
     void CoCheckNearWall()
     {

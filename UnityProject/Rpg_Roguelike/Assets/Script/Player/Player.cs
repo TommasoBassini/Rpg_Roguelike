@@ -105,11 +105,10 @@ public abstract class Player : Character
         }
         Enemy enemy = _enemy.GetComponent<Enemy>();
         Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
-        enemy.SubisciDanno(stats.attMelee);
-        UiController ui = FindObjectOfType<UiController>();
+        enemy.SubisciDanno(stats.attMelee,_enemy);
+
         foreach (GameObject cell in checkboxAttack)
         {
-            Debug.Log("hbj");
             Destroy(cell);
         }
         checkboxAttack.Clear();
