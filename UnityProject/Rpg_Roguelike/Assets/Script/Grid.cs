@@ -41,14 +41,14 @@ public class Grid : MonoBehaviour
                         cell.CheckNearWall();
                     }
                 }
-                if (SceneManager.GetActiveScene().name == "ProvaTommy")
+                if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
                 {
                     SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
                     sr.color = Color.clear;
                 }
             }
         }
-        if (SceneManager.GetActiveScene().name == "ProvaTommy")
+        if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
         {
             PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
             pm.SetPlayerPosition();
