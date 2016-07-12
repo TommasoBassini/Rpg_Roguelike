@@ -37,6 +37,7 @@ public class Grid : MonoBehaviour
                     }
                     if (cell.tileEditorCell.transform.parent.name == "Angoli")
                     {
+                        cell.isWall = true;
                         cell.isAngle = true;
                         cell.CheckNearWall();
                     }
