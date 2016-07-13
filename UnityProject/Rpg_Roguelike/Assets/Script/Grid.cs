@@ -45,7 +45,7 @@ public class Grid : MonoBehaviour
                             cell.isAngle = true;
                         }
                     }
-                    if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
+                    if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign") 
                     {
                         SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
                         sr.color = Color.clear;
