@@ -44,6 +44,8 @@ public class CombatController : MonoBehaviour
             }
         }
         UpdateTurnPortrait();
+        UiController ui = FindObjectOfType<UiController>();
+        ui.SetUiToPlayer(player[turno]);
     }
 
     public void UpdateTurnPortrait()
@@ -104,6 +106,7 @@ public class CombatController : MonoBehaviour
         }
         else
         {
+            ui.SetUiToPlayer(player[turno]);
             ui.UI.SetActive(true);
         }
     }
