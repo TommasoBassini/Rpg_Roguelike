@@ -23,6 +23,13 @@ public class UiController : MonoBehaviour
         MoveButton.Select();
 	}
 
+    public void SetUiToPlayer(GameObject _player)
+    {
+        Player player = _player.GetComponent<Player>();
+
+        Vector2 blocksPos_screenSpace = Camera.main.WorldToScreenPoint(player.pos);
+    }
+
     public void SetUiPlayer(GameObject Player)
     {
         Player player = Player.GetComponent<Player>();
@@ -66,6 +73,12 @@ public class UiController : MonoBehaviour
         MovePanel.SetActive(false);
         BattleGrid grid = FindObjectOfType<BattleGrid>();
         grid.ResetWalkableCell();
+    }
+
+    public void BackToMain()
+    {
+        MainPanel.SetActive(true);
+        ActionPanel.SetActive(false);
     }
 
     public void Action()

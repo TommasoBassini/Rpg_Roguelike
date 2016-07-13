@@ -18,42 +18,53 @@ public class Grid : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                GameObject newCell = Instantiate(cellPrefab);
-                newCell.transform.position = new Vector3(i + 0.5f, j + 0.5f, 0);
-                newCell.name = "Cell " + i + " " + j;
-                cells[i, j] = newCell.GetComponent<Cell>();
-                cells[i, j].pos = new Vector2(i, j);
 
-                Cell cell = newCell.GetComponent<Cell>();
-                cell.tileEditorCell = GameObject.Find("Tile(" + i +","+ j + ")");
-
-                if (cell.tileEditorCell != null)
+                if ((bool) GameObject.Find("Tile(" + i + "," + j + ")"))
                 {
-                    SpriteRenderer sr1 = cell.tileEditorCell.GetComponent<SpriteRenderer>();
-                    sr1.color = Color.clear;
-                    if (cell.tileEditorCell.transform.parent.name == "Muri")
+                    GameObject tileCell = GameObject.Find("Tile(" + i + "," + j + ")");
+                    GameObject newCell = Instantiate(cellPrefab);
+                    newCell.transform.position = new Vector3(i + 0.5f, j + 0.5f, 0);
+                    newCell.name = "Cell " + i + " " + j;
+                    cells[i, j] = newCell.GetComponent<Cell>();
+                    cells[i, j].pos = new Vector2(i, j);
+
+                    Cell cell = newCell.GetComponent<Cell>();
+                    cell.tileEditorCell = tileCell;
+
+                    if (cell.tileEditorCell != null)
                     {
-                        cell.isWall = true;
+                        SpriteRenderer sr1 = cell.tileEditorCell.GetComponent<SpriteRenderer>();
+                        sr1.color = Color.clear;
+                        if (cell.tileEditorCell.transform.parent.name == "Muri")
+                        {
+                            cell.isWall = true;
+                        }
+                        if (cell.tileEditorCell.transform.parent.name == "Angoli")
+                        {
+                            cell.isWall = true;
+                            cell.isAngle = true;
+                        }
                     }
-                    if (cell.tileEditorCell.transform.parent.name == "Angoli")
+                    if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
                     {
-                        cell.isWall = true;
-                        cell.isAngle = true;
-                        cell.CheckNearWall();
+                        SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
+                        sr.color = Color.clear;
                     }
                 }
-                if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
+                else
                 {
-                    SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
-                    sr.color = Color.clear;
+                    cells[i, j] = null;
+                    continue;
                 }
             }
+            if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
+            {
+                PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
+                pm.Invoke("SetPlayerPosition", 0.1f);
+            }
         }
-        if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
-        {
-            PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
-            pm.SetPlayerPosition();
-        }
+        
+        
 
     }
 

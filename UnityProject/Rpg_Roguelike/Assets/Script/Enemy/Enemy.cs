@@ -232,8 +232,16 @@ public abstract class Enemy : Character
             List<int> n = new List<int>();
             base.grid.cells[(int)this.pos.x,(int) this.pos.y].isOccupied = false;
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
-            cc.player.RemoveAll(item => item == enemy);
-
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = 0; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == enemy)
+                    n.Add(j);
+            }
+            for (int i = n.Count -1; i > 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
             if (!cc.CheckWinner())
                 cc.UpdateTurnPortrait();
             else
