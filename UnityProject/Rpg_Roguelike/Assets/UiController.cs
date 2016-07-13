@@ -17,17 +17,66 @@ public class UiController : MonoBehaviour
     public GameObject enemyInfoPanel;
     public GameObject[] infoPlayers = new GameObject[3];
 
+    public int faseUi = 0;
+    private bool waitMovement = true;
+
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
         MoveButton.Select();
 	}
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            switch (faseUi)
+            {
+                case 1:
+                    {
+                        faseUi = 0;
+                        Character character = cc.player[cc.turno].GetComponent<Character>();
+                        character.PlayerMove(startPos);
+                        MainPanel.SetActive(true);
+                        MovePanel.SetActive(false);
+                        BattleGrid grid = FindObjectOfType<BattleGrid>();
+                        grid.ResetWalkableCell();
+                        //MoveButton.Select();
+                        break;
+                    }
+                case 2:
+                    {
+                        faseUi = 0;
+
+                        MainPanel.SetActive(true);
+                        if (MoveButton.IsInteractable())
+                        {
+                            MoveButton.Select();
+                        }
+                        else
+                        {
+                            Button buttonAction = MainPanel.transform.Find("Action").GetComponent<Button>();
+                            buttonAction.Select();
+                        }
+                        ActionPanel.SetActive(false);
+                        break;
+                    }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && faseUi == 1 && waitMovement)
+        {
+            cc.ConfirmMovement();
+            faseUi = 0;
+            MoveButton.interactable = false;
+            MainPanel.SetActive(true);
+            SetUiToPlayer(cc.player[cc.turno]);
+        }
+    }
+    
     public void SetUiToPlayer(GameObject _player)
     {
-        Player player = _player.GetComponent<Player>();
-
-        Vector2 blocksPos_screenSpace = Camera.main.WorldToScreenPoint(player.pos);
+        Vector3 blocksPos_screenSpace = Camera.main.WorldToScreenPoint(_player.transform.position);
+        UI.transform.position = blocksPos_screenSpace;
     }
 
     public void SetUiPlayer(GameObject Player)
@@ -50,30 +99,27 @@ public class UiController : MonoBehaviour
 
     public void Move()
     {
+        waitMovement = false;
         Character character = cc.player[cc.turno].GetComponent<Character>();
         startPos = character.pos;
         character.Move();
+        faseUi = 1;
         MainPanel.SetActive(false);
-        MovePanel.SetActive(true);
+        Invoke("ResetBoolMovement", 0.1f); 
     }
-
+    void ResetBoolMovement()
+    {
+        waitMovement = true;
+    }
     public void ConfirmPosition()
     {
         cc.ConfirmMovement();
+        faseUi = 0;
         MoveButton.interactable = false;
         MainPanel.SetActive(true);
         MovePanel.SetActive(false);
     }
 
-    public void CancelMovement()
-    {
-        Character character = cc.player[cc.turno].GetComponent<Character>();
-        character.PlayerMove(startPos);
-        MainPanel.SetActive(true);
-        MovePanel.SetActive(false);
-        BattleGrid grid = FindObjectOfType<BattleGrid>();
-        grid.ResetWalkableCell();
-    }
 
     public void BackToMain()
     {
@@ -83,6 +129,7 @@ public class UiController : MonoBehaviour
 
     public void Action()
     {
+        faseUi = 2;
         MainPanel.SetActive(false);
         ActionPanel.SetActive(true);
         Player player = cc.player[cc.turno].GetComponent<Player>();
@@ -91,13 +138,15 @@ public class UiController : MonoBehaviour
         {
             Button buttonAttack = ActionPanel.transform.Find("Attack").GetComponent<Button>();
             buttonAttack.interactable = false;
-            Debug.Log(player.enemyDisp.Count);
+            Button buttonAbility = ActionPanel.transform.Find("Ability").GetComponent<Button>();
+            buttonAbility.Select();
+
         }
         else
         {
             Button buttonAttack = ActionPanel.transform.Find("Attack").GetComponent<Button>();
             buttonAttack.interactable = true;
-            Debug.Log(player.enemyDisp.Count);
+            buttonAttack.Select();
         }
     }
 

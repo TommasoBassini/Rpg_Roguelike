@@ -36,11 +36,15 @@ public abstract class Character : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isMovible)
         {
             PlayerMove(new Vector2(pos.x, pos.y + 1));
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            sr.sortingOrder--;
         }
 
         if (Input.GetKeyDown(KeyCode.S) && isMovible)
         {
             PlayerMove(new Vector2(pos.x, pos.y - 1));
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            sr.sortingOrder++;
         }
 
         if (Input.GetKeyDown(KeyCode.D) && isMovible)

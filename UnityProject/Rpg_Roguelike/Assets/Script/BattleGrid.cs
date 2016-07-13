@@ -50,7 +50,7 @@ public class BattleGrid : MonoBehaviour
             GameObject NewPlayer = Instantiate(player);
             NewPlayer.transform.position = cells[nUsatiPlayer[n],y].gameObject.transform.position;
             SpriteRenderer sr = NewPlayer.GetComponent<SpriteRenderer>();
-            sr.sortingOrder = 3;
+            sr.sortingOrder = 10-y;
             Player character = NewPlayer.GetComponent<Player>();
             character.uiInfo = GameObject.Find(info);
             uiinfo++;
