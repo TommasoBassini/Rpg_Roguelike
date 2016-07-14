@@ -45,8 +45,17 @@ public class EnemyButton : MonoBehaviour
         ui.EnemyListPanel.SetActive(false);
         ui.MainPanel.SetActive(true);
         enemyInfoPanel.SetActive(false);
+
         Button actionButton = ui.MainPanel.transform.Find("Action").GetComponent<Button>();
         actionButton.interactable = false;
+        foreach (Transform item in ui.MainPanel.transform)
+        {
+            if (item.gameObject.GetComponent<Button>().IsInteractable())
+            {
+                item.gameObject.GetComponent<Button>().Select();
+                break;
+            }
+        }
         player.Attack(enemy);
 
     }
