@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Tank : Player
 {
+    public List<bool> abilityOn = new List<bool>();
+
     public override void TakeStats()
     {
         PlayerStatsControl playerstats = FindObjectOfType<PlayerStatsControl>();
@@ -22,6 +25,7 @@ public class Tank : Player
         this.stats.evasione = playerstats.statsTank.evasione;
         this.stats.precisione = playerstats.statsTank.precisione;
         this.stats.velocita = playerstats.statsTank.precisione;
+
         UiController ui = FindObjectOfType<UiController>();
         ui.SetUiPlayer(this.gameObject);
     }

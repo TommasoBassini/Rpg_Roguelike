@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class UiController : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class UiController : MonoBehaviour
 
     public int faseUi = 0;
     private bool waitMovement = true;
+
+    public GameObject dpsAbilityPanel;
+    public GameObject mageAbilityPanel;
+    public GameObject tankAbilityPanel;
+    private GameObject activeAbilityPanel;
+    public List<GameObject> attackBoxList = new List<GameObject>();
 
     void Start ()
     {
@@ -61,6 +68,34 @@ public class UiController : MonoBehaviour
                         ActionPanel.SetActive(false);
                         break;
                     }
+                case 3:
+                    {
+                        faseUi = 2;
+                        foreach (var item in attackBoxList)
+                        {
+                            Destroy(item);
+                        }
+                        attackBoxList.Clear();
+                        ActionPanel.SetActive(true);
+                        activeAbilityPanel.SetActive(false);
+                        Player player = cc.player[cc.turno].GetComponent<Player>();
+                        player.CheckAttack();
+                        if (player.enemyDisp.Count == 0)
+                        {
+                            Button buttonAttack = ActionPanel.transform.Find("Attack").GetComponent<Button>();
+                            buttonAttack.interactable = false;
+                            Button buttonAbility = ActionPanel.transform.Find("Ability").GetComponent<Button>();
+                            buttonAbility.Select();
+
+                        }
+                        else
+                        {
+                            Button buttonAttack = ActionPanel.transform.Find("Attack").GetComponent<Button>();
+                            buttonAttack.interactable = true;
+                            buttonAttack.Select();
+                        }
+                        break;
+                    }
             }
         }
         if (Input.GetKeyDown(KeyCode.Return) && faseUi == 1 && waitMovement)
@@ -97,6 +132,13 @@ public class UiController : MonoBehaviour
         image.fillAmount = ((100 * hp) / hpMax) / 100;
     }
 
+    public void AggiornaMana(float mpMax, float mp, GameObject info)
+    {
+        Image image = transform.Find("PlayersPanel" + "/" + info.name + "/Mana").GetComponent<Image>();
+
+        float fill = ((100 * mp) / mpMax) / 100;
+        image.fillAmount = ((100 * mp) / mpMax) / 100;
+    }
     public void Move()
     {
         waitMovement = false;
@@ -111,6 +153,33 @@ public class UiController : MonoBehaviour
     {
         waitMovement = true;
     }
+    public void Ability()
+    {
+        faseUi = 3;
+        ActionPanel.SetActive(false);
+        Character character = cc.player[cc.turno].GetComponent<Character>();
+        string player = character.gameObject.name.ToLower();
+        if (player.Contains("dps"))
+        {
+            dpsAbilityPanel.SetActive(true);
+            activeAbilityPanel = dpsAbilityPanel;
+            activeAbilityPanel.transform.GetChild(0).GetComponent<Button>().Select();
+        }
+        if (player.Contains("tank"))
+        {
+            tankAbilityPanel.SetActive(true);
+            activeAbilityPanel = tankAbilityPanel;
+            activeAbilityPanel.transform.GetChild(0).GetComponent<Button>().Select();
+
+        }
+        if (player.Contains("mage"))
+        {
+            mageAbilityPanel.SetActive(true);
+            activeAbilityPanel = mageAbilityPanel;
+            activeAbilityPanel.transform.GetChild(0).GetComponent<Button>().Select();
+        }
+    }
+
     public void ConfirmPosition()
     {
         cc.ConfirmMovement();
@@ -170,18 +239,27 @@ public class UiController : MonoBehaviour
         player.SpawnAttackBox();
         ActionPanel.SetActive(false);
         EnemyListPanel.SetActive(true);
+        List<Button> button = new List<Button>();
+        foreach (GameObject enemy in player.enemyDisp)
+        {
+            Button newButton = Instantiate(SelectEnemyButton);
+            newButton.transform.SetParent(EnemyListPanel.transform, false);
 
-            foreach (GameObject enemy in player.enemyDisp)
+            EnemyButton enemyButton = newButton.GetComponent<EnemyButton>();
+            enemyButton.enemy = enemy;
+            enemyButton.enemyInfoPanel = enemyInfoPanel;
+            button.Add(newButton);
+        }
+
+        for (int i = 0; i <= button.Count - 1; i++)
+        {
+            if(i == button.Count - 1)
             {
-                Button newButton = Instantiate(SelectEnemyButton);
-                newButton.transform.SetParent(EnemyListPanel.transform, false);
-
-                EnemyButton enemyButton = newButton.GetComponent<EnemyButton>();
-                enemyButton.enemy = enemy;
-                enemyButton.enemyInfoPanel = enemyInfoPanel;
-                Text text = newButton.GetComponentInChildren<Text>();
-                text.text = enemy.name;
+               // button[i].navigation.selectOnDown = button[0];
             }
-            player.enemyDisp.Clear();
+        }
+        player.enemyDisp.Clear();
+
+        EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
     }
 }
