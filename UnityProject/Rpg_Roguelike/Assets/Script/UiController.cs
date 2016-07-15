@@ -240,6 +240,7 @@ public class UiController : MonoBehaviour
         ActionPanel.SetActive(false);
         EnemyListPanel.SetActive(true);
         List<Button> button = new List<Button>();
+
         foreach (GameObject enemy in player.enemyDisp)
         {
             Button newButton = Instantiate(SelectEnemyButton);
@@ -251,15 +252,49 @@ public class UiController : MonoBehaviour
             button.Add(newButton);
         }
 
-        for (int i = 0; i <= button.Count - 1; i++)
+        if (button.Count > 1)
         {
-            if(i == button.Count - 1)
+            for (int i = 0; i <= button.Count - 1; i++)
             {
-               // button[i].navigation.selectOnDown = button[0];
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n- 1];
+                    button[i].navigation = custumNav;
+                    Debug.Log(button[i].navigation.mode);
+
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                    Debug.Log(button[i].navigation.mode);
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n+ 1];
+                    custumNav.selectOnUp = button[n- 1];
+                    button[i].navigation = custumNav;
+                    Debug.Log(button[i].navigation.mode);
+
+                }
             }
         }
+        button.Clear();
         player.enemyDisp.Clear();
-
         EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+    public void DamageText()
+    {
+
     }
 }

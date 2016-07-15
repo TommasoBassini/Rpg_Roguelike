@@ -26,6 +26,11 @@ public class Tank : Player
         this.stats.precisione = playerstats.statsTank.precisione;
         this.stats.velocita = playerstats.statsTank.precisione;
 
+        for (int i = 0; i < playerstats.statsTank.abilitaSbloccate.Length; i++)
+        {
+            this.stats.abilitaSbloccate[i] = playerstats.statsTank.abilitaSbloccate[i];
+        }
+
         UiController ui = FindObjectOfType<UiController>();
         ui.SetUiPlayer(this.gameObject);
     }

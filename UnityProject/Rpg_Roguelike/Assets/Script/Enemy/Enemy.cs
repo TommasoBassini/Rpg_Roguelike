@@ -29,7 +29,7 @@ public abstract class Enemy : Character
 
             }
         }
-       NearestCellToPlayer(this.pos, this.passi, nearestPlayer);
+        NearestCellToPlayer(this.pos, this.passi, nearestPlayer);
     }
 
     void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
@@ -87,19 +87,22 @@ public abstract class Enemy : Character
         int x = (int)endPos.x - (int)_pos.x;
         int y = (int)endPos.y - (int)_pos.y;
         int zy = 0;
-        int zx = x / Mathf.Abs(x);
-
-        for (int i = 1; i < Mathf.Abs(x) + 1; i++)
+        if (x != 0)
         {
-            cellToCross.Add(base.grid.cells[((int)this.pos.x + (zx * i)), (int)this.pos.y]);
+            int zx = x / Mathf.Abs(x);
+
+            for (int i = 1; i < Mathf.Abs(x) + 1; i++)
+            {
+                cellToCross.Add(base.grid.cells[((int)this.pos.x + (zx * i)), (int)this.pos.y]);
+            }
+
+            //Prendo l'ultima cella trovata se c'è
+            if (cellToCross.Count != 0)
+                x = (int)cellToCross[cellToCross.Count - 1].GetComponent<CombatCell>().pos.x;
+            else
+                x = (int)_pos.x;
+
         }
-
-        //Prendo l'ultima cella trovata se c'è
-        if (cellToCross.Count != 0)
-            x = (int)cellToCross[cellToCross.Count - 1].GetComponent<CombatCell>().pos.x;
-        else
-            x = (int)_pos.x;
-
         if (y != 0)
         {
             zy = y / Mathf.Abs(y);
@@ -223,14 +226,14 @@ public abstract class Enemy : Character
         cc.EndOfTurn();
     }
 
-    public void SubisciDanno(int danni,GameObject enemy)
+    public void SubisciDannoMelee(int danni, GameObject enemy)
     {
         hp = hp - (Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) + (Random.Range(1.0f, 1.125f))));
         CombatController cc = FindObjectOfType<CombatController>();
-        if(hp <= 0)
+        if (hp <= 0)
         {
             List<int> n = new List<int>();
-            base.grid.cells[(int)this.pos.x,(int) this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
             //cc.player.RemoveAll(item => item == enemy);
             for (int j = 0; j < cc.player.Count; j++)
@@ -238,7 +241,35 @@ public abstract class Enemy : Character
                 if (cc.player[j] == enemy)
                     n.Add(j);
             }
-            for (int i = n.Count -1; i > 0; i--)
+            for (int i = n.Count - 1; i > 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+            if (!cc.CheckWinner())
+                cc.UpdateTurnPortrait();
+            else
+                cc.Win();
+            Destroy(this.gameObject);
+
+        }
+    }
+
+    public void SubisciDannoRanged(int danni, GameObject enemy)
+    {
+        hp = hp - (Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) + (Random.Range(1.0f, 1.125f))));
+        CombatController cc = FindObjectOfType<CombatController>();
+        if (hp <= 0)
+        {
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = 0; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == enemy)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i > 0; i--)
             {
                 cc.player.RemoveAt(n[i]);
             }

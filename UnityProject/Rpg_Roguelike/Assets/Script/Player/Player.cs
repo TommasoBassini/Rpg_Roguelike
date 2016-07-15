@@ -21,6 +21,8 @@ public class Statistiche
     public int evasione;
     public int precisione;
     public int velocita;
+
+    public bool[] abilitaSbloccate = new bool[5];
 }
 
 public abstract class Player : Character
@@ -105,7 +107,7 @@ public abstract class Player : Character
         }
         Enemy enemy = _enemy.GetComponent<Enemy>();
         Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
-        enemy.SubisciDanno(stats.attMelee,_enemy);
+        enemy.SubisciDannoMelee(stats.attMelee,_enemy);
 
         foreach (GameObject cell in checkboxAttack)
         {
