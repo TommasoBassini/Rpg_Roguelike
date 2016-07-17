@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     private Grid grid;
     private FogOfWarManager fog;
-    private GameControl gc;
     private Vector2 playerPos = new Vector2(1,1);
     public bool isMoving;
     private int randomEncounterProbably = 0;
@@ -16,10 +15,8 @@ public class PlayerMovement : MonoBehaviour
     void Start ()
     {
         fog = this.GetComponent<FogOfWarManager>();
-        gc = GameObject.Find("GameControl").GetComponent<GameControl>();
 
         fog.Fog(playerPos);
-
     }
 
     // Imposta la posizione iniziale del giocatore all'interno della griglia

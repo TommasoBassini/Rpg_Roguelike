@@ -19,44 +19,62 @@ public class TankAbility : MonoBehaviour
 
     void Start()
     {
-        CombatController cc = FindObjectOfType<CombatController>();
-        player = cc.player[cc.turno].GetComponent<Player>();
-
-        int nAbilitaSbloccate = 0;
-
-        List<Button> buttonInstance = new List<Button>();
-
         for (int i = 0; i < player.stats.abilitaSbloccate.Length; i++)
         {
             if (player.stats.abilitaSbloccate[i])
             {
-                Button newButton = Instantiate(buttonAbilita[i]);
-                newButton.transform.SetParent(this.gameObject.transform);
-                buttonInstance.Add(newButton);
-                nAbilitaSbloccate++;
+                abilitaSbloccate[i] = player.stats.abilitaSbloccate[i];
+
+            }
+            else
+            {
+                abilitaSbloccate[i] = player.stats.abilitaSbloccate[i];
+                buttonAbilita[i].interactable = false;
             }
         }
 
-        switch (nAbilitaSbloccate)
-        {
-            case 1:
-                {
-
-                    break;
-                }
-            default:
-                break;
-        }
+        CheckAvailableAbility();
     }
 
+
+    void OnEnable()
+    {
+        CheckAvailableAbility();
+    }
+
+    void CheckAvailableAbility()
+    {
+        CombatController cc = FindObjectOfType<CombatController>();
+        player = cc.player[cc.turno].GetComponent<Player>();
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (costoAbilita[i] > player.stats.mp && abilitaSbloccate[i])
+            {
+                buttonAbilita[i].interactable = false;
+            }
+            else if (costoAbilita[i] <= player.stats.mp && abilitaSbloccate[i])
+            {
+                buttonAbilita[i].interactable = true;
+            }
+        }
+
+        foreach (Transform item in this.transform)
+        {
+            if (item.gameObject.GetComponent<Button>().IsInteractable())
+            {
+                item.gameObject.GetComponent<Button>().Select();
+                break;
+            }
+        }
+    }
+    // ABILITA LANCIA SASSO             /////////////////////////////////////////
     public void CoLanciaSasso()
     {
-
         UiController ui = FindObjectOfType<UiController>();
 
         ui.tankAbilityPanel.SetActive(false);
         ui.EnemyListPanel.SetActive(true);
-
         List<Button> button = new List<Button>();
 
         foreach (GameObject enemy in enemyDisp)
@@ -110,39 +128,300 @@ public class TankAbility : MonoBehaviour
 
     public void LanciaSasso(GameObject _enemy)
     {
-        int mp = 5;
+        //costo e variabili
+        int mp = 10;
+
+        //calcola effetto
         int danni = player.stats.attDistanza;
         GameObject effect = Instantiate(lanciaSassoSprite);
         effect.transform.position = _enemy.transform.position;
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
         enemy.SubisciDannoRanged(danni, _enemy);
         player.stats.mp -= mp;
+        // Roba UI
         UiController ui = FindObjectOfType<UiController>();
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
         DestroyAttackBox();
-        ui.EnemyListPanel.SetActive(false);
+        DestroyEnemyButton();
+    }
 
-        ui.MainPanel.SetActive(true);
+    // ABILITA DEMOLISCI             //////////////////////////////////////////
 
-        Button actionButton = ui.MainPanel.transform.Find("Action").GetComponent<Button>();
-        actionButton.interactable = false;
-        foreach (Transform item in ui.MainPanel.transform)
+    public void CoDemolisci()
+    {
+
+        UiController ui = FindObjectOfType<UiController>();
+
+        ui.tankAbilityPanel.SetActive(false);
+        ui.EnemyListPanel.SetActive(true);
+
+        List<Button> button = new List<Button>();
+
+        foreach (GameObject enemy in enemyDisp)
         {
-            if (item.gameObject.GetComponent<Button>().IsInteractable())
+            Button newButton = Instantiate(abilityButton);
+
+
+            AbilityButton enemyButton = newButton.GetComponent<AbilityButton>();
+            enemyButton.enemy = enemy;
+            enemyButton.enemyInfoPanel = ui.enemyInfoPanel;
+            newButton.transform.SetParent(ui.EnemyListPanel.transform, false);
+            newButton.onClick.AddListener(() => Demolisci(enemyButton.enemy));
+            button.Add(newButton);
+        }
+
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
             {
-                item.gameObject.GetComponent<Button>().Select();
-                break;
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
             }
         }
-        DestoryEnemyButton();
+        button.Clear();
+        ui.EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+    public void Demolisci(GameObject _enemy)
+    {
+        //costo e variabili
+        int mp = 20;
+        int nturni = 2;
+        int percentualeDebuff = 35;
+        int danni = player.stats.attMelee;
+        //calcola effetto
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        int debuffDifesa = Mathf.RoundToInt((enemy.difesa * percentualeDebuff) / 100);
+        enemy.nturnoDifesa.Add(nturni);
+        enemy.debuffDifesa.Add(debuffDifesa);
+        enemy.difesa -= debuffDifesa;
+        //scala il danno dal nemico e gli mp al player
+        SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
+        sr.color = Color.white;
+        enemy.SubisciDannoMelee(danni, _enemy);
+        player.stats.mp -= mp;
+
+        // Robe per UI
+        UiController ui = FindObjectOfType<UiController>();
+        ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
+        DestroyAttackBox();
+        DestroyEnemyButton();
+    }
+
+    // ABILITA DEMOLISCI             //////////////////////////////////////////
+
+    public void CoDisarma()
+    {
+
+        UiController ui = FindObjectOfType<UiController>();
+
+        ui.tankAbilityPanel.SetActive(false);
+        ui.EnemyListPanel.SetActive(true);
+
+        List<Button> button = new List<Button>();
+
+        foreach (GameObject enemy in enemyDisp)
+        {
+            Button newButton = Instantiate(abilityButton);
+
+
+            AbilityButton enemyButton = newButton.GetComponent<AbilityButton>();
+            enemyButton.enemy = enemy;
+            enemyButton.enemyInfoPanel = ui.enemyInfoPanel;
+            newButton.transform.SetParent(ui.EnemyListPanel.transform, false);
+            newButton.onClick.AddListener(() => Disarma(enemyButton.enemy));
+            button.Add(newButton);
+        }
+
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
+            {
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+            }
+        }
+        button.Clear();
+        ui.EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+    public void Disarma(GameObject _enemy)
+    {
+        //costo e variabili
+        int mp = 15;
+        int nturni = 2;
+        int percentualeDebuff = 35;
+        int danni = player.stats.attMelee;
+        //calcola effetto
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        int debuffAttacco = Mathf.RoundToInt((enemy.att * percentualeDebuff) / 100);
+        enemy.nturnoAttacco.Add(nturni);
+        enemy.debuffAttacco.Add(debuffAttacco);
+        enemy.att -= debuffAttacco;
+        //scala il danno dal nemico e gli mp al player
+        SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
+        sr.color = Color.white;
+        enemy.SubisciDannoMelee(danni, _enemy);
+        player.stats.mp -= mp;
+
+        // Robe per UI
+        UiController ui = FindObjectOfType<UiController>();
+        ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
+        DestroyAttackBox();
+        DestroyEnemyButton();
+    }
+
+    // ABILITA SpaccaTeschi             /////////////////////////////////////////
+    public void CoSpaccaTeschi()
+    {
+
+        UiController ui = FindObjectOfType<UiController>();
+
+        ui.tankAbilityPanel.SetActive(false);
+        ui.EnemyListPanel.SetActive(true);
+
+        List<Button> button = new List<Button>();
+
+        foreach (GameObject enemy in enemyDisp)
+        {
+            Button newButton = Instantiate(abilityButton);
+
+
+            AbilityButton enemyButton = newButton.GetComponent<AbilityButton>();
+            enemyButton.enemy = enemy;
+            enemyButton.enemyInfoPanel = ui.enemyInfoPanel;
+            newButton.transform.SetParent(ui.EnemyListPanel.transform, false);
+            newButton.onClick.AddListener(() => SpaccaTeschi(enemyButton.enemy));
+            button.Add(newButton);
+        }
+
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
+            {
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+            }
+        }
+        button.Clear();
+        ui.EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+
+    public void SpaccaTeschi(GameObject _enemy)
+    {
+        //costo e variabili
+        int mp = 30;
+
+        //calcola effetto
+        int danni = player.stats.attMelee + Mathf.RoundToInt(player.stats.attMelee /2);
+
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        //scala il danno dal nemico e gli mp al player
+        SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
+        sr.color = Color.white;
+        enemy.SubisciDannoMelee(danni, _enemy);
+        player.stats.mp -= mp;
+        // Roba UI
+        UiController ui = FindObjectOfType<UiController>();
+        ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
+        DestroyAttackBox();
+        DestroyEnemyButton();
+    }
+
+    // TAUNT //////////////////
+    public void Taunt()
+    {
+        //costo e variabili
+        int mp = 5;
+
+        UiController ui = FindObjectOfType<UiController>();
+
+        ui.tankAbilityPanel.SetActive(false);
+        ui.EnemyListPanel.SetActive(true);
+
+
+        player.stats.mp -= mp;
+        // Roba UI
+        ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
+
+        ui.CoAttivaPanel();
     }
 
     public void SpawnAttackBox(int raggio)
     {
-        
-        CombatController cc = FindObjectOfType<CombatController>();
         BattleGrid grid = FindObjectOfType<BattleGrid>();
         UiController ui = FindObjectOfType<UiController>();
 
@@ -192,9 +471,10 @@ public class TankAbility : MonoBehaviour
         enemyDisp.Clear();
     }
 
-    void DestoryEnemyButton()
+    void DestroyEnemyButton()
     {
         UiController ui = FindObjectOfType<UiController>();
+        ui.CoAttivaPanel();
 
         foreach (Transform item in ui.EnemyListPanel.transform)
         {

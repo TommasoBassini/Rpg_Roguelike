@@ -103,6 +103,7 @@ public class CombatController : MonoBehaviour
         {
             ui.UI.SetActive(false);
             player[turno].GetComponent<Enemy>().Ai();
+            player[turno].GetComponent<Enemy>().StartTurn();
         }
         else
         {

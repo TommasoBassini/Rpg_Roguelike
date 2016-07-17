@@ -32,8 +32,82 @@ public class Dps : Player
 
     public override void SubisciDanno(float danni)
     {
-        stats.hp = stats.hp - Mathf.RoundToInt(((((danni / stats.difFisica) * 100) * (danni / 2)) / 100) + (Random.Range(1, 1.125f)));
+        int danniSubiti = Mathf.RoundToInt(((((danni / stats.difFisica) * 100) * (danni / 2)) / 100) * (Random.Range(1, 1.125f)));
+        stats.hp = stats.hp - danniSubiti;
         UiController ui = FindObjectOfType<UiController>();
         ui.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
+        ui.DamageText(this.gameObject, danniSubiti, Color.red);
+    }
+
+    public override void CheckAttack()
+    {
+        int raggio = 4;
+        BattleGrid grid = FindObjectOfType<BattleGrid>();
+
+        int _x = (int)pos.x;
+        int _y = (int)pos.y;
+
+
+
+        for (int i = (_x - raggio); i <= (_x + raggio); i++)
+        {
+            for (int y = (_y - raggio); y <= (_y + raggio); y++)
+            {
+
+                if (i < 0)
+                    continue;
+                if (y < 0)
+                    continue;
+                if (i > grid.width - 1)
+                    continue;
+                if (y > grid.height - 1)
+                    continue;
+
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (raggio))
+                {
+                    if (grid.cells[i, y].occupier != null)
+                    {
+                        if (grid.cells[i, y].occupier.CompareTag("Enemy"))
+                            enemyDisp.Add(grid.cells[i, y].occupier);
+                    }
+                }
+            }
+            
+        }
+    }
+
+    public override void SpawnAttackBox()
+    {
+        int raggio = 4;
+        BattleGrid grid = FindObjectOfType<BattleGrid>();
+
+        int _x = (int)pos.x;
+        int _y = (int)pos.y;
+
+
+
+        for (int i = (_x - raggio); i <= (_x + raggio); i++)
+        {
+            for (int y = (_y - raggio); y <= (_y + raggio); y++)
+            {
+
+                if (i < 0)
+                    continue;
+                if (y < 0)
+                    continue;
+                if (i > grid.width - 1)
+                    continue;
+                if (y > grid.height - 1)
+                    continue;
+
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (raggio))
+                {
+                    GameObject newAttack = Instantiate(checkAttack);
+                    newAttack.transform.position = base.grid.cells[i, y].gameObject.transform.position;
+                    checkboxAttack.Add(newAttack);
+                }
+            }
+
+        }
     }
 }

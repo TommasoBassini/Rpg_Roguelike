@@ -20,11 +20,6 @@ public abstract class Character : MonoBehaviour
         grid = FindObjectOfType<BattleGrid>();
     }
 
-    public void OnMouseDown()
-    {
-       
-    }
-
     public void Move()
     {
         isMovible = true;

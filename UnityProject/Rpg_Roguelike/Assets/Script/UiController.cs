@@ -24,9 +24,10 @@ public class UiController : MonoBehaviour
     public GameObject dpsAbilityPanel;
     public GameObject mageAbilityPanel;
     public GameObject tankAbilityPanel;
-    private GameObject activeAbilityPanel;
+    public GameObject activeAbilityPanel;
     public List<GameObject> attackBoxList = new List<GameObject>();
 
+    public GameObject textDamagePrefab;
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
@@ -96,6 +97,36 @@ public class UiController : MonoBehaviour
                         }
                         break;
                     }
+                case 4:
+                    {
+                        faseUi = 2;
+                        foreach (var item in attackBoxList)
+                        {
+                            Destroy(item);
+                        }
+                        attackBoxList.Clear();
+                        ActionPanel.SetActive(true);
+                        Player player = cc.player[cc.turno].GetComponent<Player>();
+                        player.CheckAttack();
+                        foreach (var item in player.checkboxAttack)
+                        {
+                            Destroy(item);
+                        }
+                        if (player.enemyDisp.Count == 0)
+                        {
+                            Button buttonAttack = ActionPanel.transform.Find("Attack").GetComponent<Button>();
+                            buttonAttack.interactable = false;
+                            Button buttonAbility = ActionPanel.transform.Find("Ability").GetComponent<Button>();
+                            buttonAbility.Select();
+                        }
+                        else
+                        {
+                            Button buttonAttack = ActionPanel.transform.Find("Attack").GetComponent<Button>();
+                            buttonAttack.interactable = true;
+                            buttonAttack.Select();
+                        }
+                        break;
+                    }
             }
         }
         if (Input.GetKeyDown(KeyCode.Return) && faseUi == 1 && waitMovement)
@@ -110,8 +141,8 @@ public class UiController : MonoBehaviour
     
     public void SetUiToPlayer(GameObject _player)
     {
-        Vector3 blocksPos_screenSpace = Camera.main.WorldToScreenPoint(_player.transform.position);
-        UI.transform.position = blocksPos_screenSpace;
+        Vector3 targetPos_screenSpace = Camera.main.WorldToScreenPoint(_player.transform.position);
+        UI.transform.position = targetPos_screenSpace;
     }
 
     public void SetUiPlayer(GameObject Player)
@@ -127,8 +158,6 @@ public class UiController : MonoBehaviour
     public void AggiornaVita(float hpMax,float hp, GameObject info)
     {
         Image image = transform.Find("PlayersPanel" + "/" + info.name + "/Health").GetComponent<Image>();
-        
-        float fill = ((100 * hp) / hpMax) / 100;
         image.fillAmount = ((100 * hp) / hpMax) / 100;
     }
 
@@ -136,7 +165,6 @@ public class UiController : MonoBehaviour
     {
         Image image = transform.Find("PlayersPanel" + "/" + info.name + "/Mana").GetComponent<Image>();
 
-        float fill = ((100 * mp) / mpMax) / 100;
         image.fillAmount = ((100 * mp) / mpMax) / 100;
     }
     public void Move()
@@ -169,8 +197,6 @@ public class UiController : MonoBehaviour
         {
             tankAbilityPanel.SetActive(true);
             activeAbilityPanel = tankAbilityPanel;
-            activeAbilityPanel.transform.GetChild(0).GetComponent<Button>().Select();
-
         }
         if (player.Contains("mage"))
         {
@@ -235,6 +261,7 @@ public class UiController : MonoBehaviour
 
     public void Attack()
     {
+        faseUi = 4;
         Player player = cc.player[cc.turno].GetComponent<Player>();
         player.SpawnAttackBox();
         ActionPanel.SetActive(false);
@@ -293,8 +320,40 @@ public class UiController : MonoBehaviour
         EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
     }
 
-    public void DamageText()
+    public void DamageText(GameObject pos, int danni, Color color)
     {
+        GameObject textPrefab = Instantiate(textDamagePrefab);
+        Vector3 targetPos_screenSpace = Camera.main.WorldToScreenPoint(pos.transform.position);
+        textPrefab.transform.SetParent(this.gameObject.transform);
+        textPrefab.transform.position = targetPos_screenSpace;
 
+        Text text = textPrefab.GetComponentInChildren<Text>();
+        text.text = danni.ToString();
+        text.color = color;
+    }
+
+    public void CoAttivaPanel()
+    {
+        StartCoroutine(attivaPanel());
+    }
+
+    public IEnumerator attivaPanel()
+    {
+        yield return new WaitForSeconds(0.6f);
+        UiController ui = FindObjectOfType<UiController>();
+
+        ui.EnemyListPanel.SetActive(false);
+        ui.MainPanel.SetActive(true);
+        ui.enemyInfoPanel.SetActive(false);
+        Button actionButton = ui.MainPanel.transform.Find("Action").GetComponent<Button>();
+        actionButton.interactable = false;
+        foreach (Transform item in ui.MainPanel.transform)
+        {
+            if (item.gameObject.GetComponent<Button>().IsInteractable())
+            {
+                item.gameObject.GetComponent<Button>().Select();
+                break;
+            }
+        }
     }
 }

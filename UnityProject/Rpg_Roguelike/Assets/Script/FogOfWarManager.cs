@@ -30,7 +30,6 @@ public class FogOfWarManager : MonoBehaviour
         {
             for (int y = (_y - vista); y <= (_y + vista); y++)
             {
-
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista))
                 {
                     farCell.Add(new Vector2(i + 0.5f, y + 0.5f));
@@ -41,7 +40,6 @@ public class FogOfWarManager : MonoBehaviour
 
         foreach (var cell in farCell)
         {
-
             RaycastHit2D[] hit = Physics2D.LinecastAll(pos, cell);
             List<GameObject> celleCast = new List<GameObject>();
             
@@ -73,6 +71,7 @@ public class FogOfWarManager : MonoBehaviour
                             if (!cells.Contains(cel.tileEditorCell))
                                 cells.Add(cel.tileEditorCell);
                         }
+
                         if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) == (vista - 2))
                         {
                             SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();

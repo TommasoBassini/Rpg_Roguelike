@@ -17,7 +17,6 @@ public class BattleGrid : MonoBehaviour
     public List<CombatCell> cellWalkable = new List<CombatCell>();
 
     private CombatController cc;
-    private UiController ui;
 
     public GameObject enemy;
     public List<int> nUsatiEnemy = new List<int>();
@@ -28,7 +27,6 @@ public class BattleGrid : MonoBehaviour
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Battle"));
         cells = new CombatCell[width, height];
-        ui = FindObjectOfType<UiController>();
         cc = FindObjectOfType<CombatController>();
         for (int i = 0; i < width; i++)
         {
@@ -42,6 +40,7 @@ public class BattleGrid : MonoBehaviour
             }
         }
         int uiinfo = 1;
+
         foreach (GameObject player in playerPrefab)
         {
             string info = "InfoP" + uiinfo;
@@ -56,7 +55,6 @@ public class BattleGrid : MonoBehaviour
             uiinfo++;
             character.TakeStats();
             character.pos = new Vector2(nUsatiPlayer[n], y);
-            character.passi = Random.Range(2, 4);
             cells[nUsatiPlayer[n], y].isOccupied = true;
             cells[nUsatiPlayer[n], y].occupier = NewPlayer;
 
@@ -81,7 +79,6 @@ public class BattleGrid : MonoBehaviour
             Character characterEnemy = newEnemy.GetComponent<Character>();
             characterEnemy.velocita = Random.Range(0.7f, 1.1f);
             characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
-            characterEnemy.passi = 4;
             cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
             cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
 

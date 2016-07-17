@@ -34,4 +34,5 @@ public class AbilityButton : MonoBehaviour
         SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
     }
+
 }

@@ -8,6 +8,8 @@ public class EnemyButton : MonoBehaviour
     public GameObject enemy;
     public GameObject enemyInfoPanel;
 
+    private float time = 0.5f;
+
     public void IlluminaPlayer()
     {
         SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
@@ -41,11 +43,20 @@ public class EnemyButton : MonoBehaviour
         Player player = cc.player[cc.turno].GetComponent<Player>();
         SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
+
+        player.Attack(enemy);
+
+        StartCoroutine(attivaPanel());
+    }
+
+    IEnumerator attivaPanel()
+    {
+        yield return new WaitForSeconds(time);
         UiController ui = FindObjectOfType<UiController>();
+
         ui.EnemyListPanel.SetActive(false);
         ui.MainPanel.SetActive(true);
         enemyInfoPanel.SetActive(false);
-
         Button actionButton = ui.MainPanel.transform.Find("Action").GetComponent<Button>();
         actionButton.interactable = false;
         foreach (Transform item in ui.MainPanel.transform)
@@ -56,7 +67,5 @@ public class EnemyButton : MonoBehaviour
                 break;
             }
         }
-        player.Attack(enemy);
-
     }
 }

@@ -15,7 +15,7 @@ public class EnemyMelee : Enemy
 
     void CheckPlayerNear()
     {
-        base.grid.EnemyCheckPlayer(pos,passi,this.gameObject);
+        base.grid.EnemyCheckPlayer(this.pos,this.passi,this.gameObject);
     }
 
 
