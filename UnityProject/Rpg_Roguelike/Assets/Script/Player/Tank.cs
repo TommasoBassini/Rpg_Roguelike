@@ -26,14 +26,84 @@ public class Tank : Player
         this.stats.precisione = playerstats.statsTank.precisione;
         this.stats.velocita = playerstats.statsTank.precisione;
 
+        for (int i = 0; i < playerstats.statsTank.abilitaSbloccate.Length; i++)
+        {
+            this.stats.abilitaSbloccate[i] = playerstats.statsTank.abilitaSbloccate[i];
+        }
+
         UiController ui = FindObjectOfType<UiController>();
         ui.SetUiPlayer(this.gameObject);
     }
 
     public override void SubisciDanno(float danni)
     {
-        stats.hp = stats.hp - Mathf.RoundToInt(((((danni/stats.difFisica)*100) * (danni /2))/ 100) + (Random.Range(1,1.125f)));
+        int danniSubiti = Mathf.RoundToInt(((((danni / stats.difFisica) * 100) * (danni / 2)) / 100) * (Random.Range(1, 1.125f)));
+        stats.hp = stats.hp - danniSubiti;
         UiController ui = FindObjectOfType<UiController>();
         ui.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
+        ui.DamageText(this.gameObject, danniSubiti, Color.red);
+    }
+
+    public override void CheckAttack()
+    {
+        //classico controllo delle direzioni
+        Vector2[] directions = new Vector2[4];
+
+        directions[0] = new Vector2(-1, 0);
+        directions[1] = new Vector2(0, -1);
+        directions[2] = new Vector2(1, 0);
+        directions[3] = new Vector2(0, 1);
+
+        foreach (Vector2 dir in directions)
+        {
+            int new_x = (int)pos.x + (int)dir.x;
+            int new_y = (int)pos.y + (int)dir.y;
+
+            if (new_x < 0)
+                continue;
+            if (new_y < 0)
+                continue;
+            if (new_x > base.grid.width - 1)
+                continue;
+            if (new_y > base.grid.height - 1)
+                continue;
+
+            //se non esce dalla griglia e non è occupata aggiungo la posizione alla lista posDisp
+            if (base.grid.cells[new_x, new_y].occupier != null)
+            {
+                if (base.grid.cells[new_x, new_y].occupier.CompareTag("Enemy"))
+                    enemyDisp.Add(base.grid.cells[new_x, new_y].occupier);
+            }
+        }
+    }
+
+    public override void SpawnAttackBox()
+    {
+        Vector2[] directions = new Vector2[4];
+
+        directions[0] = new Vector2(-1, 0);
+        directions[1] = new Vector2(0, -1);
+        directions[2] = new Vector2(1, 0);
+        directions[3] = new Vector2(0, 1);
+
+        foreach (Vector2 dir in directions)
+        {
+            int new_x = (int)pos.x + (int)dir.x;
+            int new_y = (int)pos.y + (int)dir.y;
+
+            if (new_x < 0)
+                continue;
+            if (new_y < 0)
+                continue;
+            if (new_x > base.grid.width - 1)
+                continue;
+            if (new_y > base.grid.height - 1)
+                continue;
+
+
+            GameObject newAttack = Instantiate(checkAttack);
+            newAttack.transform.position = base.grid.cells[new_x, new_y].gameObject.transform.position;
+            checkboxAttack.Add(newAttack);
+        }
     }
 }

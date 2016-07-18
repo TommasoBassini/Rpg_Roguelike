@@ -9,13 +9,13 @@ public class EnemyMelee : Enemy
 
     public override void Ai()
     {
-        CheckPlayerNear();
+        Invoke("CheckPlayerNear", 0.5f);
     }
     
 
     void CheckPlayerNear()
     {
-        base.grid.EnemyCheckPlayer(pos,passi,this.gameObject);
+        base.grid.EnemyCheckPlayer(this.pos,this.passi,this.gameObject);
     }
 
 

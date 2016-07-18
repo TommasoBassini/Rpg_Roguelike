@@ -7,29 +7,41 @@ public abstract class Enemy : Character
 
     public abstract void Ai();
     public List<CombatCell> cellToCross = new List<CombatCell>();
+
+    public int hpMax;
     public int hp;
     public int mp;
     public int difesa;
     public int att;
+
+    // liste debuff
+    public List<int> nturnoDifesa = new List<int>();
+    public List<int> debuffDifesa = new List<int>();
+
+    public List<int> nturnoAttacco = new List<int>();
+    public List<int> debuffAttacco = new List<int>();
+
+    public int turniVeleno = 0;
+    public int percVeleno;
 
     public void FindNearestPlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject nearestPlayer = null;
         int nearestPlayerDistance = 10000;
+        
         // Cerca il GO player più vicino
         foreach (GameObject player in players)
         {
             Character pl = player.GetComponent<Character>();
-            int distance = Mathf.Abs((int)pl.pos.x - (int)pos.x) + Mathf.Abs((int)pl.pos.y - (int)pos.y);
+            int distance = Mathf.Abs((int)pl.pos.x - (int)base.pos.x) + Mathf.Abs((int)pl.pos.y - (int)base.pos.y);
             if (distance <= (nearestPlayerDistance))
             {
                 nearestPlayerDistance = distance;
                 nearestPlayer = player;
-
             }
         }
-       NearestCellToPlayer(this.pos, this.passi, nearestPlayer);
+        NearestCellToPlayer(base.pos, this.passi, nearestPlayer);
     }
 
     void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
@@ -56,15 +68,8 @@ public abstract class Enemy : Character
                     continue;
 
                 int distance = Mathf.Abs(i - (int)player.pos.x) + Mathf.Abs(y - (int)player.pos.y);
-                if (distance <= nearestCellDistance && !base.grid.cells[i, y].isOccupied)
+                if (distance <= nearestCellDistance && !base.grid.cells[i, y].isOccupied && Mathf.Abs(i - _x) + Mathf.Abs(y - _y) < raggio)
                 {
-                    if (nearestCell != null)
-                    {
-
-                        SpriteRenderer sr1 = nearestCell.gameObject.GetComponent<SpriteRenderer>();
-                        sr1.color = Color.white;
-                    }
-
                     nearestCellDistance = distance;
                     nearestCell = base.grid.cells[i, y];
                 }
@@ -86,12 +91,14 @@ public abstract class Enemy : Character
         grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
         int x = (int)endPos.x - (int)_pos.x;
         int y = (int)endPos.y - (int)_pos.y;
-        int zy = 0;
-        int zx = x / Mathf.Abs(x);
 
-        for (int i = 1; i < Mathf.Abs(x) + 1; i++)
+        if (x != 0)
         {
-            cellToCross.Add(base.grid.cells[((int)this.pos.x + (zx * i)), (int)this.pos.y]);
+            int zx = x / Mathf.Abs(x);
+            for (int i = 1; i < Mathf.Abs(x) + 1; i++)
+            {
+                cellToCross.Add(base.grid.cells[((int)this.pos.x + (zx * i)), (int)this.pos.y]);
+            }
         }
 
         //Prendo l'ultima cella trovata se c'è
@@ -102,13 +109,13 @@ public abstract class Enemy : Character
 
         if (y != 0)
         {
-            zy = y / Mathf.Abs(y);
+            int zy = y / Mathf.Abs(y);
+            for (int j = 1; j < Mathf.Abs(y) + 1; j++)
+            {
+                cellToCross.Add(base.grid.cells[x, (int)this.pos.y + (zy * j)]);
+            }
         }
-        for (int j = 1; j < Mathf.Abs(y) + 1; j++)
-        {
 
-            cellToCross.Add(base.grid.cells[x, (int)this.pos.y + (zy * j)]);
-        }
         foreach (CombatCell item in cellToCross)
         {
             this.transform.position = item.gameObject.transform.position;
@@ -216,29 +223,31 @@ public abstract class Enemy : Character
         CombatController cc = FindObjectOfType<CombatController>();
         // SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
         // sr.color = Color.red;
-        Debug.Log("il nemico nella posizione " + this.pos + "ha attaccato il giocatore " + Target.name);
         Player player = Target.GetComponent<Player>();
         player.SubisciDanno(att);
         yield return new WaitForSeconds(2);
         cc.EndOfTurn();
     }
 
-    public void SubisciDanno(int danni,GameObject enemy)
+    public void SubisciDannoMelee(int danni, GameObject enemy)
     {
-        hp = hp - (Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) + (Random.Range(1.0f, 1.125f))));
+        int danniTot = Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f)));
+        hp = hp - danniTot;
         CombatController cc = FindObjectOfType<CombatController>();
-        if(hp <= 0)
+        UiController ui = FindObjectOfType<UiController>();
+        ui.DamageText(enemy, danniTot, Color.red);
+        if (hp <= 0)
         {
             List<int> n = new List<int>();
-            base.grid.cells[(int)this.pos.x,(int) this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
             //cc.player.RemoveAll(item => item == enemy);
-            for (int j = 0; j < cc.player.Count; j++)
+            for (int j = cc.turno +1; j < cc.player.Count; j++)
             {
                 if (cc.player[j] == enemy)
                     n.Add(j);
             }
-            for (int i = n.Count -1; i > 0; i--)
+            for (int i = n.Count - 1; i >= 0; i--)
             {
                 cc.player.RemoveAt(n[i]);
             }
@@ -249,5 +258,118 @@ public abstract class Enemy : Character
             Destroy(this.gameObject);
 
         }
+    }
+
+    public void SubisciDannoRanged(int danni, GameObject enemy)
+    {
+        int danniTot = Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f)));
+        hp = hp - danniTot;
+        UiController ui = FindObjectOfType<UiController>();
+        ui.DamageText(enemy, danniTot, Color.red);
+        CombatController cc = FindObjectOfType<CombatController>();
+        if (hp <= 0)
+        {
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == enemy)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+                cc.UpdateTurnPortrait();
+            else
+                cc.Win();
+            Destroy(this.gameObject);
+
+        }
+    }
+
+    public void StartTurn()
+    {
+        if(nturnoDifesa.Count != 0)
+        {
+            CheckDebuffDifesa();
+        }
+
+        if (nturnoAttacco.Count != 0)
+        {
+            CheckDebuffAttacco();
+        }
+        if(turniVeleno > 0)
+        {
+            CheckVeleno();
+        }
+    }
+
+    void CheckDebuffDifesa()
+    {
+        for (int i = nturnoDifesa.Count - 1; i >= 0; i--)
+        {
+            nturnoDifesa[i]--;
+            if(nturnoDifesa[i] == 0)
+            {
+                difesa += debuffDifesa[i];
+                debuffDifesa.RemoveAt(i);
+                nturnoDifesa.RemoveAt(i);
+            }
+        }
+    }
+
+    void CheckDebuffAttacco()
+    {
+        for (int i = nturnoAttacco.Count - 1; i >= 0; i--)
+        {
+            nturnoAttacco[i]--;
+            if (nturnoDifesa[i] == 0)
+            {
+                att += debuffAttacco[i];
+                debuffAttacco.RemoveAt(i);
+                nturnoAttacco.RemoveAt(i);
+            }
+        }
+    }
+
+    void CheckVeleno()
+    {
+        int danno = Mathf.RoundToInt(((hpMax * 5) / 100) * Random.Range(1.0f,1.5f));
+        hp = hp - danno;
+        UiController ui = FindObjectOfType<UiController>();
+        CombatController cc = FindObjectOfType<CombatController>();
+        ui.DamageText(this.gameObject, danno, Color.red);
+        if (hp <= 0)
+        {
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == this.gameObject)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+            {
+                cc.EndOfTurn();
+            }
+            else
+                cc.Win();
+            Destroy(this.gameObject);
+
+        }
+
+        turniVeleno--;
     }
 }
