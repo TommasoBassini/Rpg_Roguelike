@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private int randomEncounterProbably = 0;
     private Vector3 distance;
     private Vector3 direction;
+    public bool hasKey = false;
+    
 
     void Start ()
     {
@@ -70,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.W) && !isMoving)
         {
             PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
+
         }
 
         if (Input.GetKey(KeyCode.S) && !isMoving)
@@ -85,8 +88,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A) && !isMoving)
         {
             PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
-        }
+        }        
+
     }
-
-
+        
+   
 }
