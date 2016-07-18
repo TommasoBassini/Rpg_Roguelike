@@ -30,6 +30,7 @@ public class Grid : MonoBehaviour
 
                     Cell cell = newCell.GetComponent<Cell>();
                     cell.tileEditorCell = tileCell;
+                    string oggetto =  i + "," + j;
 
                     if (cell.tileEditorCell != null)
                     {

@@ -7,7 +7,8 @@ public class Cell : MonoBehaviour
     public Vector2 pos;
     public bool isWall = false;
     public GameObject tileEditorCell;
-    public bool isAngle = false;
+    public GameObject cellObject;
+    public bool isAngle = false;    
     private Grid grid;
     public List<GameObject> wallNear = new List<GameObject>();
 
