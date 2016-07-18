@@ -252,6 +252,8 @@ public class PlayerStatsControl : MonoBehaviour
         public int evasione;
         public int precisione;
         public int velocita;
+
+        public bool[] abilitaSbloccate = new bool[5];
     }
 
     public IncrementiDps incrementiDps;

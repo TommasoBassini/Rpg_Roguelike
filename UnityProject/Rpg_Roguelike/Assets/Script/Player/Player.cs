@@ -36,7 +36,12 @@ public abstract class Player : Character
     public GameObject uiInfo;
     public GameObject checkAttack;
     public List<GameObject> checkboxAttack = new List<GameObject>();
- 
+
+    // liste buff/debuff
+    public List<int> nturnoBuffAttacco = new List<int>();
+    public List<int> buffAttaccoMelee = new List<int>();
+    public List<int> buffAttaccoRanged = new List<int>();
+    public List<int> buffAttaccoMagico = new List<int>();
 
     public void Attack(GameObject _enemy)
     {
@@ -59,4 +64,33 @@ public abstract class Player : Character
             Destroy(child.gameObject);
         }
     }
+
+    public void StartTurn()
+    {
+        if (nturnoBuffAttacco.Count != 0)
+        {
+            CheckBuffAttacco();
+        }
+    }
+
+    void CheckBuffAttacco()
+    {
+        for (int i = nturnoBuffAttacco.Count - 1; i >= 0; i--)
+        {
+            nturnoBuffAttacco[i]--;
+            if (nturnoBuffAttacco[i] == 0)
+            {
+                stats.attMelee -= buffAttaccoMelee[i];
+                stats.attMagico -= buffAttaccoMagico[i];
+                stats.attDistanza -= buffAttaccoRanged[i];
+
+                buffAttaccoMelee.RemoveAt(i);
+                buffAttaccoMagico.RemoveAt(i);
+                buffAttaccoRanged.RemoveAt(i);
+
+                nturnoBuffAttacco.RemoveAt(i);
+            }
+        }
+    }
+
 }

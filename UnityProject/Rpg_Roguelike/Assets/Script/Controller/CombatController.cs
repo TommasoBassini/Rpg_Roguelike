@@ -53,27 +53,27 @@ public class CombatController : MonoBehaviour
         
         for (int i = 0; i < turnImage.Length; i++)
         {
-            if (player[i + turno].name == "Dps(Clone)")
+            if (player[i].name == "Dps(Clone)")
             {
                 turnImage[i].sprite = turnPortrait[0];
             }
-            if (player[i + turno].name == "Mage(Clone)")
+            if (player[i ].name == "Mage(Clone)")
             {
                 turnImage[i].sprite = turnPortrait[1];
             }
-            if (player[i + turno].name == "Tank(Clone)")
+            if (player[i ].name == "Tank(Clone)")
             {
                 turnImage[i].sprite = turnPortrait[2];
             }
-            if (player[i + turno].name == "Enemy0")
+            if (player[i ].name == "Enemy0")
             {
                 turnImage[i].sprite = turnPortrait[3];
             }
-            if (player[i + turno].name == "Enemy1")
+            if (player[i ].name == "Enemy1")
             {
                 turnImage[i].sprite = turnPortrait[3];
             }
-            if (player[i + turno].name == "Enemy2")
+            if (player[i ].name == "Enemy2")
             {
                 turnImage[i].sprite = turnPortrait[3];
             }
@@ -97,7 +97,9 @@ public class CombatController : MonoBehaviour
             sr.color = Color.white;
         }
         UiController ui = FindObjectOfType<UiController>();
-        turno++;
+        //turno++;
+        player.RemoveAt(0);
+
         UpdateTurnPortrait();
         if (player[turno].GetComponent<Enemy>() != null)
         {
@@ -109,6 +111,7 @@ public class CombatController : MonoBehaviour
         {
             ui.SetUiToPlayer(player[turno]);
             ui.UI.SetActive(true);
+            player[turno].GetComponent<Player>().StartTurn();
         }
     }
 

@@ -122,6 +122,7 @@ public class TankAbility : MonoBehaviour
             }
         }
         button.Clear();
+
         ui.EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
     }
 

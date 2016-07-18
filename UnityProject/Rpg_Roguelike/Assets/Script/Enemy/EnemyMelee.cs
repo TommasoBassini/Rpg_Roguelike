@@ -9,7 +9,7 @@ public class EnemyMelee : Enemy
 
     public override void Ai()
     {
-        CheckPlayerNear();
+        Invoke("CheckPlayerNear", 0.5f);
     }
     
 

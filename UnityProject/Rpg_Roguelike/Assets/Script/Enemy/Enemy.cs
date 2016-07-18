@@ -8,6 +8,7 @@ public abstract class Enemy : Character
     public abstract void Ai();
     public List<CombatCell> cellToCross = new List<CombatCell>();
 
+    public int hpMax;
     public int hp;
     public int mp;
     public int difesa;
@@ -20,6 +21,8 @@ public abstract class Enemy : Character
     public List<int> nturnoAttacco = new List<int>();
     public List<int> debuffAttacco = new List<int>();
 
+    public int turniVeleno = 0;
+    public int percVeleno;
 
     public void FindNearestPlayer()
     {
@@ -228,20 +231,23 @@ public abstract class Enemy : Character
 
     public void SubisciDannoMelee(int danni, GameObject enemy)
     {
-        hp = hp - (Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f))));
+        int danniTot = Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f)));
+        hp = hp - danniTot;
         CombatController cc = FindObjectOfType<CombatController>();
+        UiController ui = FindObjectOfType<UiController>();
+        ui.DamageText(enemy, danniTot, Color.red);
         if (hp <= 0)
         {
             List<int> n = new List<int>();
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
             //cc.player.RemoveAll(item => item == enemy);
-            for (int j = 0; j < cc.player.Count; j++)
+            for (int j = cc.turno +1; j < cc.player.Count; j++)
             {
                 if (cc.player[j] == enemy)
                     n.Add(j);
             }
-            for (int i = n.Count - 1; i > 0; i--)
+            for (int i = n.Count - 1; i >= 0; i--)
             {
                 cc.player.RemoveAt(n[i]);
             }
@@ -256,7 +262,10 @@ public abstract class Enemy : Character
 
     public void SubisciDannoRanged(int danni, GameObject enemy)
     {
-        hp = hp - (Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f))));
+        int danniTot = Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f)));
+        hp = hp - danniTot;
+        UiController ui = FindObjectOfType<UiController>();
+        ui.DamageText(enemy, danniTot, Color.red);
         CombatController cc = FindObjectOfType<CombatController>();
         if (hp <= 0)
         {
@@ -264,15 +273,16 @@ public abstract class Enemy : Character
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
             //cc.player.RemoveAll(item => item == enemy);
-            for (int j = 0; j < cc.player.Count; j++)
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
             {
                 if (cc.player[j] == enemy)
                     n.Add(j);
             }
-            for (int i = n.Count - 1; i > 0; i--)
+            for (int i = n.Count - 1; i >= 0; i--)
             {
                 cc.player.RemoveAt(n[i]);
             }
+
             if (!cc.CheckWinner())
                 cc.UpdateTurnPortrait();
             else
@@ -292,6 +302,10 @@ public abstract class Enemy : Character
         if (nturnoAttacco.Count != 0)
         {
             CheckDebuffAttacco();
+        }
+        if(turniVeleno > 0)
+        {
+            CheckVeleno();
         }
     }
 
@@ -321,5 +335,41 @@ public abstract class Enemy : Character
                 nturnoAttacco.RemoveAt(i);
             }
         }
+    }
+
+    void CheckVeleno()
+    {
+        int danno = Mathf.RoundToInt(((hpMax * 5) / 100) * Random.Range(1.0f,1.5f));
+        hp = hp - danno;
+        UiController ui = FindObjectOfType<UiController>();
+        CombatController cc = FindObjectOfType<CombatController>();
+        ui.DamageText(this.gameObject, danno, Color.red);
+        if (hp <= 0)
+        {
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == this.gameObject)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+            {
+                cc.EndOfTurn();
+            }
+            else
+                cc.Win();
+            Destroy(this.gameObject);
+
+        }
+
+        turniVeleno--;
     }
 }

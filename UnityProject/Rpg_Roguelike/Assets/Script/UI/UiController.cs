@@ -127,6 +127,23 @@ public class UiController : MonoBehaviour
                         }
                         break;
                     }
+                case 5:
+                    {
+                        faseUi = 3;
+                        foreach (var item in attackBoxList)
+                        {
+                            Destroy(item);
+                        }
+                        attackBoxList.Clear();
+                        ActionPanel.SetActive(true);
+                        Player player = cc.player[cc.turno].GetComponent<Player>();
+                        player.CheckAttack();
+                        foreach (var item in player.checkboxAttack)
+                        {
+                            Destroy(item);
+                        }
+                        break;
+                    }
             }
         }
         if (Input.GetKeyDown(KeyCode.Return) && faseUi == 1 && waitMovement)

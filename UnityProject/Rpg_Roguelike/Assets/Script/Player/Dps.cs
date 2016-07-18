@@ -25,6 +25,11 @@ public class Dps : Player
         this.stats.precisione = playerstats.statsDps.precisione;
         this.stats.velocita = playerstats.statsDps.precisione;
 
+        for (int i = 0; i < playerstats.statsDps.abilitaSbloccate.Length; i++)
+        {
+            this.stats.abilitaSbloccate[i] = playerstats.statsDps.abilitaSbloccate[i];
+        }
+
         UiController ui = FindObjectOfType<UiController>();
         ui.SetUiPlayer(this.gameObject);
 
