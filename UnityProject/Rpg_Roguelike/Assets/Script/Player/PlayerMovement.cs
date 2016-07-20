@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     void Start ()
     {
         fog = this.GetComponent<FogOfWarManager>();
-
         fog.Fog(playerPos);
     }
 
@@ -72,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.W) && !isMoving)
         {
             PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
-
         }
 
         if (Input.GetKey(KeyCode.S) && !isMoving)

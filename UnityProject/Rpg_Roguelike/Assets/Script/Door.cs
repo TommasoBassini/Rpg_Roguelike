@@ -11,7 +11,8 @@ public class Door : MonoBehaviour
 
     void Start()
     {        
-        player = GetComponent<PlayerMovement>();       
+        player = GetComponent<PlayerMovement>();
+        //SetDoor();    
     }
 
 
@@ -31,8 +32,6 @@ public class Door : MonoBehaviour
         {
             grid = GetComponent<Grid>();
             grid.cells[(int)pos.x, (int)pos.y].isWall = false;
-
-
 
             PlayerMovement player = coll.gameObject.GetComponent<PlayerMovement>();
             player.hasKey = true;
