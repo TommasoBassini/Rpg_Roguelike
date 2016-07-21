@@ -11,6 +11,7 @@ public class Cell : MonoBehaviour
     public bool isAngle = false;    
     private Grid grid;
     public List<GameObject> wallNear = new List<GameObject>();
+    public bool isIlluminated = false;
 
     void Start ()
     {

@@ -3,9 +3,7 @@ using System.Collections;
 
 public class CellObject : MonoBehaviour
 {
-    public bool isPickedUp;
-
-
+    
 	void Start ()
     {
         Invoke("SetObjectToCell", 0.3f);       
@@ -29,10 +27,8 @@ public class CellObject : MonoBehaviour
             Debug.Log("Presa chiave");            
             Destroy(this.gameObject);
         }
-        
     }
-
-    }
+}
 
 
 
