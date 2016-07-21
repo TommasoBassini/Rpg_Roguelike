@@ -46,7 +46,7 @@ public class Grid : MonoBehaviour
                             cell.isAngle = true;
                         }
                     }
-                    if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign") 
+                    if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "NewGameDesign") 
                     {
                         SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
                         sr.color = Color.clear;
@@ -58,7 +58,7 @@ public class Grid : MonoBehaviour
                     continue;
                 }
             }
-            if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
+            if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "NewGameDesign")
             {
                 PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
                 pm.Invoke("SetPlayerPosition", 0.1f);
