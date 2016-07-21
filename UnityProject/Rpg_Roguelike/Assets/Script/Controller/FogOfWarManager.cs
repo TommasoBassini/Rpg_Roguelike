@@ -7,7 +7,6 @@ public class FogOfWarManager : MonoBehaviour
     private Grid grid;
     private int vista = 5;
     private List<GameObject> cells = new List<GameObject>();
-
 	void Start ()
     {
         grid = FindObjectOfType<Grid>();

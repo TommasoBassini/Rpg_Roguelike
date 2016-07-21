@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 distance;
     private Vector3 direction;
     public bool isSpeaking = false;
+    public bool hasKey = false;
+
     void Start ()
     {
         fog = this.GetComponent<FogOfWarManager>();
