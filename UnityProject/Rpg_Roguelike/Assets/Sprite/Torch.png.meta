@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 1f375fa15fd236b43b7454271d02dc2c
+timeCreated: 1468844680
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Torch_0
+    21300002: Torch_1
+    21300004: Torch_2
+    21300006: Torch_3
+    21300008: Torch_4
+    21300010: Torch_5
+    21300012: Torch_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.47863245, y: 0.46176335}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Torch_0
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 430
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Torch_1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 430
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Torch_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 10
+        width: 220
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 110, y: 56}
+        - {x: 110, y: 126}
+        - {x: 104, y: 172}
+        - {x: 91, y: 183}
+        - {x: 69, y: 184}
+        - {x: 38, y: 210}
+        - {x: -80, y: 210}
+        - {x: -91, y: 193}
+        - {x: -110, y: 144}
+        - {x: -110, y: 67}
+        - {x: -78, y: 15}
+        - {x: -45, y: 3}
+        - {x: -45, y: -182}
+        - {x: -21, y: -210}
+        - {x: 12, y: -210}
+        - {x: 42, y: -180}
+        - {x: 51, y: 6}
+        - {x: 76, y: 10}
+      - - {x: -110, y: 172}
+        - {x: -110, y: 158}
+        - {x: -100, y: 158}
+        - {x: -98, y: 160}
+        - {x: -98, y: 170}
+        - {x: -100, y: 172}
+      - - {x: 50, y: 192}
+        - {x: 48, y: 190}
+        - {x: 48, y: 180}
+        - {x: 50, y: 178}
+        - {x: 60, y: 178}
+        - {x: 62, y: 180}
+        - {x: 62, y: 190}
+        - {x: 60, y: 192}
+      - - {x: 80, y: 202}
+        - {x: 78, y: 200}
+        - {x: 78, y: 190}
+        - {x: 80, y: 188}
+        - {x: 90, y: 188}
+        - {x: 92, y: 190}
+        - {x: 92, y: 200}
+        - {x: 90, y: 202}
+      - - {x: -52, y: 210}
+        - {x: -52, y: 200}
+        - {x: -50, y: 198}
+        - {x: -40, y: 198}
+        - {x: -38, y: 200}
+        - {x: -38, y: 210}
+    - name: Torch_3
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 390
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Torch_4
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 360
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Torch_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 320
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Torch_6
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 320
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

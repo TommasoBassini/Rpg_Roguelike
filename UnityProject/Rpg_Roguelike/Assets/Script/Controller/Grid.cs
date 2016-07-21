@@ -30,6 +30,7 @@ public class Grid : MonoBehaviour
 
                     Cell cell = newCell.GetComponent<Cell>();
                     cell.tileEditorCell = tileCell;
+                    string oggetto =  i + "," + j;
 
                     if (cell.tileEditorCell != null)
                     {
@@ -45,7 +46,7 @@ public class Grid : MonoBehaviour
                             cell.isAngle = true;
                         }
                     }
-                    if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign")
+                    if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "Designer_LevelDesign") 
                     {
                         SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
                         sr.color = Color.clear;
