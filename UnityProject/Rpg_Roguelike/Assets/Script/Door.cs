@@ -3,45 +3,38 @@ using System.Collections;
 
 public class Door : MonoBehaviour
 {
-
-    PlayerMovement player;
-    Grid grid;
-    public bool hasTheKey = false;
-
-
     void Start()
-    {        
-        player = GetComponent<PlayerMovement>();
-        //SetDoor();    
+    {
+        Invoke("SetObjectToCell", 0.3f);
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.color = Color.clear;
+
     }
 
-
-
-    void SetDoor()
+    void SetObjectToCell()
     {
         Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
-        grid = GetComponent<Grid>();
-        grid.cells[(int)pos.x, (int)pos.y].isWall = true;
+        Grid grid = FindObjectOfType<Grid>();
+        grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
+        grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isWall = true;
     }
 
-
-
-   /* void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.name == "Player" && player.hasKey == true)
+        PlayerMovement player = coll.gameObject.GetComponent<PlayerMovement>();
+
+        if (coll.gameObject.name == "Player" && player.hasKey)
         {
-            grid = GetComponent<Grid>();
-            grid.cells[(int)pos.x, (int)pos.y].isWall = false;
+            Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
+            Grid grid = FindObjectOfType<Grid>();
+            grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isWall = false;
 
-            PlayerMovement player = coll.gameObject.GetComponent<PlayerMovement>();
-            player.hasKey = true;
-
+            Debug.Log("Porta Aperta");
+            player.hasKey = false;
+            Collider2D thiscol = GetComponent<Collider2D>();
+            thiscol.enabled = false;
         }
     }
-    */
-
-           
-
 }
 
 
