@@ -21,6 +21,7 @@ public class TileDialogue : MonoBehaviour
             nRow = textRow.Length - 1;
         }
 
+        panelDialogue = GameObject.Find("DialoguePanel");
         text = panelDialogue.GetComponentInChildren<Text>();
     }
 

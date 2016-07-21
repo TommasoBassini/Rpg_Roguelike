@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 distance;
     private Vector3 direction;
     public bool hasKey = false;
-    
+    public bool isSpeaking = false;
 
     void Start ()
     {
@@ -68,26 +68,28 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.W) && !isMoving)
+        if (!isSpeaking)
         {
-            PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
+            if (Input.GetKey(KeyCode.W) && !isMoving)
+            {
+                PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
+            }
+
+            if (Input.GetKey(KeyCode.S) && !isMoving)
+            {
+                PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
+            }
+
+            if (Input.GetKey(KeyCode.D) && !isMoving)
+            {
+                PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
+            }
+
+            if (Input.GetKey(KeyCode.A) && !isMoving)
+            {
+                PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
+            }
         }
-
-        if (Input.GetKey(KeyCode.S) && !isMoving)
-        {
-            PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
-        }
-
-        if (Input.GetKey(KeyCode.D) && !isMoving)
-        {
-            PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
-        }
-
-        if (Input.GetKey(KeyCode.A) && !isMoving)
-        {
-            PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
-        }        
-
     }
         
    
