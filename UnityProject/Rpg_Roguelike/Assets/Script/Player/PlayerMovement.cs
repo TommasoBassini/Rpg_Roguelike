@@ -11,13 +11,12 @@ public class PlayerMovement : MonoBehaviour
     private int randomEncounterProbably = 0;
     private Vector3 distance;
     private Vector3 direction;
-    public bool isSpeaking = false;
     public bool hasKey = false;
+    
 
     void Start ()
     {
         fog = this.GetComponent<FogOfWarManager>();
-
         fog.Fog(playerPos);
     }
 
@@ -69,29 +68,27 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (!isSpeaking)
+        if(Input.GetKey(KeyCode.W) && !isMoving)
         {
-            if (Input.GetKey(KeyCode.W) && !isMoving)
-            {
-                PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
-            }
-
-            if (Input.GetKey(KeyCode.S) && !isMoving)
-            {
-                PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
-            }
-
-            if (Input.GetKey(KeyCode.D) && !isMoving)
-            {
-                PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
-            }
-
-            if (Input.GetKey(KeyCode.A) && !isMoving)
-            {
-                PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
-            }
+            PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
         }
+
+        if (Input.GetKey(KeyCode.S) && !isMoving)
+        {
+            PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
+        }
+
+        if (Input.GetKey(KeyCode.D) && !isMoving)
+        {
+            PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
+        }
+
+        if (Input.GetKey(KeyCode.A) && !isMoving)
+        {
+            PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
+        }        
+
     }
-
-
+        
+   
 }
