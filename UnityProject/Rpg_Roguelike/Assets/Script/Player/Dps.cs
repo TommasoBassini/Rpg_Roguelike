@@ -38,6 +38,13 @@ public class Dps : Player
     public override void SubisciDanno(float danni)
     {
         int danniSubiti = Mathf.RoundToInt(((((danni / stats.difFisica) * 100) * (danni / 2)) / 100) * (Random.Range(1, 1.125f)));
+        if (nTurnoProtezione > 0)
+        {
+            danniSubiti = (danniSubiti * 10) / 100;
+            //TODO aggiungere di cancellare l'effetto sprite qui
+            nTurnoProtezione = 0;
+        }
+
         stats.hp = stats.hp - danniSubiti;
         UiController ui = FindObjectOfType<UiController>();
         ui.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
@@ -51,8 +58,6 @@ public class Dps : Player
 
         int _x = (int)pos.x;
         int _y = (int)pos.y;
-
-
 
         for (int i = (_x - raggio); i <= (_x + raggio); i++)
         {

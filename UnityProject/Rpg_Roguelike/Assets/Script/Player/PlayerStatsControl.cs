@@ -86,12 +86,15 @@ public class PlayerStatsControl : MonoBehaviour
         public int evasione;
         public int precisione;
         public int velocita;
+
+        public bool[] abilitaSbloccate = new bool[5];
+
     }
 
-        /// <summary>
-        /// Qui andremo a gestire tutte le statistiche e gli incrementi del tank
-        /// </summary>
-        [System.Serializable]
+    /// <summary>
+    /// Qui andremo a gestire tutte le statistiche e gli incrementi del tank
+    /// </summary>
+    [System.Serializable]
     public class IncrementiTank
     {
         // HP

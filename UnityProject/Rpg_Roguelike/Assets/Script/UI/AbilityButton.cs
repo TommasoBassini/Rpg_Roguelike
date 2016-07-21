@@ -13,19 +13,32 @@ public class AbilityButton : MonoBehaviour
         SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.red;
 
-        enemyInfoPanel.SetActive(true);
-        //Testo vita
-        Text textVita = enemyInfoPanel.transform.Find("Vita").GetComponent<Text>();
-        textVita.text = "Hp : " + enemy.GetComponent<Enemy>().hp;
-        //Testo mp
-        Text textMana = enemyInfoPanel.transform.Find("Mana").GetComponent<Text>();
-        textMana.text = "Mp : " + enemy.GetComponent<Enemy>().mp;
-        //Testo Attacco
-        Text textAttacco = enemyInfoPanel.transform.Find("Attacco").GetComponent<Text>();
-        textAttacco.text = "Attacco : " + enemy.GetComponent<Enemy>().att;
-        //Testo Difesa
-        Text textDifesa = enemyInfoPanel.transform.Find("Difesa").GetComponent<Text>();
-        textDifesa.text = "Difesa : " + enemy.GetComponent<Enemy>().difesa;
+        if (enemy.CompareTag("Enemy"))
+        {
+            enemyInfoPanel.SetActive(true);
+            //Testo vita
+            Text textVita = enemyInfoPanel.transform.Find("Vita").GetComponent<Text>();
+            textVita.text = "Hp : " + enemy.GetComponent<Enemy>().hp;
+            //Testo mp
+            Text textMana = enemyInfoPanel.transform.Find("Mana").GetComponent<Text>();
+            textMana.text = "Mp : " + enemy.GetComponent<Enemy>().mp;
+            //Testo Attacco
+            Text textAttacco = enemyInfoPanel.transform.Find("Attacco").GetComponent<Text>();
+            textAttacco.text = "Attacco : " + enemy.GetComponent<Enemy>().att;
+            //Testo Difesa
+            Text textDifesa = enemyInfoPanel.transform.Find("Difesa").GetComponent<Text>();
+            textDifesa.text = "Difesa : " + enemy.GetComponent<Enemy>().difesa;
+        }
+        else if (enemy.CompareTag("Enemy"))
+        {
+            enemyInfoPanel.SetActive(true);
+            //Testo vita
+            Text textVita = enemyInfoPanel.transform.Find("Vita").GetComponent<Text>();
+            textVita.text = "Hp : " + enemy.GetComponent<Player>().stats.hp;
+            //Testo mp
+            Text textMana = enemyInfoPanel.transform.Find("Mana").GetComponent<Text>();
+            textMana.text = "Mp : " + enemy.GetComponent<Player>().stats.mp;
+        }
     }
 
     public void DeIlluminaPlayer()

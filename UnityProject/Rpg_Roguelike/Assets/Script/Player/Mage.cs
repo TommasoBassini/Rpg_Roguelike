@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Mage : Player
 {
     public override void TakeStats()
@@ -22,6 +23,12 @@ public class Mage : Player
         this.stats.evasione = playerstats.statsMago.evasione;
         this.stats.precisione = playerstats.statsMago.precisione;
         this.stats.velocita = playerstats.statsMago.precisione;
+
+        for (int i = 0; i < playerstats.statsMago.abilitaSbloccate.Length; i++)
+        {
+            this.stats.abilitaSbloccate[i] = playerstats.statsMago.abilitaSbloccate[i];
+        }
+
         UiController ui = FindObjectOfType<UiController>();
         ui.SetUiPlayer(this.gameObject);
     }

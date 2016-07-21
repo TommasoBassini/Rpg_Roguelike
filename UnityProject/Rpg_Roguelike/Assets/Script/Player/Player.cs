@@ -38,10 +38,14 @@ public abstract class Player : Character
     public List<GameObject> checkboxAttack = new List<GameObject>();
 
     // liste buff/debuff
+    //BuffAttacco
     public List<int> nturnoBuffAttacco = new List<int>();
     public List<int> buffAttaccoMelee = new List<int>();
     public List<int> buffAttaccoRanged = new List<int>();
     public List<int> buffAttaccoMagico = new List<int>();
+
+    //Protezione
+    public int nTurnoProtezione = 0;
 
     public void Attack(GameObject _enemy)
     {
@@ -70,6 +74,11 @@ public abstract class Player : Character
         if (nturnoBuffAttacco.Count != 0)
         {
             CheckBuffAttacco();
+        }
+        if(nTurnoProtezione > 0)
+        {
+            nTurnoProtezione--;
+            //TODO aggiungere di cancellare l'effetto sprite qui
         }
     }
 

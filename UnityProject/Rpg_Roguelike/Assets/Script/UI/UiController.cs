@@ -26,6 +26,7 @@ public class UiController : MonoBehaviour
     public GameObject tankAbilityPanel;
     public GameObject activeAbilityPanel;
     public List<GameObject> attackBoxList = new List<GameObject>();
+    public List<GameObject> buffBoxList = new List<GameObject>();         //Lista delle celle verdi
 
     public GameObject textDamagePrefab;
     void Start ()

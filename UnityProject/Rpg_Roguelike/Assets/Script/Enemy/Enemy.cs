@@ -288,10 +288,40 @@ public abstract class Enemy : Character
             else
                 cc.Win();
             Destroy(this.gameObject);
-
         }
     }
 
+    public int SubisciDannoRangedAndReturn(int danni, GameObject enemy)
+    {
+        int danniTot = Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f)));
+        hp = hp - danniTot;
+        UiController ui = FindObjectOfType<UiController>();
+        ui.DamageText(enemy, danniTot, Color.red);
+        CombatController cc = FindObjectOfType<CombatController>();
+        if (hp <= 0)
+        {
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == enemy)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+                cc.UpdateTurnPortrait();
+            else
+                cc.Win();
+            Destroy(this.gameObject);
+        }
+        return danniTot;
+    }
     public void StartTurn()
     {
         if(nturnoDifesa.Count != 0)
