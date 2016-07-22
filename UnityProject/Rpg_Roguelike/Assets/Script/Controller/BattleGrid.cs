@@ -28,12 +28,13 @@ public class BattleGrid : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Battle"));
         cells = new CombatCell[width, height];
         cc = FindObjectOfType<CombatController>();
+
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
                 GameObject newCell = Instantiate(cellPrefab);
-                newCell.transform.position = new Vector3(i + this.transform.position.x + 0.5f, j + 0.5f, 0);
+                newCell.transform.position = new Vector3(i + this.transform.position.x + 0.5f, this.transform.position.y + j + 0.5f, 0);
                 newCell.name = "Cell " + i + " " + j;
                 cells[i, j] = newCell.GetComponent<CombatCell>();
                 cells[i, j].pos = new Vector2(i, j);
@@ -45,7 +46,7 @@ public class BattleGrid : MonoBehaviour
         {
             string info = "InfoP" + uiinfo;
             int n = Random.Range(0, nUsatiPlayer.Count);
-            int y = Random.Range(3, 8);
+            int y = Random.Range(0, 7);
             GameObject NewPlayer = Instantiate(player);
             NewPlayer.transform.position = cells[nUsatiPlayer[n],y].gameObject.transform.position;
             SpriteRenderer sr = NewPlayer.GetComponent<SpriteRenderer>();
@@ -70,7 +71,7 @@ public class BattleGrid : MonoBehaviour
         for (int p = 0; p < 3; p++)
         {
             int enemX = Random.Range(0, nUsatiEnemy.Count);
-            int enemY = Random.Range(0, 8);
+            int enemY = Random.Range(0, 7);
             GameObject newEnemy = Instantiate(enemy);
             newEnemy.name = "Enemy" + p;
             newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;

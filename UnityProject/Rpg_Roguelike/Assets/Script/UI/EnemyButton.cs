@@ -14,20 +14,51 @@ public class EnemyButton : MonoBehaviour
     {
         SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.red;
-
+        Enemy _enemy = enemy.GetComponent<Enemy>();
+        float hp = (float) _enemy.hp;
+        float hpMax = (float)_enemy.hpMax;
         enemyInfoPanel.SetActive(true);
         //Testo vita
-        Text textVita = enemyInfoPanel.transform.Find("Vita").GetComponent<Text>();
-        textVita.text = "Hp : " + enemy.GetComponent<Enemy>().hp;
-        //Testo mp
-        Text textMana = enemyInfoPanel.transform.Find("Mana").GetComponent<Text>();
-        textMana.text = "Mp : " + enemy.GetComponent<Enemy>().mp;
-        //Testo Attacco
-        Text textAttacco = enemyInfoPanel.transform.Find("Attacco").GetComponent<Text>();
-        textAttacco.text = "Attacco : " + enemy.GetComponent<Enemy>().att;
-        //Testo Difesa
-        Text textDifesa = enemyInfoPanel.transform.Find("Difesa").GetComponent<Text>();
-        textDifesa.text = "Difesa : " + enemy.GetComponent<Enemy>().difesa;
+        Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = _enemy.hp + "/" + _enemy.hpMax;
+        Text textNome = enemyInfoPanel.transform.Find("NomeNemico").GetComponent<Text>();
+        textNome.text = enemy.name;
+        Image vita = enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        vita.fillAmount = ((100 * hp) / hpMax) / 100;
+
+        Image icona = enemyInfoPanel.transform.Find("Image").GetComponent<Image>();
+        icona.sprite = _enemy.icona;
+        //Check Debuff difesa
+        if (_enemy.nturnoDifesa.Count > 0)
+        {
+            enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(true);
+        }
+        else
+            enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(false);
+
+        //Check Debuff attacco
+        if (_enemy.nturnoAttacco.Count > 0)
+        {
+            enemyInfoPanel.transform.Find("Att").gameObject.SetActive(true);
+        }
+        else
+            enemyInfoPanel.transform.Find("Att").gameObject.SetActive(false);
+
+        //Check veleno
+        if (_enemy.turniVeleno > 0)
+        {
+            enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(true);
+        }
+        else
+            enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
+
+     /*   //Check Stunn
+        if (_enemy.turniVeleno > 0)
+        {
+            enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(true);
+        }
+        else
+            enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);*/
     }
 
     public void DeIlluminaPlayer()

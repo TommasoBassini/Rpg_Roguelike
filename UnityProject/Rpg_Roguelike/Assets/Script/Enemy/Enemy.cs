@@ -8,6 +8,8 @@ public abstract class Enemy : Character
     public abstract void Ai();
     public List<CombatCell> cellToCross = new List<CombatCell>();
 
+    public Sprite icona;
+
     public int hpMax;
     public int hp;
     public int mp;

@@ -168,7 +168,10 @@ public class UiController : MonoBehaviour
         Player player = Player.GetComponent<Player>();
         Image imageLife = transform.Find("PlayersPanel" + "/"+player.uiInfo.name + "/Health").GetComponent<Image>();
         imageLife.fillAmount = ((100 *  (float)player.stats.hp) / (float)player.stats.hpMax) / 100;
-
+        Text textVita = transform.Find("PlayersPanel" + "/" + player.uiInfo.name + "/VitaText").GetComponent<Text>();
+        textVita.text = player.stats.hp.ToString() + "/" + player.stats.hpMax.ToString();
+        Text textMana = transform.Find("PlayersPanel" + "/" + player.uiInfo.name + "/ManaText").GetComponent<Text>();
+        textMana.text = player.stats.mp.ToString() + "/" + player.stats.mpMax.ToString();
         Image imageMp = transform.Find("PlayersPanel" + "/" + player.uiInfo.name + "/Mana").GetComponent<Image>();
         imageMp.fillAmount = ((100 * (float)player.stats.mp) / (float)player.stats.mpMax) / 100;
     }
@@ -177,12 +180,16 @@ public class UiController : MonoBehaviour
     {
         Image image = transform.Find("PlayersPanel" + "/" + info.name + "/Health").GetComponent<Image>();
         image.fillAmount = ((100 * hp) / hpMax) / 100;
+        Text textVita = transform.Find("PlayersPanel" + "/" + info.name + "/VitaText").GetComponent<Text>();
+        textVita.text = hp.ToString() + "/" + hpMax.ToString();
+
     }
 
     public void AggiornaMana(float mpMax, float mp, GameObject info)
     {
         Image image = transform.Find("PlayersPanel" + "/" + info.name + "/Mana").GetComponent<Image>();
-
+        Text textMana = transform.Find("PlayersPanel" + "/" + info.name + "/ManaText").GetComponent<Text>();
+        textMana.text = mp.ToString() + "/" + mpMax.ToString();
         image.fillAmount = ((100 * mp) / mpMax) / 100;
     }
     public void Move()

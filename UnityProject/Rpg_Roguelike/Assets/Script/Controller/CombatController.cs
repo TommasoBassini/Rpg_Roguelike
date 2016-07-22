@@ -50,34 +50,60 @@ public class CombatController : MonoBehaviour
 
     public void UpdateTurnPortrait()
     {
-        
+        string nome = "";
         for (int i = 0; i < turnImage.Length; i++)
         {
             if (player[i].name == "Dps(Clone)")
             {
                 turnImage[i].sprite = turnPortrait[0];
+                if(i == 0)
+                {
+                    nome = "dps";
+                }
             }
             if (player[i ].name == "Mage(Clone)")
             {
                 turnImage[i].sprite = turnPortrait[1];
+                if (i == 0)
+                {
+                    nome = "Elibeth";
+                }
             }
             if (player[i ].name == "Tank(Clone)")
             {
                 turnImage[i].sprite = turnPortrait[2];
+                if (i == 0)
+                {
+                    nome = "Johell";
+                }
             }
             if (player[i ].name == "Enemy0")
             {
                 turnImage[i].sprite = turnPortrait[3];
+                if (i == 0)
+                {
+                    nome = "Enemy 0";
+                }
             }
             if (player[i ].name == "Enemy1")
             {
                 turnImage[i].sprite = turnPortrait[3];
+                if (i == 0)
+                {
+                    nome = "Enemy 1";
+                }
             }
             if (player[i ].name == "Enemy2")
             {
                 turnImage[i].sprite = turnPortrait[3];
+                if (i == 0)
+                {
+                    nome = "Enemy 1";
+                }
             }
         }
+        Text text = GameObject.Find("Nome").GetComponent<Text>();
+        text.text = nome.ToUpper();
     }
 
     public void ConfirmMovement()
