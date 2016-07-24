@@ -12,8 +12,9 @@ public abstract class Character : MonoBehaviour
     public  List<float> turn = new List<float>();
     public int n = -1;
     public BattleGrid grid;
-
-
+    private Vector3 distance;
+    private bool isMoving;
+    private Vector3 direction;
 
     public void Start()
     {
@@ -28,26 +29,37 @@ public abstract class Character : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && isMovible)
+        if (isMoving)
+        {
+            distance = grid.cells[(int)pos.x, (int)pos.y].gameObject.transform.position - this.transform.position;
+            direction = distance.normalized;
+            this.transform.position = this.transform.position + direction * Time.deltaTime * 3;
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            sr.sortingOrder = 10 - (int)pos.y;
+            if (distance.sqrMagnitude < 0.01f)
+            {
+                this.transform.position = new Vector3(grid.cells[(int)pos.x, (int)pos.y].transform.position.x, grid.cells[(int)pos.x, (int)pos.y].transform.position.y, 0);
+                isMoving = false;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.W) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x, pos.y + 1));
-            SpriteRenderer sr = GetComponent<SpriteRenderer>();
-            sr.sortingOrder--;
+
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && isMovible)
+        if (Input.GetKey(KeyCode.S) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x, pos.y - 1));
-            SpriteRenderer sr = GetComponent<SpriteRenderer>();
-            sr.sortingOrder++;
         }
 
-        if (Input.GetKeyDown(KeyCode.D) && isMovible)
+        if (Input.GetKey(KeyCode.D) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x + 1, pos.y));
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && isMovible)
+        if (Input.GetKey(KeyCode.A) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x - 1, pos.y));
         }
@@ -59,7 +71,8 @@ public abstract class Character : MonoBehaviour
         {
             if (grid.cells[(int)_pos.x, (int)_pos.y].isWalkable == true)
             {
-                this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
+                //this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
+                isMoving = true;
                 pos = _pos;
             }
         }

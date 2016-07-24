@@ -37,6 +37,9 @@ public abstract class Player : Character
     public GameObject checkAttack;
     public List<GameObject> checkboxAttack = new List<GameObject>();
 
+    public Sprite image;
+    public string nome;
+
     // liste buff/debuff
     //BuffAttacco
     public List<int> nturnoBuffAttacco = new List<int>();
@@ -46,6 +49,11 @@ public abstract class Player : Character
 
     //Protezione
     public int nTurnoProtezione = 0;
+
+
+    //DebuffVeleno
+    public int turniVeleno = 0;
+    public int percVeleno;
 
     public void Attack(GameObject _enemy)
     {
@@ -80,6 +88,10 @@ public abstract class Player : Character
             nTurnoProtezione--;
             //TODO aggiungere di cancellare l'effetto sprite qui
         }
+        if (turniVeleno > 0)
+        {
+            CheckVeleno();
+        }
     }
 
     void CheckBuffAttacco()
@@ -102,4 +114,51 @@ public abstract class Player : Character
         }
     }
 
+    void CheckVeleno()
+    {
+        UiController ui = FindObjectOfType<UiController>();
+
+        int danno = Mathf.RoundToInt(((stats.hpMax * 5) / 100) * Random.Range(1.0f, 1.5f));
+        stats.hp = stats.hp - danno;
+        ui.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
+        CombatController cc = FindObjectOfType<CombatController>();
+        ui.DamageText(this.gameObject, danno, Color.red);
+        if (stats.hp <= 0)
+        {
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == this.gameObject)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+            {
+                cc.EndOfTurn();
+            }
+            else
+                cc.Lose();
+            Destroy(this.gameObject);
+
+        }
+
+        turniVeleno--;
+        if (turniVeleno == 0)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
+    }
+
+    public void MoveAbility()
+    {
+        isMovible = true;
+        grid.AvailableMovement(pos, 20);
+    }
 }

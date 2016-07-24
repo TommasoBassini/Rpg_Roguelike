@@ -10,24 +10,17 @@ public class EnemyButton : MonoBehaviour
 
     private float time = 0.5f;
 
+    public GameObject targetSprite;
+
+    private GameObject newTarget;
+
     public void IlluminaPlayer()
     {
-        SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
-        sr.color = Color.red;
-        Enemy _enemy = enemy.GetComponent<Enemy>();
-        float hp = (float) _enemy.hp;
-        float hpMax = (float)_enemy.hpMax;
-        enemyInfoPanel.SetActive(true);
-        //Testo vita
-        Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
-        textVita.text = _enemy.hp + "/" + _enemy.hpMax;
-        Text textNome = enemyInfoPanel.transform.Find("NomeNemico").GetComponent<Text>();
-        textNome.text = enemy.name;
-        Image vita = enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
-        vita.fillAmount = ((100 * hp) / hpMax) / 100;
+        newTarget = Instantiate(targetSprite);
+        newTarget.transform.position = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 1, enemy.transform.position.z);
 
-        Image icona = enemyInfoPanel.transform.Find("Image").GetComponent<Image>();
-        icona.sprite = _enemy.icona;
+        Enemy _enemy = enemy.GetComponent<Enemy>();
+
         //Check Debuff difesa
         if (_enemy.nturnoDifesa.Count > 0)
         {
@@ -51,29 +44,53 @@ public class EnemyButton : MonoBehaviour
         }
         else
             enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
+        enemyInfoPanel.SetActive(true);
+        Invoke("UpdateImage", 0.1f);
 
-     /*   //Check Stunn
-        if (_enemy.turniVeleno > 0)
-        {
-            enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(true);
-        }
-        else
-            enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);*/
+        /*   //Check Stunn
+           if (_enemy.turniVeleno > 0)
+           {
+               enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(true);
+           }
+           else
+               enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);*/
+    }
+
+
+    void UpdateImage()
+    {
+        Enemy _enemy = enemy.GetComponent<Enemy>();
+        float hp = (float)_enemy.hp;
+        float hpMax = (float)_enemy.hpMax;
+
+        //Testo vita
+        Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = _enemy.hp + "/" + _enemy.hpMax;
+        Text textNome = enemyInfoPanel.transform.Find("NomeNemico").GetComponent<Text>();
+        textNome.text = enemy.name;
+
+        Image vita = enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        vita.color = new Color(vita.color.r, vita.color.g, vita.color.b, 1);
+        Image BaseHealth = enemyInfoPanel.transform.Find("BaseHealth").GetComponent<Image>();
+        BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 1);
+
+        vita.fillAmount = ((100 * hp) / hpMax) / 100;
+
+        Image icona = enemyInfoPanel.transform.Find("Image").GetComponent<Image>();
+        icona.sprite = _enemy.icona;
     }
 
     public void DeIlluminaPlayer()
     {
         enemyInfoPanel.SetActive(false);
-        SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
-        sr.color = Color.white;
+        Destroy(newTarget);
     }
 
     public void AttackEnemy()
     {
         CombatController cc = FindObjectOfType<CombatController>();
         Player player = cc.player[cc.turno].GetComponent<Player>();
-        SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
-        sr.color = Color.white;
+        Destroy(newTarget);
 
         player.Attack(enemy);
 
@@ -85,6 +102,17 @@ public class EnemyButton : MonoBehaviour
         yield return new WaitForSeconds(time);
         UiController ui = FindObjectOfType<UiController>();
 
+        Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = "";
+        Text textNome = enemyInfoPanel.transform.Find("NomeNemico").GetComponent<Text>();
+        textNome.text = "";
+        Image vita = enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        vita.color = new Color(vita.color.r, vita.color.g, vita.color.b, 0);
+        Image BaseHealth = enemyInfoPanel.transform.Find("BaseHealth").GetComponent<Image>();
+        BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 0);
+        enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
+        enemyInfoPanel.transform.Find("Att").gameObject.SetActive(false);
+        enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(false);
         ui.EnemyListPanel.SetActive(false);
         ui.MainPanel.SetActive(true);
         enemyInfoPanel.SetActive(false);

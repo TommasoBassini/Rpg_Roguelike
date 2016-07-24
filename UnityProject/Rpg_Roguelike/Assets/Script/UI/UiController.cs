@@ -8,13 +8,13 @@ public class UiController : MonoBehaviour
     private CombatController cc;
     public GameObject UI;
     public GameObject MainPanel;
-    public GameObject MovePanel;
     public GameObject ActionPanel;
     public GameObject EnemyListPanel;
     public Button MoveButton;
     private Vector2 startPos;
 
     public Button SelectEnemyButton;
+    public Button InfoEnemyButton;
     public GameObject enemyInfoPanel;
     public GameObject[] infoPlayers = new GameObject[3];
 
@@ -29,6 +29,12 @@ public class UiController : MonoBehaviour
     public List<GameObject> buffBoxList = new List<GameObject>();         //Lista delle celle verdi
 
     public GameObject textDamagePrefab;
+    private bool dpsAbility = false;
+
+    public Button healtPotionButton;
+    public Button manaPotionButton;
+    public Button potionButton;
+
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
@@ -47,7 +53,6 @@ public class UiController : MonoBehaviour
                         Character character = cc.player[cc.turno].GetComponent<Character>();
                         character.PlayerMove(startPos);
                         MainPanel.SetActive(true);
-                        MovePanel.SetActive(false);
                         BattleGrid grid = FindObjectOfType<BattleGrid>();
                         grid.ResetWalkableCell();
                         //MoveButton.Select();
@@ -68,6 +73,20 @@ public class UiController : MonoBehaviour
                             buttonAction.Select();
                         }
                         ActionPanel.SetActive(false);
+                        UiController ui = FindObjectOfType<UiController>();
+
+                        Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+                        textVita.text = "";
+                        Text textNome = enemyInfoPanel.transform.Find("NomeNemico").GetComponent<Text>();
+                        textNome.text = "";
+                        Image vita = enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+                        vita.color = new Color(vita.color.r, vita.color.g, vita.color.b, 0);
+                        Image BaseHealth = enemyInfoPanel.transform.Find("BaseHealth").GetComponent<Image>();
+                        BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 0);
+                        enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
+                        enemyInfoPanel.transform.Find("Att").gameObject.SetActive(false);
+                        enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(false);
+                        ui.EnemyListPanel.SetActive(false);
                         break;
                     }
                 case 3:
@@ -100,6 +119,16 @@ public class UiController : MonoBehaviour
                     }
                 case 4:
                     {
+                        Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+                        textVita.text = "";
+                        Text textNome = enemyInfoPanel.transform.Find("NomeNemico").GetComponent<Text>();
+                        textNome.text = "";
+                        Image vita = enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+                        vita.enabled = false;
+                        enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
+                        enemyInfoPanel.transform.Find("Att").gameObject.SetActive(false);
+                        enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(false);
+
                         faseUi = 2;
                         foreach (var item in attackBoxList)
                         {
@@ -149,14 +178,90 @@ public class UiController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return) && faseUi == 1 && waitMovement)
         {
-            cc.ConfirmMovement();
-            faseUi = 0;
-            MoveButton.interactable = false;
-            MainPanel.SetActive(true);
-            SetUiToPlayer(cc.player[cc.turno]);
+            if (dpsAbility)
+            {
+                cc.ConfirmMovement();
+                faseUi = 0;
+                Button actionButton = MainPanel.transform.Find("Action").GetComponent<Button>();
+                actionButton.interactable = false;
+                MainPanel.SetActive(true);
+                SetUiToPlayer(cc.player[cc.turno]);
+                foreach (Transform item in MainPanel.transform)
+                {
+                    if (item.gameObject.GetComponent<Button>().IsInteractable())
+                    {
+                        item.gameObject.GetComponent<Button>().Select();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                cc.ConfirmMovement();
+                faseUi = 0;
+                MoveButton.interactable = false;
+                MainPanel.SetActive(true);
+                SetUiToPlayer(cc.player[cc.turno]);
+            }
         }
     }
-    
+
+    public void EnemyInfo()
+    {
+        faseUi = 2;
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        List<Button> button = new List<Button>();
+        EnemyListPanel.SetActive(true);
+        foreach (var item in enemy)
+        {
+            Button newButton = Instantiate(InfoEnemyButton);
+            newButton.transform.SetParent(EnemyListPanel.transform, false);
+
+            EnemyButton enemyButton = newButton.GetComponent<EnemyButton>();
+            enemyButton.enemy = item;
+            enemyButton.enemyInfoPanel = enemyInfoPanel;
+            button.Add(newButton);
+        }
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
+            {
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                    Debug.Log(button[i].navigation.mode);
+
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                    Debug.Log(button[i].navigation.mode);
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                    Debug.Log(button[i].navigation.mode);
+
+                }
+            }
+        }
+        button.Clear();
+        EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
     public void SetUiToPlayer(GameObject _player)
     {
         Vector3 targetPos_screenSpace = Camera.main.WorldToScreenPoint(_player.transform.position);
@@ -212,18 +317,18 @@ public class UiController : MonoBehaviour
         ActionPanel.SetActive(false);
         Character character = cc.player[cc.turno].GetComponent<Character>();
         string player = character.gameObject.name.ToLower();
-        if (player.Contains("dps"))
+        if (player.Contains("bho"))
         {
             dpsAbilityPanel.SetActive(true);
             activeAbilityPanel = dpsAbilityPanel;
             activeAbilityPanel.transform.GetChild(0).GetComponent<Button>().Select();
         }
-        if (player.Contains("tank"))
+        if (player.Contains("johell"))
         {
             tankAbilityPanel.SetActive(true);
             activeAbilityPanel = tankAbilityPanel;
         }
-        if (player.Contains("mage"))
+        if (player.Contains("elibeth"))
         {
             mageAbilityPanel.SetActive(true);
             activeAbilityPanel = mageAbilityPanel;
@@ -237,7 +342,6 @@ public class UiController : MonoBehaviour
         faseUi = 0;
         MoveButton.interactable = false;
         MainPanel.SetActive(true);
-        MovePanel.SetActive(false);
     }
 
 
@@ -253,6 +357,7 @@ public class UiController : MonoBehaviour
         MainPanel.SetActive(false);
         ActionPanel.SetActive(true);
         Player player = cc.player[cc.turno].GetComponent<Player>();
+
         player.CheckAttack();
         if (player.enemyDisp.Count == 0)
         {
@@ -268,6 +373,34 @@ public class UiController : MonoBehaviour
             buttonAttack.interactable = true;
             buttonAttack.Select();
         }
+
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+
+        if (stats.nPotionHealth > 0)
+        {
+            healtPotionButton.interactable = true;
+            Text textPotionHealth = ActionPanel.transform.Find("PanelVita/NHealth").GetComponent<Text>();
+            textPotionHealth.text = stats.nPotionHealth.ToString();
+        }
+        else
+        {
+            healtPotionButton.interactable = false;
+            Text textPotionHealth = ActionPanel.transform.Find("PanelVita/NHealth").GetComponent<Text>();
+            textPotionHealth.text = stats.nPotionHealth.ToString();
+        }
+
+        if (stats.nPotionMana > 0)
+        {
+            manaPotionButton.interactable = true;
+            Text textPotionMana = ActionPanel.transform.Find("PanelMana/NMana").GetComponent<Text>();
+            textPotionMana.text = stats.nPotionMana.ToString();
+        }
+        else
+        {
+            manaPotionButton.interactable = false;
+            Text textPotionMana = ActionPanel.transform.Find("PanelMana/NMana").GetComponent<Text>();
+            textPotionMana.text = stats.nPotionMana.ToString();
+        }
     }
 
     public void PassaTurno()
@@ -276,13 +409,189 @@ public class UiController : MonoBehaviour
 
         MoveButton.interactable = true;
         MainPanel.SetActive(true);
-        MovePanel.SetActive(false);
         EnemyListPanel.SetActive(false);
         ActionPanel.SetActive(false);
         Button buttonAction = MainPanel.transform.Find("Action").GetComponent<Button>();
         buttonAction.interactable = true;
 
     }
+
+    public void CoHealthButton()
+    {
+        UiController ui = FindObjectOfType<UiController>();
+
+        ui.EnemyListPanel.SetActive(true);
+        ActionPanel.SetActive(false);
+
+        GameObject[] allyDisp = GameObject.FindGameObjectsWithTag("Player");
+        List<Button> button = new List<Button>();
+
+        foreach (GameObject ally in allyDisp)
+        {
+            Button newButton = Instantiate(potionButton);
+
+            AbilityButton enemyButton = newButton.GetComponent<AbilityButton>();
+            enemyButton.enemy = ally;
+            enemyButton.enemyInfoPanel = ui.enemyInfoPanel;
+            newButton.transform.SetParent(EnemyListPanel.transform, false);
+            newButton.onClick.AddListener(() => Vita(enemyButton.enemy));
+            button.Add(newButton);
+        }
+
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
+            {
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+            }
+        }
+        button.Clear();
+        EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+    public void Vita(GameObject _player)
+    {
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+        stats.nPotionHealth--;
+        Player playerTarget = _player.GetComponent<Player>();
+        int cura = Mathf.RoundToInt((playerTarget.stats.hpMax * 50)/ 100);
+        //calcola effetto
+        if (playerTarget.stats.hp + cura > playerTarget.stats.hpMax)
+        {
+            playerTarget.stats.hp = playerTarget.stats.hpMax;
+        }
+        else
+            playerTarget.stats.hp += cura;
+
+        // Roba UI
+        AggiornaVita(playerTarget.stats.hpMax, playerTarget.stats.hp, playerTarget.uiInfo);
+        DamageText(playerTarget.gameObject, cura, Color.green);
+        foreach (Transform item in EnemyListPanel.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        CoSvuotaPanel();
+
+        EnemyListPanel.SetActive(false);
+        ActionPanel.SetActive(false);
+        MainPanel.SetActive(true);
+        enemyInfoPanel.SetActive(false);
+        Button actionButton = MainPanel.transform.Find("Action").GetComponent<Button>();
+        actionButton.interactable = false;
+    }
+
+    public void CoManaButton()
+    {
+        UiController ui = FindObjectOfType<UiController>();
+
+        ui.EnemyListPanel.SetActive(true);
+        ActionPanel.SetActive(false);
+
+        GameObject[] allyDisp = GameObject.FindGameObjectsWithTag("Player");
+        List<Button> button = new List<Button>();
+
+        foreach (GameObject ally in allyDisp)
+        {
+            Button newButton = Instantiate(potionButton);
+
+            AbilityButton enemyButton = newButton.GetComponent<AbilityButton>();
+            enemyButton.enemy = ally;
+            enemyButton.enemyInfoPanel = ui.enemyInfoPanel;
+            newButton.transform.SetParent(EnemyListPanel.transform, false);
+            newButton.onClick.AddListener(() => Mana(enemyButton.enemy));
+            button.Add(newButton);
+        }
+
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
+            {
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+            }
+        }
+        button.Clear();
+        EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+    public void Mana(GameObject _player)
+    {
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+        stats.nPotionMana--;
+        Player playerTarget = _player.GetComponent<Player>();
+        int cura = Mathf.RoundToInt((playerTarget.stats.mpMax * 50) / 100);
+        //calcola effetto
+        if (playerTarget.stats.mp + cura > playerTarget.stats.mpMax)
+        {
+            playerTarget.stats.mp = playerTarget.stats.mpMax;
+        }
+        else
+            playerTarget.stats.mp += cura;
+
+        // Roba UI
+        AggiornaMana(playerTarget.stats.mpMax, playerTarget.stats.mp, playerTarget.uiInfo);
+        DamageText(playerTarget.gameObject, cura, Color.blue);
+        foreach (Transform item in EnemyListPanel.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        CoSvuotaPanel();
+
+        EnemyListPanel.SetActive(false);
+        ActionPanel.SetActive(false);
+        MainPanel.SetActive(true);
+        enemyInfoPanel.SetActive(false);
+        Button actionButton = MainPanel.transform.Find("Action").GetComponent<Button>();
+        actionButton.interactable = false;
+    }
+
 
     public void Attack()
     {
@@ -380,5 +689,53 @@ public class UiController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void CoSvuotaPanel()
+    {
+        StartCoroutine(SvuotaPanel());
+    }
+
+    IEnumerator SvuotaPanel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        UiController ui = FindObjectOfType<UiController>();
+
+        Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = "";
+        Text textNome = enemyInfoPanel.transform.Find("NomeNemico").GetComponent<Text>();
+        textNome.text = "";
+        Image vita = enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        vita.color = new Color(vita.color.r, vita.color.g, vita.color.b, 0);
+        Image BaseHealth = enemyInfoPanel.transform.Find("BaseHealth").GetComponent<Image>();
+        BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 0);
+        enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
+        enemyInfoPanel.transform.Find("Att").gameObject.SetActive(false);
+        enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(false);
+        EnemyListPanel.SetActive(false);
+        MainPanel.SetActive(true);
+        enemyInfoPanel.SetActive(false);
+        Button actionButton = MainPanel.transform.Find("Action").GetComponent<Button>();
+        actionButton.interactable = false;
+        foreach (Transform item in ui.MainPanel.transform)
+        {
+            if (item.gameObject.GetComponent<Button>().IsInteractable())
+            {
+                item.gameObject.GetComponent<Button>().Select();
+                break;
+            }
+        }
+    }
+
+    public void MoveAbility()
+    {
+        waitMovement = false;
+        dpsAbility = true;
+        Player character = cc.player[cc.turno].GetComponent<Player>();
+        startPos = character.pos;
+        character.MoveAbility();
+        faseUi = 1;
+        MainPanel.SetActive(false);
+        Invoke("ResetBoolMovement", 0.1f);
     }
 }

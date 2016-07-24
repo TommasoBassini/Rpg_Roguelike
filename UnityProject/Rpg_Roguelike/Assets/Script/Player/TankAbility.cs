@@ -12,6 +12,12 @@ public class TankAbility : MonoBehaviour
     public Button abilityButton;
 
     public GameObject lanciaSassoSprite;
+    public GameObject attaccoMeno;
+    public GameObject difesaMeno;
+    public GameObject attaccoFisico;
+    public GameObject spaccaossi;
+    public GameObject percuotere;
+    public GameObject attaccoCasuale;
 
     public int[] costoAbilita = new int[5];
     public bool[] abilitaSbloccate = new bool[5];
@@ -147,6 +153,7 @@ public class TankAbility : MonoBehaviour
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
         DestroyAttackBox();
         DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
     // ABILITA DEMOLISCI             //////////////////////////////////////////
@@ -216,6 +223,10 @@ public class TankAbility : MonoBehaviour
         int nturni = 2;
         int percentualeDebuff = 35;
         int danni = player.stats.attMelee;
+        GameObject effect = Instantiate(difesaMeno);
+        effect.transform.position = _enemy.transform.position;
+        GameObject effect1 = Instantiate(attaccoFisico);
+        effect1.transform.position = _enemy.transform.position;
         //calcola effetto
         Enemy enemy = _enemy.GetComponent<Enemy>();
         int debuffDifesa = Mathf.RoundToInt((enemy.difesa * percentualeDebuff) / 100);
@@ -233,6 +244,7 @@ public class TankAbility : MonoBehaviour
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
         DestroyAttackBox();
         DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
     // ABILITA DEMOLISCI             //////////////////////////////////////////
@@ -303,6 +315,10 @@ public class TankAbility : MonoBehaviour
         int percentualeDebuff = 35;
         int danni = player.stats.attMelee;
         //calcola effetto
+        GameObject effect = Instantiate(attaccoMeno);
+        effect.transform.position = _enemy.transform.position;
+        GameObject effect1 = Instantiate(attaccoFisico);
+        effect1.transform.position = _enemy.transform.position;
         Enemy enemy = _enemy.GetComponent<Enemy>();
         int debuffAttacco = Mathf.RoundToInt((enemy.att * percentualeDebuff) / 100);
         enemy.nturnoAttacco.Add(nturni);
@@ -319,6 +335,7 @@ public class TankAbility : MonoBehaviour
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
         DestroyAttackBox();
         DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
     // ABILITA SpaccaTeschi             /////////////////////////////////////////
@@ -388,7 +405,10 @@ public class TankAbility : MonoBehaviour
 
         //calcola effetto
         int danni = player.stats.attMelee + Mathf.RoundToInt(player.stats.attMelee /2);
-
+        GameObject effect = Instantiate(spaccaossi);
+        effect.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, 0); ;
+        GameObject effect1 = Instantiate(attaccoCasuale);
+        effect1.transform.position = _enemy.transform.position;
         Enemy enemy = _enemy.GetComponent<Enemy>();
         //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
@@ -400,25 +420,109 @@ public class TankAbility : MonoBehaviour
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
         DestroyAttackBox();
         DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
-    // TAUNT //////////////////
-    public void Taunt()
+    //Percuoti //////////////////////////////////////////////////////
+    public void CoPercuoti()
     {
-        //costo e variabili
-        int mp = 5;
-
         UiController ui = FindObjectOfType<UiController>();
 
         ui.tankAbilityPanel.SetActive(false);
         ui.EnemyListPanel.SetActive(true);
+        List<Button> button = new List<Button>();
+
+        foreach (GameObject enemy in enemyDisp)
+        {
+            Button newButton = Instantiate(abilityButton);
 
 
+            AbilityButton enemyButton = newButton.GetComponent<AbilityButton>();
+            enemyButton.enemy = enemy;
+            enemyButton.enemyInfoPanel = ui.enemyInfoPanel;
+            newButton.transform.SetParent(ui.EnemyListPanel.transform, false);
+            newButton.onClick.AddListener(() => Percuoti(enemyButton.enemy));
+            button.Add(newButton);
+        }
+
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
+            {
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+            }
+        }
+        button.Clear();
+
+        ui.EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+
+    public void Percuoti(GameObject _enemy)
+    {
+        //costo e variabili
+        int mp = 25;
+        float random = Random.Range(0.0f, 100.0f);
+        if (random >= 0)
+        {
+            List<int> n = new List<int>();
+            CombatController cc = FindObjectOfType<CombatController>();
+            int nturni = 0;
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == _enemy)
+                    n.Add(j);
+
+                nturni++;
+
+                if (nturni == 2)
+                    break;
+            }
+            n.Reverse();
+            foreach (var item in n)
+            {
+                cc.player.RemoveAt(item);
+            }
+            cc.UpdateTurnPortrait();
+        }
+        //calcola effetto
+        GameObject effect1 = Instantiate(percuotere);
+        effect1.transform.position = _enemy.transform.position;
+        int danni = Mathf.RoundToInt(((player.stats.attMelee)) * (Random.Range(1.0f, 1.20f)));
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        //scala il danno dal nemico e gli mp al player
+        enemy.SubisciDannoRanged(danni, _enemy);
         player.stats.mp -= mp;
         // Roba UI
+        UiController ui = FindObjectOfType<UiController>();
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
-
-        ui.CoAttivaPanel();
+        DestroyAttackBox();
+        DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
     public void SpawnAttackBox(int raggio)

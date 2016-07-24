@@ -1,0 +1,243 @@
+fileFormatVersion: 2
+guid: 8b340623976f7a9469dd242829d2a199
+timeCreated: 1469309395
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Veleno Sprite Sheet_0
+    21300002: Veleno Sprite Sheet_1
+    21300004: Veleno Sprite Sheet_2
+    21300006: Veleno Sprite Sheet_3
+    21300008: Veleno Sprite Sheet_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Veleno Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 110, y: 150}
+        - {x: 109, y: 151}
+        - {x: 82, y: 151}
+        - {x: 80, y: 147}
+        - {x: 79, y: 142}
+        - {x: 82, y: 139}
+        - {x: 72, y: 140}
+        - {x: 64, y: 138}
+        - {x: 64, y: 115}
+        - {x: 66, y: 114}
+        - {x: 75, y: 114}
+        - {x: 81, y: 116}
+        - {x: 97, y: 116}
+        - {x: 106, y: 117}
+        - {x: 110, y: 128}
+      - - {x: 103, y: 167}
+        - {x: 101, y: 167}
+        - {x: 97, y: 165}
+        - {x: 95, y: 162}
+        - {x: 95, y: 151}
+        - {x: 98, y: 150}
+        - {x: 107, y: 150}
+        - {x: 110, y: 153}
+        - {x: 110, y: 163}
+    - name: Veleno Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 98, y: 182}
+        - {x: 78, y: 169}
+        - {x: 70, y: 141}
+        - {x: 70, y: 102}
+        - {x: 98, y: 102}
+        - {x: 122, y: 130}
+        - {x: 122, y: 178}
+        - {x: 115, y: 182}
+      - - {x: 120, y: 129}
+        - {x: 118, y: 128}
+        - {x: 118, y: 123}
+        - {x: 120, y: 122}
+        - {x: 123, y: 122}
+        - {x: 124, y: 123}
+        - {x: 124, y: 129}
+      - - {x: 80, y: 161}
+        - {x: 76, y: 157}
+        - {x: 76, y: 155}
+        - {x: 79, y: 152}
+        - {x: 80, y: 152}
+        - {x: 85, y: 157}
+        - {x: 85, y: 158}
+        - {x: 82, y: 161}
+    - name: Veleno Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 132, y: 200}
+        - {x: 80, y: 154}
+        - {x: 72, y: 130}
+        - {x: 72, y: 100}
+        - {x: 118, y: 100}
+        - {x: 143, y: 105}
+        - {x: 152, y: 148}
+        - {x: 152, y: 200}
+      - - {x: 118, y: 144}
+        - {x: 112, y: 139}
+        - {x: 112, y: 130}
+        - {x: 113, y: 128}
+        - {x: 116, y: 127}
+        - {x: 123, y: 127}
+        - {x: 128, y: 130}
+        - {x: 128, y: 137}
+        - {x: 125, y: 144}
+      - - {x: 141, y: 145}
+        - {x: 141, y: 143}
+        - {x: 143, y: 141}
+        - {x: 145, y: 141}
+        - {x: 148, y: 144}
+        - {x: 147, y: 147}
+        - {x: 143, y: 147}
+      - - {x: 108, y: 185}
+        - {x: 105, y: 184}
+        - {x: 105, y: 179}
+        - {x: 106, y: 177}
+        - {x: 110, y: 177}
+        - {x: 113, y: 178}
+        - {x: 113, y: 183}
+        - {x: 112, y: 185}
+    - name: Veleno Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 98, y: 175}
+        - {x: 77, y: 147}
+        - {x: 77, y: 96}
+        - {x: 102, y: 96}
+        - {x: 128, y: 110}
+        - {x: 129, y: 127}
+        - {x: 129, y: 174}
+        - {x: 127, y: 175}
+      - - {x: 125, y: 120}
+        - {x: 125, y: 118}
+        - {x: 127, y: 116}
+        - {x: 128, y: 116}
+        - {x: 131, y: 119}
+        - {x: 130, y: 122}
+        - {x: 127, y: 122}
+      - - {x: 86, y: 154}
+        - {x: 83, y: 153}
+        - {x: 83, y: 148}
+        - {x: 85, y: 146}
+        - {x: 87, y: 146}
+        - {x: 91, y: 150}
+        - {x: 91, y: 152}
+        - {x: 90, y: 154}
+    - name: Veleno Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 124, y: 140}
+        - {x: 123, y: 141}
+        - {x: 96, y: 141}
+        - {x: 94, y: 137}
+        - {x: 93, y: 132}
+        - {x: 96, y: 129}
+        - {x: 86, y: 130}
+        - {x: 78, y: 128}
+        - {x: 78, y: 105}
+        - {x: 80, y: 104}
+        - {x: 89, y: 104}
+        - {x: 95, y: 106}
+        - {x: 111, y: 106}
+        - {x: 120, y: 107}
+        - {x: 124, y: 118}
+      - - {x: 117, y: 157}
+        - {x: 115, y: 157}
+        - {x: 111, y: 155}
+        - {x: 109, y: 152}
+        - {x: 109, y: 141}
+        - {x: 112, y: 140}
+        - {x: 121, y: 140}
+        - {x: 124, y: 143}
+        - {x: 124, y: 153}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

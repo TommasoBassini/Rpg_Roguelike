@@ -53,7 +53,7 @@ public class CombatController : MonoBehaviour
         string nome = "";
         for (int i = 0; i < turnImage.Length; i++)
         {
-            if (player[i].name == "Dps(Clone)")
+            if (player[i].name == "Bho")
             {
                 turnImage[i].sprite = turnPortrait[0];
                 if(i == 0)
@@ -61,7 +61,7 @@ public class CombatController : MonoBehaviour
                     nome = "dps";
                 }
             }
-            if (player[i ].name == "Mage(Clone)")
+            if (player[i ].name == "Elibeth")
             {
                 turnImage[i].sprite = turnPortrait[1];
                 if (i == 0)
@@ -69,7 +69,7 @@ public class CombatController : MonoBehaviour
                     nome = "Elibeth";
                 }
             }
-            if (player[i ].name == "Tank(Clone)")
+            if (player[i ].name == "Johell")
             {
                 turnImage[i].sprite = turnPortrait[2];
                 if (i == 0)
@@ -77,28 +77,28 @@ public class CombatController : MonoBehaviour
                     nome = "Johell";
                 }
             }
-            if (player[i ].name == "Enemy0")
+            if (player[i].name.Contains("Mage"))
             {
                 turnImage[i].sprite = turnPortrait[3];
                 if (i == 0)
                 {
-                    nome = "Enemy 0";
+                    nome = "Mage";
                 }
             }
-            if (player[i ].name == "Enemy1")
+            if (player[i].name.Contains("Melee"))
             {
-                turnImage[i].sprite = turnPortrait[3];
+                turnImage[i].sprite = turnPortrait[4];
                 if (i == 0)
                 {
-                    nome = "Enemy 1";
+                    nome = "Melee";
                 }
             }
-            if (player[i ].name == "Enemy2")
+            if (player[i].name.Contains("Ranged"))
             {
-                turnImage[i].sprite = turnPortrait[3];
+                turnImage[i].sprite = turnPortrait[5];
                 if (i == 0)
                 {
-                    nome = "Enemy 1";
+                    nome = "Ranged";
                 }
             }
         }
@@ -117,6 +117,7 @@ public class CombatController : MonoBehaviour
 
     public void EndOfTurn()
     {
+        AzzeraRitratto();
         if (player[turno].CompareTag("Enemy"))
         {
             SpriteRenderer sr = player[turno].GetComponent<SpriteRenderer>();
@@ -130,11 +131,13 @@ public class CombatController : MonoBehaviour
         if (player[turno].GetComponent<Enemy>() != null)
         {
             ui.UI.SetActive(false);
+            Invoke ("AggiornaRitrattoEnemy", 0.1f);
             player[turno].GetComponent<Enemy>().Ai();
             player[turno].GetComponent<Enemy>().StartTurn();
         }
         else
         {
+            Invoke("AggiornaRitrattoPlayer", 0.1f);
             ui.SetUiToPlayer(player[turno]);
             ui.UI.SetActive(true);
             player[turno].GetComponent<Player>().StartTurn();
@@ -158,4 +161,55 @@ public class CombatController : MonoBehaviour
         SceneManager.UnloadScene(1);
     }
 
+    public void Lose()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaTommy"));
+        SceneManager.UnloadScene(1);
+    }
+
+    void AggiornaRitrattoEnemy()
+    {
+        UiController ui = FindObjectOfType<UiController>();
+        ui.enemyInfoPanel.SetActive(true);
+        GameObject info = GameObject.Find("EnemyInfo");
+        Image icona = info.transform.Find("Image").GetComponent<Image>();
+        Text nome = info.transform.Find("NomeSpell").GetComponent<Text>();
+
+        icona.sprite = player[turno].GetComponent<Enemy>().icona;
+        nome.text = player[turno].name;
+        Text textVita = ui.enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = player[turno].GetComponent<Enemy>().hp + "/" + player[turno].GetComponent<Enemy>().hpMax;
+
+
+        Image vita = ui.enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        vita.color = new Color(vita.color.r, vita.color.g, vita.color.b, 1);
+        Image BaseHealth = ui.enemyInfoPanel.transform.Find("BaseHealth").GetComponent<Image>();
+        BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 1);
+    }
+
+    void AggiornaRitrattoPlayer()
+    {
+        UiController ui = FindObjectOfType<UiController>();
+        ui.enemyInfoPanel.SetActive(true);
+        GameObject info = GameObject.Find("EnemyInfo");
+        Image icona = info.transform.Find("Image").GetComponent<Image>();
+        Text nome = info.transform.Find("NomeSpell").GetComponent<Text>();
+
+        icona.sprite = player[turno].GetComponent<Player>().image;
+        nome.text = player[turno].name;
+        Text textVita = ui.enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = player[turno].GetComponent<Player>().stats.hp + "/" + player[turno].GetComponent<Player>().stats.hpMax;
+
+
+        Image vita = ui.enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        vita.color = new Color(vita.color.r, vita.color.g, vita.color.b, 1);
+        Image BaseHealth = ui.enemyInfoPanel.transform.Find("BaseHealth").GetComponent<Image>();
+        BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 1);
+    }
+
+    void AzzeraRitratto()
+    {
+        UiController ui = FindObjectOfType<UiController>();
+        ui.enemyInfoPanel.SetActive(false);
+    }
 }

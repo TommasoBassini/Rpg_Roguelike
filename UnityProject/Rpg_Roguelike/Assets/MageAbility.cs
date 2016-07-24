@@ -7,6 +7,7 @@ public class MageAbility : MonoBehaviour
 {
     private Player player;
     public GameObject attackBox;
+    public GameObject allyBox;
     public List<GameObject> enemyDisp = new List<GameObject>();             // enemy a tiro nel raggio di azione dell'abilità
 
     public List<GameObject> buffBoxList = new List<GameObject>();         //Lista delle celle verdi
@@ -69,45 +70,183 @@ public class MageAbility : MonoBehaviour
         buttonAbilita[0].Select();
     }
 
-    // ABILITA Protezione    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void Esortazione()
+    //Fulmine nero //////////////////////////////////////////////////////
+    public void CoFulmine()
     {
-        //costo e variabili
-        int mp = 10;
-        int nturni = 3;
-        int percentualeDebuff = 25;
+        UiController ui = FindObjectOfType<UiController>();
 
+        ui.mageAbilityPanel.SetActive(false);
+        ui.EnemyListPanel.SetActive(true);
+        List<Button> button = new List<Button>();
 
-        //Cerca gli alleati
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
-        foreach (var item in players)
+        foreach (GameObject enemy in enemyDisp)
         {
-            if (item != null)
-            {
-                Player pl = item.GetComponent<Player>();
-                int buffMelee = (pl.stats.attMelee * percentualeDebuff) / 100;
-                int buffMagico = (pl.stats.attMagico * percentualeDebuff) / 100;
-                int buffRanged = (pl.stats.attDistanza * percentualeDebuff) / 100;
+            Button newButton = Instantiate(abilityButton);
 
-                pl.nturnoBuffAttacco.Add(nturni);
 
-                pl.buffAttaccoMelee.Add(buffMelee);
-                pl.buffAttaccoMagico.Add(buffMagico);
-                pl.buffAttaccoRanged.Add(buffRanged);
-
-                pl.stats.attMelee += buffMelee;
-                pl.stats.attDistanza += buffRanged;
-                pl.stats.attMagico += buffMagico;
-            }
+            AbilityButton enemyButton = newButton.GetComponent<AbilityButton>();
+            enemyButton.enemy = enemy;
+            enemyButton.enemyInfoPanel = ui.enemyInfoPanel;
+            newButton.transform.SetParent(ui.EnemyListPanel.transform, false);
+            newButton.onClick.AddListener(() => Fulmine(enemyButton.enemy));
+            button.Add(newButton);
         }
 
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
+            {
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+            }
+        }
+        button.Clear();
+
+        ui.EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+
+    public void Fulmine(GameObject _enemy)
+    {
+        //costo e variabili
+        int mp = 20;
+
+        //calcola effetto
+        int danni = Mathf.RoundToInt  (((player.stats.attMagico) * 1.5f) * (Random.Range(1.0f,1.25f)));
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        //scala il danno dal nemico e gli mp al player
+        enemy.SubisciDannoRanged(danni, _enemy);
+        player.stats.mp -= mp;
         // Roba UI
         UiController ui = FindObjectOfType<UiController>();
-        ui.dpsAbilityPanel.SetActive(false);
-        ui.AggiornaMana((float)player.stats.mpMax, (float)player.stats.mp, player.uiInfo);
-        ui.CoAttivaPanel();
+        ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
+        DestroyAttackBox();
+        DestroyEnemyButton();
+        ui.CoSvuotaPanel();
+    }
+
+    //Attacco ragnatela //////////////////////////////////////////////////////
+    public void CoRagnatela()
+    {
+        UiController ui = FindObjectOfType<UiController>();
+
+        ui.mageAbilityPanel.SetActive(false);
+        ui.EnemyListPanel.SetActive(true);
+        List<Button> button = new List<Button>();
+
+        foreach (GameObject enemy in enemyDisp)
+        {
+            Button newButton = Instantiate(abilityButton);
+
+
+            AbilityButton enemyButton = newButton.GetComponent<AbilityButton>();
+            enemyButton.enemy = enemy;
+            enemyButton.enemyInfoPanel = ui.enemyInfoPanel;
+            newButton.transform.SetParent(ui.EnemyListPanel.transform, false);
+            newButton.onClick.AddListener(() => Ragnatela(enemyButton.enemy));
+            button.Add(newButton);
+        }
+
+        if (button.Count > 1)
+        {
+            for (int i = 0; i <= button.Count - 1; i++)
+            {
+                int n = i;
+                if (i == button.Count - 1)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[0];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+                else if (i == 0)
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[button.Count - 1];
+                    button[i].navigation = custumNav;
+                }
+                else
+                {
+                    Navigation custumNav = new Navigation();
+                    custumNav.mode = Navigation.Mode.Explicit;
+                    custumNav.selectOnDown = button[n + 1];
+                    custumNav.selectOnUp = button[n - 1];
+                    button[i].navigation = custumNav;
+                }
+            }
+        }
+        button.Clear();
+
+        ui.EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
+    }
+
+
+    public void Ragnatela(GameObject _enemy)
+    {
+        //costo e variabili
+        int mp = 25;
+        float random = Random.Range(0.0f, 100.0f);
+        if (random >= 0)
+        {
+            List<int> n = new List<int>();
+            CombatController cc = FindObjectOfType<CombatController>();
+            int nturni = 0;
+
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == _enemy)
+                    n.Add(j);
+
+                nturni++;
+
+                if (nturni == 2)
+                    break;
+            }
+            n.Reverse();
+            foreach (var item in n)
+            {
+                cc.player.RemoveAt(item);
+            }
+            cc.UpdateTurnPortrait();
+        }
+        //calcola effetto
+        int danni = Mathf.RoundToInt(((1) * 1.5f) * (Random.Range(1.0f, 1.25f)));
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        //scala il danno dal nemico e gli mp al player
+        enemy.SubisciDannoRanged(danni, _enemy);
         player.stats.mp -= mp;
+        // Roba UI
+        UiController ui = FindObjectOfType<UiController>();
+        ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
+        DestroyAttackBox();
+        DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
     // ABILITA Protezione             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -186,6 +325,7 @@ public class MageAbility : MonoBehaviour
         ui.AggiornaMana(this.player.stats.mpMax, this.player.stats.mp, this.player.uiInfo);
         DestroyBuffBox();
         DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
     // CURAAAAAAAAAAAAAAAAAAAAAA /////////////////////////////////////////////////////
@@ -271,6 +411,7 @@ public class MageAbility : MonoBehaviour
         ui.AggiornaMana(this.player.stats.mpMax, this.player.stats.mp, this.player.uiInfo);
         DestroyBuffBox();
         DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
     // Assorbi anima             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -355,6 +496,7 @@ public class MageAbility : MonoBehaviour
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
         DestroyAttackBox();
         DestroyEnemyButton();
+        ui.CoSvuotaPanel();
     }
 
     public void SpawnAttackBox(int raggio)
@@ -441,7 +583,7 @@ public class MageAbility : MonoBehaviour
 
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (raggio))
                 {
-                    GameObject newAttack = Instantiate(attackBox);
+                    GameObject newAttack = Instantiate(allyBox);
                     newAttack.transform.position = grid.cells[i, y].gameObject.transform.position;
                     ui.buffBoxList.Add(newAttack);
                     if (grid.cells[i, y].occupier != null)

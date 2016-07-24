@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public abstract class Enemy : Character
 {
@@ -26,6 +27,8 @@ public abstract class Enemy : Character
     public int turniVeleno = 0;
     public int percVeleno;
 
+    public bool stun = false;
+
     public void FindNearestPlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -46,7 +49,7 @@ public abstract class Enemy : Character
         NearestCellToPlayer(base.pos, this.passi, nearestPlayer);
     }
 
-    void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
+    public void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
     {
         Player player = playerNear.GetComponent<Player>();
         CombatCell nearestCell = null;
@@ -258,8 +261,13 @@ public abstract class Enemy : Character
             else
                 cc.Win();
             Destroy(this.gameObject);
-
         }
+        Image vita = ui.enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        float _hp = (float)this.hp;
+        float _hpMax = (float)this.hpMax;
+        vita.fillAmount = ((100 * _hp) / _hpMax) / 100;
+        Text textVita = ui.enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = hp + "/" + hpMax;
     }
 
     public void SubisciDannoRanged(int danni, GameObject enemy)
@@ -269,8 +277,10 @@ public abstract class Enemy : Character
         UiController ui = FindObjectOfType<UiController>();
         ui.DamageText(enemy, danniTot, Color.red);
         CombatController cc = FindObjectOfType<CombatController>();
+
         if (hp <= 0)
         {
+            hp = 0;
             List<int> n = new List<int>();
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
             base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
@@ -291,6 +301,12 @@ public abstract class Enemy : Character
                 cc.Win();
             Destroy(this.gameObject);
         }
+        Image vita = ui.enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        float _hp = (float)this.hp;
+        float _hpMax = (float)this.hpMax;
+        vita.fillAmount = ((100 * _hp) / _hpMax) / 100;
+        Text textVita = ui.enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = hp + "/" + hpMax;
     }
 
     public int SubisciDannoRangedAndReturn(int danni, GameObject enemy)
@@ -375,7 +391,7 @@ public abstract class Enemy : Character
         hp = hp - danno;
         UiController ui = FindObjectOfType<UiController>();
         CombatController cc = FindObjectOfType<CombatController>();
-        ui.DamageText(this.gameObject, danno, Color.red);
+        ui.DamageText(this.gameObject, danno, Color.green);
         if (hp <= 0)
         {
             List<int> n = new List<int>();
@@ -403,5 +419,9 @@ public abstract class Enemy : Character
         }
 
         turniVeleno--;
+        if (turniVeleno == 0)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
     }
 }
