@@ -3,7 +3,6 @@ using System.Collections;
 
 public class TreasureChestManager : MonoBehaviour
 {
-
     public bool hpPotion;
     public bool mpPotion;
     public bool tankPowerUp;
@@ -19,27 +18,39 @@ public class TreasureChestManager : MonoBehaviour
         sr.color = Color.clear;
     }
 
+    void Update()
+    {
+        if (inFront == true && Input.GetKey(KeyCode.E)) 
+        {
+            Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
+            Grid grid = FindObjectOfType<Grid>();
+            grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
+            grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isWall = false;
+            isClosed = false;
+            Debug.Log("Scrigno aperto!!");
+            Destroy(this.gameObject);
+        }
+    }
 
     void SetObjectToCell()
     {
         Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
         Grid grid = FindObjectOfType<Grid>();
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
+        grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isWall = true;
     }
         
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.name == "Player" && isClosed == true)
         {
-            inFront = true;
-            if (inFront == true && Input.GetKeyDown(KeyCode.E)) // Da sistemare questa parte (Non si "apre" quando premo E)
-            {
-                isClosed = false;
-                Debug.Log("Scrigno aperto!!");
-                Destroy(this.gameObject);
-            }
-                    
-        }
+            inFront = true;                              
+        }          
 	}
+
+    void OnTriggerExit2D(Collider2D coll)
+    {
+        inFront = false;
+    }
 }

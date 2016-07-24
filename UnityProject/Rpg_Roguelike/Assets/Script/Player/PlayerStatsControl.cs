@@ -266,6 +266,12 @@ public class PlayerStatsControl : MonoBehaviour
     public IncrementiMago incrementiMago;
     public StatsMago statsMago;
 
+    public int nPotionHealth;
+    public int nPotionMana;
+
+    public int experience;
+    public int soldi;
+
     void Awake ()
     {
         DontDestroyOnLoad(this.gameObject);
