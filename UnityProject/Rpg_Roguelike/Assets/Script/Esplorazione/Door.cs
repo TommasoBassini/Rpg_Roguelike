@@ -8,7 +8,6 @@ public class Door : MonoBehaviour
         Invoke("SetObjectToCell", 0.3f);
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = Color.clear;
-
     }
 
     void SetObjectToCell()
