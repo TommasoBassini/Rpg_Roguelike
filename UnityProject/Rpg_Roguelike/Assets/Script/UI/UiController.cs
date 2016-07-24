@@ -35,11 +35,19 @@ public class UiController : MonoBehaviour
     public Button manaPotionButton;
     public Button potionButton;
 
+    public GameObject endPanel;
+
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
+        Invoke("CoSetUi", 0.3f);
         MoveButton.Select();
 	}
+
+    void CoSetUi()
+    {
+        SetUiToPlayer(cc.player[cc.turno]);
+    }
 
     void Update()
     {
@@ -737,5 +745,89 @@ public class UiController : MonoBehaviour
         faseUi = 1;
         MainPanel.SetActive(false);
         Invoke("ResetBoolMovement", 0.1f);
+    }
+
+    public IEnumerator EndPanel(int expPrec, int exp, int bloodPrec ,int blood ,bool health, bool mana)
+    {
+        endPanel.SetActive(true);
+        Text textVittoria = endPanel.transform.Find("Vittoria").GetComponent<Text>();
+        textVittoria.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+
+        Text textRicompensa = endPanel.transform.Find("Ricompensa").GetComponent<Text>();
+        textRicompensa.gameObject.SetActive(true);
+        Image riga1 = endPanel.transform.Find("Riga1").GetComponent<Image>();
+        riga1.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+
+        Image sangueSprite = endPanel.transform.Find("SangueSprite").GetComponent<Image>();
+        sangueSprite.gameObject.SetActive(true);
+        Image expSprite = endPanel.transform.Find("ExpSprite").GetComponent<Image>();
+        expSprite.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+
+        Text textPrecExp = endPanel.transform.Find("PrecExp").GetComponent<Text>();
+        textPrecExp.text = expPrec.ToString();
+        textPrecExp.gameObject.SetActive(true);
+        Text textPrecSangue = endPanel.transform.Find("PrecSangue").GetComponent<Text>();
+        textPrecSangue.text = bloodPrec.ToString();
+        textPrecSangue.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+
+        Text textPlusExp = endPanel.transform.Find("PlusExp").GetComponent<Text>();
+        textPlusExp.gameObject.SetActive(true);
+        Text textPlusSangue = endPanel.transform.Find("PlusSangue").GetComponent<Text>();
+        textPlusSangue.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+
+        Text textExp = endPanel.transform.Find("Exp").GetComponent<Text>();
+        textExp.text = exp.ToString();
+        textExp.gameObject.SetActive(true);
+        Text textSangue = endPanel.transform.Find("Sangue").GetComponent<Text>();
+        textSangue.text = blood.ToString();
+        textSangue.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+
+        Text textExpTot = endPanel.transform.Find("ExpTot").GetComponent<Text>();
+        textExpTot.text = (expPrec + exp).ToString();
+        textExpTot.gameObject.SetActive(true);
+        Text textSangueTot = endPanel.transform.Find("SangueTot").GetComponent<Text>();
+        textSangueTot.text = (bloodPrec + blood).ToString();
+        textSangueTot.gameObject.SetActive(true);
+        Image Riga2 = endPanel.transform.Find("Riga2").GetComponent<Image>();
+        Riga2.gameObject.SetActive(true);
+        Image Riga3 = endPanel.transform.Find("Riga3").GetComponent<Image>();
+        Riga3.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+
+        GameObject bottino = endPanel.transform.Find("Bottino").gameObject;
+        bottino.SetActive(true);
+        Image Riga4 = endPanel.transform.Find("Riga4").GetComponent<Image>();
+        Riga4.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+
+        if (health && mana)
+        {
+            Image Poz2 = endPanel.transform.Find("Poz2").GetComponent<Image>();
+            Poz2.gameObject.SetActive(true);
+            Image Poz3 = endPanel.transform.Find("Poz3").GetComponent<Image>();
+            Poz3.gameObject.SetActive(true);
+        }
+        else if (health && !mana)
+        {
+            Image Poz1 = endPanel.transform.Find("Poz1").GetComponent<Image>();
+            Poz1.gameObject.SetActive(true);
+        }
+        else if (!health && mana)
+        {
+            Image Poz4 = endPanel.transform.Find("Poz4").GetComponent<Image>();
+            Poz4.gameObject.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(0.2f);
+        GameObject scritta = endPanel.transform.Find("Premi").gameObject;
+        scritta.SetActive(true);
+
+        cc.changeReady = true;
     }
 }

@@ -50,7 +50,7 @@ public class InfoUi : MonoBehaviour
 
     public void ClearInfo()
     {
-        info.SetActive(true);
+        info.SetActive(false);
 
         nome.text = "";
         icona.sprite = fullAlpha;

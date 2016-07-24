@@ -46,8 +46,9 @@ public class PlayerMovement : MonoBehaviour
                 randomEncounterProbably += 5;
                 if (Random.Range(randomEncounterProbably, 255) > 250)
                 {
+                    GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    //gc.RandomEncounter();
+                    gc.RandomEncounter();
                 }
             }
         }

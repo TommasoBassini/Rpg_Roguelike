@@ -29,6 +29,7 @@ public abstract class Player : Character
 {
     public Statistiche stats;
     public abstract void TakeStats();
+    public abstract void EndBattle();
     public abstract void SubisciDanno(float danni);
     public abstract void SpawnAttackBox();
     public abstract void CheckAttack();

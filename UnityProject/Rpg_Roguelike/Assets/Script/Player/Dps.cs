@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 
 public class Dps : Player
@@ -45,7 +45,39 @@ public class Dps : Player
             nTurnoProtezione = 0;
         }
 
-        stats.hp = stats.hp - danniSubiti;
+        if (stats.hp - danniSubiti <= 0)
+        {
+            stats.hp = 0;
+            CombatController cc = FindObjectOfType<CombatController>();
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == this.gameObject)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+            {
+                cc.EndOfTurn();
+            }
+            else
+                cc.Lose();
+
+            UiController ui1 = FindObjectOfType<UiController>();
+            ui1.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
+            ui1.DamageText(this.gameObject, danniSubiti, Color.red);
+
+            Destroy(this.gameObject);
+        }
+        else
+            stats.hp = stats.hp - danniSubiti;
         UiController ui = FindObjectOfType<UiController>();
         ui.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
         ui.DamageText(this.gameObject, danniSubiti, Color.red);
@@ -121,5 +153,10 @@ public class Dps : Player
         }
     }
 
+    public override void EndBattle()
+    {
+        PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();
+        _stats.statsDps.hp = stats.hp;
+    }
 
 }

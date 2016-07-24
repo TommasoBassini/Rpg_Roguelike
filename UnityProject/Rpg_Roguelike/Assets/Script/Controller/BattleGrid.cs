@@ -70,7 +70,7 @@ public class BattleGrid : MonoBehaviour
         }
 
         int random = Random.Range(2, 6);
-        for (int p = 0; p < random; p++)
+        for (int p = 0; p < 1; p++)
         {
             int enemX = Random.Range(0, nUsatiEnemy.Count);
             int enemY = Random.Range(0, 7);
@@ -80,12 +80,12 @@ public class BattleGrid : MonoBehaviour
             newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
             SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
             srEnemy.sortingOrder = 3;
-            Character characterEnemy = newEnemy.GetComponent<Character>();
+            Enemy characterEnemy = newEnemy.GetComponent<Enemy>();
             characterEnemy.velocita = Random.Range(0.7f, 1.1f);
             characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
             cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
             cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
-
+            cc.enemyLvl.Add(characterEnemy.level);
             for (int z = 1; z < 100; z++)
             {
                 cc.tempo.Add(characterEnemy.velocita * z);

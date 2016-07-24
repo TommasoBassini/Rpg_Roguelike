@@ -11,9 +11,10 @@ public abstract class Enemy : Character
 
     public Sprite icona;
 
+    public int level;
+
     public int hpMax;
     public int hp;
-    public int mp;
     public int difesa;
     public int att;
 
@@ -28,6 +29,15 @@ public abstract class Enemy : Character
     public int percVeleno;
 
     public bool stun = false;
+
+    new void Start()
+    {
+        grid = FindObjectOfType<BattleGrid>();
+        hpMax *= level;
+        hp *= level;
+        difesa *= level;
+        att *= level;
+    }
 
     public void FindNearestPlayer()
     {

@@ -17,10 +17,22 @@ public class CombatController : MonoBehaviour
 
     public Sprite[] turnPortrait;
 
+    public List<int> enemyLvl = new List<int>();
+    public bool changeReady;
+
     void Start ()
     {
         grid = FindObjectOfType<BattleGrid>();
 	}
+
+    void Update()
+    {
+        if (changeReady && Input.anyKeyDown)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaTommy"));
+            SceneManager.UnloadScene(1);
+        }
+    }
 
     public void TurnOrder(List<float> _players, int n)
     {
@@ -146,19 +158,54 @@ public class CombatController : MonoBehaviour
 
     public bool CheckWinner()
     {
+        
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length - 1 <= 0)
         {
             return true;
         }
         else
+        {
             return false;
+        }
     }
 
     public void Win()
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaTommy"));
-        SceneManager.UnloadScene(1);
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+
+        int lvlTot = 0;
+        foreach (var item in enemyLvl)
+        {
+            lvlTot += item;
+        }
+
+        int exp = Mathf.RoundToInt((lvlTot * (Random.Range(40, 45))) * Random.Range(1.0f, 1.25f));
+        int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(7, 10))) * Random.Range(1.0f, 1.25f));
+        bool health = false;
+        if (Random.Range(0f,100f) > 50)
+        {
+            health = true;
+        }
+
+        bool mana = false;
+        if (Random.Range(0f, 100f) > 95)
+        {
+            mana = true;
+        }
+
+        UiController ui = FindObjectOfType<UiController>();
+        StartCoroutine (ui.EndPanel(stats.esperience, exp, stats.soldi, sangue, health, mana));
+
+        Player[] players = FindObjectsOfType<Player>();
+
+        foreach (var item in players)
+        {
+            item.EndBattle();
+        }
+
+        stats.esperience += exp;
+        stats.soldi += sangue;
     }
 
     public void Lose()
