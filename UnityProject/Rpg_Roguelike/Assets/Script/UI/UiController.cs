@@ -70,6 +70,10 @@ public class UiController : MonoBehaviour
                     {
                         faseUi = 0;
 
+                        foreach (Transform item in EnemyListPanel.transform)
+                        {
+                            Destroy(item.gameObject);
+                        }
                         MainPanel.SetActive(true);
                         if (MoveButton.IsInteractable())
                         {
@@ -95,6 +99,8 @@ public class UiController : MonoBehaviour
                         enemyInfoPanel.transform.Find("Att").gameObject.SetActive(false);
                         enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(false);
                         ui.EnemyListPanel.SetActive(false);
+                        GameObject target = GameObject.FindGameObjectWithTag("Target");
+                        Destroy(target);
                         break;
                     }
                 case 3:
@@ -229,6 +235,7 @@ public class UiController : MonoBehaviour
             enemyButton.enemy = item;
             enemyButton.enemyInfoPanel = enemyInfoPanel;
             button.Add(newButton);
+            newButton.gameObject.SetActive(true);
         }
         if (button.Count > 1)
         {
@@ -242,8 +249,6 @@ public class UiController : MonoBehaviour
                     custumNav.selectOnDown = button[0];
                     custumNav.selectOnUp = button[n - 1];
                     button[i].navigation = custumNav;
-                    Debug.Log(button[i].navigation.mode);
-
                 }
                 else if (i == 0)
                 {
@@ -252,7 +257,7 @@ public class UiController : MonoBehaviour
                     custumNav.selectOnDown = button[n + 1];
                     custumNav.selectOnUp = button[button.Count - 1];
                     button[i].navigation = custumNav;
-                    Debug.Log(button[i].navigation.mode);
+                    button[i].Select();
                 }
                 else
                 {
@@ -261,13 +266,10 @@ public class UiController : MonoBehaviour
                     custumNav.selectOnDown = button[n + 1];
                     custumNav.selectOnUp = button[n - 1];
                     button[i].navigation = custumNav;
-                    Debug.Log(button[i].navigation.mode);
-
                 }
             }
         }
         button.Clear();
-        EnemyListPanel.transform.GetChild(0).GetComponent<Button>().Select();
     }
 
     public void SetUiToPlayer(GameObject _player)
@@ -295,7 +297,6 @@ public class UiController : MonoBehaviour
         image.fillAmount = ((100 * hp) / hpMax) / 100;
         Text textVita = transform.Find("PlayersPanel" + "/" + info.name + "/VitaText").GetComponent<Text>();
         textVita.text = hp.ToString() + "/" + hpMax.ToString();
-
     }
 
     public void AggiornaMana(float mpMax, float mp, GameObject info)

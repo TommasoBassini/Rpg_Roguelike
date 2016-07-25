@@ -19,9 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public bool facingLeft = false;
     public bool facingUp = false;
     public bool facingDown = false;
-   
-    
 
+    public bool isOpenMenu = false;
     void Start ()
     {
         fog = this.GetComponent<FogOfWarManager>();
@@ -42,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (((int)_pos.x >= 0) && ((int)_pos.y >= 0) && ((int)_pos.x < grid.width) && ((int)_pos.y < grid.height))
         {
             grid = GameObject.Find("Grid").GetComponent<Grid>();
-            if (grid.cells[(int)_pos.x, (int)_pos.y].isWall == false)
+            if (grid.cells[(int)_pos.x, (int)_pos.y].isWall == false && grid.cells[(int)_pos.x, (int)_pos.y].isSemiWall == false)
             {
                 
                 //this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
@@ -55,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    //gc.RandomEncounter();
+                    gc.RandomEncounter();
                 }
             }
         }
@@ -78,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
-        if (!isSpeaking)
+        if (!isSpeaking && !isOpenMenu)
         {
             if (Input.GetKey(KeyCode.W) && !isMoving)
             {

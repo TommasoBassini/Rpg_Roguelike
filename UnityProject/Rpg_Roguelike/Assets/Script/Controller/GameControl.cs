@@ -6,7 +6,7 @@ public class GameControl : MonoBehaviour
 {
     public GameObject player;
     public Scene battleScene;
-
+    public GameObject Canvas;
 	void Start ()
     {
         
@@ -14,20 +14,26 @@ public class GameControl : MonoBehaviour
 	
 	void Update ()
     {
-        
+
 
         if (battleScene.isLoaded)
         {
             player.SetActive(false);
+            Canvas.SetActive(false);
         }
         else
+        {
             player.SetActive(true);
+            Canvas.SetActive(true);
+        }
     }
 
     public void RandomEncounter()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
+        
         battleScene = SceneManager.GetSceneByName("Battle");
+        SceneManager.SetActiveScene(battleScene);
     }
 
 }

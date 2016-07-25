@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class TreasureChestManager : MonoBehaviour
 {
     public bool hpPotion;
@@ -25,8 +25,22 @@ public class TreasureChestManager : MonoBehaviour
             Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
             Grid grid = FindObjectOfType<Grid>();
             grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
-            grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isWall = false;
+            grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isSemiWall = false;
             isClosed = false;
+            if (hpPotion)
+            {
+                PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+                UiControlExploration ui = FindObjectOfType<UiControlExploration>();
+                stats.nPotionHealth++;
+                ui.AggiornaPotion();
+            }
+            if (mpPotion)
+            {
+                PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+                UiControlExploration ui = FindObjectOfType<UiControlExploration>();
+                stats.nPotionMana++;
+                ui.AggiornaPotion();
+            }
             Debug.Log("Scrigno aperto!!");
             Destroy(this.gameObject);
         }
@@ -37,7 +51,7 @@ public class TreasureChestManager : MonoBehaviour
         Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
         Grid grid = FindObjectOfType<Grid>();
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
-        grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isWall = true;
+        grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isSemiWall = true;
     }
         
 

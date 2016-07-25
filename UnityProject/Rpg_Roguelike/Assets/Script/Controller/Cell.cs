@@ -6,6 +6,7 @@ public class Cell : MonoBehaviour
 {
     public Vector2 pos;
     public bool isWall = false;
+    public bool isSemiWall = false;
     public GameObject tileEditorCell;
     public GameObject cellObject;
     public bool isAngle = false;    
