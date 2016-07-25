@@ -14,6 +14,13 @@ public class PlayerMovement : MonoBehaviour
     public bool hasKey = false;
     public bool isSpeaking = false;
     public Vector2 respawnPos;
+    public Animator animator;
+    public bool facingRight = true;
+    public bool facingLeft = false;
+    public bool facingUp = false;
+    public bool facingDown = false;
+   
+    
 
     void Start ()
     {
@@ -48,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    gc.RandomEncounter();
+                    //gc.RandomEncounter();
                 }
             }
         }
@@ -70,27 +77,50 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        
         if (!isSpeaking)
         {
             if (Input.GetKey(KeyCode.W) && !isMoving)
             {
                 PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
+                facingUp = true;
+                facingDown = false;
+                facingRight = false;
+                facingLeft = false;
+
+                
             }
 
             if (Input.GetKey(KeyCode.S) && !isMoving)
             {
                 PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
+                facingUp = false;    
+                facingDown = true;
+                facingRight = false;
+                facingLeft = false;
             }
 
             if (Input.GetKey(KeyCode.D) && !isMoving)
             {
+                
                 PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
+                facingUp = false;
+                facingDown = false;
+                facingRight = true;
+                facingLeft = false;
             }
 
             if (Input.GetKey(KeyCode.A) && !isMoving)
-            {
+            {                
                 PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
+                facingUp = false;
+                facingDown = false;
+                facingRight = false;
+                facingLeft = true;
             }
+
+          
+
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -100,7 +130,11 @@ public class PlayerMovement : MonoBehaviour
             this.transform.position = respawnPos;
             Debug.Log(fountain.checkpointPos);
         }
+
+        animator.SetBool("IsMoving", isMoving);
+        animator.SetBool("FacingRight", facingRight);
+        animator.SetBool("FacingLeft", facingLeft);
+        animator.SetBool("FacingUp", facingUp);
+        animator.SetBool("FacingDown", facingDown);       
     }
-        
-   
 } 

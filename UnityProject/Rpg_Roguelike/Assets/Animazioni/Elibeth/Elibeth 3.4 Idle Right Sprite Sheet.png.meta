@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: 92982c511371f7640b588a3bd32f4aca
+timeCreated: 1469450309
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Elibeth 3.4 Idle Right Sprite Sheet_0
+    21300002: Elibeth 3.4 Idle Right Sprite Sheet_1
+    21300004: Elibeth 3.4 Idle Right Sprite Sheet_2
+    21300006: Elibeth 3.4 Idle Right Sprite Sheet_3
+    21300008: Elibeth 3.4 Idle Right Sprite Sheet_4
+    21300010: Elibeth 3.4 Idle Right Sprite Sheet_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Elibeth 3.4 Idle Right Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 86, y: 150}
+        - {x: 76, y: 144}
+        - {x: 64, y: 132}
+        - {x: 64, y: 130}
+        - {x: 62, y: 128}
+        - {x: 63, y: 130}
+        - {x: 66, y: 137}
+        - {x: 55, y: 171}
+        - {x: 48, y: 180}
+        - {x: 31, y: 174}
+        - {x: -4, y: 185}
+        - {x: -40, y: 185}
+        - {x: -47, y: 182}
+        - {x: -88, y: 152}
+        - {x: -110, y: 70}
+        - {x: -110, y: -17}
+        - {x: -97, y: -68}
+        - {x: -13, y: -120}
+        - {x: -7, y: -116}
+        - {x: -5, y: -114}
+        - {x: -5, y: -112}
+        - {x: -4, y: -114}
+        - {x: -10, y: -120}
+        - {x: -59, y: -180}
+        - {x: -58, y: -189}
+        - {x: -46, y: -197}
+        - {x: -35, y: -199}
+        - {x: 107, y: -199}
+        - {x: 129, y: -132}
+        - {x: 129, y: 92}
+        - {x: 116, y: 121}
+    - name: Elibeth 3.4 Idle Right Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 127, y: 88}
+        - {x: 115, y: 142}
+        - {x: 68, y: 187}
+        - {x: -56, y: 187}
+        - {x: -65, y: 184}
+        - {x: -77, y: 149}
+        - {x: -94, y: 115}
+        - {x: -109, y: 44}
+        - {x: -109, y: 17}
+        - {x: -98, y: -67}
+        - {x: -14, y: -123}
+        - {x: -5, y: -114}
+        - {x: -7, y: -109}
+        - {x: -4, y: -111}
+        - {x: -7, y: -118}
+        - {x: -10, y: -120}
+        - {x: -59, y: -179}
+        - {x: -58, y: -189}
+        - {x: -46, y: -197}
+        - {x: -27, y: -199}
+        - {x: 109, y: -199}
+        - {x: 79, y: -85}
+        - {x: 127, y: -46}
+    - name: Elibeth 3.4 Idle Right Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 74, y: -125}
+        - {x: 93, y: -69}
+        - {x: 119, y: -39}
+        - {x: 126, y: -20}
+        - {x: 126, y: 59}
+        - {x: 99, y: 134}
+        - {x: 58, y: 187}
+        - {x: 43, y: 187}
+        - {x: 13, y: 169}
+        - {x: 4, y: 141}
+        - {x: -15, y: 187}
+        - {x: -39, y: 187}
+        - {x: -50, y: 182}
+        - {x: -73, y: 150}
+        - {x: -90, y: 118}
+        - {x: -107, y: 48}
+        - {x: -107, y: 19}
+        - {x: -93, y: -61}
+        - {x: -46, y: -160}
+        - {x: -70, y: -194}
+        - {x: -45, y: -199}
+        - {x: 63, y: -199}
+        - {x: 81, y: -196}
+        - {x: 95, y: -190}
+        - {x: 90, y: -175}
+    - name: Elibeth 3.4 Idle Right Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 118, y: -42}
+        - {x: 124, y: -16}
+        - {x: 124, y: 44}
+        - {x: 98, y: 138}
+        - {x: 43, y: 187}
+        - {x: 24, y: 179}
+        - {x: 8, y: 124}
+        - {x: -10, y: 182}
+        - {x: -23, y: 189}
+        - {x: -36, y: 189}
+        - {x: -43, y: 181}
+        - {x: -75, y: 151}
+        - {x: -100, y: 90}
+        - {x: -108, y: 44}
+        - {x: -108, y: 29}
+        - {x: -96, y: -61}
+        - {x: -20, y: -115}
+        - {x: -26, y: -157}
+        - {x: -61, y: -180}
+        - {x: -54, y: -194}
+        - {x: -39, y: -199}
+        - {x: 67, y: -199}
+        - {x: 89, y: -194}
+        - {x: 93, y: -181}
+        - {x: 74, y: -125}
+    - name: Elibeth 3.4 Idle Right Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 119, y: -39}
+        - {x: 126, y: -20}
+        - {x: 126, y: 59}
+        - {x: 99, y: 134}
+        - {x: 82, y: 153}
+        - {x: 57, y: 187}
+        - {x: 43, y: 187}
+        - {x: 13, y: 169}
+        - {x: 11, y: 126}
+        - {x: 4, y: 141}
+        - {x: -15, y: 187}
+        - {x: -39, y: 187}
+        - {x: -50, y: 182}
+        - {x: -73, y: 150}
+        - {x: -90, y: 118}
+        - {x: -107, y: 48}
+        - {x: -107, y: 19}
+        - {x: -93, y: -61}
+        - {x: -37, y: -163}
+        - {x: -60, y: -179}
+        - {x: -57, y: -198}
+        - {x: -41, y: -199}
+        - {x: 91, y: -199}
+        - {x: 103, y: -177}
+        - {x: 74, y: -125}
+        - {x: 93, y: -69}
+    - name: Elibeth 3.4 Idle Right Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 86, y: 150}
+        - {x: 76, y: 144}
+        - {x: 64, y: 132}
+        - {x: 64, y: 130}
+        - {x: 62, y: 128}
+        - {x: 63, y: 130}
+        - {x: 66, y: 137}
+        - {x: 55, y: 171}
+        - {x: 48, y: 180}
+        - {x: 31, y: 174}
+        - {x: -4, y: 185}
+        - {x: -40, y: 185}
+        - {x: -47, y: 182}
+        - {x: -88, y: 152}
+        - {x: -110, y: 70}
+        - {x: -110, y: -17}
+        - {x: -97, y: -68}
+        - {x: -13, y: -120}
+        - {x: -7, y: -116}
+        - {x: -5, y: -114}
+        - {x: -5, y: -112}
+        - {x: -4, y: -114}
+        - {x: -10, y: -120}
+        - {x: -59, y: -180}
+        - {x: -58, y: -189}
+        - {x: -46, y: -197}
+        - {x: -35, y: -199}
+        - {x: 107, y: -199}
+        - {x: 129, y: -132}
+        - {x: 129, y: 92}
+        - {x: 116, y: 121}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
