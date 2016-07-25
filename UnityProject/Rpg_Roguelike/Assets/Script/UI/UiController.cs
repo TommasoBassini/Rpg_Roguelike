@@ -325,7 +325,7 @@ public class UiController : MonoBehaviour
         ActionPanel.SetActive(false);
         Character character = cc.player[cc.turno].GetComponent<Character>();
         string player = character.gameObject.name.ToLower();
-        if (player.Contains("bho"))
+        if (player.Contains("jopep"))
         {
             dpsAbilityPanel.SetActive(true);
             activeAbilityPanel = dpsAbilityPanel;

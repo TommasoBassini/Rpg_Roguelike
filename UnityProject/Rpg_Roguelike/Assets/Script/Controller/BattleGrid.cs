@@ -70,7 +70,7 @@ public class BattleGrid : MonoBehaviour
         }
 
         int random = Random.Range(2, 6);
-        for (int p = 0; p < 1; p++)
+        for (int p = 0; p < random; p++)
         {
             int enemX = Random.Range(0, nUsatiEnemy.Count);
             int enemY = Random.Range(0, 7);

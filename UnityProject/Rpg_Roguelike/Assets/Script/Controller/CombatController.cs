@@ -65,12 +65,12 @@ public class CombatController : MonoBehaviour
         string nome = "";
         for (int i = 0; i < turnImage.Length; i++)
         {
-            if (player[i].name == "Bho")
+            if (player[i].name == "Jopep")
             {
                 turnImage[i].sprite = turnPortrait[0];
                 if(i == 0)
                 {
-                    nome = "dps";
+                    nome = "Jopep";
                 }
             }
             if (player[i ].name == "Elibeth")
