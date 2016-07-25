@@ -88,7 +88,9 @@ public class PlayerStatsControl : MonoBehaviour
         public int velocita;
 
         public bool[] abilitaSbloccate = new bool[5];
-
+        public int costoForza = 100;
+        public int costoDestrezza = 100;
+        public int costoSpirito = 100;
     }
 
     /// <summary>
@@ -173,7 +175,9 @@ public class PlayerStatsControl : MonoBehaviour
         public int velocita;
 
         public bool[] abilitaSbloccate = new bool[5];
-
+        public int costoForza = 100;
+        public int costoDestrezza = 100;
+        public int costoSpirito = 100;
     }
     /// <summary>
     /// Qui andremo a gestire tutte le statistiche e gli incrementi del Dps
@@ -257,6 +261,9 @@ public class PlayerStatsControl : MonoBehaviour
         public int velocita;
 
         public bool[] abilitaSbloccate = new bool[5];
+        public int costoForza = 100;
+        public int costoDestrezza = 100;
+        public int costoSpirito = 100;
     }
 
     public IncrementiDps incrementiDps;

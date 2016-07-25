@@ -1,0 +1,313 @@
+fileFormatVersion: 2
+guid: 9975b026a4b9eaa48bbd356dd7fd8993
+timeCreated: 1469199933
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Copia di RPG_tile_foresta_02-Ultima_0
+    21300002: Copia di RPG_tile_foresta_02-Ultima_1
+    21300004: Copia di RPG_tile_foresta_02-Ultima_2
+    21300006: Copia di RPG_tile_foresta_02-Ultima_3
+    21300008: Copia di RPG_tile_foresta_02-Ultima_4
+    21300010: Copia di RPG_tile_foresta_02-Ultima_5
+    21300012: Copia di RPG_tile_foresta_02-Ultima_6
+    21300014: Copia di RPG_tile_foresta_02-Ultima_7
+    21300016: Copia di RPG_tile_foresta_02-Ultima_8
+    21300018: Copia di RPG_tile_foresta_02-Ultima_9
+    21300020: Copia di RPG_tile_foresta_02-Ultima_10
+    21300022: Copia di RPG_tile_foresta_02-Ultima_11
+    21300024: Copia di RPG_tile_foresta_02-Ultima_12
+    21300026: Copia di RPG_tile_foresta_02-Ultima_13
+    21300028: Copia di RPG_tile_foresta_02-Ultima_14
+    21300030: Copia di RPG_tile_foresta_02-Ultima_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Copia di RPG_tile_foresta_02-Ultima_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_6
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_7
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_9
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_13
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_14
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    - name: Copia di RPG_tile_foresta_02-Ultima_15
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -200, y: 200}
+        - {x: -200, y: -200}
+        - {x: 200, y: -200}
+        - {x: 200, y: 200}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
