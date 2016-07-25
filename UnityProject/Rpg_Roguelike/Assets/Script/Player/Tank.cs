@@ -38,7 +38,39 @@ public class Tank : Player
     public override void SubisciDanno(float danni)
     {
         int danniSubiti = Mathf.RoundToInt(((((danni / stats.difFisica) * 100) * (danni / 2)) / 100) * (Random.Range(1, 1.125f)));
-        stats.hp = stats.hp - danniSubiti;
+        if (stats.hp - danniSubiti <= 0)
+        {
+            stats.hp = 0;
+            CombatController cc = FindObjectOfType<CombatController>();
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == this.gameObject)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+            {
+                cc.EndOfTurn();
+            }
+            else
+                cc.Lose();
+
+            UiController ui1 = FindObjectOfType<UiController>();
+            ui1.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
+            ui1.DamageText(this.gameObject, danniSubiti, Color.red);
+
+            Destroy(this.gameObject);
+        }
+        else
+            stats.hp = stats.hp - danniSubiti;
         UiController ui = FindObjectOfType<UiController>();
         ui.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
         ui.DamageText(this.gameObject, danniSubiti, Color.red);
@@ -105,5 +137,11 @@ public class Tank : Player
             newAttack.transform.position = base.grid.cells[new_x, new_y].gameObject.transform.position;
             checkboxAttack.Add(newAttack);
         }
+    }
+
+    public override void EndBattle()
+    {
+        PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();
+        _stats.statsTank.hp = stats.hp;
     }
 }

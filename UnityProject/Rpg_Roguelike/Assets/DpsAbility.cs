@@ -15,6 +15,13 @@ public class DpsAbility : MonoBehaviour
     public bool[] abilitaSbloccate = new bool[5];
     public Button[] buttonAbilita = new Button[5];
 
+    public GameObject esortazioneSprite;
+    public GameObject frecceGemelleSprite;
+    public GameObject dardoAvvelenato;
+    public GameObject veleno;
+    public GameObject frecciaSprite;
+
+
     void Start()
     {
         for (int i = 0; i < player.stats.abilitaSbloccate.Length; i++)
@@ -65,6 +72,7 @@ public class DpsAbility : MonoBehaviour
             }
         }
     }
+
     // ABILITA ESORTAZIONE    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void Esortazione()
     {
@@ -73,16 +81,18 @@ public class DpsAbility : MonoBehaviour
         int nturni = 3;
         int percentualeDebuff = 25;
 
-
         //Cerca gli alleati
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        Debug.Log(players.Length);
 
         foreach (var item in players)
         {
             if (item != null)
             {
                 Player pl = item.GetComponent<Player>();
+
+                GameObject effect = Instantiate(esortazioneSprite);
+                effect.transform.position = item.transform.position;
+
                 int buffMelee = (pl.stats.attMelee * percentualeDebuff) / 100;
                 int buffMagico = (pl.stats.attMagico * percentualeDebuff) / 100;
                 int buffRanged = (pl.stats.attDistanza * percentualeDebuff) / 100;
@@ -98,7 +108,6 @@ public class DpsAbility : MonoBehaviour
                 pl.stats.attMagico += buffMagico;
             }
         }
-
         // Roba UI
         UiController ui = FindObjectOfType<UiController>();
         ui.dpsAbilityPanel.SetActive(false);
@@ -174,11 +183,11 @@ public class DpsAbility : MonoBehaviour
 
         //calcola effetto
         int danni = player.stats.attDistanza + Mathf.RoundToInt(player.stats.attDistanza / 2);
-
         Enemy enemy = _enemy.GetComponent<Enemy>();
+
+        GameObject effect = Instantiate(frecceGemelleSprite);
+        effect.transform.position = _enemy.transform.position;
         //scala il danno dal nemico e gli mp al player
-        SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
-        sr.color = Color.white;
         enemy.SubisciDannoMelee(danni, _enemy);
         player.stats.mp -= mp;
         // Roba UI
@@ -257,6 +266,11 @@ public class DpsAbility : MonoBehaviour
         int danni = player.stats.attDistanza;
         //calcola effetto
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        GameObject effect = Instantiate(dardoAvvelenato);
+        effect.transform.position = _enemy.transform.position;
+        GameObject effect1 = Instantiate(veleno);
+        effect1.transform.SetParent(_enemy.transform);
+        effect1.transform.position = _enemy.transform.position;
         enemy.turniVeleno += nturni;
         enemy.percVeleno = percentualeVeleno;
         //scala il danno dal nemico e gli mp al player
@@ -271,6 +285,15 @@ public class DpsAbility : MonoBehaviour
         DestroyAttackBox();
         DestroyEnemyButton();
     }
+
+    // ABILITA Movimento Oscuro             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void MovimentoOscuro ()
+    {
+        UiController ui = FindObjectOfType<UiController>();
+        ui.dpsAbilityPanel.SetActive(false);
+        ui.MoveAbility();
+    }
+
 
     // ABILITA SpaccaTeschi             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -377,7 +400,10 @@ public class DpsAbility : MonoBehaviour
 
         foreach (GameObject item in targets)
         {
-            if(item.GetComponent<Enemy>() != null)
+            GameObject effect = Instantiate(frecciaSprite);
+            effect.transform.position = item.transform.position;
+
+            if (item.GetComponent<Enemy>() != null)
             {
                 Enemy enemy1 = item.GetComponent<Enemy>();
                 enemy1.SubisciDannoRanged(danni, item);
@@ -391,8 +417,6 @@ public class DpsAbility : MonoBehaviour
 
         Enemy enemy = _enemy.GetComponent<Enemy>();
         //scala il danno dal nemico e gli mp al player
-        SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
-        sr.color = Color.white;
         player.stats.mp -= mp;
         // Roba UI
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);

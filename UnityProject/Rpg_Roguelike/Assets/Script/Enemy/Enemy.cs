@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public abstract class Enemy : Character
 {
@@ -8,9 +9,12 @@ public abstract class Enemy : Character
     public abstract void Ai();
     public List<CombatCell> cellToCross = new List<CombatCell>();
 
+    public Sprite icona;
+
+    public int level;
+
     public int hpMax;
     public int hp;
-    public int mp;
     public int difesa;
     public int att;
 
@@ -23,6 +27,17 @@ public abstract class Enemy : Character
 
     public int turniVeleno = 0;
     public int percVeleno;
+
+    public bool stun = false;
+
+    new void Start()
+    {
+        grid = FindObjectOfType<BattleGrid>();
+        hpMax *= level;
+        hp *= level;
+        difesa *= level;
+        att *= level;
+    }
 
     public void FindNearestPlayer()
     {
@@ -44,7 +59,7 @@ public abstract class Enemy : Character
         NearestCellToPlayer(base.pos, this.passi, nearestPlayer);
     }
 
-    void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
+    public void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
     {
         Player player = playerNear.GetComponent<Player>();
         CombatCell nearestCell = null;
@@ -256,11 +271,55 @@ public abstract class Enemy : Character
             else
                 cc.Win();
             Destroy(this.gameObject);
-
         }
+        Image vita = ui.enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        float _hp = (float)this.hp;
+        float _hpMax = (float)this.hpMax;
+        vita.fillAmount = ((100 * _hp) / _hpMax) / 100;
+        Text textVita = ui.enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = hp + "/" + hpMax;
     }
 
     public void SubisciDannoRanged(int danni, GameObject enemy)
+    {
+        int danniTot = Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f)));
+        hp = hp - danniTot;
+        UiController ui = FindObjectOfType<UiController>();
+        ui.DamageText(enemy, danniTot, Color.red);
+        CombatController cc = FindObjectOfType<CombatController>();
+
+        if (hp <= 0)
+        {
+            hp = 0;
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == enemy)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+                cc.UpdateTurnPortrait();
+            else
+                cc.Win();
+            Destroy(this.gameObject);
+        }
+        Image vita = ui.enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        float _hp = (float)this.hp;
+        float _hpMax = (float)this.hpMax;
+        vita.fillAmount = ((100 * _hp) / _hpMax) / 100;
+        Text textVita = ui.enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = hp + "/" + hpMax;
+    }
+
+    public int SubisciDannoRangedAndReturn(int danni, GameObject enemy)
     {
         int danniTot = Mathf.RoundToInt(((((danni / difesa) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f)));
         hp = hp - danniTot;
@@ -288,10 +347,9 @@ public abstract class Enemy : Character
             else
                 cc.Win();
             Destroy(this.gameObject);
-
         }
+        return danniTot;
     }
-
     public void StartTurn()
     {
         if(nturnoDifesa.Count != 0)
@@ -343,7 +401,7 @@ public abstract class Enemy : Character
         hp = hp - danno;
         UiController ui = FindObjectOfType<UiController>();
         CombatController cc = FindObjectOfType<CombatController>();
-        ui.DamageText(this.gameObject, danno, Color.red);
+        ui.DamageText(this.gameObject, danno, Color.green);
         if (hp <= 0)
         {
             List<int> n = new List<int>();
@@ -371,5 +429,9 @@ public abstract class Enemy : Character
         }
 
         turniVeleno--;
+        if (turniVeleno == 0)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
     }
 }

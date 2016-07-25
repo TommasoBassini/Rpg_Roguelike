@@ -3,7 +3,6 @@ using System.Collections;
 
 public class EnemyMelee : Enemy
 {
-
     public bool isPlayerNear = false;
     private Vector2 endPos;
 
@@ -15,7 +14,20 @@ public class EnemyMelee : Enemy
 
     void CheckPlayerNear()
     {
-        base.grid.EnemyCheckPlayer(this.pos,this.passi,this.gameObject);
+        Vector2 targetPos;
+        if (grid.EnemyCheckPlayer(this.pos, this.passi, this.gameObject, out targetPos))
+        {
+            if (grid.isEnemyNearPlayer(targetPos, this.gameObject))
+            {
+                StartCoroutine(AttackPlayer(grid.cells[(int)targetPos.x, (int)targetPos.y].occupier));
+            }
+            else
+                StartCoroutine(GoToCellNearPlayer(this.pos, targetPos));
+        }
+        else
+        {
+            FindNearestPlayer();
+        }
     }
 
 

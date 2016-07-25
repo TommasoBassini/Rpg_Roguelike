@@ -6,13 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     private Grid grid;
     private FogOfWarManager fog;
-    private Vector2 playerPos = new Vector2(1,1);
+    public Vector2 playerPos = new Vector2(1,1);
     public bool isMoving;
     private int randomEncounterProbably = 0;
     private Vector3 distance;
     private Vector3 direction;
     public bool hasKey = false;
     public bool isSpeaking = false;
+    public Vector2 respawnPos;
 
     void Start ()
     {
@@ -45,8 +46,9 @@ public class PlayerMovement : MonoBehaviour
                 randomEncounterProbably += 5;
                 if (Random.Range(randomEncounterProbably, 255) > 250)
                 {
+                    GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    //gc.RandomEncounter();
+                    gc.RandomEncounter();
                 }
             }
         }
@@ -90,7 +92,15 @@ public class PlayerMovement : MonoBehaviour
                 PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            FountainManager fountain = FindObjectOfType<FountainManager>();            
+            playerPos = respawnPos;
+            this.transform.position = respawnPos;
+            Debug.Log(fountain.checkpointPos);
+        }
     }
         
    
-}
+} 
