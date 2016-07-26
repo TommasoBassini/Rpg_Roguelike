@@ -9,7 +9,7 @@ public class BuyAbility : MonoBehaviour
     public int[] step = {4,8,15,22,30};
     public Sprite[] abilityGrande;
     public string[] infoAbility;
-
+    public int[] costoAbilita = { 400, 700, 1400, 2500, 5000 };
     public void ShowInfo()
     {
         UiControlExploration ui = FindObjectOfType<UiControlExploration>();
@@ -43,12 +43,12 @@ public class BuyAbility : MonoBehaviour
                     else
                     {
                         costoImage.enabled = true;
-                        costo.text = stats.statsMago.costoAbilita[nButton].ToString();
+                        costo.text = costoAbilita[nButton].ToString();
                         richiede.text = "";
                     }
 
                     abilitySprite.sprite = abilityGrande[ui.nCharacter - 1];
-                    mp.text = stats.statsMago.costoAbilita[ui.nCharacter - 1].ToString() + " MP";
+                    mp.text = stats.statsMago.costoAbilita[nButton].ToString() + " MP";
                     info.text = infoAbility[ui.nCharacter - 1];
                     break;
                 }
@@ -64,12 +64,12 @@ public class BuyAbility : MonoBehaviour
                     else
                     {
                         costoImage.enabled = true;
-                        costo.text = stats.statsTank.costoAbilita[nButton].ToString();
+                        costo.text = costoAbilita[nButton].ToString();
                         richiede.text = "";
                     }
 
                     abilitySprite.sprite = abilityGrande[ui.nCharacter - 1];
-                    mp.text = stats.statsTank.costoAbilita[ui.nCharacter - 1].ToString() + " MP";
+                    mp.text = stats.statsTank.costoAbilita[nButton].ToString() + " MP";
                     info.text = infoAbility[ui.nCharacter - 1];
                     break;
                 }
@@ -85,12 +85,12 @@ public class BuyAbility : MonoBehaviour
                     else
                     {
                         costoImage.enabled = true;
-                        costo.text = stats.statsDps.costoAbilita[nButton].ToString();
+                        costo.text = costoAbilita[nButton].ToString();
                         richiede.text = "";
                     }
 
                     abilitySprite.sprite = abilityGrande[ui.nCharacter - 1];
-                    mp.text = stats.statsDps.costoAbilita[ui.nCharacter - 1].ToString() + " MP";
+                    mp.text = stats.statsDps.costoAbilita[nButton].ToString() + " MP";
                     info.text = infoAbility[ui.nCharacter - 1];
                     break;
                 }

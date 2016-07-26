@@ -64,7 +64,7 @@ public class Potions : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.name =="Player")
         {
 
                 playerMov = col.gameObject.GetComponent<PlayerMovement>();
