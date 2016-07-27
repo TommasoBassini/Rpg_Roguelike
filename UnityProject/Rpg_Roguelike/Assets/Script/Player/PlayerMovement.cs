@@ -21,10 +21,11 @@ public class PlayerMovement : MonoBehaviour
     public bool facingDown = false;
 
     public bool isOpenMenu = false;
+
     void Start ()
     {
         fog = this.GetComponent<FogOfWarManager>();
-        fog.Fog(playerPos);
+        Invoke("CoFog", 0.1f);
     }
 
     // Imposta la posizione iniziale del giocatore all'interno della griglia
@@ -34,7 +35,10 @@ public class PlayerMovement : MonoBehaviour
         this.transform.position = grid.cells[1, 1].gameObject.transform.position;
     }
 
-
+    void CoFog()
+    {
+        fog.Fog(playerPos);
+    }
     // Imposta la destinazione che il giocatore deve raggiungere
     public void PlayerMove(Vector2 _pos)
     {
@@ -54,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    gc.RandomEncounter();
+                    //gc.RandomEncounter();
                 }
             }
         }

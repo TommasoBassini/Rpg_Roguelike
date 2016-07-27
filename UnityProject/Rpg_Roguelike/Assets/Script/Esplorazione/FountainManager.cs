@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class FountainManager : MonoBehaviour {
 
     private Cell pos;
     public Vector2 checkpointPos;    
     public bool inRange = false;
-
+    public GameObject interact;
 
     void Start()
     {        
@@ -27,7 +28,7 @@ public class FountainManager : MonoBehaviour {
     
     void Update()
     {
-        if (inRange == true && Input.GetKeyDown(KeyCode.E))
+        if (inRange == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
         {
             PlayerMovement pos = FindObjectOfType<PlayerMovement>();
             checkpointPos = pos.playerPos;
@@ -57,11 +58,15 @@ public class FountainManager : MonoBehaviour {
          if (coll.gameObject.name == "Player")
             {
                 inRange = true;
-            }
+                Text text = interact.transform.Find("A/Text").GetComponent<Text>();
+                text.text = "Ripristina vita e mana";
+                interact.SetActive(true);
+        }
     }
 
     void OnTriggerExit2D(Collider2D coll)
     {
         inRange = false;
+        interact.SetActive(false);
     }        
   }

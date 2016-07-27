@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+
 public class TreasureChestManager : MonoBehaviour
 {
     public bool hpPotion;
@@ -12,7 +13,7 @@ public class TreasureChestManager : MonoBehaviour
     public bool inFront = false;
     public Sprite openChest;
     private SpriteRenderer sr;
-
+    public GameObject interact;
     void Start()
     {
         Invoke("SetObjectToCell", 0.3f);
@@ -22,7 +23,7 @@ public class TreasureChestManager : MonoBehaviour
 
     void Update()
     {
-        if (inFront == true && Input.GetKeyDown(KeyCode.E) && isClosed == true) 
+        if (inFront == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && isClosed == true) 
         {
             Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
             Grid grid = FindObjectOfType<Grid>();
@@ -62,12 +63,16 @@ public class TreasureChestManager : MonoBehaviour
     {
         if (coll.gameObject.name == "Player" && isClosed == true)
         {
-            inFront = true;                              
+            inFront = true;
+            Text text = interact.transform.Find("A/Text").GetComponent<Text>();
+            text.text = "Apri scrigno";
+            interact.SetActive(true);
         }          
 	}
 
     void OnTriggerExit2D(Collider2D coll)
     {
         inFront = false;
+        interact.SetActive(false);
     }
 }

@@ -15,6 +15,8 @@ public class MageAbility : MonoBehaviour
 
     public Button abilityButton;
 
+    public GameObject fulmnidePrefab;
+
     public int[] costoAbilita = new int[5];
     public bool[] abilitaSbloccate = new bool[5];
     public Button[] buttonAbilita = new Button[5];
@@ -133,7 +135,8 @@ public class MageAbility : MonoBehaviour
     {
         //costo e variabili
         int mp = 20;
-
+        GameObject newEffect = Instantiate(fulmnidePrefab);
+        newEffect.transform.position = _enemy.transform.position;
         //calcola effetto
         int danni = Mathf.RoundToInt  (((player.stats.attMagico) * 1.5f) * (Random.Range(1.0f,1.25f)));
         Enemy enemy = _enemy.GetComponent<Enemy>();
