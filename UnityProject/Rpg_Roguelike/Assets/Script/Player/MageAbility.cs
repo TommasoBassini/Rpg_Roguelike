@@ -485,10 +485,6 @@ public class MageAbility : MonoBehaviour
     {
         //calcola effetto
         int danni = player.stats.attDistanza;
-        GameObject effect = Instantiate(dardoAvvelenato);
-        effect.transform.position = _enemy.transform.position;
-        GameObject effect1 = Instantiate(veleno);        
-        effect1.transform.position = _enemy.transform.position;
 
         Enemy enemy = _enemy.GetComponent<Enemy>();
         //scala il danno dal nemico e gli mp al player
