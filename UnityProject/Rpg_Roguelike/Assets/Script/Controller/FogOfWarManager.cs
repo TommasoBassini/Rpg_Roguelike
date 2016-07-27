@@ -16,6 +16,8 @@ public class FogOfWarManager : MonoBehaviour
 
     public void Fog(Vector2 pos)
     {
+        pos = new Vector2(pos.x, pos.y);
+        Debug.Log(pos);
         foreach (var item in cells)
         {
             item.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.25f, 0.25f, 0.25f);
@@ -26,17 +28,17 @@ public class FogOfWarManager : MonoBehaviour
 
         List<Vector2> farCell = new List<Vector2>(); 
 
-
         for (int i = (_x - vista); i <= (_x + vista); i++)
         {
             for (int y = (_y - vista); y <= (_y + vista); y++)
             {
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista))
                 {
-                    farCell.Add(new Vector2(i + 0.5f, y + 0.5f));
+                    farCell.Add(new Vector2(i, y));
                 }
             }
         }
+
         pos = new Vector2(pos.x + 0.5f, pos.y + 0.5f);
 
         foreach (var cell in farCell)
@@ -62,7 +64,20 @@ public class FogOfWarManager : MonoBehaviour
                         {
                             if (cel.tileEditorCell != null)
                             {
-                                if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) == (vista))
+                                if (Mathf.Abs((cel.pos.x ) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y ) - (pos.y - 0.5f)) < (vista -2))
+                                {
+                                    SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
+                                    sr.color = Color.white;
+                                    if (!cells.Contains(cel.tileEditorCell))
+                                        cells.Add(cel.tileEditorCell);
+                                    if (cel.cellObject != null)
+                                    {
+                                        SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
+                                        objectSr.color = Color.white;
+                                    }
+                                }
+
+                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista))
                                 {
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
                                     sr.color = new Color(0.25f, 0.25f, 0.25f);
@@ -75,7 +90,7 @@ public class FogOfWarManager : MonoBehaviour
                                     }
                                 }
 
-                                if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) == (vista - 1))
+                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista - 1))
                                 {
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
                                     sr.color = new Color(0.5f, 0.5f, 0.5f);
@@ -88,7 +103,7 @@ public class FogOfWarManager : MonoBehaviour
                                     }
                                 }
 
-                                if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) == (vista - 2))
+                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista - 2))
                                 {
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
                                     sr.color = new Color(0.75f, 0.75f, 0.75f);
@@ -101,25 +116,14 @@ public class FogOfWarManager : MonoBehaviour
                                     }
                                 }
 
-                                if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) < (vista - 2))
-                                {
-                                    SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = Color.white;
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
-                                    if (cel.cellObject != null)
-                                    {
-                                        SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = Color.white;
-                                    }
-                                }
+   
                             }
                         }
                         else
                         {
                             if (cel.tileEditorCell != null)
                             {
-                                if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) == (vista))
+                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista))
                                 {
                                     Vector2 targetPos = new Vector2(0, 0);
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
@@ -135,18 +139,19 @@ public class FogOfWarManager : MonoBehaviour
                                     {
 
                                         SpriteRenderer sr1 = grid.cells[(int)targetPos.x, (int)targetPos.y].tileEditorCell.GetComponent<SpriteRenderer>();
+                                        cells.Add(sr1.gameObject);
                                         sr1.color = new Color(0.25f, 0.25f, 0.25f);
                                     }
-
-
                                 }
-                                if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) == (vista - 1))
+
+                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista - 1))
                                 {
                                     Vector2 targetPos = new Vector2(0, 0);
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
                                     sr.color = new Color(0.5f, 0.5f, 0.5f);
                                     if (!cells.Contains(cel.tileEditorCell))
                                         cells.Add(cel.tileEditorCell);
+
                                     if (cel.cellObject != null)
                                     {
                                         SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
@@ -156,11 +161,11 @@ public class FogOfWarManager : MonoBehaviour
                                     {
                                         SpriteRenderer sr1 = grid.cells[(int)targetPos.x, (int)targetPos.y].tileEditorCell.GetComponent<SpriteRenderer>();
                                         sr1.color = new Color(0.5f, 0.5f, 0.5f);
+                                        cells.Add(sr1.gameObject);
                                     }
-
-
                                 }
-                                if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) == (vista - 2))
+
+                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista - 2))
                                 {
                                     Vector2 targetPos = new Vector2(0, 0);
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
@@ -176,11 +181,12 @@ public class FogOfWarManager : MonoBehaviour
                                     {
                                         SpriteRenderer sr1 = grid.cells[(int)targetPos.x, (int)targetPos.y].tileEditorCell.GetComponent<SpriteRenderer>();
                                         sr1.color = new Color(0.75f, 0.75f, 0.75f);
+                                        cells.Add(sr1.gameObject);
                                     }
 
 
                                 }
-                                if (Mathf.Abs(cel.pos.x - pos.x) + Mathf.Abs(cel.pos.y - pos.y) < (vista - 1))
+                                if (Mathf.Abs((cel.pos.x) - (pos.x + 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y + 0.5f)) < (vista - 1))
                                 {
                                     Vector2 targetPos = new Vector2(0, 0);
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
@@ -196,6 +202,7 @@ public class FogOfWarManager : MonoBehaviour
                                     {
                                         SpriteRenderer sr1 = grid.cells[(int)targetPos.x, (int)targetPos.y].tileEditorCell.GetComponent<SpriteRenderer>();
                                         sr1.color = Color.white;
+                                        cells.Add(sr1.gameObject);
                                     }
                                 }
                             }

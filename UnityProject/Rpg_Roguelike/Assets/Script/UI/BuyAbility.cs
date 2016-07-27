@@ -104,7 +104,7 @@ public class BuyAbility : MonoBehaviour
         UiControlExploration ui = FindObjectOfType<UiControlExploration>();
         Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
         Image infoSprite = ui.menuStats.transform.Find("InfoSprite").GetComponent<Image>();
-        infoSprite.rectTransform.localPosition = new Vector3(-20f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
+        //infoSprite.rectTransform.localPosition = new Vector3(-20f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
         infoSprite.gameObject.SetActive(true);
         switch (ui.nCharacter)
         {
@@ -113,6 +113,7 @@ public class BuyAbility : MonoBehaviour
                     if (stats.esperience < costoAbilita[i] && stats.statsMago.livello >= ui.step[i])
                     {
                         infoSprite.gameObject.SetActive(false);
+                        ui.buttons[i].interactable = false;
                         help.text = "Hai poca esperienza!";
                     }
 
@@ -128,12 +129,14 @@ public class BuyAbility : MonoBehaviour
                     if (stats.esperience < costoAbilita[i] && stats.statsTank.livello >= ui.step[i])
                     {
                         help.text = "Hai poca esperienza!";
+                        ui.buttons[i].interactable = false;
                         infoSprite.gameObject.SetActive(false);
                     }
 
                     if (stats.statsTank.livello < ui.step[i])
                     {
                         infoSprite.gameObject.SetActive(false);
+                        ui.buttons[i].interactable = false;
                         help.text = "Devi salire di livello!";
                     }
                     break;
@@ -143,6 +146,7 @@ public class BuyAbility : MonoBehaviour
                     if (stats.esperience < costoAbilita[i] && stats.statsDps.livello >= ui.step[i])
                     {
                         infoSprite.gameObject.SetActive(false);
+                        ui.buttons[i].interactable = false;
                         help.text = "Hai poca esperienza!";
                     }
                     if (stats.statsDps.livello < ui.step[i])

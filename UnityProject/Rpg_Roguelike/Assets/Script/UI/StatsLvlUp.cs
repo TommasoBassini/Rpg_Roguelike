@@ -1792,7 +1792,7 @@ public class StatsLvlUp : MonoBehaviour
         UiControlExploration ui = FindObjectOfType<UiControlExploration>();
         Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
         Image infoSprite = ui.menuStats.transform.Find("InfoSprite").GetComponent<Image>();
-        infoSprite.rectTransform.localPosition = new Vector3(-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
+        //infoSprite.rectTransform.localPosition = new Vector3(-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
         infoSprite.gameObject.SetActive(true);
         switch (ui.nCharacter)
         {
@@ -1834,7 +1834,7 @@ public class StatsLvlUp : MonoBehaviour
         UiControlExploration ui = FindObjectOfType<UiControlExploration>();
         Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
         Image infoSprite = ui.menuStats.transform.Find("InfoSprite").GetComponent<Image>();
-        infoSprite.rectTransform.localPosition = new Vector3 (-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
+        //infoSprite.rectTransform.localPosition = new Vector3 (-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
         infoSprite.gameObject.SetActive(true);
         switch (ui.nCharacter)
         {
@@ -1876,7 +1876,7 @@ public class StatsLvlUp : MonoBehaviour
         UiControlExploration ui = FindObjectOfType<UiControlExploration>();
         Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
         Image infoSprite = ui.menuStats.transform.Find("InfoSprite").GetComponent<Image>();
-        infoSprite.rectTransform.localPosition = new Vector3(-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
+        //infoSprite.rectTransform.localPosition = new Vector3(-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
         infoSprite.gameObject.SetActive(true);
         switch (ui.nCharacter)
         {

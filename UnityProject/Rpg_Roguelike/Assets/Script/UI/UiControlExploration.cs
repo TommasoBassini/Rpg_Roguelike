@@ -22,6 +22,7 @@ public class UiControlExploration : MonoBehaviour
     public GameObject abilityBox;
 
     public int[] step = { 4, 8, 15, 22, 30 };
+    public int[] costoAbilita = { 400, 700, 1400, 2500, 5000 };
     public GameObject averiPanel;
 
     public GameObject info0;
@@ -46,6 +47,7 @@ public class UiControlExploration : MonoBehaviour
         Invoke("AggiornaMana", 0.1f);
         Invoke("AggiornaVita", 0.1f);
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))
@@ -75,6 +77,14 @@ public class UiControlExploration : MonoBehaviour
                 menuStats.SetActive(false);
                 nCharacter = 1;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && isMenuOpen)
+        {
+            isMenuOpen = false;
+            player.isOpenMenu = false;
+            menuStats.SetActive(false);
+            nCharacter = 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5) && isMenuOpen)
@@ -116,6 +126,16 @@ public class UiControlExploration : MonoBehaviour
                 default:
                     break;
             }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4) && !isMenuOpen)
+        {
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !isMenuOpen)
+        {
 
         }
 
@@ -247,8 +267,8 @@ public class UiControlExploration : MonoBehaviour
                 Time.timeScale = 0.0f;
                 pausePanel.transform.GetChild(0).GetComponent<Button>().Select();
             }
-
         }
+
     }
 
     public void Continua()
@@ -500,7 +520,7 @@ public class UiControlExploration : MonoBehaviour
 
                     for (int i = 0; i < stats.statsMago.costoAbilita.Length; i++)
                     {
-                        if (stats.statsMago.costoAbilita[i] > stats.esperience || stats.statsMago.livello < step[i])
+                        if (costoAbilita[i] > stats.esperience || stats.statsMago.livello < step[i])
                         {
                             buttons[i + 3].interactable = false;
                         }
@@ -526,7 +546,7 @@ public class UiControlExploration : MonoBehaviour
 
                     for (int i = 0; i < stats.statsTank.costoAbilita.Length; i++)
                     {
-                        if (stats.statsTank.costoAbilita[i] > stats.esperience || stats.statsTank.livello < step[i])
+                        if (costoAbilita[i] > stats.esperience || stats.statsTank.livello < step[i])
                         {
                             buttons[i + 3].interactable = false;
                         }
@@ -552,7 +572,7 @@ public class UiControlExploration : MonoBehaviour
 
                     for (int i = 0; i < stats.statsDps.costoAbilita.Length; i++)
                     {
-                        if (stats.statsDps.costoAbilita[i] > stats.esperience || stats.statsDps.livello < step[i])
+                        if (costoAbilita[i] > stats.esperience || stats.statsDps.livello < step[i])
                         {
                             buttons[i + 3].interactable = false;
                         }
