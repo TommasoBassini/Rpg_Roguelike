@@ -1,25 +1,21 @@
 fileFormatVersion: 2
-guid: 9975b026a4b9eaa48bbd356dd7fd8993
-timeCreated: 1469199933
+guid: 054736433ed54804298b02da3573588a
+timeCreated: 1469452159
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Copia di RPG_tile_foresta_02-Ultima_0
-    21300002: Copia di RPG_tile_foresta_02-Ultima_1
-    21300004: Copia di RPG_tile_foresta_02-Ultima_2
-    21300006: Copia di RPG_tile_foresta_02-Ultima_3
-    21300008: Copia di RPG_tile_foresta_02-Ultima_4
-    21300010: Copia di RPG_tile_foresta_02-Ultima_5
-    21300012: Copia di RPG_tile_foresta_02-Ultima_6
-    21300014: Copia di RPG_tile_foresta_02-Ultima_7
-    21300016: Copia di RPG_tile_foresta_02-Ultima_8
-    21300018: Copia di RPG_tile_foresta_02-Ultima_9
-    21300020: Copia di RPG_tile_foresta_02-Ultima_10
-    21300022: Copia di RPG_tile_foresta_02-Ultima_11
-    21300024: Copia di RPG_tile_foresta_02-Ultima_12
-    21300026: Copia di RPG_tile_foresta_02-Ultima_13
-    21300028: Copia di RPG_tile_foresta_02-Ultima_14
-    21300030: Copia di RPG_tile_foresta_02-Ultima_15
+    21300000: muri_definitivi 1_0
+    21300002: muri_definitivi 1_1
+    21300004: muri_definitivi 1_2
+    21300006: muri_definitivi 1_3
+    21300008: muri_definitivi 1_4
+    21300010: muri_definitivi 1_5
+    21300012: muri_definitivi 1_6
+    21300014: muri_definitivi 1_7
+    21300016: muri_definitivi 1_8
+    21300018: muri_definitivi 1_9
+    21300020: muri_definitivi 1_10
+    21300022: muri_definitivi 1_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -66,7 +62,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Copia di RPG_tile_foresta_02-Ultima_0
+    - name: muri_definitivi 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -81,7 +77,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_1
+    - name: muri_definitivi 1_1
       rect:
         serializedVersion: 2
         x: 400
@@ -96,7 +92,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_2
+    - name: muri_definitivi 1_2
       rect:
         serializedVersion: 2
         x: 800
@@ -111,22 +107,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_3
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 1200
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -200, y: 200}
-        - {x: -200, y: -200}
-        - {x: 200, y: -200}
-        - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_4
+    - name: muri_definitivi 1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -141,7 +122,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_5
+    - name: muri_definitivi 1_4
       rect:
         serializedVersion: 2
         x: 400
@@ -156,7 +137,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_6
+    - name: muri_definitivi 1_5
       rect:
         serializedVersion: 2
         x: 800
@@ -171,22 +152,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_7
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 800
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -200, y: 200}
-        - {x: -200, y: -200}
-        - {x: 200, y: -200}
-        - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_8
+    - name: muri_definitivi 1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -201,7 +167,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_9
+    - name: muri_definitivi 1_7
       rect:
         serializedVersion: 2
         x: 400
@@ -216,7 +182,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_10
+    - name: muri_definitivi 1_8
       rect:
         serializedVersion: 2
         x: 800
@@ -231,22 +197,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_11
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 400
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -200, y: 200}
-        - {x: -200, y: -200}
-        - {x: 200, y: -200}
-        - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_12
+    - name: muri_definitivi 1_9
       rect:
         serializedVersion: 2
         x: 0
@@ -261,7 +212,7 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_13
+    - name: muri_definitivi 1_10
       rect:
         serializedVersion: 2
         x: 400
@@ -276,25 +227,10 @@ TextureImporter:
         - {x: -200, y: -200}
         - {x: 200, y: -200}
         - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_14
+    - name: muri_definitivi 1_11
       rect:
         serializedVersion: 2
         x: 800
-        y: 0
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -200, y: 200}
-        - {x: -200, y: -200}
-        - {x: 200, y: -200}
-        - {x: 200, y: 200}
-    - name: Copia di RPG_tile_foresta_02-Ultima_15
-      rect:
-        serializedVersion: 2
-        x: 1200
         y: 0
         width: 400
         height: 400
