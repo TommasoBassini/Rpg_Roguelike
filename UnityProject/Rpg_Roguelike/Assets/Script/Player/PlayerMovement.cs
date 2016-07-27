@@ -75,11 +75,10 @@ public class PlayerMovement : MonoBehaviour
                 isMoving = false;
             }
         }
-
         
         if (!isSpeaking && !isOpenMenu)
         {
-            if (Input.GetKey(KeyCode.W) && !isMoving)
+            if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0.5f) && !isMoving)
             {
                 PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
                 facingUp = true;
@@ -90,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
                 
             }
 
-            if (Input.GetKey(KeyCode.S) && !isMoving)
+            if ((Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < -0.5f) && !isMoving)
             {
                 PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
                 facingUp = false;    
@@ -99,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
                 facingLeft = false;
             }
 
-            if (Input.GetKey(KeyCode.D) && !isMoving)
+            if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0.5f) && !isMoving)
             {
                 
                 PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
@@ -109,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
                 facingLeft = false;
             }
 
-            if (Input.GetKey(KeyCode.A) && !isMoving)
+            if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < -0.5f) && !isMoving)
             {                
                 PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
                 facingUp = false;

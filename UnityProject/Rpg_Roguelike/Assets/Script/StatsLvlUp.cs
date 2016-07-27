@@ -18,7 +18,7 @@ public class StatsLvlUp : MonoBehaviour
         statistica.text = "Forza";
 
         Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
-        help.text = "Premi invio per aumentare la statistica selezionata";
+        help.text = "Aumenta Statistica";
 
         Text hpMax = ui.menuStats.transform.Find("LoaderBox/LoaderBox/Stats/HpMax/Text").GetComponent<Text>();
         Text mpMax = ui.menuStats.transform.Find("LoaderBox/LoaderBox/Stats/MpMax/Text").GetComponent<Text>();
@@ -258,7 +258,7 @@ public class StatsLvlUp : MonoBehaviour
         statistica.text = "Destrezza";
 
         Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
-        help.text = "Premi invio per aumentare la statistica selezionata";
+        help.text = "Aumenta Statistica";
 
         Text hpMax = ui.menuStats.transform.Find("LoaderBox/LoaderBox/Stats/HpMax/Text").GetComponent<Text>();
         Text mpMax = ui.menuStats.transform.Find("LoaderBox/LoaderBox/Stats/MpMax/Text").GetComponent<Text>();
@@ -343,7 +343,7 @@ public class StatsLvlUp : MonoBehaviour
                 }
             case 2:
                 {
-                    costo.text = stats.statsTank.costoForza.ToString();
+                    costo.text = stats.statsTank.costoDestrezza.ToString();
 
                     hpMax.text = (stats.statsTank.hpMax + stats.incrementiTank.hpPerDestrezza).ToString();
                     if (stats.statsTank.hpMax + stats.incrementiTank.hpPerDestrezza == stats.statsTank.hpMax)
@@ -413,7 +413,7 @@ public class StatsLvlUp : MonoBehaviour
                 }
             case 3:
                 {
-                    costo.text = stats.statsDps.costoForza.ToString();
+                    costo.text = stats.statsDps.costoDestrezza.ToString();
 
                     hpMax.text = (stats.statsDps.hpMax + stats.incrementiDps.hpPerDestrezza).ToString();
                     if (stats.statsDps.hpMax + stats.incrementiDps.hpPerDestrezza == stats.statsDps.hpMax)
@@ -497,7 +497,7 @@ public class StatsLvlUp : MonoBehaviour
         statistica.text = "Spirito";
 
         Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
-        help.text = "Premi invio per aumentare la statistica selezionata";
+        help.text = "Aumenta Statistica";
 
         Text hpMax = ui.menuStats.transform.Find("LoaderBox/LoaderBox/Stats/HpMax/Text").GetComponent<Text>();
         Text mpMax = ui.menuStats.transform.Find("LoaderBox/LoaderBox/Stats/MpMax/Text").GetComponent<Text>();
@@ -582,7 +582,7 @@ public class StatsLvlUp : MonoBehaviour
                 }
             case 2:
                 {
-                    costo.text = stats.statsTank.costoForza.ToString();
+                    costo.text = stats.statsTank.costoSpirito.ToString();
 
                     hpMax.text = (stats.statsTank.hpMax + stats.incrementiTank.hpPerSpirito).ToString();
                     if (stats.statsTank.hpMax + stats.incrementiTank.hpPerSpirito == stats.statsTank.hpMax)
@@ -652,7 +652,7 @@ public class StatsLvlUp : MonoBehaviour
                 }
             case 3:
                 {
-                    costo.text = stats.statsDps.costoForza.ToString();
+                    costo.text = stats.statsDps.costoSpirito.ToString();
 
                     hpMax.text = (stats.statsDps.hpMax + stats.incrementiDps.hpPerSpirito).ToString();
                     if (stats.statsDps.hpMax + stats.incrementiDps.hpPerSpirito == stats.statsDps.hpMax)
@@ -884,7 +884,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsMago.costoForza.ToString();
                     hpMax.text = (stats.statsMago.hpMax + stats.incrementiMago.hpPerForza).ToString();
@@ -976,7 +978,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsTank.costoForza.ToString();
 
@@ -1072,7 +1076,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsDps.costoForza.ToString();
 
@@ -1193,7 +1199,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsMago.costoDestrezza.ToString();
 
@@ -1288,7 +1296,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsTank.costoDestrezza.ToString();
 
@@ -1383,7 +1393,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsDps.costoDestrezza.ToString();
 
@@ -1503,7 +1515,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsMago.costoSpirito.ToString();
 
@@ -1598,7 +1612,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsTank.costoSpirito.ToString();
 
@@ -1693,7 +1709,9 @@ public class StatsLvlUp : MonoBehaviour
                     ui.CheckButton();
                     ui.AggiornaMana();
                     ui.AggiornaVita();
-
+                    CheckCostForza();
+                    CheckCostDestrezza();
+                    CheckCostSpirito();
                     //Ricalcolo gli upgrade
                     costo.text = stats.statsDps.costoSpirito.ToString();
 
@@ -1761,6 +1779,132 @@ public class StatsLvlUp : MonoBehaviour
                     else
                         velocita.color = new Color(0.11764f, 0.5098f, 0.2980f);
 
+                    break;
+                }
+            default:
+                break;
+        }
+    }
+
+    public void CheckCostForza()
+    {
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+        UiControlExploration ui = FindObjectOfType<UiControlExploration>();
+        Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
+        Image infoSprite = ui.menuStats.transform.Find("InfoSprite").GetComponent<Image>();
+        infoSprite.rectTransform.localPosition = new Vector3(-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
+        infoSprite.gameObject.SetActive(true);
+        switch (ui.nCharacter)
+        {
+            case 1:
+                {
+                    if (stats.statsMago.costoForza > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (stats.statsTank.costoForza > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    break;
+                }
+            case 3:
+                {
+                    if (stats.statsDps.costoForza > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    break;
+                }
+            default:
+                break;
+        }
+    }
+
+    public void CheckCostDestrezza()
+    {
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+        UiControlExploration ui = FindObjectOfType<UiControlExploration>();
+        Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
+        Image infoSprite = ui.menuStats.transform.Find("InfoSprite").GetComponent<Image>();
+        infoSprite.rectTransform.localPosition = new Vector3 (-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
+        infoSprite.gameObject.SetActive(true);
+        switch (ui.nCharacter)
+        {
+            case 1:
+                {
+                    if (stats.statsMago.costoDestrezza > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (stats.statsTank.costoDestrezza > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    break;
+                }
+            case 3:
+                {
+                    if (stats.statsDps.costoDestrezza > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    break;
+                }
+            default:
+                break;
+        }
+    }
+
+    public void CheckCostSpirito()
+    {
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+        UiControlExploration ui = FindObjectOfType<UiControlExploration>();
+        Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
+        Image infoSprite = ui.menuStats.transform.Find("InfoSprite").GetComponent<Image>();
+        infoSprite.rectTransform.localPosition = new Vector3(-27.1f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
+        infoSprite.gameObject.SetActive(true);
+        switch (ui.nCharacter)
+        {
+            case 1:
+                {
+                    if (stats.statsMago.costoSpirito > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (stats.statsTank.costoSpirito > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    break;
+                }
+            case 3:
+                {
+                    if (stats.statsDps.costoSpirito > stats.esperience)
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
                     break;
                 }
             default:

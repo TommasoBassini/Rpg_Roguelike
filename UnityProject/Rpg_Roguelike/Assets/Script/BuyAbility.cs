@@ -10,6 +10,7 @@ public class BuyAbility : MonoBehaviour
     public Sprite[] abilityGrande;
     public string[] infoAbility;
     public int[] costoAbilita = { 400, 700, 1400, 2500, 5000 };
+
     public void ShowInfo()
     {
         UiControlExploration ui = FindObjectOfType<UiControlExploration>();
@@ -27,7 +28,7 @@ public class BuyAbility : MonoBehaviour
         Text info = ui.menuStats.transform.Find("LoaderBox/AbilityBox/Info/Text").GetComponent<Text>();
 
         Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
-        help.text = "Premi invio per acquistare l'abilità";
+        help.text = "Impara abilità";
 
         switch (ui.nCharacter)
         {
@@ -92,6 +93,63 @@ public class BuyAbility : MonoBehaviour
                     abilitySprite.sprite = abilityGrande[ui.nCharacter - 1];
                     mp.text = stats.statsDps.costoAbilita[nButton].ToString() + " MP";
                     info.text = infoAbility[ui.nCharacter - 1];
+                    break;
+                }
+        }
+    }
+
+    public void CheckCostoAbilita(int i)
+    {
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+        UiControlExploration ui = FindObjectOfType<UiControlExploration>();
+        Text help = ui.menuStats.transform.Find("Info").GetComponent<Text>();
+        Image infoSprite = ui.menuStats.transform.Find("InfoSprite").GetComponent<Image>();
+        infoSprite.rectTransform.localPosition = new Vector3(-20f, infoSprite.rectTransform.localPosition.y, infoSprite.rectTransform.localPosition.z);
+        infoSprite.gameObject.SetActive(true);
+        switch (ui.nCharacter)
+        {
+            case 1:
+                {
+                    if (stats.esperience < costoAbilita[i] && stats.statsMago.livello >= ui.step[i])
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+
+                    if (stats.statsMago.livello < ui.step[i])
+                    {
+                        help.text = "Devi salire di livello!";
+                        infoSprite.gameObject.SetActive(false);
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (stats.esperience < costoAbilita[i] && stats.statsTank.livello >= ui.step[i])
+                    {
+                        help.text = "Hai poca esperienza!";
+                        infoSprite.gameObject.SetActive(false);
+                    }
+
+                    if (stats.statsTank.livello < ui.step[i])
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Devi salire di livello!";
+                    }
+                    break;
+                }
+            case 3:
+                {
+                    if (stats.esperience < costoAbilita[i] && stats.statsDps.livello >= ui.step[i])
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Hai poca esperienza!";
+                    }
+                    if (stats.statsDps.livello < ui.step[i])
+                    {
+                        infoSprite.gameObject.SetActive(false);
+                        help.text = "Devi salire di livello!";
+                    }
                     break;
                 }
         }

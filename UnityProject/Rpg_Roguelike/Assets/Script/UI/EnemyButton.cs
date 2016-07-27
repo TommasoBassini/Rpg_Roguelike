@@ -99,8 +99,11 @@ public class EnemyButton : MonoBehaviour
 
     IEnumerator attivaPanel()
     {
-        yield return new WaitForSeconds(time);
         UiController ui = FindObjectOfType<UiController>();
+        ui.faseUi = 2;
+        Button actionButton = ui.MainPanel.transform.Find("Action").GetComponent<Button>();
+        actionButton.interactable = false;
+        yield return new WaitForSeconds(time);
 
         Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
         textVita.text = "";
@@ -116,8 +119,6 @@ public class EnemyButton : MonoBehaviour
         ui.EnemyListPanel.SetActive(false);
         ui.MainPanel.SetActive(true);
         enemyInfoPanel.SetActive(false);
-        Button actionButton = ui.MainPanel.transform.Find("Action").GetComponent<Button>();
-        actionButton.interactable = false;
         foreach (Transform item in ui.MainPanel.transform)
         {
             if (item.gameObject.GetComponent<Button>().IsInteractable())

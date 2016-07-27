@@ -31,6 +31,7 @@ public class UiControlExploration : MonoBehaviour
     public GameObject pausePanel;
     private bool pause = false;
 
+    public bool isMenuOpen = false;
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
@@ -47,6 +48,116 @@ public class UiControlExploration : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+        {
+            if (!isMenuOpen)
+            {
+                isMenuOpen = true;
+                player.isOpenMenu = true;
+                tankOpen = false;
+                dpsOpen = false;
+                mageOpen = true;
+                nCharacter = 1;
+                menuStats.SetActive(false);
+                menuStats.SetActive(true);
+                Invoke("SwitchaChar", 0.01f);
+                menuStats.transform.Find("Button/Destrezza/DestrezzaButton").GetComponent<Button>().Select();
+                menuStats.transform.Find("Button/Forza/ForzaButton").GetComponent<Button>().Select();
+                Text RbText = menuStats.transform.Find("Playermenu/RB/Text").GetComponent<Text>();
+                Text LbText = menuStats.transform.Find("Playermenu/LB/Text").GetComponent<Text>();
+                RbText.text = "Johell";
+                LbText.text = "Jupep";
+            }
+            else
+            {
+                isMenuOpen = false;
+                player.isOpenMenu = false;
+                menuStats.SetActive(false);
+                nCharacter = 1;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5) && isMenuOpen)
+        {
+            if (nCharacter < 3)
+            {
+                nCharacter++;
+            }
+            else
+            {
+                nCharacter = 1;
+            }
+            Invoke("SwitchaChar", 0.01f);
+            menuStats.transform.Find("Button/Destrezza/DestrezzaButton").GetComponent<Button>().Select();
+            menuStats.transform.Find("Button/Forza/ForzaButton").GetComponent<Button>().Select();
+
+            Text RbText = menuStats.transform.Find("Playermenu/RB/Text").GetComponent<Text>();
+            Text LbText = menuStats.transform.Find("Playermenu/LB/Text").GetComponent<Text>();
+            switch (nCharacter)
+            {
+                case 1:
+                    {
+                        RbText.text = "Johell";
+                        LbText.text = "Jupep";
+                        break;
+                    }
+                case 2:
+                    {
+                        RbText.text = "Jupep";
+                        LbText.text = "Elibeth";
+                        break;
+                    }
+                case 3:
+                    {
+                        RbText.text = "Elibeth";
+                        LbText.text = "Johell";
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4) && isMenuOpen)
+        {
+            if (nCharacter > 1)
+            {
+                nCharacter--;
+            }
+            else
+            {
+                nCharacter = 3;
+            }
+            Invoke("SwitchaChar", 0.01f);
+            menuStats.transform.Find("Button/Destrezza/DestrezzaButton").GetComponent<Button>().Select();
+            menuStats.transform.Find("Button/Forza/ForzaButton").GetComponent<Button>().Select();
+            Text RbText = menuStats.transform.Find("Playermenu/RB/Text").GetComponent<Text>();
+            Text LbText = menuStats.transform.Find("Playermenu/LB/Text").GetComponent<Text>();
+            switch (nCharacter)
+            {
+                case 1:
+                    {
+                        RbText.text = "Johell";
+                        LbText.text = "Jupep";
+                        break;
+                    }
+                case 2:
+                    {
+                        RbText.text = "Jupep";
+                        LbText.text = "Elibeth";
+                        break;
+                    }
+                case 3:
+                    {
+                        RbText.text = "Elibeth";
+                        LbText.text = "Johell";
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (!mageOpen)
@@ -113,7 +224,7 @@ public class UiControlExploration : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetKeyDown(KeyCode.Joystick1Button7)))
         {
             if (pause)
             {

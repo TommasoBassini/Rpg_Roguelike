@@ -51,7 +51,7 @@ public class UiController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             switch (faseUi)
             {
@@ -63,6 +63,9 @@ public class UiController : MonoBehaviour
                         MainPanel.SetActive(true);
                         BattleGrid grid = FindObjectOfType<BattleGrid>();
                         grid.ResetWalkableCell();
+                        character.isMovible = false;
+                        grid.cells[(int)startPos.x, (int)startPos.y].isOccupied = true;
+                        grid.cells[(int)startPos.x, (int)startPos.y].occupier = character.gameObject;
                         //MoveButton.Select();
                         break;
                     }
@@ -190,7 +193,7 @@ public class UiController : MonoBehaviour
                     }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Return) && faseUi == 1 && waitMovement)
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Joystick1Button0) ) && faseUi == 1 && waitMovement)
         {
             if (dpsAbility)
             {
@@ -314,7 +317,7 @@ public class UiController : MonoBehaviour
         character.Move();
         faseUi = 1;
         MainPanel.SetActive(false);
-        Invoke("ResetBoolMovement", 0.1f); 
+        Invoke("ResetBoolMovement", 0.3f); 
     }
     void ResetBoolMovement()
     {
