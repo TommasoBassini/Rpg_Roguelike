@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class ButtonVita : MonoBehaviour
+public class ButtonMana : MonoBehaviour
 {
     public int nPlayer;
     PlayerStatsControl stats;
@@ -14,7 +14,7 @@ public class ButtonVita : MonoBehaviour
         {
             case 1:
                 {
-                    if (stats.statsMago.hp == stats.statsMago.hpMax || stats.nPotionHealth == 0)
+                    if (stats.statsMago.mp == stats.statsMago.mpMax || stats.nPotionMana == 0)
                     {
                         GetComponent<Button>().interactable = false;
                     }
@@ -24,7 +24,7 @@ public class ButtonVita : MonoBehaviour
                 }
             case 2:
                 {
-                    if (stats.statsTank.hp == stats.statsTank.hpMax || stats.nPotionHealth == 0)
+                    if (stats.statsTank.mp == stats.statsTank.mpMax || stats.nPotionMana == 0)
                     {
                         GetComponent<Button>().interactable = false;
                     }
@@ -34,7 +34,7 @@ public class ButtonVita : MonoBehaviour
                 }
             case 3:
                 {
-                    if (stats.statsDps.hp == stats.statsDps.hpMax || stats.nPotionHealth == 0)
+                    if (stats.statsDps.mp == stats.statsDps.mpMax || stats.nPotionMana == 0)
                     {
                         GetComponent<Button>().interactable = false;
                     }
@@ -55,45 +55,45 @@ public class ButtonVita : MonoBehaviour
         }
     }
 
-   public void Cura()
+    public void Cura()
     {
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
         UiControlExploration ui = FindObjectOfType<UiControlExploration>();
-        stats.nPotionHealth--;
+        stats.nPotionMana--;
         ui.AggiornaPotion();
         switch (nPlayer)
         {
             case 1:
                 {
-                    int cura = Mathf.RoundToInt(stats.statsMago.hpMax / 2);
-                    stats.statsMago.hp += cura;
-                    if (stats.statsMago.hp > stats.statsMago.hpMax)
+                    int cura = Mathf.RoundToInt(stats.statsMago.mpMax / 2);
+                    stats.statsMago.mp += cura;
+                    if (stats.statsMago.mp > stats.statsMago.mpMax)
                     {
-                        stats.statsMago.hp = stats.statsMago.hpMax;
+                        stats.statsMago.mp = stats.statsMago.mpMax;
                     }
-                    ui.AggiornaVita();
+                    ui.AggiornaMana();
                     break;
                 }
             case 2:
                 {
-                    int cura = Mathf.RoundToInt(stats.statsTank.hpMax / 2);
-                    stats.statsTank.hp += cura;
-                    if (stats.statsTank.hp > stats.statsTank.hpMax)
+                    int cura = Mathf.RoundToInt(stats.statsTank.mpMax / 2);
+                    stats.statsTank.mp += cura;
+                    if (stats.statsTank.mp > stats.statsTank.mpMax)
                     {
-                        stats.statsTank.hp = stats.statsTank.hpMax;
+                        stats.statsTank.mp = stats.statsTank.mpMax;
                     }
-                    ui.AggiornaVita();
+                    ui.AggiornaMana();
                     break;
                 }
             case 3:
                 {
-                    int cura = Mathf.RoundToInt(stats.statsDps.hpMax / 2);
-                    stats.statsDps.hp += cura;
-                    if (stats.statsDps.hp > stats.statsDps.hpMax)
+                    int cura = Mathf.RoundToInt(stats.statsDps.mpMax / 2);
+                    stats.statsDps.mp += cura;
+                    if (stats.statsDps.mp > stats.statsDps.mpMax)
                     {
-                        stats.statsDps.hp = stats.statsDps.hpMax;
+                        stats.statsDps.mp = stats.statsDps.mpMax;
                     }
-                    ui.AggiornaVita();
+                    ui.AggiornaMana();
                     break;
                 }
             default:
@@ -101,3 +101,4 @@ public class ButtonVita : MonoBehaviour
         }
     }
 }
+

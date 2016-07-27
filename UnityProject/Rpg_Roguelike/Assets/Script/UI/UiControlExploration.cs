@@ -29,10 +29,16 @@ public class UiControlExploration : MonoBehaviour
     public GameObject info1;
     public GameObject info2;
 
+    public GameObject tastiPanel;
     public GameObject pausePanel;
     private bool pause = false;
 
     public bool isMenuOpen = false;
+    public GameObject vitaMenu;
+    private bool isVita = false;
+    public GameObject manaMenu;
+    private bool isMana = false;
+
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
@@ -87,6 +93,23 @@ public class UiControlExploration : MonoBehaviour
             nCharacter = 1;
         }
 
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4) && !isMenuOpen)
+        {
+            isMenuOpen = false;
+            player.isOpenMenu = false;
+            menuStats.SetActive(false);
+            nCharacter = 1;
+        }
+
+        if (Input.GetKey(KeyCode.Joystick1Button6) && !isMenuOpen)
+        {
+            tastiPanel.SetActive(true);
+        }
+        else
+        {
+            tastiPanel.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Joystick1Button5) && isMenuOpen)
         {
             if (nCharacter < 3)
@@ -129,14 +152,65 @@ public class UiControlExploration : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button4) && !isMenuOpen)
-        {
 
+        if ((Input.GetKeyUp(KeyCode.Joystick1Button4)) && !isMenuOpen)
+        {
+            if (isVita)
+            {
+                PlayerMovement player = FindObjectOfType<PlayerMovement>();
+                player.isSpeaking = false;
+                isVita = false;
+                vitaMenu.SetActive(false);
+                return;
+            }
+            else
+            {
+                PlayerMovement player = FindObjectOfType<PlayerMovement>();
+                
+                isVita = true;
+                isMana = false;
+                manaMenu.SetActive(false);
+                vitaMenu.SetActive(true);
+                player.isSpeaking = true;
+                return;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !isMenuOpen)
+        if ((Input.GetKeyUp(KeyCode.Joystick1Button5)) && !isMenuOpen)
         {
+            if (isMana)
+            {
+                PlayerMovement player = FindObjectOfType<PlayerMovement>();
+                player.isSpeaking = false;
+                isMana = false;
+                manaMenu.SetActive(false);
+                return;
+            }
+            else
+            {
+                PlayerMovement player = FindObjectOfType<PlayerMovement>();
+                player.isSpeaking = true;
+                isMana = true;
+                isVita = true;
+                manaMenu.SetActive(true);
+                vitaMenu.SetActive(false);
+                return;
+            }
+        }
 
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && !isMenuOpen && isVita)
+        {
+            PlayerMovement player = FindObjectOfType<PlayerMovement>();
+            player.isSpeaking = false;
+            isVita = false;
+            vitaMenu.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && !isMenuOpen && isMana)
+        {
+            PlayerMovement player = FindObjectOfType<PlayerMovement>();
+            player.isSpeaking = false;
+            isMana = false;
+            manaMenu.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4) && isMenuOpen)
