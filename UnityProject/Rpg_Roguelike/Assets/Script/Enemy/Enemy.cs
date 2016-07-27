@@ -30,6 +30,7 @@ public abstract class Enemy : Character
 
     public bool stun = false;
 
+    public GameObject[] playersDefault;
     new void Start()
     {
         grid = FindObjectOfType<BattleGrid>();
@@ -44,19 +45,25 @@ public abstract class Enemy : Character
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject nearestPlayer = null;
         int nearestPlayerDistance = 10000;
-        
+
         // Cerca il GO player più vicino
-        foreach (GameObject player in players)
+        if (players.Length != 0)
         {
-            Character pl = player.GetComponent<Character>();
-            int distance = Mathf.Abs((int)pl.pos.x - (int)base.pos.x) + Mathf.Abs((int)pl.pos.y - (int)base.pos.y);
-            if (distance <= (nearestPlayerDistance))
+            foreach (GameObject player in players)
             {
-                nearestPlayerDistance = distance;
-                nearestPlayer = player;
+                if (player.GetComponent<Player>() != null)
+                {
+                    Player pl = player.GetComponent<Player>();
+                    int distance = Mathf.Abs((int)pl.pos.x - (int)base.pos.x) + Mathf.Abs((int)pl.pos.y - (int)base.pos.y);
+                    if (distance <= (nearestPlayerDistance))
+                    {
+                        nearestPlayerDistance = distance;
+                        nearestPlayer = player;
+                    }
+                }
             }
+            NearestCellToPlayer(base.pos, this.passi, nearestPlayer);
         }
-        NearestCellToPlayer(base.pos, this.passi, nearestPlayer);
     }
 
     public void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)

@@ -30,7 +30,7 @@ public class CombatController : MonoBehaviour
         if (changeReady && Input.anyKeyDown)
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaTommy"));
-            SceneManager.UnloadScene(1);
+            SceneManager.UnloadScene("Battle");
         }
     }
 
@@ -170,6 +170,28 @@ public class CombatController : MonoBehaviour
         }
     }
 
+    public bool CheckLose()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player");
+        int n = 0;
+        foreach (var item in enemies)
+        {
+            if (item.GetComponent<Player>() != null)
+            {
+                n++;
+            }
+        }
+        Debug.Log(n);
+        if (n == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void Win()
     {
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
@@ -180,16 +202,16 @@ public class CombatController : MonoBehaviour
             lvlTot += item;
         }
 
-        int exp = Mathf.RoundToInt((lvlTot * (Random.Range(40, 45))) * Random.Range(1.0f, 1.25f));
-        int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(7, 10))) * Random.Range(1.0f, 1.25f));
+        int exp = Mathf.RoundToInt((lvlTot * (Random.Range(40, 45))) * Random.Range(1.0f, 1.25f)* 10);
+        int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(7, 10))) * Random.Range(1.0f, 1.25f)* 10);
         bool health = false;
-        if (Random.Range(0f,100f) > 50)
+        if (Random.Range(0f,100f) > 90f)
         {
             health = true;
         }
 
         bool mana = false;
-        if (Random.Range(0f, 100f) > 95)
+        if (Random.Range(0f, 100f) > 90f)
         {
             mana = true;
         }
@@ -210,8 +232,14 @@ public class CombatController : MonoBehaviour
 
     public void Lose()
     {
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+
+        stats.statsDps.hp = 1;
+        stats.statsMago.hp = 1;
+        stats.statsTank.hp = 1;
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaTommy"));
-        SceneManager.UnloadScene(1);
+        SceneManager.UnloadScene("Battle");
+
     }
 
     void AggiornaRitrattoEnemy()

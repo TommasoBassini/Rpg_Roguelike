@@ -63,12 +63,11 @@ public class Dps : Player
                 cc.player.RemoveAt(n[i]);
             }
 
-            if (!cc.CheckWinner())
+            if (cc.CheckLose())
             {
-                cc.EndOfTurn();
-            }
-            else
                 cc.Lose();
+            }
+
 
             UiController ui1 = FindObjectOfType<UiController>();
             ui1.AggiornaVita(stats.hpMax, stats.hp, uiInfo);

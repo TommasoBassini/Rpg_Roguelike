@@ -67,6 +67,8 @@ public class PlayerStatsControl : MonoBehaviour
     public class StatsMago
     {
         //Statistiche
+        public int livello;
+
         public int hpMax;
         public int hp;
         public int mpMax;
@@ -88,7 +90,10 @@ public class PlayerStatsControl : MonoBehaviour
         public int velocita;
 
         public bool[] abilitaSbloccate = new bool[5];
-
+        public int costoForza = 100;
+        public int costoDestrezza = 100;
+        public int costoSpirito = 100;
+        public int[] costoAbilita = new int[5];
     }
 
     /// <summary>
@@ -152,6 +157,8 @@ public class PlayerStatsControl : MonoBehaviour
     public class StatsTank
     {
         //Statistiche
+        public int livello;
+
         public int hpMax;
         public int hp;
         public int mpMax;
@@ -173,6 +180,10 @@ public class PlayerStatsControl : MonoBehaviour
         public int velocita;
 
         public bool[] abilitaSbloccate = new bool[5];
+        public int costoForza = 100;
+        public int costoDestrezza = 100;
+        public int costoSpirito = 100;
+        public int[] costoAbilita = new int[5];
 
     }
     /// <summary>
@@ -235,6 +246,7 @@ public class PlayerStatsControl : MonoBehaviour
     [System.Serializable]
     public class StatsDps
     {
+        public int livello;
         //Statistiche
         public int hpMax;
         public int hp;
@@ -257,6 +269,10 @@ public class PlayerStatsControl : MonoBehaviour
         public int velocita;
 
         public bool[] abilitaSbloccate = new bool[5];
+        public int costoForza = 100;
+        public int costoDestrezza = 100;
+        public int costoSpirito = 100;
+        public int[] costoAbilita = new int[5];
     }
 
     public IncrementiDps incrementiDps;
