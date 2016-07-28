@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class FogOfWarManager : MonoBehaviour
 {
     private Grid grid;
-    private int vista = 5;
+    private int vista = 4;
     private List<GameObject> cells = new List<GameObject>();
  
 

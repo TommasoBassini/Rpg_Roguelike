@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public bool facingLeft = false;
     public bool facingUp = false;
     public bool facingDown = false;
+    public int nKeys = 0;
 
     public bool isOpenMenu = false;
 
