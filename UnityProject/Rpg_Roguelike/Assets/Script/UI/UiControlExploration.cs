@@ -13,6 +13,12 @@ public class UiControlExploration : MonoBehaviour
     public Sprite[] AbilityTank;
     public Sprite[] AbilityDps;
 
+    private Sprite[] anim = new Sprite[4];
+
+    public Sprite[] animMago;
+    public Sprite[] animTank;
+    public Sprite[] animDps;
+
     private bool mageOpen = false;
     private bool tankOpen = false;
     private bool dpsOpen = false;
@@ -38,6 +44,8 @@ public class UiControlExploration : MonoBehaviour
     private bool isVita = false;
     public GameObject manaMenu;
     private bool isMana = false;
+    public GameObject panelVita;
+    public GameObject panelMana;
 
     void Start()
     {
@@ -160,6 +168,8 @@ public class UiControlExploration : MonoBehaviour
                 PlayerMovement player = FindObjectOfType<PlayerMovement>();
                 player.isSpeaking = false;
                 isVita = false;
+                panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
+                panelVita.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
                 vitaMenu.SetActive(false);
                 return;
             }
@@ -171,6 +181,8 @@ public class UiControlExploration : MonoBehaviour
                 isMana = false;
                 manaMenu.SetActive(false);
                 vitaMenu.SetActive(true);
+                panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
+                panelVita.GetComponent<Image>().color = new Color(0.99f, 0.77f, 0.53f);
                 player.isSpeaking = true;
                 return;
             }
@@ -183,6 +195,8 @@ public class UiControlExploration : MonoBehaviour
                 PlayerMovement player = FindObjectOfType<PlayerMovement>();
                 player.isSpeaking = false;
                 isMana = false;
+                panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
+                panelVita.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
                 manaMenu.SetActive(false);
                 return;
             }
@@ -191,7 +205,9 @@ public class UiControlExploration : MonoBehaviour
                 PlayerMovement player = FindObjectOfType<PlayerMovement>();
                 player.isSpeaking = true;
                 isMana = true;
-                isVita = true;
+                isVita = false;
+                panelMana.GetComponent<Image>().color = new Color(0.99f, 0.77f, 0.53f);
+                panelVita.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
                 manaMenu.SetActive(true);
                 vitaMenu.SetActive(false);
                 return;
@@ -202,6 +218,8 @@ public class UiControlExploration : MonoBehaviour
         {
             PlayerMovement player = FindObjectOfType<PlayerMovement>();
             player.isSpeaking = false;
+            panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
+            panelVita.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
             isVita = false;
             vitaMenu.SetActive(false);
         }
@@ -209,6 +227,8 @@ public class UiControlExploration : MonoBehaviour
         {
             PlayerMovement player = FindObjectOfType<PlayerMovement>();
             player.isSpeaking = false;
+            panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
+            panelVita.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
             isMana = false;
             manaMenu.SetActive(false);
         }
@@ -414,10 +434,10 @@ public class UiControlExploration : MonoBehaviour
     {
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
 
-        Text text1 = transform.Find("Potion/Health/Text").GetComponent<Text>();
+        Text text1 = transform.Find("Vita/Health/Text").GetComponent<Text>();
         text1.text = stats.nPotionHealth.ToString();
 
-        Text text2 = transform.Find("Potion/Mana/Text").GetComponent<Text>();
+        Text text2 = transform.Find("Mana/Mana/Text").GetComponent<Text>();
         text2.text = stats.nPotionMana.ToString();
     }
 
@@ -447,7 +467,14 @@ public class UiControlExploration : MonoBehaviour
                 {
                     //Pannello Sinistro
                     nomeText.text = "Elibeth";
-                    charImage.sprite = characterSprite[0];
+
+                    for (int i = 0; i < animMago.Length; i++)
+                    {
+                        anim[i] = animMago[i];
+                    }
+                    StopCoroutine(AnimImage());
+                    StartCoroutine(AnimImage());
+
                     int livello = stats.statsMago.forza + stats.statsMago.Spirito + stats.statsMago.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
 
@@ -487,7 +514,13 @@ public class UiControlExploration : MonoBehaviour
             case 2:
                 {
                     nomeText.text = "Johell";
-                    charImage.sprite = characterSprite[1];
+
+                    for (int i = 0; i < animTank.Length; i++)
+                    {
+                        anim[i] = animTank[i];
+                    }
+                    StopCoroutine(AnimImage());
+                    StartCoroutine(AnimImage());
                     int livello = stats.statsTank.forza + stats.statsTank.Spirito + stats.statsTank.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
 
@@ -529,7 +562,13 @@ public class UiControlExploration : MonoBehaviour
             case 3:
                 {
                     nomeText.text = "Jupep";
-                    charImage.sprite = characterSprite[2];
+
+                    for (int i = 0; i < animDps.Length; i++)
+                    {
+                        anim[i] = animDps[i];
+                    }
+                    StopCoroutine(AnimImage());
+                    StartCoroutine(AnimImage());
                     int livello = stats.statsDps.forza + stats.statsDps.Spirito + stats.statsDps.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
 
@@ -695,5 +734,22 @@ public class UiControlExploration : MonoBehaviour
             stats.statsDps.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
+    }
+
+    IEnumerator AnimImage()
+    {
+        int i = 0;
+        while (isMenuOpen)
+        {
+            i++;
+            if (i == 4)
+            {
+                i = 0;
+            }
+            Image charImage = menuStats.transform.Find("Character/CharacterSprite").GetComponent<Image>();
+            charImage.sprite = anim[i];
+            yield return new WaitForSeconds(0.2f);
+        }
+
     }
 }
