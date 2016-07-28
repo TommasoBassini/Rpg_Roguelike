@@ -33,7 +33,7 @@ public abstract class Character : MonoBehaviour
         {
             distance = grid.cells[(int)pos.x, (int)pos.y].gameObject.transform.position - this.transform.position;
             direction = distance.normalized;
-            this.transform.position = this.transform.position + direction * Time.deltaTime * 3;
+            this.transform.position = this.transform.position + direction * Time.deltaTime * 5;
             SpriteRenderer sr = GetComponent<SpriteRenderer>();
             sr.sortingOrder = 10 - (int)pos.y;
             if (distance.sqrMagnitude < 0.01f)
@@ -43,23 +43,23 @@ public abstract class Character : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.W) && isMovible && !isMoving)
+        if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x, pos.y + 1));
 
         }
 
-        if (Input.GetKey(KeyCode.S) && isMovible && !isMoving)
+        if ((Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x, pos.y - 1));
         }
 
-        if (Input.GetKey(KeyCode.D) && isMovible && !isMoving)
+        if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x + 1, pos.y));
         }
 
-        if (Input.GetKey(KeyCode.A) && isMovible && !isMoving)
+        if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x - 1, pos.y));
         }

@@ -1,0 +1,424 @@
+fileFormatVersion: 2
+guid: 913fa55fd6d412743925d5e0f31208fe
+timeCreated: 1469622337
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Attacco fisico Sprite Sheet_0
+    21300002: Attacco fisico Sprite Sheet_1
+    21300004: Attacco fisico Sprite Sheet_2
+    21300006: Attacco fisico Sprite Sheet_3
+    21300008: Attacco fisico Sprite Sheet_4
+    21300010: Attacco fisico Sprite Sheet_5
+    21300012: Attacco fisico Sprite Sheet_6
+    21300014: Attacco fisico Sprite Sheet_7
+    21300016: Attacco fisico Sprite Sheet_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Attacco fisico Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23, y: -47}
+        - {x: -79, y: -59}
+        - {x: -79, y: -106}
+        - {x: -40, y: -119}
+        - {x: 29, y: -119}
+        - {x: 40, y: -91}
+        - {x: 40, y: -47}
+      - - {x: -90, y: -89}
+        - {x: -86, y: -94}
+        - {x: -84, y: -94}
+        - {x: -82, y: -92}
+        - {x: -84, y: -86}
+        - {x: -87, y: -83}
+        - {x: -90, y: -84}
+      - - {x: 38, y: -81}
+        - {x: 38, y: -85}
+        - {x: 40, y: -87}
+        - {x: 43, y: -86}
+        - {x: 44, y: -82}
+        - {x: 41, y: -79}
+        - {x: 40, y: -79}
+      - - {x: -69, y: -65}
+        - {x: -70, y: -66}
+        - {x: -70, y: -71}
+        - {x: -64, y: -74}
+        - {x: -60, y: -74}
+        - {x: -58, y: -73}
+        - {x: -58, y: -70}
+        - {x: -60, y: -68}
+        - {x: -64, y: -65}
+      - - {x: 24, y: -41}
+        - {x: 20, y: -45}
+        - {x: 20, y: -47}
+        - {x: 22, y: -49}
+        - {x: 24, y: -49}
+        - {x: 27, y: -46}
+        - {x: 27, y: -43}
+        - {x: 25, y: -41}
+    - name: Attacco fisico Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -108, y: -14}
+        - {x: -108, y: -96}
+        - {x: -63, y: -112}
+        - {x: 51, y: -112}
+        - {x: 71, y: -97}
+        - {x: 78, y: -89}
+        - {x: 78, y: -14}
+    - name: Attacco fisico Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70, y: 49}
+        - {x: -108, y: -30}
+        - {x: -114, y: -39}
+        - {x: -114, y: -101}
+        - {x: -46, y: -167}
+        - {x: 61, y: -167}
+        - {x: 115, y: -104}
+        - {x: 115, y: 38}
+        - {x: 106, y: 49}
+      - - {x: -74, y: -152}
+        - {x: -76, y: -154}
+        - {x: -76, y: -156}
+        - {x: -70, y: -161}
+        - {x: -66, y: -161}
+        - {x: -65, y: -159}
+        - {x: -65, y: -157}
+        - {x: -68, y: -154}
+      - - {x: 134, y: -30}
+        - {x: 136, y: -32}
+        - {x: 139, y: -31}
+        - {x: 139, y: -26}
+        - {x: 137, y: -24}
+        - {x: 134, y: -25}
+      - - {x: -113, y: -21}
+        - {x: -111, y: -23}
+        - {x: -108, y: -22}
+        - {x: -108, y: -19}
+        - {x: -110, y: -17}
+        - {x: -113, y: -18}
+      - - {x: 82, y: 84}
+        - {x: 82, y: 74}
+        - {x: 122, y: -7}
+        - {x: 131, y: -7}
+        - {x: 131, y: 52}
+        - {x: 109, y: 84}
+    - name: Attacco fisico Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 94, y: 117}
+        - {x: -51, y: 117}
+        - {x: -91, y: 77}
+        - {x: -98, y: 14}
+        - {x: -98, y: -132}
+        - {x: -36, y: -174}
+        - {x: 125, y: -174}
+        - {x: 140, y: -119}
+        - {x: 140, y: 91}
+        - {x: 106, y: 116}
+      - - {x: -16, y: 84}
+        - {x: -13, y: 85}
+        - {x: -13, y: 88}
+        - {x: -16, y: 89}
+        - {x: -18, y: 87}
+    - name: Attacco fisico Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 96, y: 79}
+        - {x: 100, y: 86}
+        - {x: 94, y: 105}
+        - {x: 41, y: 147}
+        - {x: -8, y: 163}
+        - {x: -74, y: 163}
+        - {x: -108, y: 132}
+        - {x: -94, y: 89}
+        - {x: -67, y: 27}
+        - {x: -57, y: 36}
+        - {x: -28, y: -63}
+        - {x: -108, y: 102}
+        - {x: -111, y: 94}
+        - {x: -111, y: -106}
+        - {x: -87, y: -172}
+        - {x: 164, y: -172}
+        - {x: 164, y: -40}
+        - {x: 139, y: 20}
+        - {x: 83, y: 84}
+        - {x: 61, y: 103}
+      - - {x: 79, y: -93}
+        - {x: 82, y: -92}
+        - {x: 82, y: -89}
+        - {x: 79, y: -88}
+        - {x: 77, y: -90}
+      - - {x: 70, y: -60}
+        - {x: 73, y: -63}
+        - {x: 76, y: -62}
+        - {x: 77, y: -56}
+        - {x: 75, y: -54}
+        - {x: 72, y: -55}
+      - - {x: 59, y: -39}
+        - {x: 57, y: -42}
+        - {x: 57, y: -47}
+        - {x: 59, y: -50}
+        - {x: 61, y: -50}
+        - {x: 65, y: -49}
+        - {x: 65, y: -39}
+    - name: Attacco fisico Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 86, y: 120}
+        - {x: 29, y: 120}
+        - {x: 13, y: -43}
+        - {x: 13, y: -150}
+        - {x: 116, y: -150}
+        - {x: 144, y: -89}
+        - {x: 144, y: 64}
+        - {x: 116, y: 97}
+      - - {x: -41, y: -128}
+        - {x: -42, y: -130}
+        - {x: -42, y: -133}
+        - {x: -40, y: -134}
+        - {x: -37, y: -134}
+        - {x: -36, y: -133}
+        - {x: -36, y: -128}
+      - - {x: -116, y: -54}
+        - {x: -66, y: -126}
+        - {x: -50, y: -126}
+        - {x: -49, y: -125}
+        - {x: -49, y: -119}
+        - {x: -83, y: 51}
+        - {x: -84, y: 53}
+        - {x: -99, y: 53}
+        - {x: -116, y: 20}
+      - - {x: -36, y: 161}
+        - {x: -28, y: 162}
+        - {x: 15, y: 163}
+        - {x: 33, y: 154}
+        - {x: 136, y: 123}
+        - {x: 137, y: 124}
+        - {x: 137, y: 149}
+        - {x: 75, y: 183}
+        - {x: -73, y: 183}
+        - {x: -107, y: 160}
+        - {x: -107, y: 46}
+        - {x: -3, y: 46}
+        - {x: 78, y: 103}
+        - {x: 17, y: 160}
+        - {x: -25, y: 162}
+        - {x: -30, y: 162}
+    - name: Attacco fisico Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 83, y: 89}
+        - {x: 83, y: -99}
+        - {x: 85, y: -103}
+        - {x: 123, y: -103}
+        - {x: 149, y: -51}
+        - {x: 149, y: 53}
+        - {x: 121, y: 89}
+      - - {x: -103, y: -37}
+        - {x: -101, y: -39}
+        - {x: -98, y: -38}
+        - {x: -98, y: -33}
+        - {x: -100, y: -31}
+        - {x: -103, y: -32}
+      - - {x: -97, y: 54}
+        - {x: -112, y: 37}
+        - {x: -113, y: 18}
+        - {x: -113, y: -5}
+        - {x: -108, y: -18}
+        - {x: -103, y: -18}
+        - {x: -101, y: -17}
+        - {x: -81, y: 41}
+        - {x: -81, y: 51}
+        - {x: -86, y: 54}
+      - - {x: -62, y: 176}
+        - {x: -63, y: 176}
+        - {x: -67, y: 174}
+        - {x: -61, y: 178}
+        - {x: -60, y: 175}
+        - {x: -51, y: 171}
+        - {x: -48, y: 172}
+        - {x: -44, y: 175}
+        - {x: -44, y: 179}
+        - {x: -47, y: 194}
+        - {x: -115, y: 194}
+        - {x: -139, y: 188}
+        - {x: -139, y: 129}
+        - {x: -123, y: 95}
+        - {x: -83, y: 60}
+        - {x: -77, y: 60}
+        - {x: -74, y: 63}
+        - {x: -75, y: 68}
+        - {x: -58, y: 173}
+    - name: Attacco fisico Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 118, y: 118}
+        - {x: 104, y: 118}
+        - {x: 101, y: 113}
+        - {x: 101, y: 105}
+        - {x: 142, y: 35}
+        - {x: 144, y: 34}
+        - {x: 154, y: 34}
+        - {x: 154, y: 85}
+        - {x: 128, y: 116}
+      - - {x: -127, y: 198}
+        - {x: -141, y: 161}
+        - {x: -141, y: 118}
+        - {x: -125, y: 98}
+        - {x: -102, y: 98}
+        - {x: -64, y: 182}
+        - {x: -64, y: 192}
+        - {x: -72, y: 198}
+      - - {x: 102, y: 130}
+        - {x: 97, y: 126}
+        - {x: 98, y: 123}
+        - {x: 111, y: 123}
+        - {x: 113, y: 125}
+        - {x: 113, y: 126}
+        - {x: 108, y: 130}
+      - - {x: -84, y: 134}
+        - {x: -82, y: 132}
+        - {x: -79, y: 133}
+        - {x: -79, y: 136}
+        - {x: -81, y: 138}
+        - {x: -84, y: 137}
+    - name: Attacco fisico Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -140, y: 186}
+        - {x: -155, y: 181}
+        - {x: -155, y: 138}
+        - {x: -151, y: 136}
+        - {x: -145, y: 136}
+        - {x: -140, y: 139}
+        - {x: -119, y: 171}
+        - {x: -119, y: 186}
+      - - {x: -130, y: 171}
+        - {x: -129, y: 168}
+        - {x: -125, y: 168}
+        - {x: -123, y: 170}
+        - {x: -124, y: 173}
+        - {x: -128, y: 173}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

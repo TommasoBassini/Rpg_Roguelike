@@ -21,10 +21,11 @@ public class PlayerMovement : MonoBehaviour
     public bool facingDown = false;
 
     public bool isOpenMenu = false;
+
     void Start ()
     {
         fog = this.GetComponent<FogOfWarManager>();
-        fog.Fog(playerPos);
+        Invoke("CoFog", 0.1f);
     }
 
     // Imposta la posizione iniziale del giocatore all'interno della griglia
@@ -34,7 +35,10 @@ public class PlayerMovement : MonoBehaviour
         this.transform.position = grid.cells[(int)playerPos.x, (int)playerPos.y].gameObject.transform.position;
     }
 
-
+    void CoFog()
+    {
+        fog.Fog(playerPos);
+    }
     // Imposta la destinazione che il giocatore deve raggiungere
     public void PlayerMove(Vector2 _pos)
     {
@@ -50,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 
 
                 randomEncounterProbably += 5;
-                if (Random.Range(randomEncounterProbably, 255) > 250)
+                if (Random.Range(randomEncounterProbably, 300) > 295)
                 {
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
@@ -75,11 +79,10 @@ public class PlayerMovement : MonoBehaviour
                 isMoving = false;
             }
         }
-
         
         if (!isSpeaking && !isOpenMenu)
         {
-            if (Input.GetKey(KeyCode.W) && !isMoving)
+            if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0.5f) && !isMoving)
             {
                 PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
                 facingUp = true;
@@ -90,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
                 
             }
 
-            if (Input.GetKey(KeyCode.S) && !isMoving)
+            if ((Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < -0.5f) && !isMoving)
             {
                 PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
                 facingUp = false;    
@@ -99,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
                 facingLeft = false;
             }
 
-            if (Input.GetKey(KeyCode.D) && !isMoving)
+            if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0.5f) && !isMoving)
             {
                 
                 PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
@@ -109,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
                 facingLeft = false;
             }
 
-            if (Input.GetKey(KeyCode.A) && !isMoving)
+            if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < -0.5f) && !isMoving)
             {                
                 PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
                 facingUp = false;

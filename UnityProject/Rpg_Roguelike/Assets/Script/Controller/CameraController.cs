@@ -5,13 +5,13 @@ public class CameraController : MonoBehaviour
 {
     public int speed;
 
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && Camera.main.orthographicSize < 15)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button2)) && Camera.main.orthographicSize < 15)
         {
             Camera.main.orthographicSize += speed * Time.deltaTime;
         }
-        else if (!Input.GetKey(KeyCode.Space) && Camera.main.orthographicSize > 5)
+        else if ((!Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.Joystick1Button2)) && Camera.main.orthographicSize > 5)
         {
             Camera.main.orthographicSize -= speed * Time.deltaTime;
         }

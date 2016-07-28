@@ -1,0 +1,292 @@
+fileFormatVersion: 2
+guid: 882c34a084a27f84ebbbc248c089379a
+timeCreated: 1469622445
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Attacco Ranged Sprite Sheet_0
+    21300002: Attacco Ranged Sprite Sheet_1
+    21300004: Attacco Ranged Sprite Sheet_2
+    21300006: Attacco Ranged Sprite Sheet_3
+    21300008: Attacco Ranged Sprite Sheet_4
+    21300010: Attacco Ranged Sprite Sheet_5
+    21300012: Attacco Ranged Sprite Sheet_6
+    21300014: Attacco Ranged Sprite Sheet_7
+    21300016: Attacco Ranged Sprite Sheet_8
+    21300018: Attacco Ranged Sprite Sheet_9
+    21300020: Attacco Ranged Sprite Sheet_10
+    21300022: Attacco Ranged Sprite Sheet_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Attacco Ranged Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 205.49997}
+        - {x: -8.5, y: 134.49997}
+        - {x: -7.5, y: 131.49997}
+        - {x: 5.5, y: 131.49997}
+        - {x: 5.5, y: 202.49997}
+        - {x: 3.5, y: 205.49997}
+    - name: Attacco Ranged Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.250015, y: 189.49997}
+        - {x: -8.250015, y: 114.49997}
+        - {x: -5.2500153, y: 112.49997}
+        - {x: -3.2500153, y: 110.49997}
+        - {x: 6.7499847, y: 110.49997}
+        - {x: 6.7499847, y: 187.49997}
+        - {x: 4.7499847, y: 189.49997}
+    - name: Attacco Ranged Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5000305, y: 74.49997}
+        - {x: 6.4999695, y: 74.49997}
+        - {x: 8.4999695, y: 76.49997}
+        - {x: 8.4999695, y: 169.49997}
+        - {x: -9.5000305, y: 169.49997}
+        - {x: -9.5000305, y: 82.49997}
+    - name: Attacco Ranged Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.250061, y: 147.49997}
+        - {x: -11.250061, y: 38.49997}
+        - {x: 2.749939, y: 38.49997}
+        - {x: 8.749939, y: 44.49997}
+        - {x: 8.749939, y: 147.49997}
+    - name: Attacco Ranged Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.000061, y: 126.49997}
+        - {x: -8.000061, y: 123.49997}
+        - {x: -8.000061, y: 37.49997}
+        - {x: -3.000061, y: 26.49997}
+        - {x: 7.999939, y: 26.49997}
+        - {x: 7.999939, y: 123.49997}
+        - {x: 3.999939, y: 126.49997}
+    - name: Attacco Ranged Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.250061, y: 99.49997}
+        - {x: -7.250061, y: 93.49997}
+        - {x: -7.250061, y: 67.49997}
+        - {x: -6.250061, y: 40.49997}
+        - {x: -7.250061, y: 33.49997}
+        - {x: -7.250061, y: 19.49997}
+        - {x: -3.250061, y: 10.4999695}
+        - {x: 3.749939, y: 10.4999695}
+        - {x: 5.749939, y: 12.4999695}
+        - {x: 5.749939, y: 95.49997}
+        - {x: 4.749939, y: 99.49997}
+    - name: Attacco Ranged Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0.49987793, y: 60.49997}
+        - {x: -5.500122, y: 60.49997}
+        - {x: -9.500122, y: 56.49997}
+        - {x: -9.500122, y: -13.5000305}
+        - {x: -5.500122, y: -24.50003}
+        - {x: 0.49987793, y: -24.50003}
+        - {x: 7.499878, y: -11.5000305}
+        - {x: 7.499878, y: 56.49997}
+    - name: Attacco Ranged Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.250122, y: 40.49997}
+        - {x: -14.250122, y: 4.4999695}
+        - {x: -14.250122, y: -39.50003}
+        - {x: 4.749878, y: -48.50003}
+        - {x: 16.749878, y: -48.50003}
+        - {x: 16.749878, y: -31.50003}
+        - {x: 8.749878, y: 36.49997}
+        - {x: 3.749878, y: 40.49997}
+    - name: Attacco Ranged Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.000122, y: -15.5000305}
+        - {x: -19.000122, y: -41.50003}
+        - {x: -17.000122, y: -56.50003}
+        - {x: 17.999878, y: -56.50003}
+        - {x: 17.999878, y: 6.4999695}
+        - {x: 9.999878, y: 33.49997}
+        - {x: 1.9998779, y: 35.49997}
+        - {x: -5.000122, y: 35.49997}
+        - {x: -9.000122, y: 32.49997}
+    - name: Attacco Ranged Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 800
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.250122, y: 29.49997}
+        - {x: -15.250122, y: 28.49997}
+        - {x: -22.250122, y: 3.4999695}
+        - {x: -22.250122, y: -42.50003}
+        - {x: -21.250122, y: -44.50003}
+        - {x: 12.749878, y: -58.50003}
+        - {x: 20.749878, y: -58.50003}
+        - {x: 20.749878, y: 24.49997}
+        - {x: 19.749878, y: 29.49997}
+    - name: Attacco Ranged Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: -38}
+        - {x: -18.5, y: -43}
+        - {x: -9.5, y: -49}
+        - {x: 16.5, y: -49}
+        - {x: 35.5, y: -7}
+        - {x: 35.5, y: 32}
+        - {x: 14.5, y: 32}
+        - {x: -23.5, y: 3}
+    - name: Attacco Ranged Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 45.749985, y: 16}
+        - {x: 29.749985, y: 6}
+        - {x: 3.7499847, y: -19}
+        - {x: 3.7499847, y: -35}
+        - {x: 33.749985, y: -35}
+        - {x: 60.749985, y: -3}
+        - {x: 60.749985, y: 16}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

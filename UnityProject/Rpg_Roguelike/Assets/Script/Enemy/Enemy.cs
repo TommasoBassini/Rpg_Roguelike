@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class IncrementiNemici
+{
+    public int hpMax;
+    public int att;
+    public int difesa;
+}
+
 public abstract class Enemy : Character
 {
 
@@ -31,13 +39,19 @@ public abstract class Enemy : Character
     public bool stun = false;
 
     public GameObject[] playersDefault;
+
+    public IncrementiNemici incrementi;
+
     new void Start()
     {
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+        level = Random.Range(stats.livelloNemici - 2, stats.livelloNemici + 2);
+
         grid = FindObjectOfType<BattleGrid>();
-        hpMax *= level;
-        hp *= level;
-        difesa *= level;
-        att *= level;
+        hpMax += (incrementi.hpMax * level);
+        hp = hpMax;
+        difesa += (incrementi.difesa * level);
+        att += (incrementi.hpMax * level);
     }
 
     public void FindNearestPlayer()

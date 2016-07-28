@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 801b5654a089ba24a979a1f8d9af5bb3
+timeCreated: 1469622180
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Attacco down (Disarma) sprite sheet_0
+    21300002: Attacco down (Disarma) sprite sheet_1
+    21300004: Attacco down (Disarma) sprite sheet_2
+    21300006: Attacco down (Disarma) sprite sheet_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Attacco down (Disarma) sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -124, y: 147}
+        - {x: -134, y: 124}
+        - {x: -134, y: 107}
+        - {x: -118, y: 82}
+        - {x: -108, y: 82}
+        - {x: -97, y: 88}
+        - {x: -89, y: 108}
+        - {x: -89, y: 122}
+        - {x: -100, y: 147}
+      - - {x: -148, y: 152}
+        - {x: -199, y: 118}
+        - {x: -199, y: 85}
+        - {x: -167, y: 85}
+        - {x: -134, y: 134}
+        - {x: -132, y: 142}
+        - {x: -132, y: 152}
+    - name: Attacco down (Disarma) sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -125, y: 157}
+        - {x: -139, y: 131}
+        - {x: -139, y: 109}
+        - {x: -119, y: 77}
+        - {x: -108, y: 77}
+        - {x: -84, y: 100}
+        - {x: -84, y: 140}
+        - {x: -90, y: 157}
+      - - {x: -148, y: 152}
+        - {x: -199, y: 118}
+        - {x: -199, y: 85}
+        - {x: -167, y: 85}
+        - {x: -134, y: 134}
+        - {x: -132, y: 142}
+        - {x: -132, y: 152}
+    - name: Attacco down (Disarma) sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 167}
+        - {x: -144, y: 122}
+        - {x: -144, y: 107}
+        - {x: -115, y: 72}
+        - {x: -108, y: 72}
+        - {x: -79, y: 112}
+        - {x: -79, y: 127}
+        - {x: -96, y: 167}
+      - - {x: -148, y: 152}
+        - {x: -199, y: 118}
+        - {x: -199, y: 85}
+        - {x: -167, y: 85}
+        - {x: -134, y: 134}
+        - {x: -132, y: 142}
+        - {x: -132, y: 152}
+    - name: Attacco down (Disarma) sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -125, y: 157}
+        - {x: -139, y: 131}
+        - {x: -139, y: 109}
+        - {x: -119, y: 77}
+        - {x: -108, y: 77}
+        - {x: -84, y: 100}
+        - {x: -84, y: 140}
+        - {x: -90, y: 157}
+      - - {x: -148, y: 152}
+        - {x: -199, y: 118}
+        - {x: -199, y: 85}
+        - {x: -167, y: 85}
+        - {x: -134, y: 134}
+        - {x: -132, y: 142}
+        - {x: -132, y: 152}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
