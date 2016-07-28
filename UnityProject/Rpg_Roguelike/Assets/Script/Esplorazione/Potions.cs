@@ -8,17 +8,15 @@ public class Potions : MonoBehaviour
     public bool isHpPotion;
     public bool isMpPotion;
     private PlayerStatsControl stats;
+    public int costo;
     private Player player;
     private bool isDIalogueStart = false;
-    public TextAsset textFile;
-    public string[] textRow;
-    private int nRow = 0;
-    private int currentLine = 0;
-    public GameObject panelDialogue;
-    public Text text;
+
+    public GameObject panelAvvisi;
     private PlayerMovement playerMov;
 
-
+    public Sprite vitaGrande;
+    public Sprite manaGrande;
     
     void Start ()
     {
@@ -42,19 +40,25 @@ public class Potions : MonoBehaviour
     
     void Update ()
     {
-        if (oneTime == true && Input.GetKeyDown(KeyCode.E))
+        if (oneTime == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
         {
-            if (isHpPotion == true && stats.soldi > 0) // Al posto dello zero, verrà imposto come limite il prezzo della pozione
+            if (isHpPotion == true && stats.soldi >= costo) // Al posto dello zero, verrà imposto come limite il prezzo della pozione
             {
+                UiControlExploration ui = FindObjectOfType<UiControlExploration>();
                 stats.nPotionHealth++;
                 //stats.soldi--;
-                stats.soldi -= 20; 
+                stats.soldi -= costo;
+                ui.AggiornaPotion();
+                ui.AggiornaAveri();
             }
 
-            else if (isMpPotion == true && stats.soldi > 0)
+            else if (isMpPotion == true && stats.soldi >= costo)
             {
+                UiControlExploration ui = FindObjectOfType<UiControlExploration>();
                 stats.nPotionMana++;
-                stats.soldi--;
+                stats.soldi -= costo;
+                ui.AggiornaPotion();
+                ui.AggiornaAveri();
             }
         }
 
@@ -67,9 +71,21 @@ public class Potions : MonoBehaviour
         if (col.gameObject.name =="Player")
         {
 
-                playerMov = col.gameObject.GetComponent<PlayerMovement>();
-                panelDialogue.SetActive(true);
-                text.text = "Se vuoi acquistare la pozione, premi E";
+            playerMov = col.gameObject.GetComponent<PlayerMovement>();
+            panelAvvisi.SetActive(true);
+            Image image = panelAvvisi.transform.Find("Image").GetComponent<Image>();
+            Text text = panelAvvisi.transform.Find("Text").GetComponent<Text>();
+
+            if (isHpPotion)
+            {
+                image.sprite = vitaGrande;
+                text.text = "Vuoi acquistare ''Essenza della vita'' ? ";
+            }
+            if (isMpPotion)
+            {
+                image.sprite = manaGrande;
+                text.text = "Vuoi acquistare ''Essenza del mana'' ? ";
+            }
         }
     }
     
@@ -86,7 +102,6 @@ public class Potions : MonoBehaviour
     void OnTriggerExit2D(Collider2D coll)
     {
         oneTime = false;
-        panelDialogue.SetActive(false);
-        text.text = "";
+        panelAvvisi.SetActive(false);
     }
 }

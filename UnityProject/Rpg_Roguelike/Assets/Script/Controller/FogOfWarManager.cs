@@ -19,10 +19,14 @@ public class FogOfWarManager : MonoBehaviour
     {
         foreach (var item in cellsB)
         {
-            if (!cellsA.Contains(item))
+            if (item != null)
             {
-                item.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.25f, 0.25f, 0.25f);
+                if (!cellsA.Contains(item))
+                {
+                    item.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.4f, 0.4f, 0.4f);
+                }
             }
+
         }
         cellsB.Clear();
         foreach (var item in cellsA)
@@ -93,7 +97,7 @@ public class FogOfWarManager : MonoBehaviour
                                 if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista))
                                 {
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    Color newColor = new Color(0.33f, 0.33f, 0.33f);
+                                    Color newColor = new Color(0.4f, 0.4f, 0.4f);
                                     StartCoroutine(ChangeColor(sr.color, newColor, sr));
                                     if (!cellsA.Contains(cel.tileEditorCell))
                                         cellsA.Add(cel.tileEditorCell);
@@ -171,8 +175,8 @@ public class FogOfWarManager : MonoBehaviour
             {
                 SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
                 Color oldColor = sr.color;
-                Color newColor = new Color(0.33f, 0.33f, 0.33f);
-                sr.color = Color.Lerp(oldColor, newColor, 0.5f);
+                Color newColor = new Color(0.4f, 0.4f, 0.4f);
+                StartCoroutine(ChangeColor(sr.color, newColor, sr));
 
             }
             if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) == vista - 1)
@@ -180,14 +184,14 @@ public class FogOfWarManager : MonoBehaviour
                 SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
                 Color oldColor = sr.color;
                 Color newColor = new Color(0.66f, 0.66f, 0.66f);
-                sr.color = Color.Lerp(oldColor, newColor, 0.5f);
+                StartCoroutine(ChangeColor(sr.color, newColor, sr));
             }
             if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) <= vista - 2)
             {
                 SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
                 Color oldColor = sr.color;
                 Color newColor = Color.white;
-                sr.color = Color.Lerp(oldColor, newColor, 0.5f);
+                StartCoroutine(ChangeColor(sr.color, newColor, sr));
             }
         }
 

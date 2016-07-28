@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
         {
             Camera.main.orthographicSize += speed * Time.deltaTime;
         }
-        else if ((!Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.Joystick1Button2)) && Camera.main.orthographicSize > 3.5f)
+        else if ((!Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.Joystick1Button2)) && Camera.main.orthographicSize > 4.5f)
         {
             Camera.main.orthographicSize -= speed * Time.deltaTime;
         }
