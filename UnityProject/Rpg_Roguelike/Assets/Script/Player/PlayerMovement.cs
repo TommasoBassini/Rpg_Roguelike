@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetPlayerPosition()
     {
         grid = GameObject.Find("Grid").GetComponent<Grid>();
-        this.transform.position = grid.cells[1, 1].gameObject.transform.position;
+        this.transform.position = grid.cells[(int)playerPos.x, (int)playerPos.y].gameObject.transform.position;
     }
 
 
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    gc.RandomEncounter();
+                    //gc.RandomEncounter();
                 }
             }
         }
