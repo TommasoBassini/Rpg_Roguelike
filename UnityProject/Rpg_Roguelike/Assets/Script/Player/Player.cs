@@ -40,6 +40,8 @@ public abstract class Player : Character
 
     public Sprite image;
     public string nome;
+    public GameObject spriteAttacco;
+    public AudioClip attacco;
 
     // liste buff/debuff
     //BuffAttacco
@@ -62,7 +64,12 @@ public abstract class Player : Character
         Enemy enemy = _enemy.GetComponent<Enemy>();
         Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
         enemy.SubisciDannoMelee(stats.attMelee,_enemy);
+        GameObject effect = Instantiate(spriteAttacco);
+        effect.transform.position = _enemy.transform.position;
 
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(attacco);
+        Debug.Log(audio);
         foreach (GameObject cell in checkboxAttack)
         {
             Destroy(cell);
