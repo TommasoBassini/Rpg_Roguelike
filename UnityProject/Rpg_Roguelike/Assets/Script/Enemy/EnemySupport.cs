@@ -22,14 +22,17 @@ public class EnemySupport : Enemy
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (var _enemy in enemies)
         {
-            Enemy enemy = _enemy.GetComponent <Enemy>();
-            int soglia = Mathf.RoundToInt((enemy.hpMax * 40) / 100);
-            if (enemy.hp < soglia)
+            if (_enemy.GetComponent<Enemy>() != null)
             {
-                target = _enemy;
-                targetPos = enemy.pos;
-                enemyInDifficolta = true;
-                break;
+                Enemy enemy = _enemy.GetComponent<Enemy>();
+                int soglia = Mathf.RoundToInt((enemy.hpMax * 40) / 100);
+                if (enemy.hp < soglia)
+                {
+                    target = _enemy;
+                    targetPos = enemy.pos;
+                    enemyInDifficolta = true;
+                    break;
+                }
             }
         }
         if (enemyInDifficolta)

@@ -21,10 +21,16 @@ public class MageAbility : MonoBehaviour
 
     public GameObject protezione;
     public GameObject cura;
-    public GameObject assorbiAnima;
+    public GameObject assorbiAnimaEnemy;
+    public GameObject assorbiAnimaPlayer;
     public GameObject ragnatela;
     public GameObject fulmine;
 
+    public AudioClip audioProtezione;
+    public AudioClip audioCura;
+    public AudioClip audioAssorbiAnima;
+    public AudioClip audioRagnatela;
+    public AudioClip audioFulmine;
 
     void Start()
     {
@@ -141,6 +147,13 @@ public class MageAbility : MonoBehaviour
         //costo e variabili
         int mp = 20;
 
+        GameObject effect = Instantiate(fulmine);
+        effect.transform.position = _enemy.transform.position;
+
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioFulmine);
+
         //calcola effetto
         int danni = Mathf.RoundToInt  (((player.stats.attMagico) * 1.5f) * (Random.Range(1.0f,1.25f)));
         Enemy enemy = _enemy.GetComponent<Enemy>();
@@ -242,6 +255,13 @@ public class MageAbility : MonoBehaviour
             }
             cc.UpdateTurnPortrait();
         }
+
+        GameObject effect = Instantiate(ragnatela);
+        effect.transform.position = _enemy.transform.position;
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioRagnatela);
+
         //calcola effetto
         int danni = Mathf.RoundToInt(((1) * 1.5f) * (Random.Range(1.0f, 1.25f)));
         Enemy enemy = _enemy.GetComponent<Enemy>();
@@ -321,6 +341,13 @@ public class MageAbility : MonoBehaviour
         int mp = 25;
         int nTurniBuff = 2;
         Player playerTarget = _player.GetComponent<Player>();
+
+        GameObject effect = Instantiate(protezione);
+        effect.transform.position = new Vector3 (_player.transform.position.x, _player.transform.position.y + 0.5f, _player.transform.position.z);
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioProtezione);
+
         //calcola effetto
         playerTarget.nTurnoProtezione += nTurniBuff;
         //scala il danno dal nemico e gli mp al player
@@ -399,6 +426,11 @@ public class MageAbility : MonoBehaviour
         //costo e variabili
         int mp = 25;
         Player playerTarget = _player.GetComponent<Player>();
+        GameObject effect = Instantiate(ragnatela);
+        effect.transform.position = _player.transform.position;
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioCura);
         //calcola effetto
         int cura = Mathf.RoundToInt(this.player.stats.attMagico * (Random.Range(1f, 1.25f)));
         if(playerTarget.stats.hp + cura > playerTarget.stats.hpMax)
@@ -487,6 +519,13 @@ public class MageAbility : MonoBehaviour
         int danni = player.stats.attDistanza;
 
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        GameObject effect = Instantiate(assorbiAnimaEnemy);
+        effect.transform.position = _enemy.transform.position;
+        GameObject effect1 = Instantiate(assorbiAnimaPlayer);
+        effect1.transform.position = player.transform.position;
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioAssorbiAnima);
         //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;

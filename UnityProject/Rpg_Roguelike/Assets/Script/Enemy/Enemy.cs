@@ -151,14 +151,45 @@ public abstract class Enemy : Character
                 cellToCross.Add(base.grid.cells[x, (int)this.pos.y + (zy * j)]);
             }
         }
+        int newX = (int)_pos.x;
+        Animator anim = GetComponent<Animator>();
+        if (newX <= (int)endPos.x)
+        {
+            Debug.Log("right");
+            anim.SetTrigger("WalkLeft");
+        }
+        if (newX > (int)endPos.x)
+        {
+            Debug.Log("right");
+            anim.SetTrigger("WalkRight");
 
+        }
         foreach (CombatCell item in cellToCross)
         {
-            this.transform.position = item.gameObject.transform.position;
-            base.pos = item.pos;
-            SpriteRenderer sr2 = item.gameObject.GetComponent<SpriteRenderer>();
-            sr2.color = Color.white;
-            yield return new WaitForSeconds(0.2f);
+            Vector3 distance;
+            Vector3 direction;
+            bool isMoving = true;
+
+            while (isMoving)
+            {
+                distance = item.gameObject.transform.position - this.transform.position;
+                direction = distance.normalized;
+                this.transform.position = this.transform.position + direction * Time.deltaTime * 2;
+                if (distance.sqrMagnitude < 0.01f)
+                {
+                    isMoving = false;
+                    this.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 0);
+                }
+                yield return null;
+            }
+
+            anim.SetTrigger("IdleLeft");
+            //  this.transform.position = item.gameObject.transform.position;
+            // base.pos = item.pos;
+            //SpriteRenderer sr2 = item.gameObject.GetComponent<SpriteRenderer>();
+            //sr2.color = Color.white;
+
+
         }
         grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = true;
         grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = this.gameObject;

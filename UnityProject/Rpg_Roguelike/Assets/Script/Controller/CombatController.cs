@@ -151,6 +151,8 @@ public class CombatController : MonoBehaviour
 
     public void ConfirmMovement()
     {
+        UiController ui = FindObjectOfType<UiController>();
+        ui.dpsAbility = false;
         Character character = player[turno].GetComponent<Character>();
         grid.ResetWalkableCell();
         character.isMovible = false;
