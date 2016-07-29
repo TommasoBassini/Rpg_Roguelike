@@ -3,9 +3,11 @@ using System.Collections;
 
 public class CellObject : MonoBehaviour
 {
-    
+    private PlayerMovement keys;
+       
 	void Start ()
     {
+        keys = FindObjectOfType<PlayerMovement>();
         Invoke("SetObjectToCell", 0.3f);       
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = Color.clear;
@@ -24,6 +26,7 @@ public class CellObject : MonoBehaviour
         {
             PlayerMovement player = coll.gameObject.GetComponent<PlayerMovement>();
             player.hasKey = true;
+            keys.nKeys++;
             Debug.Log("Presa chiave");            
             Destroy(this.gameObject);
         }

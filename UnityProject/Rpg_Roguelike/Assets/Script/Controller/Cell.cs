@@ -13,6 +13,7 @@ public class Cell : MonoBehaviour
     private Grid grid;
     public List<GameObject> wallNear = new List<GameObject>();
     public bool isIlluminated = false;
+    public Color color;
 
     void Start ()
     {

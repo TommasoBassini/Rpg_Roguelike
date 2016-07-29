@@ -288,6 +288,10 @@ public class PlayerStatsControl : MonoBehaviour
     public int esperience;
     public int soldi;
 
+    public int livelloNemici;
+    public Vector2 lastCheckpoint;
+
+    public int nzona;
     void Awake ()
     {
         DontDestroyOnLoad(this.gameObject);

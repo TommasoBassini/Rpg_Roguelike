@@ -5,24 +5,38 @@ using System.Collections.Generic;
 public class FogOfWarManager : MonoBehaviour
 {
     private Grid grid;
-    private int vista = 5;
-    private List<GameObject> cells = new List<GameObject>();
- 
+    private int vista = 4;
+    private List<GameObject> cellsA = new List<GameObject>();
+    private List<GameObject> cellsB = new List<GameObject>();
 
-	void Start ()
+
+    void Start ()
     {
         grid = FindObjectOfType<Grid>();        
     }
 
     public void Fog(Vector2 pos)
     {
-        pos = new Vector2(pos.x, pos.y);
-        Debug.Log(pos);
-        foreach (var item in cells)
+        foreach (var item in cellsB)
         {
-            item.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.25f, 0.25f, 0.25f);
+            if (item != null)
+            {
+                if (!cellsA.Contains(item))
+                {
+                    item.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.4f, 0.4f, 0.4f);
+                }
+            }
+
         }
-        cells.Clear();
+        cellsB.Clear();
+        foreach (var item in cellsA)
+        {
+            cellsB.Add(item);
+        }
+        cellsA.Clear();
+        pos = new Vector2(pos.x, pos.y);
+        pos = new Vector2(pos.x + 0.5f, pos.y + 0.5f);
+
         int _x = (int)pos.x;
         int _y = (int)pos.y;
 
@@ -34,18 +48,17 @@ public class FogOfWarManager : MonoBehaviour
             {
                 if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) == (vista))
                 {
-                    farCell.Add(new Vector2(i, y));
+                    farCell.Add(new Vector2(i + 0.5f , y + 0.5f));
                 }
             }
         }
-
-        pos = new Vector2(pos.x + 0.5f, pos.y + 0.5f);
-
+        List<Cell> wall = new List<Cell>();
         foreach (var cell in farCell)
         {
             RaycastHit2D[] hit = Physics2D.LinecastAll(pos, cell);
             List<GameObject> celleCast = new List<GameObject>();
-            
+
+            Debug.DrawLine(pos, cell, Color.red);
             foreach (RaycastHit2D cella in hit)
             {
                 celleCast.Add(cella.transform.gameObject);
@@ -64,12 +77,16 @@ public class FogOfWarManager : MonoBehaviour
                         {
                             if (cel.tileEditorCell != null)
                             {
-                                if (Mathf.Abs((cel.pos.x ) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y ) - (pos.y - 0.5f)) < (vista -2))
+                                if (!cellsA.Contains(cel.tileEditorCell))
+                                    cellsA.Add(cel.tileEditorCell);
+
+                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y ) - (pos.y - 0.5f)) <= (vista -2))
                                 {
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = Color.white;
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
+                                    Color newColor = Color.white;
+                                    StartCoroutine(ChangeColor(sr.color, newColor, sr));
+                                    if (!cellsA.Contains(cel.tileEditorCell))
+                                        cellsA.Add(cel.tileEditorCell);
                                     if (cel.cellObject != null)
                                     {
                                         SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
@@ -80,177 +97,117 @@ public class FogOfWarManager : MonoBehaviour
                                 if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista))
                                 {
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = new Color(0.25f, 0.25f, 0.25f);
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
+                                    Color newColor = new Color(0.4f, 0.4f, 0.4f);
+                                    StartCoroutine(ChangeColor(sr.color, newColor, sr));
+                                    if (!cellsA.Contains(cel.tileEditorCell))
+                                        cellsA.Add(cel.tileEditorCell);
                                     if (cel.cellObject != null)
                                     {
                                         SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = new Color(0.25f, 0.25f, 0.25f);
+                                        objectSr.color = new Color(0.33f, 0.33f, 0.33f);
                                     }
                                 }
 
                                 if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista - 1))
                                 {
                                     SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = new Color(0.5f, 0.5f, 0.5f);
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
+                                    Color newColor = new Color(0.66f, 0.66f, 0.66f);
+                                    StartCoroutine(ChangeColor(sr.color, newColor, sr));
+                                    if (!cellsA.Contains(cel.tileEditorCell))
+                                        cellsA.Add(cel.tileEditorCell);
                                     if (cel.cellObject != null)
                                     {
                                         SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = new Color(0.5f, 0.5f, 0.5f);
+                                        objectSr.color = new Color(0.66f, 0.66f, 0.66f);
                                     }
-                                }
-
-                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista - 2))
-                                {
-                                    SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = new Color(0.75f, 0.75f, 0.75f);
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
-                                    if (cel.cellObject != null)
-                                    {
-                                        SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = new Color(0.75f, 0.75f, 0.75f);
-                                    }
-                                }
-
-   
+                                }   
                             }
                         }
                         else
                         {
+                            // Prova nuova cosa
                             if (cel.tileEditorCell != null)
                             {
-                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista))
+                                wall.Add(cel);
+
+                                Vector2[] directions = new Vector2[4];
+
+                                directions[0] = new Vector2(-1, 0);
+                                directions[1] = new Vector2(0, -1);
+                                directions[2] = new Vector2(1, 0);
+                                directions[3] = new Vector2(0, 1);
+
+                                foreach (var dir in directions)
                                 {
-                                    Vector2 targetPos = new Vector2(0, 0);
-                                    SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = new Color(0.25f, 0.25f, 0.25f);
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
-                                    if (cel.cellObject != null)
-                                    {
-                                        SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = new Color(0.25f, 0.25f, 0.25f);
-                                    }
-                                    if (CheckNearAngle(cel.pos, out targetPos))
-                                    {
+                                    int new_x = (int)cel.pos.x + (int)dir.x;
+                                    int new_y = (int)cel.pos.y + (int)dir.y;
 
-                                        SpriteRenderer sr1 = grid.cells[(int)targetPos.x, (int)targetPos.y].tileEditorCell.GetComponent<SpriteRenderer>();
-                                        cells.Add(sr1.gameObject);
-                                        sr1.color = new Color(0.25f, 0.25f, 0.25f);
-                                    }
-                                }
-
-                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista - 1))
-                                {
-                                    Vector2 targetPos = new Vector2(0, 0);
-                                    SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = new Color(0.5f, 0.5f, 0.5f);
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
-
-                                    if (cel.cellObject != null)
+                                    if (new_x < 0)
+                                        continue;
+                                    if (new_y < 0)
+                                        continue;
+                                    if (new_x > grid.width - 1)
+                                        continue;
+                                    if (new_y > grid.height - 1)
+                                        continue;
+                                    if (grid.cells[new_x, new_y] != null)
                                     {
-                                        SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = new Color(0.5f, 0.5f, 0.5f);
-                                    }
-                                    if (CheckNearAngle(cel.pos, out targetPos))
-                                    {
-                                        SpriteRenderer sr1 = grid.cells[(int)targetPos.x, (int)targetPos.y].tileEditorCell.GetComponent<SpriteRenderer>();
-                                        sr1.color = new Color(0.5f, 0.5f, 0.5f);
-                                        cells.Add(sr1.gameObject);
-                                    }
-                                }
-
-                                if (Mathf.Abs((cel.pos.x) - (pos.x - 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y - 0.5f)) == (vista - 2))
-                                {
-                                    Vector2 targetPos = new Vector2(0, 0);
-                                    SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = new Color(0.75f, 0.75f, 0.75f);
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
-                                    if (cel.cellObject != null)
-                                    {
-                                        SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = new Color(0.75f, 0.75f, 0.75f);
-                                    }
-                                    if (CheckNearAngle(cel.pos, out targetPos))
-                                    {
-                                        SpriteRenderer sr1 = grid.cells[(int)targetPos.x, (int)targetPos.y].tileEditorCell.GetComponent<SpriteRenderer>();
-                                        sr1.color = new Color(0.75f, 0.75f, 0.75f);
-                                        cells.Add(sr1.gameObject);
-                                    }
-
-
-                                }
-                                if (Mathf.Abs((cel.pos.x) - (pos.x + 0.5f)) + Mathf.Abs((cel.pos.y) - (pos.y + 0.5f)) < (vista - 1))
-                                {
-                                    Vector2 targetPos = new Vector2(0, 0);
-                                    SpriteRenderer sr = cel.tileEditorCell.GetComponent<SpriteRenderer>();
-                                    sr.color = Color.white;
-                                    if (cel.cellObject != null)
-                                    {
-                                        SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = Color.white;
-                                    }
-                                    if (!cells.Contains(cel.tileEditorCell))
-                                        cells.Add(cel.tileEditorCell);
-                                    if (CheckNearAngle(cel.pos, out targetPos))
-                                    {
-                                        SpriteRenderer sr1 = grid.cells[(int)targetPos.x, (int)targetPos.y].tileEditorCell.GetComponent<SpriteRenderer>();
-                                        sr1.color = Color.white;
-                                        cells.Add(sr1.gameObject);
+                                        if (grid.cells[new_x, new_y].isWall)
+                                        {
+                                            wall.Add(grid.cells[new_x, new_y]);
+                                        }
                                     }
                                 }
                             }
-                            break;
-
+                                break;
                         }
-
 
                     }
                 }
             }
         }
-    }
 
-    bool CheckNearAngle(Vector2 pos, out Vector2 targetPos)
-    {
-        grid = FindObjectOfType<Grid>();
-        Vector2[] directions = new Vector2[4];
-
-        directions[0] = new Vector2(-1, 0);
-        directions[1] = new Vector2(0, -1);
-        directions[2] = new Vector2(1, 0);
-        directions[3] = new Vector2(0, 1);
-
-        foreach (Vector2 dir in directions)
+        foreach (var cell in wall)
         {
-            int new_x = (int)pos.x + (int)dir.x;
-            int new_y = (int)pos.y + (int)dir.y;
-
-            if (new_x < 0)
-                continue;
-            if (new_y < 0)
-                continue;
-            if (new_x > grid.width - 1)
-                continue;
-            if (new_y > grid.height - 1)
-                continue;
-
-            if (grid.cells[new_x, new_y] != null)
+            if (!cellsA.Contains(cell.tileEditorCell))
+                cellsA.Add(cell.tileEditorCell);
+            if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) == vista)
             {
-                if (grid.cells[new_x, new_y].isAngle)
-                {
-                    targetPos = new Vector2(new_x, new_y);
-                    return true;
-                }
+                SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
+                Color oldColor = sr.color;
+                Color newColor = new Color(0.4f, 0.4f, 0.4f);
+                StartCoroutine(ChangeColor(sr.color, newColor, sr));
+
+            }
+            if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) == vista - 1)
+            {
+                SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
+                Color oldColor = sr.color;
+                Color newColor = new Color(0.66f, 0.66f, 0.66f);
+                StartCoroutine(ChangeColor(sr.color, newColor, sr));
+            }
+            if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) <= vista - 2)
+            {
+                SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
+                Color oldColor = sr.color;
+                Color newColor = Color.white;
+                StartCoroutine(ChangeColor(sr.color, newColor, sr));
             }
         }
-        targetPos = new Vector2(0,0);
-        return false;
+
+
+    }
+
+    IEnumerator ChangeColor(Color oldColor, Color newColor, SpriteRenderer sr)
+    {
+        float timeElapsed = 0f;
+        float totalTime = 0.4f;
+
+        while (timeElapsed < totalTime)
+        {
+            timeElapsed += Time.deltaTime;
+            sr.color = Color.Lerp(oldColor, newColor, timeElapsed / totalTime);
+            yield return null;
+        }
     }
 }

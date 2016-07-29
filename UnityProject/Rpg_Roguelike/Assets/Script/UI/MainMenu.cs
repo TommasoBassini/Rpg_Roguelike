@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.anyKey)
         {
             SceneManager.LoadScene("ProvaTommy");
         }

@@ -45,7 +45,7 @@ public class EnemyButton : MonoBehaviour
         else
             enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
         enemyInfoPanel.SetActive(true);
-        Invoke("UpdateImage", 0.1f);
+        Invoke("UpdateImage", 0.2f);
 
         /*   //Check Stunn
            if (_enemy.turniVeleno > 0)
