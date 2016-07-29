@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         fog = this.GetComponent<FogOfWarManager>();
         Invoke("CoFog", 0.1f);
+        Debug.Log(GetComponent<SpriteRenderer>().color);
     }
 
     // Imposta la posizione iniziale del giocatore all'interno della griglia
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (((int)_pos.x >= 0) && ((int)_pos.y >= 0) && ((int)_pos.x < grid.width) && ((int)_pos.y < grid.height))
         {
+
             grid = GameObject.Find("Grid").GetComponent<Grid>();
             if (grid.cells[(int)_pos.x, (int)_pos.y].isWall == false && grid.cells[(int)_pos.x, (int)_pos.y].isSemiWall == false)
             {
@@ -52,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
                 //this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
                 playerPos = _pos;
                 isMoving = true;
-                
+                fog.Fog(playerPos);
+
 
                 randomEncounterProbably += 5;
                 if (Random.Range(randomEncounterProbably, 300) > 295)
@@ -75,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (distance.sqrMagnitude < 0.01f)
             {
-                fog.Fog(playerPos);
                 this.transform.position = new Vector3(grid.cells[(int)playerPos.x, (int)playerPos.y].transform.position.x, grid.cells[(int)playerPos.x, (int)playerPos.y].transform.position.y, 0);
                 isMoving = false;
             }

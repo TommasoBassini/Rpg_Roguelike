@@ -36,7 +36,7 @@ public class FountainManager : MonoBehaviour {
 
             PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
             UiControlExploration ui = FindObjectOfType<UiControlExploration>();
-
+            stats.lastCheckpoint = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
             stats.statsDps.hp = stats.statsDps.hpMax;
             stats.statsTank.hp = stats.statsTank.hpMax;
             stats.statsMago.hp = stats.statsMago.hpMax;

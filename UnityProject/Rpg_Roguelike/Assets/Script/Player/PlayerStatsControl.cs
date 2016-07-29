@@ -289,7 +289,7 @@ public class PlayerStatsControl : MonoBehaviour
     public int soldi;
 
     public int livelloNemici;
-
+    public Vector2 lastCheckpoint;
     void Awake ()
     {
         DontDestroyOnLoad(this.gameObject);

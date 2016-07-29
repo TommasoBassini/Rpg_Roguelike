@@ -460,7 +460,7 @@ public class UiControlExploration : MonoBehaviour
         Button abilita3 = menuStats.transform.Find("Button/Abilita3/Abilita3Button").GetComponent<Button>();
         Button abilita4 = menuStats.transform.Find("Button/Abilita4/Abilita4Button").GetComponent<Button>();
         Button abilita5 = menuStats.transform.Find("Button/Abilita5/Abilita5Button").GetComponent<Button>();
-        
+
         switch (nCharacter)
         {
             case 1:
@@ -472,9 +472,8 @@ public class UiControlExploration : MonoBehaviour
                     {
                         anim[i] = animMago[i];
                     }
-                    StopCoroutine(AnimImage());
-                    StartCoroutine(AnimImage());
 
+                    StartCoroutine(AnimImage());
                     int livello = stats.statsMago.forza + stats.statsMago.Spirito + stats.statsMago.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
 
@@ -519,7 +518,6 @@ public class UiControlExploration : MonoBehaviour
                     {
                         anim[i] = animTank[i];
                     }
-                    StopCoroutine(AnimImage());
                     StartCoroutine(AnimImage());
                     int livello = stats.statsTank.forza + stats.statsTank.Spirito + stats.statsTank.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
@@ -567,7 +565,6 @@ public class UiControlExploration : MonoBehaviour
                     {
                         anim[i] = animDps[i];
                     }
-                    StopCoroutine(AnimImage());
                     StartCoroutine(AnimImage());
                     int livello = stats.statsDps.forza + stats.statsDps.Spirito + stats.statsDps.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
