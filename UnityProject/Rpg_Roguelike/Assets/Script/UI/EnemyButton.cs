@@ -45,7 +45,8 @@ public class EnemyButton : MonoBehaviour
         else
             enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
         enemyInfoPanel.SetActive(true);
-        Invoke("UpdateImage", 0.2f);
+        Invoke("UpdateImage", 0.1f);
+        UpdateImage();
 
         /*   //Check Stunn
            if (_enemy.turniVeleno > 0)
@@ -57,12 +58,12 @@ public class EnemyButton : MonoBehaviour
     }
 
 
-    void UpdateImage()
+    public void UpdateImage()
     {
         Enemy _enemy = enemy.GetComponent<Enemy>();
         float hp = (float)_enemy.hp;
         float hpMax = (float)_enemy.hpMax;
-
+        enemyInfoPanel.SetActive(true);
         //Testo vita
         Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
         textVita.text = _enemy.hp + "/" + _enemy.hpMax;
@@ -75,7 +76,6 @@ public class EnemyButton : MonoBehaviour
         BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 1);
 
         vita.fillAmount = ((100 * hp) / hpMax) / 100;
-
         Image icona = enemyInfoPanel.transform.Find("Image").GetComponent<Image>();
         icona.sprite = _enemy.icona;
     }
