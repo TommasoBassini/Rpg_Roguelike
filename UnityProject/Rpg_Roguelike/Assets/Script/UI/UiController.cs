@@ -29,13 +29,16 @@ public class UiController : MonoBehaviour
     public List<GameObject> buffBoxList = new List<GameObject>();         //Lista delle celle verdi
 
     public GameObject textDamagePrefab;
-    private bool dpsAbility = false;
+    public bool dpsAbility = false;
 
     public Button healtPotionButton;
     public Button manaPotionButton;
     public Button potionButton;
 
     public GameObject endPanel;
+
+    public AudioClip potionAudio;
+    public AudioClip audioMovimentoDps;
 
     void Start ()
     {
@@ -193,11 +196,15 @@ public class UiController : MonoBehaviour
                     }
             }
         }
-        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Joystick1Button0) ) && faseUi == 1 && waitMovement)
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0) ) && faseUi == 1 && waitMovement)
         {
             if (dpsAbility)
             {
+                
                 cc.ConfirmMovement();
+                // Suono
+                AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+                audio.PlayOneShot(audioMovimentoDps);
                 faseUi = 0;
                 Button actionButton = MainPanel.transform.Find("Action").GetComponent<Button>();
                 actionButton.interactable = false;
@@ -499,6 +506,8 @@ public class UiController : MonoBehaviour
         else
             playerTarget.stats.hp += cura;
 
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(potionAudio);
         // Roba UI
         AggiornaVita(playerTarget.stats.hpMax, playerTarget.stats.hp, playerTarget.uiInfo);
         DamageText(playerTarget.gameObject, cura, Color.green);
@@ -586,7 +595,8 @@ public class UiController : MonoBehaviour
         }
         else
             playerTarget.stats.mp += cura;
-
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(potionAudio);
         // Roba UI
         AggiornaMana(playerTarget.stats.mpMax, playerTarget.stats.mp, playerTarget.uiInfo);
         DamageText(playerTarget.gameObject, cura, Color.blue);

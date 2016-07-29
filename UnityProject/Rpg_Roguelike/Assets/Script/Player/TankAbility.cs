@@ -23,6 +23,13 @@ public class TankAbility : MonoBehaviour
     public bool[] abilitaSbloccate = new bool[5];
     public Button[] buttonAbilita = new Button[5];
 
+    // Audioclip
+    public AudioClip difMeno;
+    public AudioClip lanciaSas;
+    public AudioClip attMeno;
+    public AudioClip spaccaOs;
+    public AudioClip audioPercuotere;
+
     void Start()
     {
         for (int i = 0; i < player.stats.abilitaSbloccate.Length; i++)
@@ -143,6 +150,9 @@ public class TankAbility : MonoBehaviour
         GameObject effect = Instantiate(lanciaSassoSprite);
         effect.transform.position = _enemy.transform.position;
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(lanciaSas);
         //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
@@ -154,6 +164,7 @@ public class TankAbility : MonoBehaviour
         DestroyAttackBox();
         DestroyEnemyButton();
         ui.CoSvuotaPanel();
+        
     }
 
     // ABILITA DEMOLISCI             //////////////////////////////////////////
@@ -233,6 +244,9 @@ public class TankAbility : MonoBehaviour
         enemy.nturnoDifesa.Add(nturni);
         enemy.debuffDifesa.Add(debuffDifesa);
         enemy.difesa -= debuffDifesa;
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(difMeno);
         //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
@@ -324,6 +338,9 @@ public class TankAbility : MonoBehaviour
         enemy.nturnoAttacco.Add(nturni);
         enemy.debuffAttacco.Add(debuffAttacco);
         enemy.att -= debuffAttacco;
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(attMeno);
         //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
@@ -415,6 +432,9 @@ public class TankAbility : MonoBehaviour
         sr.color = Color.white;
         enemy.SubisciDannoMelee(danni, _enemy);
         player.stats.mp -= mp;
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(spaccaOs);
         // Roba UI
         UiController ui = FindObjectOfType<UiController>();
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
@@ -514,6 +534,9 @@ public class TankAbility : MonoBehaviour
         effect1.transform.position = _enemy.transform.position;
         int danni = Mathf.RoundToInt(((player.stats.attMelee)) * (Random.Range(1.0f, 1.20f)));
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioPercuotere);
         //scala il danno dal nemico e gli mp al player
         enemy.SubisciDannoRanged(danni, _enemy);
         player.stats.mp -= mp;

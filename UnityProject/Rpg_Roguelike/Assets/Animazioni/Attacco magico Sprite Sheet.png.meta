@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: 9a14c911570bcad4f8e3f9322e40e3a2
+timeCreated: 1469801406
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Attacco magico Sprite Sheet_0
+    21300002: Attacco magico Sprite Sheet_1
+    21300004: Attacco magico Sprite Sheet_2
+    21300006: Attacco magico Sprite Sheet_3
+    21300008: Attacco magico Sprite Sheet_4
+    21300010: Attacco magico Sprite Sheet_5
+    21300012: Attacco magico Sprite Sheet_6
+    21300014: Attacco magico Sprite Sheet_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Attacco magico Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 31}
+        - {x: -31, y: 19}
+        - {x: -31, y: -20}
+        - {x: -16, y: -31}
+        - {x: 14, y: -31}
+        - {x: 28, y: -27}
+        - {x: 31, y: -13}
+        - {x: 31, y: 16}
+        - {x: 20, y: 31}
+    - name: Attacco magico Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 32}
+        - {x: -32, y: 24}
+        - {x: -32, y: -23}
+        - {x: -26, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 19}
+        - {x: 27, y: 32}
+    - name: Attacco magico Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 57, y: 99}
+        - {x: -52, y: 99}
+        - {x: -105, y: 61}
+        - {x: -105, y: -19}
+        - {x: -95, y: -24}
+        - {x: -28, y: -100}
+        - {x: 20, y: -100}
+        - {x: 26, y: -98}
+        - {x: 106, y: -25}
+        - {x: 106, y: 13}
+        - {x: 101, y: 28}
+    - name: Attacco magico Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 114, y: 39}
+        - {x: 114, y: 76}
+        - {x: 107, y: 91}
+        - {x: 8, y: 117}
+        - {x: -21, y: 126}
+        - {x: -95, y: 126}
+        - {x: -114, y: 46}
+        - {x: -114, y: -75}
+        - {x: 6, y: -125}
+        - {x: 97, y: -125}
+        - {x: 108, y: -43}
+        - {x: 92, y: -10}
+        - {x: 86, y: -1}
+    - name: Attacco magico Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 120, y: 23}
+        - {x: 106, y: 48}
+        - {x: 92, y: 113}
+        - {x: 82, y: 113}
+        - {x: 45, y: 104}
+        - {x: 12, y: 113}
+        - {x: -28, y: 113}
+        - {x: -47, y: 96}
+        - {x: -95, y: 113}
+        - {x: -99, y: 113}
+        - {x: -110, y: 88}
+        - {x: -121, y: 44}
+        - {x: -121, y: -29}
+        - {x: -96, y: -105}
+        - {x: -51, y: -113}
+        - {x: 95, y: -113}
+        - {x: 109, y: -99}
+        - {x: 120, y: -33}
+    - name: Attacco magico Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 114, y: 39}
+        - {x: 114, y: 76}
+        - {x: 107, y: 91}
+        - {x: 8, y: 117}
+        - {x: -21, y: 126}
+        - {x: -95, y: 126}
+        - {x: -114, y: 46}
+        - {x: -114, y: -75}
+        - {x: 6, y: -125}
+        - {x: 97, y: -125}
+        - {x: 108, y: -43}
+        - {x: 92, y: -10}
+        - {x: 86, y: -1}
+    - name: Attacco magico Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 57, y: 99}
+        - {x: -52, y: 99}
+        - {x: -105, y: 61}
+        - {x: -105, y: -19}
+        - {x: -95, y: -24}
+        - {x: -28, y: -100}
+        - {x: 20, y: -100}
+        - {x: 26, y: -98}
+        - {x: 106, y: -25}
+        - {x: 106, y: 13}
+        - {x: 101, y: 28}
+    - name: Attacco magico Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 32}
+        - {x: -32, y: 24}
+        - {x: -32, y: -23}
+        - {x: -26, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 19}
+        - {x: 27, y: 32}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

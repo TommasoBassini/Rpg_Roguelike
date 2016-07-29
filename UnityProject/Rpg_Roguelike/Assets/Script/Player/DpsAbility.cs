@@ -21,6 +21,12 @@ public class DpsAbility : MonoBehaviour
     public GameObject veleno;
     public GameObject frecciaSprite;
 
+    // Audioclip
+    public AudioClip audioEsortazione;
+    public AudioClip audioGemelle;
+    public AudioClip audioVeleno;
+    public AudioClip audioFreccia;
+    public AudioClip audioMovimento;
 
     void Start()
     {
@@ -83,6 +89,10 @@ public class DpsAbility : MonoBehaviour
 
         //Cerca gli alleati
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioEsortazione);
 
         foreach (var item in players)
         {
@@ -187,6 +197,9 @@ public class DpsAbility : MonoBehaviour
 
         GameObject effect = Instantiate(frecceGemelleSprite);
         effect.transform.position = _enemy.transform.position;
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioFreccia);
         //scala il danno dal nemico e gli mp al player
         enemy.SubisciDannoMelee(danni, _enemy);
         player.stats.mp -= mp;
@@ -273,6 +286,9 @@ public class DpsAbility : MonoBehaviour
         effect1.transform.position = _enemy.transform.position;
         enemy.turniVeleno += nturni;
         enemy.percVeleno = percentualeVeleno;
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioVeleno);
         //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
@@ -361,7 +377,9 @@ public class DpsAbility : MonoBehaviour
     {
         BattleGrid grid = FindObjectOfType<BattleGrid>();
         UiController ui = FindObjectOfType<UiController>();
-
+        // Suono
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioFreccia);
         //costo e variabili
         int mp = 30;
         int danni = Mathf.RoundToInt(((player.stats.attDistanza) * 63) / 100);

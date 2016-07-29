@@ -1,0 +1,331 @@
+fileFormatVersion: 2
+guid: 5cd4f12326246dc49b6b7d71bd5a5df0
+timeCreated: 1469808514
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Nemico Support Walk_0
+    21300002: Nemico Support Walk_1
+    21300004: Nemico Support Walk_2
+    21300006: Nemico Support Walk_3
+    21300008: Nemico Support Walk_4
+    21300010: Nemico Support Walk_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Nemico Support Walk_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 61, y: -1}
+        - {x: 62, y: 23}
+        - {x: 57, y: 39}
+        - {x: 54, y: 44}
+        - {x: 49, y: 51}
+        - {x: 31, y: 64}
+        - {x: 39, y: 70}
+        - {x: 62, y: 32}
+        - {x: 72, y: 21}
+        - {x: 88, y: 20}
+        - {x: 88, y: 161}
+        - {x: 62, y: 222}
+        - {x: -48, y: 222}
+        - {x: -55, y: 218}
+        - {x: -77, y: 146}
+        - {x: -77, y: -4}
+        - {x: -64, y: -92}
+        - {x: -51, y: -97}
+        - {x: -37, y: -100}
+        - {x: 33, y: -100}
+        - {x: 51, y: -91}
+        - {x: 50, y: -80}
+        - {x: 41, y: -73}
+    - name: Nemico Support Walk_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: 42}
+        - {x: 28, y: 58}
+        - {x: 36, y: 67}
+        - {x: 57, y: 30}
+        - {x: 68, y: 17}
+        - {x: 86, y: 10}
+        - {x: 86, y: 107}
+        - {x: 77, y: 214}
+        - {x: 74, y: 215}
+        - {x: -54, y: 215}
+        - {x: -78, y: 163}
+        - {x: -78, y: -73}
+        - {x: -71, y: -100}
+        - {x: 52, y: -100}
+        - {x: 68, y: -92}
+        - {x: 58, y: 14}
+        - {x: 54, y: 32}
+    - name: Nemico Support Walk_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 55, y: 27}
+        - {x: 54, y: 28}
+        - {x: 54, y: 30}
+        - {x: 52, y: 35}
+        - {x: 45, y: 43}
+        - {x: 52, y: 33}
+        - {x: 54, y: 32}
+        - {x: 54, y: 30}
+        - {x: 58, y: 22}
+        - {x: 67, y: 8}
+        - {x: 83, y: 14}
+        - {x: 87, y: 36}
+        - {x: 87, y: 88}
+        - {x: 60, y: 201}
+        - {x: 22, y: 210}
+        - {x: -52, y: 210}
+        - {x: -78, y: 199}
+        - {x: -78, y: -100}
+        - {x: 59, y: -100}
+        - {x: 73, y: -77}
+        - {x: 59, y: 14}
+        - {x: 56, y: 24}
+    - name: Nemico Support Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: 218}
+        - {x: -76, y: 172}
+        - {x: -76, y: 10}
+        - {x: -20, y: -53}
+        - {x: -20, y: -57}
+        - {x: -19, y: -62}
+        - {x: -20, y: -56}
+        - {x: -22, y: -52}
+        - {x: -28, y: -55}
+        - {x: -68, y: -79}
+        - {x: -56, y: -100}
+        - {x: 72, y: -100}
+        - {x: 85, y: -23}
+        - {x: 85, y: 218}
+    - name: Nemico Support Walk_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: 56}
+        - {x: 40, y: 69}
+        - {x: 59, y: 39}
+        - {x: 65, y: 29}
+        - {x: 80, y: 15}
+        - {x: 86, y: 25}
+        - {x: 86, y: 156}
+        - {x: 39, y: 225}
+        - {x: -76, y: 225}
+        - {x: -76, y: -41}
+        - {x: -33, y: -49}
+        - {x: -33, y: -54}
+        - {x: -33, y: -51}
+        - {x: -35, y: -49}
+        - {x: -46, y: -47}
+        - {x: -66, y: -80}
+        - {x: -52, y: -100}
+        - {x: 45, y: -100}
+        - {x: 69, y: -93}
+        - {x: 64, y: 10}
+        - {x: 57, y: 42}
+    - name: Nemico Support Walk_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 1999
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -737.5, y: -1}
+        - {x: -736.5, y: 23}
+        - {x: -741.5, y: 39}
+        - {x: -744.5, y: 44}
+        - {x: -749.5, y: 51}
+        - {x: -767.5, y: 64}
+        - {x: -759.5, y: 70}
+        - {x: -736.5, y: 32}
+        - {x: -726.5, y: 21}
+        - {x: -710.5, y: 20}
+        - {x: -710.5, y: 161}
+        - {x: -736.5, y: 222}
+        - {x: -846.5, y: 222}
+        - {x: -853.5, y: 218}
+        - {x: -875.5, y: 146}
+        - {x: -875.5, y: -4}
+        - {x: -862.5, y: -92}
+        - {x: -849.5, y: -97}
+        - {x: -835.5, y: -100}
+        - {x: -765.5, y: -100}
+        - {x: -747.5, y: -91}
+        - {x: -748.5, y: -80}
+        - {x: -757.5, y: -73}
+      - - {x: -372.5, y: 58}
+        - {x: -364.5, y: 67}
+        - {x: -343.5, y: 30}
+        - {x: -332.5, y: 17}
+        - {x: -323.5, y: 11}
+        - {x: -314.5, y: 32}
+        - {x: -314.5, y: 121}
+        - {x: -350.5, y: 215}
+        - {x: -436.5, y: 215}
+        - {x: -473.5, y: 179}
+        - {x: -478.5, y: 165}
+        - {x: -478.5, y: -100}
+        - {x: -347.5, y: -100}
+        - {x: -340.5, y: -90}
+        - {x: -336.5, y: 16}
+        - {x: -351.5, y: 42}
+      - - {x: 54.5, y: 27}
+        - {x: 53.5, y: 28}
+        - {x: 53.5, y: 30}
+        - {x: 51.5, y: 35}
+        - {x: 44.5, y: 43}
+        - {x: 51.5, y: 33}
+        - {x: 53.5, y: 32}
+        - {x: 53.5, y: 30}
+        - {x: 57.5, y: 22}
+        - {x: 67.5, y: 9}
+        - {x: 79.5, y: 6}
+        - {x: 86.5, y: 14}
+        - {x: 86.5, y: 135}
+        - {x: 47.5, y: 210}
+        - {x: -57.5, y: 210}
+        - {x: -78.5, y: 137}
+        - {x: -78.5, y: -28}
+        - {x: -62.5, y: -98}
+        - {x: -41.5, y: -100}
+        - {x: 66.5, y: -100}
+        - {x: 75.5, y: -97}
+        - {x: 72.5, y: -4}
+        - {x: 58.5, y: 14}
+      - - {x: 334.5, y: 218}
+        - {x: 323.5, y: 193}
+        - {x: 323.5, y: 2}
+        - {x: 379.5, y: -53}
+        - {x: 379.5, y: -57}
+        - {x: 380.5, y: -62}
+        - {x: 379.5, y: -56}
+        - {x: 377.5, y: -52}
+        - {x: 371.5, y: -55}
+        - {x: 331.5, y: -79}
+        - {x: 347.5, y: -100}
+        - {x: 473.5, y: -100}
+        - {x: 484.5, y: -16}
+        - {x: 484.5, y: 218}
+      - - {x: 852.5, y: 47}
+        - {x: 845.5, y: 55}
+        - {x: 842.5, y: 58}
+        - {x: 839.5, y: 69}
+        - {x: 857.5, y: 39}
+        - {x: 869.5, y: 26}
+        - {x: 885.5, y: 18}
+        - {x: 885.5, y: 166}
+        - {x: 883.5, y: 192}
+        - {x: 831.5, y: 225}
+        - {x: 729.5, y: 225}
+        - {x: 723.5, y: 203}
+        - {x: 723.5, y: 16}
+        - {x: 766.5, y: -49}
+        - {x: 766.5, y: -54}
+        - {x: 766.5, y: -51}
+        - {x: 764.5, y: -49}
+        - {x: 761.5, y: -49}
+        - {x: 759.5, y: -51}
+        - {x: 758.5, y: -58}
+        - {x: 761.5, y: -62}
+        - {x: 766.5, y: -66}
+        - {x: 741.5, y: -76}
+        - {x: 737.5, y: -99}
+        - {x: 745.5, y: -100}
+        - {x: 852.5, y: -100}
+        - {x: 868.5, y: -92}
+        - {x: 864.5, y: 10}
+        - {x: 855.5, y: 41}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

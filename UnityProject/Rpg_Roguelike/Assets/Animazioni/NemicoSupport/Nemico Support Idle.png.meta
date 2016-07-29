@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 33e070864483e974b9cb77addf00c72c
+timeCreated: 1469808423
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Nemico Support Idle_0
+    21300002: Nemico Support Idle_1
+    21300004: Nemico Support Idle_2
+    21300006: Nemico Support Idle_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Nemico Support Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 94, y: 93}
+        - {x: 74, y: 192}
+        - {x: 33, y: 220}
+        - {x: -26, y: 220}
+        - {x: -51, y: 216}
+        - {x: -58, y: 156}
+        - {x: -77, y: 121}
+        - {x: -77, y: -18}
+        - {x: -64, y: -94}
+        - {x: -40, y: -100}
+        - {x: 39, y: -100}
+        - {x: 67, y: -94}
+        - {x: 39, y: -51}
+        - {x: 94, y: -11}
+    - name: Nemico Support Idle_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: 202}
+        - {x: 30, y: 218}
+        - {x: -29, y: 218}
+        - {x: -71, y: 181}
+        - {x: -56, y: 106}
+        - {x: -50, y: 90}
+        - {x: -47, y: 76}
+        - {x: -50, y: 70}
+        - {x: -48, y: 82}
+        - {x: -51, y: 91}
+        - {x: -67, y: 95}
+        - {x: -75, y: 89}
+        - {x: -75, y: -100}
+        - {x: 43, y: -100}
+        - {x: 53, y: -91}
+        - {x: 90, y: 12}
+        - {x: 90, y: 120}
+    - name: Nemico Support Idle_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 82, y: 13}
+        - {x: 88, y: 38}
+        - {x: 88, y: 101}
+        - {x: 71, y: 157}
+        - {x: 53, y: 196}
+        - {x: 33, y: 214}
+        - {x: -34, y: 214}
+        - {x: -74, y: 170}
+        - {x: -74, y: -77}
+        - {x: -73, y: -95}
+        - {x: -51, y: -99}
+        - {x: -38, y: -100}
+        - {x: 53, y: -100}
+        - {x: 63, y: -74}
+        - {x: 63, y: 27}
+        - {x: 64, y: 25}
+    - name: Nemico Support Idle_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 65, y: 6}
+        - {x: 59, y: 43}
+        - {x: 67, y: 33}
+        - {x: 79, y: 20}
+        - {x: 91, y: 26}
+        - {x: 93, y: 32}
+        - {x: 93, y: 122}
+        - {x: 76, y: 193}
+        - {x: 33, y: 220}
+        - {x: -28, y: 220}
+        - {x: -69, y: 183}
+        - {x: -56, y: 118}
+        - {x: -51, y: 98}
+        - {x: -66, y: 96}
+        - {x: -74, y: 90}
+        - {x: -74, y: -100}
+        - {x: 35, y: -100}
+        - {x: 53, y: -91}
+        - {x: 52, y: -80}
+        - {x: 43, y: -73}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
