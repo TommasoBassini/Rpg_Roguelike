@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public bool facingUp = false;
     public bool facingDown = false;
     public int nKeys = 0;
+    public AudioClip walk;
+
 
     public bool isOpenMenu = false;
 
@@ -87,6 +89,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0.5f) && !isMoving)
             {
+
+               // GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(walk);
+
                 PlayerMove(new Vector2(playerPos.x, playerPos.y + 1));
                 facingUp = true;
                 facingDown = false;
@@ -98,6 +103,9 @@ public class PlayerMovement : MonoBehaviour
 
             if ((Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < -0.5f) && !isMoving)
             {
+
+               // GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(walk);
+
                 PlayerMove(new Vector2(playerPos.x, playerPos.y - 1));
                 facingUp = false;    
                 facingDown = true;
@@ -107,7 +115,9 @@ public class PlayerMovement : MonoBehaviour
 
             if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0.5f) && !isMoving)
             {
-                
+
+               // GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(walk);
+
                 PlayerMove(new Vector2(playerPos.x + 1, playerPos.y));
                 facingUp = false;
                 facingDown = false;
@@ -116,7 +126,10 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < -0.5f) && !isMoving)
-            {                
+            {
+
+              // GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(walk);
+
                 PlayerMove(new Vector2(playerPos.x - 1, playerPos.y));
                 facingUp = false;
                 facingDown = false;

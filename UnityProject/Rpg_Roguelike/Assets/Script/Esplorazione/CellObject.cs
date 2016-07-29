@@ -4,6 +4,7 @@ using System.Collections;
 public class CellObject : MonoBehaviour
 {
     private PlayerMovement keys;
+    public AudioClip dropKey;
        
 	void Start ()
     {
@@ -24,6 +25,7 @@ public class CellObject : MonoBehaviour
     {
         if (coll.gameObject.name == "Player")
         {
+            GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(dropKey);
             PlayerMovement player = coll.gameObject.GetComponent<PlayerMovement>();
             player.hasKey = true;
             keys.nKeys++;

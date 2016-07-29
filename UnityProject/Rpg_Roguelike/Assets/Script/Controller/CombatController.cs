@@ -60,7 +60,7 @@ public class CombatController : MonoBehaviour
     {
         if (changeReady && Input.anyKeyDown)
         {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaTommy"));
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaLooooollo"));
             SceneManager.UnloadScene("Battle");
         }
     }
@@ -268,7 +268,7 @@ public class CombatController : MonoBehaviour
         stats.statsDps.hp = 1;
         stats.statsMago.hp = 1;
         stats.statsTank.hp = 1;
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaTommy"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaLooooollo"));
         SceneManager.UnloadScene("Battle");
 
     }

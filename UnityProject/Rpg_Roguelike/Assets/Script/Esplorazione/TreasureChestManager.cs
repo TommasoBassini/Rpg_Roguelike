@@ -25,6 +25,7 @@ public class TreasureChestManager : MonoBehaviour
     public Sprite magePowerUpSprite;
     public Sprite dpsPowerUpSprite;
     public Sprite soldiSprite;
+    public AudioClip openChests;
 
     void Start()
     {
@@ -45,12 +46,15 @@ public class TreasureChestManager : MonoBehaviour
 
          if (inFront == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button0)) && isClosed == true) 
         {
+            GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(openChests);
             PlayerMovement player = FindObjectOfType<PlayerMovement>();
             player.isSpeaking = true;
             Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
             Grid grid = FindObjectOfType<Grid>();
             grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
             grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isSemiWall = true;
+            
+
             isClosed = false;
             if (hpPotion)
             {

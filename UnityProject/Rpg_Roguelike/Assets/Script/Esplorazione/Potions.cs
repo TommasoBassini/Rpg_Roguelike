@@ -17,7 +17,9 @@ public class Potions : MonoBehaviour
 
     public Sprite vitaGrande;
     public Sprite manaGrande;
-    
+
+    public AudioClip buyConfirm;
+
     void Start ()
     {
         Invoke("SetObjectToCell", 0.3f);
@@ -44,6 +46,7 @@ public class Potions : MonoBehaviour
         {
             if (isHpPotion == true && stats.soldi >= costo) // Al posto dello zero, verrà imposto come limite il prezzo della pozione
             {
+                GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(buyConfirm);
                 UiControlExploration ui = FindObjectOfType<UiControlExploration>();
                 stats.nPotionHealth++;
                 //stats.soldi--;
@@ -54,6 +57,7 @@ public class Potions : MonoBehaviour
 
             else if (isMpPotion == true && stats.soldi >= costo)
             {
+                GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(buyConfirm);
                 UiControlExploration ui = FindObjectOfType<UiControlExploration>();
                 stats.nPotionMana++;
                 stats.soldi -= costo;

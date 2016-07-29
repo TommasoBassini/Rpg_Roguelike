@@ -46,11 +46,9 @@ public class Grid : MonoBehaviour
                             cell.isAngle = true;
                         }
                     }
-                    if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "ProvaTommy 1" || SceneManager.GetActiveScene().name == "NewGameDesign") 
-                    {
+
                         SpriteRenderer sr = newCell.GetComponent<SpriteRenderer>();
                         sr.color = Color.clear;
-                    }
                 }
                 else
                 {
@@ -58,11 +56,9 @@ public class Grid : MonoBehaviour
                     continue;
                 }
             }
-            if (SceneManager.GetActiveScene().name == "ProvaTommy" || SceneManager.GetActiveScene().name == "ProvaTommy 1" || SceneManager.GetActiveScene().name == "NewGameDesign")
-            {
+
                 PlayerMovement pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
                 pm.Invoke("SetPlayerPosition", 0.1f);
-            }
         }
         
         
