@@ -206,7 +206,7 @@ public class TreasureChestManager : MonoBehaviour
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isSemiWall = true;
     }
-        
+
 
     void OnTriggerStay2D(Collider2D coll)
     {

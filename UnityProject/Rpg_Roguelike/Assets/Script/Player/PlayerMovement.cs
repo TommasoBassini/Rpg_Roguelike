@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public bool facingDown = false;
     public int nKeys = 0;
     public AudioClip walk;
-
+    public int nPassi = 0;
 
     public bool isOpenMenu = false;
 
@@ -58,10 +58,11 @@ public class PlayerMovement : MonoBehaviour
                 isMoving = true;
                 fog.Fog(playerPos);
 
-
+                nPassi++;
                 randomEncounterProbably += 5;
-                if (Random.Range(randomEncounterProbably, 300) > 295)
+                if (Random.Range(randomEncounterProbably, 300) > 295 && nPassi > 20)
                 {
+                    nPassi = 0;
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
                     gc.RandomEncounter();

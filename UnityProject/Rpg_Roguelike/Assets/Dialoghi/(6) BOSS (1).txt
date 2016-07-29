@@ -1,0 +1,9 @@
+JOHELL: Mostro!
+ELIBETH: Stai attento Johell!
+LUREHINZ: Impure creature! 
+LUREHINZ: Voi, voi siete i mostri!
+LUREHINZ: Praticate la magia nera! Infestate il nostro mondo!
+ELIBETH: Noi pratichiamo la magia necessaria! 
+LUREHINZ: Silenzio strega!
+LUREHINZ: Io ho ordinato l'epurazione! E' tempo per voi di essere giudicati...
+LUREHINZ: nell'aldila'!

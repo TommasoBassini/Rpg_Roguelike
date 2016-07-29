@@ -30,7 +30,7 @@ public class TileDialogue : MonoBehaviour
         if (Input.anyKeyDown && isDIalogueStart)
         {
             currentLine++;
-            if (currentLine <= nRow)
+            if (currentLine < nRow)
             {
                 text.text = textRow[currentLine];
             }

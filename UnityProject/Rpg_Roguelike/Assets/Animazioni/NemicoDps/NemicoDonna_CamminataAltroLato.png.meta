@@ -1,0 +1,273 @@
+fileFormatVersion: 2
+guid: 3aa710c0355bf01409f6ab347be012b1
+timeCreated: 1469826180
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: NemicoDonna_CamminataAltroLato_0
+    21300002: NemicoDonna_CamminataAltroLato_1
+    21300004: NemicoDonna_CamminataAltroLato_2
+    21300006: NemicoDonna_CamminataAltroLato_3
+    21300008: NemicoDonna_CamminataAltroLato_4
+    21300010: NemicoDonna_CamminataAltroLato_5
+    21300012: NemicoDonna_CamminataAltroLato_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: NemicoDonna_CamminataAltroLato_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 75, y: -12}
+        - {x: 84, y: 53}
+        - {x: 100, y: 101}
+        - {x: 100, y: 155}
+        - {x: 32, y: 225}
+        - {x: -69, y: 225}
+        - {x: -105, y: 167}
+        - {x: -105, y: 68}
+        - {x: -62, y: -13}
+        - {x: -51, y: -85}
+        - {x: -46, y: -94}
+        - {x: -36, y: -96}
+        - {x: -25, y: -98}
+        - {x: 71, y: -98}
+        - {x: 100, y: -74}
+        - {x: 100, y: -38}
+    - name: NemicoDonna_CamminataAltroLato_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 73, y: 25}
+        - {x: 101, y: 82}
+        - {x: 101, y: 152}
+        - {x: 89, y: 179}
+        - {x: 34, y: 216}
+        - {x: 6, y: 216}
+        - {x: -20, y: 201}
+        - {x: -50, y: 216}
+        - {x: -68, y: 216}
+        - {x: -104, y: 158}
+        - {x: -104, y: 63}
+        - {x: -46, y: -42}
+        - {x: -55, y: -98}
+        - {x: 68, y: -98}
+        - {x: 81, y: -78}
+        - {x: 55, y: -16}
+        - {x: 77, y: 15}
+    - name: NemicoDonna_CamminataAltroLato_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 64, y: -75}
+        - {x: 81, y: 14}
+        - {x: 108, y: 102}
+        - {x: 109, y: 105}
+        - {x: 109, y: 115}
+        - {x: 85, y: 158}
+        - {x: 47, y: 184}
+        - {x: 32, y: 184}
+        - {x: 32, y: 183}
+        - {x: 29, y: 183}
+        - {x: 31, y: 183}
+        - {x: 37, y: 188}
+        - {x: 36, y: 198}
+        - {x: 35, y: 205}
+        - {x: -68, y: 205}
+        - {x: -99, y: 189}
+        - {x: -99, y: 5}
+        - {x: -65, y: -96}
+        - {x: -61, y: -98}
+        - {x: 36, y: -98}
+        - {x: 54, y: -95}
+        - {x: 47, y: -85}
+        - {x: 39, y: -80}
+        - {x: 46, y: -84}
+    - name: NemicoDonna_CamminataAltroLato_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: -80}
+        - {x: 24, y: -78}
+        - {x: 27, y: -75}
+        - {x: 87, y: -12}
+        - {x: 108, y: 75}
+        - {x: 108, y: 124}
+        - {x: 103, y: 133}
+        - {x: 84, y: 167}
+        - {x: 46, y: 193}
+        - {x: 31, y: 193}
+        - {x: 31, y: 192}
+        - {x: 28, y: 192}
+        - {x: 30, y: 192}
+        - {x: 36, y: 197}
+        - {x: 43, y: 211}
+        - {x: 30, y: 214}
+        - {x: -70, y: 214}
+        - {x: -100, y: 160}
+        - {x: -100, y: 19}
+        - {x: -78, y: -98}
+        - {x: 42, y: -98}
+        - {x: 45, y: -96}
+        - {x: 48, y: -86}
+        - {x: 33, y: -80}
+    - name: NemicoDonna_CamminataAltroLato_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37, y: 207}
+        - {x: 23, y: 204}
+        - {x: 22, y: 203}
+        - {x: 19, y: 203}
+        - {x: 21, y: 203}
+        - {x: 26, y: 209}
+        - {x: 27, y: 214}
+        - {x: 23, y: 225}
+        - {x: -32, y: 225}
+        - {x: -90, y: 212}
+        - {x: -103, y: 164}
+        - {x: -103, y: 6}
+        - {x: -64, y: -98}
+        - {x: 51, y: -98}
+        - {x: 82, y: -92}
+        - {x: 103, y: 11}
+        - {x: 103, y: 152}
+        - {x: 79, y: 184}
+    - name: NemicoDonna_CamminataAltroLato_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 84, y: 170}
+        - {x: 52, y: 192}
+        - {x: 39, y: 196}
+        - {x: 32, y: 195}
+        - {x: 31, y: 194}
+        - {x: 28, y: 194}
+        - {x: 30, y: 194}
+        - {x: 36, y: 199}
+        - {x: 35, y: 209}
+        - {x: 29, y: 216}
+        - {x: -66, y: 216}
+        - {x: -85, y: 211}
+        - {x: -99, y: 169}
+        - {x: -99, y: -57}
+        - {x: -89, y: -98}
+        - {x: 71, y: -98}
+        - {x: 108, y: -58}
+        - {x: 108, y: 144}
+    - name: NemicoDonna_CamminataAltroLato_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 111, y: 136}
+        - {x: 98, y: 168}
+        - {x: 40, y: 206}
+        - {x: -56, y: 206}
+        - {x: -96, y: 140}
+        - {x: -96, y: 12}
+        - {x: -67, y: -86}
+        - {x: -55, y: -94}
+        - {x: -45, y: -96}
+        - {x: -39, y: -97}
+        - {x: -30, y: -98}
+        - {x: 16, y: -98}
+        - {x: 32, y: -96}
+        - {x: 43, y: -92}
+        - {x: 111, y: -67}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

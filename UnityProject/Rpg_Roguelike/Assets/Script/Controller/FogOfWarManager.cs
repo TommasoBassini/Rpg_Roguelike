@@ -90,7 +90,7 @@ public class FogOfWarManager : MonoBehaviour
                                     if (cel.cellObject != null)
                                     {
                                         SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = Color.white;
+                                        StartCoroutine(ChangeColor(objectSr.color, Color.white, objectSr));
                                     }
                                 }
 
@@ -104,7 +104,7 @@ public class FogOfWarManager : MonoBehaviour
                                     if (cel.cellObject != null)
                                     {
                                         SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = new Color(0.33f, 0.33f, 0.33f);
+                                        StartCoroutine(ChangeColor(objectSr.color, new Color(0.33f, 0.33f, 0.33f), objectSr));
                                     }
                                 }
 
@@ -118,7 +118,7 @@ public class FogOfWarManager : MonoBehaviour
                                     if (cel.cellObject != null)
                                     {
                                         SpriteRenderer objectSr = cel.cellObject.GetComponent<SpriteRenderer>();
-                                        objectSr.color = new Color(0.66f, 0.66f, 0.66f);
+                                        StartCoroutine(ChangeColor(objectSr.color, new Color(0.66f, 0.66f, 0.66f), objectSr));
                                     }
                                 }   
                             }
@@ -177,7 +177,11 @@ public class FogOfWarManager : MonoBehaviour
                 Color oldColor = sr.color;
                 Color newColor = new Color(0.4f, 0.4f, 0.4f);
                 StartCoroutine(ChangeColor(sr.color, newColor, sr));
-
+                if (cell.cellObject != null)
+                {
+                    SpriteRenderer objectSr = cell.cellObject.GetComponent<SpriteRenderer>();
+                    StartCoroutine(ChangeColor(objectSr.color, new Color(0.4f, 0.4f, 0.4f), objectSr));
+                }
             }
             if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) == vista - 1)
             {
@@ -185,6 +189,10 @@ public class FogOfWarManager : MonoBehaviour
                 Color oldColor = sr.color;
                 Color newColor = new Color(0.66f, 0.66f, 0.66f);
                 StartCoroutine(ChangeColor(sr.color, newColor, sr));
+                if (cell.cellObject != null)
+                {
+                    SpriteRenderer objectSr = cell.cellObject.GetComponent<SpriteRenderer>();
+                }
             }
             if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) <= vista - 2)
             {
@@ -192,6 +200,11 @@ public class FogOfWarManager : MonoBehaviour
                 Color oldColor = sr.color;
                 Color newColor = Color.white;
                 StartCoroutine(ChangeColor(sr.color, newColor, sr));
+                if (cell.cellObject != null)
+                {
+                    SpriteRenderer objectSr = cell.cellObject.GetComponent<SpriteRenderer>();
+                    StartCoroutine(ChangeColor(objectSr.color, Color.white, objectSr));
+                }
             }
         }
 

@@ -60,7 +60,7 @@ public class CombatController : MonoBehaviour
     {
         if (changeReady && Input.anyKeyDown)
         {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaLooooollo"));
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainGame"));
             SceneManager.UnloadScene("Battle");
         }
     }

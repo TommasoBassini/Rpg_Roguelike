@@ -155,15 +155,13 @@ public abstract class Enemy : Character
         Animator anim = GetComponent<Animator>();
         if (newX <= (int)endPos.x)
         {
-            Debug.Log("right");
-            anim.SetTrigger("WalkLeft");
+            anim.SetBool("WalkRight", true);
         }
         if (newX > (int)endPos.x)
         {
-            Debug.Log("right");
-            anim.SetTrigger("WalkRight");
-
+            anim.SetBool("WalkLeft", true);
         }
+
         foreach (CombatCell item in cellToCross)
         {
             Vector3 distance;
@@ -180,17 +178,17 @@ public abstract class Enemy : Character
                     isMoving = false;
                     this.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 0);
                 }
+                base.pos = item.pos;
                 yield return null;
             }
-
-            anim.SetTrigger("IdleLeft");
             //  this.transform.position = item.gameObject.transform.position;
-            // base.pos = item.pos;
+            // 
             //SpriteRenderer sr2 = item.gameObject.GetComponent<SpriteRenderer>();
             //sr2.color = Color.white;
-
-
         }
+        anim.SetBool("WalkLeft", false);
+        anim.SetBool("WalkRight", false);
+        anim.SetBool("IdleLeft", true);
         grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = true;
         grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = this.gameObject;
         cellToCross.Clear();
@@ -269,14 +267,49 @@ public abstract class Enemy : Character
                 }
             }
         }
+
+        int newX = (int)_pos.x;
+        Animator anim = GetComponent<Animator>();
+        if (newX <= (int)PlayerPos.x)
+        {
+            anim.SetBool("WalkRight", true);
+        }
+        if (newX > (int)PlayerPos.x)
+        {
+            anim.SetBool("WalkLeft", true);
+        }
+
         // si muove fra le celle trovate
         foreach (CombatCell item in cellToCross)
         {
-            this.transform.position = item.gameObject.transform.position;
-            base.pos = item.pos;
-            SpriteRenderer sr3 = item.gameObject.GetComponent<SpriteRenderer>();
-            sr3.color = Color.white;
-            yield return new WaitForSeconds(0.2f);
+            Vector3 distance;
+            Vector3 direction;
+            bool isMoving = true;
+
+            while (isMoving)
+            {
+                distance = item.gameObject.transform.position - this.transform.position;
+                direction = distance.normalized;
+                this.transform.position = this.transform.position + direction * Time.deltaTime * 2;
+                if (distance.sqrMagnitude < 0.01f)
+                {
+                    isMoving = false;
+                    this.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 0);
+                }
+                base.pos = item.pos;
+                yield return null;
+            }
+        }
+
+        anim.SetBool("WalkLeft", false);
+        anim.SetBool("WalkRight", false);
+        if (PlayerPos.x > this.pos.x)
+        {
+            anim.SetBool("IdleRight", true);
+        }
+        else
+        {
+            anim.SetBool("IdleLeft", true);
         }
         // Setta la varie variabili e resetta la lista e fa iniziare la coroutine di attacco
         grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = true;
@@ -288,8 +321,16 @@ public abstract class Enemy : Character
     public IEnumerator AttackPlayer(GameObject Target)
     {
         CombatController cc = FindObjectOfType<CombatController>();
-        // SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
-        // sr.color = Color.red;
+        Animator anim = GetComponent<Animator>();
+
+        if (Target.transform.position.x > this.transform.position.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         Player player = Target.GetComponent<Player>();
         player.SubisciDanno(att);
         yield return new WaitForSeconds(2);

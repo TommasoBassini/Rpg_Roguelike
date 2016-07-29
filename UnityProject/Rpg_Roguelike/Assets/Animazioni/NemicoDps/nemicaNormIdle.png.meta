@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 8352a0d540e66b14d9c43f9ad98f29b2
+timeCreated: 1469826162
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: nemicaNormIdle_0
+    21300002: nemicaNormIdle_1
+    21300004: nemicaNormIdle_2
+    21300006: nemicaNormIdle_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: nemicaNormIdle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 113, y: 49}
+        - {x: 113, y: 133}
+        - {x: 112, y: 139}
+        - {x: 70, y: 215}
+        - {x: 68, y: 215}
+        - {x: 59, y: 207}
+        - {x: 16, y: 215}
+        - {x: -17, y: 215}
+        - {x: -69, y: 168}
+        - {x: -92, y: 145}
+        - {x: -92, y: 96}
+        - {x: -86, y: 75}
+        - {x: -55, y: -8}
+        - {x: -42, y: -97}
+        - {x: -28, y: -98}
+        - {x: 63, y: -98}
+        - {x: 52, y: -45}
+        - {x: 76, y: -22}
+    - name: nemicaNormIdle_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 80, y: 19}
+        - {x: 89, y: 26}
+        - {x: 102, y: 41}
+        - {x: 113, y: 62}
+        - {x: 113, y: 140}
+        - {x: 72, y: 211}
+        - {x: -17, y: 211}
+        - {x: -92, y: 145}
+        - {x: -92, y: 84}
+        - {x: -52, y: -44}
+        - {x: -28, y: -60}
+        - {x: -20, y: -54}
+        - {x: -21, y: -50}
+        - {x: -22, y: -39}
+        - {x: -22, y: -36}
+        - {x: -23, y: -33}
+        - {x: -22, y: -34}
+        - {x: -22, y: -38}
+        - {x: -19, y: -45}
+        - {x: -15, y: -50}
+        - {x: -21, y: -57}
+        - {x: -28, y: -69}
+        - {x: -54, y: -95}
+        - {x: -40, y: -98}
+        - {x: 60, y: -98}
+        - {x: 79, y: -81}
+        - {x: 98, y: 19}
+        - {x: 92, y: 21}
+    - name: nemicaNormIdle_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 114, y: 56}
+        - {x: 114, y: 141}
+        - {x: 83, y: 209}
+        - {x: -15, y: 209}
+        - {x: -70, y: 164}
+        - {x: -92, y: 135}
+        - {x: -92, y: 80}
+        - {x: -73, y: 43}
+        - {x: -51, y: -56}
+        - {x: -39, y: -63}
+        - {x: -32, y: -61}
+        - {x: -58, y: -98}
+        - {x: 69, y: -98}
+        - {x: 87, y: -81}
+        - {x: 98, y: 9}
+        - {x: 95, y: 19}
+    - name: nemicaNormIdle_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 80, y: 19}
+        - {x: 89, y: 26}
+        - {x: 102, y: 41}
+        - {x: 113, y: 62}
+        - {x: 113, y: 140}
+        - {x: 72, y: 211}
+        - {x: -17, y: 211}
+        - {x: -92, y: 145}
+        - {x: -92, y: 84}
+        - {x: -52, y: -44}
+        - {x: -28, y: -60}
+        - {x: -20, y: -54}
+        - {x: -21, y: -50}
+        - {x: -22, y: -39}
+        - {x: -22, y: -36}
+        - {x: -23, y: -33}
+        - {x: -22, y: -34}
+        - {x: -22, y: -38}
+        - {x: -19, y: -45}
+        - {x: -15, y: -50}
+        - {x: -21, y: -57}
+        - {x: -28, y: -69}
+        - {x: -54, y: -95}
+        - {x: -40, y: -98}
+        - {x: 60, y: -98}
+        - {x: 79, y: -81}
+        - {x: 98, y: 19}
+        - {x: 92, y: 21}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
