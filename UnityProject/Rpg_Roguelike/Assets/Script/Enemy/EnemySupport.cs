@@ -54,8 +54,8 @@ public class EnemySupport : Enemy
     {
         if (grid.EnemyCheckPlayer(this.pos, this.passi, this.gameObject, out targetPos))
         {
-            StartCoroutine(AttackPlayer(grid.cells[(int)targetPos.x, (int)targetPos.y].occupier));
             StartCoroutine(Attacco((grid.cells[(int)targetPos.x, (int)targetPos.y].occupier)));
+            StartCoroutine(AttackPlayer(grid.cells[(int)targetPos.x, (int)targetPos.y].occupier));
         }
         else
         {

@@ -40,7 +40,7 @@ public class UiController : MonoBehaviour
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
-        Invoke("CoSetUi", 0.3f);
+        Invoke("CoSetUi", 0.4f);
         MoveButton.Select();
 	}
 
