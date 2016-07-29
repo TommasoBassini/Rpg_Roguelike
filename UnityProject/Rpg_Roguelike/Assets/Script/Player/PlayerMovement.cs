@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    //gc.RandomEncounter();
+                    gc.RandomEncounter();
                 }
             }
         }

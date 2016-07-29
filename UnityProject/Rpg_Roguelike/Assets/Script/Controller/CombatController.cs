@@ -20,10 +20,41 @@ public class CombatController : MonoBehaviour
     public List<int> enemyLvl = new List<int>();
     public bool changeReady;
 
+    public Sprite[] campiBattaglia;
+
     void Start ()
     {
         grid = FindObjectOfType<BattleGrid>();
-	}
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
+        if (stats.nzona == 0)
+        {
+            SpriteRenderer campoBattaglia = GameObject.Find("CampoBattaglia").GetComponent<SpriteRenderer>();
+            campoBattaglia.sprite = campiBattaglia[0];
+        }
+
+        if (stats.nzona == 1)
+        {
+            SpriteRenderer campoBattaglia = GameObject.Find("CampoBattaglia").GetComponent<SpriteRenderer>();
+            campoBattaglia.sprite = campiBattaglia[1];
+        }
+
+        if (stats.nzona == 2)
+        {
+            SpriteRenderer campoBattaglia = GameObject.Find("CampoBattaglia").GetComponent<SpriteRenderer>();
+            campoBattaglia.sprite = campiBattaglia[2];
+        }
+
+        if (stats.nzona == 3)
+        {
+            SpriteRenderer campoBattaglia = GameObject.Find("CampoBattaglia").GetComponent<SpriteRenderer>();
+            campoBattaglia.sprite = campiBattaglia[3];
+        }
+        if (stats.nzona == 4)
+        {
+            SpriteRenderer campoBattaglia = GameObject.Find("CampoBattaglia").GetComponent<SpriteRenderer>();
+            campoBattaglia.sprite = campiBattaglia[4];
+        }
+    }
 
     void Update()
     {
