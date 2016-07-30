@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
 public class Dps : Player
 {
     public override void TakeStats()
@@ -158,4 +157,23 @@ public class Dps : Player
         _stats.statsDps.hp = stats.hp;
     }
 
+
+    public override void Attack(GameObject _enemy)
+    {
+        Invoke("DestroyButton", 0.6f);
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
+        enemy.SubisciDannoMelee(stats.attDistanza, _enemy);
+        GameObject effect = Instantiate(spriteAttacco);
+        effect.transform.position = _enemy.transform.position;
+
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(attacco);
+        Debug.Log(audio);
+        foreach (GameObject cell in checkboxAttack)
+        {
+            Destroy(cell);
+        }
+        checkboxAttack.Clear();
+    }
 }

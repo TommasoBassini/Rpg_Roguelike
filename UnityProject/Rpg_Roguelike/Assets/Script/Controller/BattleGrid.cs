@@ -76,7 +76,7 @@ public class BattleGrid : MonoBehaviour
 
         if (stats.tipoIncontro == 0)
         {
-            int random = Random.Range(2, 6);
+            int random = Random.Range(2, 5);
             for (int p = 0; p < random; p++)
             {
                 int enemX = Random.Range(0, nUsatiEnemy.Count);

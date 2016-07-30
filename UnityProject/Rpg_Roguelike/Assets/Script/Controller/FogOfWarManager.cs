@@ -174,7 +174,6 @@ public class FogOfWarManager : MonoBehaviour
             if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) == vista)
             {
                 SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
-                Color oldColor = sr.color;
                 Color newColor = new Color(0.4f, 0.4f, 0.4f);
                 StartCoroutine(ChangeColor(sr.color, newColor, sr));
                 if (cell.cellObject != null)
@@ -186,7 +185,6 @@ public class FogOfWarManager : MonoBehaviour
             if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) == vista - 1)
             {
                 SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
-                Color oldColor = sr.color;
                 Color newColor = new Color(0.66f, 0.66f, 0.66f);
                 StartCoroutine(ChangeColor(sr.color, newColor, sr));
                 if (cell.cellObject != null)
@@ -197,7 +195,6 @@ public class FogOfWarManager : MonoBehaviour
             if (Mathf.Abs((int)cell.pos.x - (pos.x - 0.5f)) + Mathf.Abs((int)cell.pos.y - (pos.y - 0.5f)) <= vista - 2)
             {
                 SpriteRenderer sr = cell.tileEditorCell.GetComponent<SpriteRenderer>();
-                Color oldColor = sr.color;
                 Color newColor = Color.white;
                 StartCoroutine(ChangeColor(sr.color, newColor, sr));
                 if (cell.cellObject != null)

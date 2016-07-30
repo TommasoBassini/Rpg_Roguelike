@@ -24,6 +24,7 @@ public abstract class Enemy : Character
     public int hpMax;
     public int hp;
     public int difesa;
+    public int difesaMagica;
     public int att;
 
 
@@ -50,13 +51,17 @@ public abstract class Enemy : Character
     new void Start()
     {
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
-        level = Random.Range(stats.livelloNemici - 2, stats.livelloNemici + 2);
-
+        level = Random.Range(stats.livelloNemici - 1, stats.livelloNemici + 1);
+        if (level == 0)
+        {
+            level = 1;
+        }
         grid = FindObjectOfType<BattleGrid>();
-        hpMax += (incrementi.hpMax * level);
+        hpMax += (incrementi.hpMax * (level -1));
         hp = hpMax;
-        difesa += (incrementi.difesa * level);
-        att += (incrementi.hpMax * level);
+        difesa += (incrementi.difesa * (level -1));
+        difesaMagica += (incrementi.difesa * (level - 1));
+        att += (incrementi.att * (level -1));
     }
 
     public void FindNearestPlayer()
@@ -461,6 +466,46 @@ public abstract class Enemy : Character
         }
         return danniTot;
     }
+
+    public void SubisciDannoMagico(int danni, GameObject enemy)
+    {
+        int danniTot = Mathf.RoundToInt(((((danni / difesaMagica) * 100) * (danni / 2)) / 100) * (Random.Range(1.0f, 1.5f)));
+        hp = hp - danniTot;
+        UiController ui = FindObjectOfType<UiController>();
+        ui.DamageText(enemy, danniTot, Color.red);
+        CombatController cc = FindObjectOfType<CombatController>();
+
+        if (hp <= 0)
+        {
+            hp = 0;
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == enemy)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (!cc.CheckWinner())
+                cc.UpdateTurnPortrait();
+            else
+                cc.Win();
+            Destroy(this.gameObject);
+        }
+        Image vita = ui.enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
+        float _hp = (float)this.hp;
+        float _hpMax = (float)this.hpMax;
+        vita.fillAmount = ((100 * _hp) / _hpMax) / 100;
+        Text textVita = ui.enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();
+        textVita.text = hp + "/" + hpMax;
+    }
+
     public void StartTurn()
     {
         if(nturnoDifesa.Count != 0)

@@ -236,7 +236,7 @@ public class CombatController : MonoBehaviour
             lvlTot += item;
         }
 
-        int exp = Mathf.RoundToInt((lvlTot * (Random.Range(40, 45))) * Random.Range(1.0f, 1.25f)* 10);
+        int exp = Mathf.RoundToInt((lvlTot * (Random.Range(20, 25))) * Random.Range(1.0f, 1.25f)* 10);
         int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(7, 10))) * Random.Range(1.0f, 1.25f)* 10);
         bool health = false;
         if (Random.Range(0f,100f) > 90f)

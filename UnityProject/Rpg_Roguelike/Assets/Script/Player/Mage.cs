@@ -75,67 +75,91 @@ public class Mage : Player
 
     public override void CheckAttack()
     {
-        //classico controllo delle direzioni
-        Vector2[] directions = new Vector2[4];
+        int raggio = 2;
+        BattleGrid grid = FindObjectOfType<BattleGrid>();
 
-        directions[0] = new Vector2(-1, 0);
-        directions[1] = new Vector2(0, -1);
-        directions[2] = new Vector2(1, 0);
-        directions[3] = new Vector2(0, 1);
+        int _x = (int)pos.x;
+        int _y = (int)pos.y;
 
-        foreach (Vector2 dir in directions)
+        for (int i = (_x - raggio); i <= (_x + raggio); i++)
         {
-            int new_x = (int)pos.x + (int)dir.x;
-            int new_y = (int)pos.y + (int)dir.y;
-
-            if (new_x < 0)
-                continue;
-            if (new_y < 0)
-                continue;
-            if (new_x > base.grid.width - 1)
-                continue;
-            if (new_y > base.grid.height - 1)
-                continue;
-
-            //se non esce dalla griglia e non è occupata aggiungo la posizione alla lista posDisp
-            if (base.grid.cells[new_x, new_y].occupier != null)
+            for (int y = (_y - raggio); y <= (_y + raggio); y++)
             {
-                if (base.grid.cells[new_x, new_y].occupier.CompareTag("Enemy"))
-                    enemyDisp.Add(base.grid.cells[new_x, new_y].occupier);
+
+                if (i < 0)
+                    continue;
+                if (y < 0)
+                    continue;
+                if (i > grid.width - 1)
+                    continue;
+                if (y > grid.height - 1)
+                    continue;
+
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (raggio))
+                {
+                    if (grid.cells[i, y].occupier != null)
+                    {
+                        if (grid.cells[i, y].occupier.CompareTag("Enemy"))
+                            enemyDisp.Add(grid.cells[i, y].occupier);
+                    }
+                }
             }
+
         }
     }
 
     public override void SpawnAttackBox()
     {
-        Vector2[] directions = new Vector2[4];
+        int raggio = 2;
+        BattleGrid grid = FindObjectOfType<BattleGrid>();
 
-        directions[0] = new Vector2(-1, 0);
-        directions[1] = new Vector2(0, -1);
-        directions[2] = new Vector2(1, 0);
-        directions[3] = new Vector2(0, 1);
+        int _x = (int)pos.x;
+        int _y = (int)pos.y;
 
-        foreach (Vector2 dir in directions)
+
+
+        for (int i = (_x - raggio); i <= (_x + raggio); i++)
         {
-            int new_x = (int)pos.x + (int)dir.x;
-            int new_y = (int)pos.y + (int)dir.y;
+            for (int y = (_y - raggio); y <= (_y + raggio); y++)
+            {
 
-            if (new_x < 0)
-                continue;
-            if (new_y < 0)
-                continue;
-            if (new_x > base.grid.width - 1)
-                continue;
-            if (new_y > base.grid.height - 1)
-                continue;
+                if (i < 0)
+                    continue;
+                if (y < 0)
+                    continue;
+                if (i > grid.width - 1)
+                    continue;
+                if (y > grid.height - 1)
+                    continue;
 
-
-            GameObject newAttack = Instantiate(checkAttack);
-            newAttack.transform.position = base.grid.cells[new_x, new_y].gameObject.transform.position;
-            checkboxAttack.Add(newAttack);
+                if (Mathf.Abs(i - _x) + Mathf.Abs(y - _y) <= (raggio))
+                {
+                    GameObject newAttack = Instantiate(checkAttack);
+                    newAttack.transform.position = base.grid.cells[i, y].gameObject.transform.position;
+                    checkboxAttack.Add(newAttack);
+                }
+            }
         }
     }
 
+    public override void Attack(GameObject _enemy)
+    {
+        Invoke("DestroyButton", 0.6f);
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
+        enemy.SubisciDannoMagico(stats.attMagico, _enemy);
+        GameObject effect = Instantiate(spriteAttacco);
+        effect.transform.position = _enemy.transform.position;
+
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(attacco);
+        Debug.Log(audio);
+        foreach (GameObject cell in checkboxAttack)
+        {
+            Destroy(cell);
+        }
+        checkboxAttack.Clear();
+    }
     public override void EndBattle()
     {
         PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();

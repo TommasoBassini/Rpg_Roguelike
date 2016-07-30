@@ -116,6 +116,11 @@ public class UiController : MonoBehaviour
                         {
                             Destroy(item);
                         }
+                        foreach (var item in buffBoxList)
+                        {
+                            Destroy(item);
+                        }
+                        buffBoxList.Clear();
                         attackBoxList.Clear();
                         ActionPanel.SetActive(true);
                         activeAbilityPanel.SetActive(false);
@@ -155,6 +160,11 @@ public class UiController : MonoBehaviour
                             Destroy(item);
                         }
                         attackBoxList.Clear();
+                        foreach (var item in buffBoxList)
+                        {
+                            Destroy(item);
+                        }
+                        buffBoxList.Clear();
                         ActionPanel.SetActive(true);
                         Player player = cc.player[cc.turno].GetComponent<Player>();
                         player.CheckAttack();

@@ -32,6 +32,8 @@ public class MageAbility : MonoBehaviour
     public AudioClip audioRagnatela;
     public AudioClip audioFulmine;
 
+    public List<Button> buttons = new List<Button>();
+
     void Start()
     {
         for (int i = 0; i < player.stats.abilitaSbloccate.Length; i++)
@@ -69,18 +71,11 @@ public class MageAbility : MonoBehaviour
             else if (costoAbilita[i] <= player.stats.mp && abilitaSbloccate[i])
             {
                 buttonAbilita[i].interactable = true;
+                buttons.Add(buttonAbilita[i]);
             }
         }
 
-        foreach (Button item in buttonAbilita)
-        {
-            if (item.IsInteractable())
-            {
-                item.Select();
-                break;
-            }
-        }
-        buttonAbilita[0].Select();
+        buttons[0].Select();
     }
 
     //Fulmine nero //////////////////////////////////////////////////////

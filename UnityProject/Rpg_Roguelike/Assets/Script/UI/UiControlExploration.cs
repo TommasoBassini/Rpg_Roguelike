@@ -161,11 +161,10 @@ public class UiControlExploration : MonoBehaviour
         }
 
 
-        if ((Input.GetKeyUp(KeyCode.Joystick1Button4)) && !isMenuOpen)
+        if ((Input.GetKeyUp(KeyCode.Joystick1Button4)) && !isMenuOpen && !player.isSpeaking)
         {
             if (isVita)
             {
-                PlayerMovement player = FindObjectOfType<PlayerMovement>();
                 player.isSpeaking = false;
                 isVita = false;
                 panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
@@ -174,9 +173,7 @@ public class UiControlExploration : MonoBehaviour
                 return;
             }
             else
-            {
-                PlayerMovement player = FindObjectOfType<PlayerMovement>();
-                
+            {                
                 isVita = true;
                 isMana = false;
                 manaMenu.SetActive(false);
@@ -188,11 +185,10 @@ public class UiControlExploration : MonoBehaviour
             }
         }
 
-        if ((Input.GetKeyUp(KeyCode.Joystick1Button5)) && !isMenuOpen)
+        if ((Input.GetKeyUp(KeyCode.Joystick1Button5)) && !isMenuOpen && !player.isSpeaking)
         {
             if (isMana)
             {
-                PlayerMovement player = FindObjectOfType<PlayerMovement>();
                 player.isSpeaking = false;
                 isMana = false;
                 panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
@@ -202,7 +198,6 @@ public class UiControlExploration : MonoBehaviour
             }
             else
             {
-                PlayerMovement player = FindObjectOfType<PlayerMovement>();
                 player.isSpeaking = true;
                 isMana = true;
                 isVita = false;
@@ -216,7 +211,6 @@ public class UiControlExploration : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button1) && !isMenuOpen && isVita)
         {
-            PlayerMovement player = FindObjectOfType<PlayerMovement>();
             player.isSpeaking = false;
             panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
             panelVita.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
@@ -225,7 +219,6 @@ public class UiControlExploration : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button1) && !isMenuOpen && isMana)
         {
-            PlayerMovement player = FindObjectOfType<PlayerMovement>();
             player.isSpeaking = false;
             panelMana.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);
             panelVita.GetComponent<Image>().color = new Color(0.83f, 0.83f, 0.83f);

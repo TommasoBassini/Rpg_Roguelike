@@ -74,6 +74,25 @@ public class Tank : Player
         ui.DamageText(this.gameObject, danniSubiti, Color.red);
     }
 
+    public override void Attack(GameObject _enemy)
+    {
+        Invoke("DestroyButton", 0.6f);
+        Enemy enemy = _enemy.GetComponent<Enemy>();
+        Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
+        enemy.SubisciDannoMelee(stats.attMelee, _enemy);
+        GameObject effect = Instantiate(spriteAttacco);
+        effect.transform.position = _enemy.transform.position;
+
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(attacco);
+        Debug.Log(audio);
+        foreach (GameObject cell in checkboxAttack)
+        {
+            Destroy(cell);
+        }
+        checkboxAttack.Clear();
+    }
+
     public override void CheckAttack()
     {
         //classico controllo delle direzioni

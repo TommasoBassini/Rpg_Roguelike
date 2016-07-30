@@ -32,6 +32,7 @@ public abstract class Player : Character
     public abstract void EndBattle();
     public abstract void SubisciDanno(float danni);
     public abstract void SpawnAttackBox();
+    public abstract void Attack(GameObject _enemy);
     public abstract void CheckAttack();
     public List<GameObject> enemyDisp = new List<GameObject>();
     public GameObject uiInfo;
@@ -57,25 +58,6 @@ public abstract class Player : Character
     //DebuffVeleno
     public int turniVeleno = 0;
     public int percVeleno;
-
-    public void Attack(GameObject _enemy)
-    {
-        Invoke("DestroyButton", 0.6f);
-        Enemy enemy = _enemy.GetComponent<Enemy>();
-        Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
-        enemy.SubisciDannoMelee(stats.attMelee,_enemy);
-        GameObject effect = Instantiate(spriteAttacco);
-        effect.transform.position = _enemy.transform.position;
-
-        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
-        audio.PlayOneShot(attacco);
-        Debug.Log(audio);
-        foreach (GameObject cell in checkboxAttack)
-        {
-            Destroy(cell);
-        }
-        checkboxAttack.Clear();
-    }
 
     void DestroyButton()
     {
