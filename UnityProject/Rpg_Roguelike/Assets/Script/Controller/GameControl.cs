@@ -8,10 +8,7 @@ public class GameControl : MonoBehaviour
     public Scene battleScene;
     public GameObject Canvas;
     public GameObject cameraOBJ;
-	void Start ()
-    {
-        
-	}
+
 	
 	void Update ()
     {

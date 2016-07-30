@@ -23,6 +23,10 @@ public class BattleGrid : MonoBehaviour
     public GameObject availableMovementPrefab;
     public List<GameObject> nBlocchiMovement = new List<GameObject>();
 
+    public GameObject boss1;
+    public GameObject boss2;
+    public GameObject boss3;
+
     void Start()
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Battle"));
@@ -68,15 +72,42 @@ public class BattleGrid : MonoBehaviour
             }
             nUsatiPlayer.RemoveAt(n);
         }
+        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
 
-        int random = Random.Range(2, 6);
-        for (int p = 0; p < random; p++)
+        if (stats.tipoIncontro == 0)
+        {
+            int random = Random.Range(2, 6);
+            for (int p = 0; p < random; p++)
+            {
+                int enemX = Random.Range(0, nUsatiEnemy.Count);
+                int enemY = Random.Range(0, 7);
+                int random2 = Random.Range(0, 3);
+                GameObject newEnemy = Instantiate(enemy[random2]);
+                newEnemy.name = enemy[random2].name + " " + p;
+                newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
+                SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
+                srEnemy.sortingOrder = 3;
+                Enemy characterEnemy = newEnemy.GetComponent<Enemy>();
+                characterEnemy.velocita = Random.Range(0.7f, 1.1f);
+                characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
+                cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
+                cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
+                cc.enemyLvl.Add(characterEnemy.level);
+                for (int z = 1; z < 100; z++)
+                {
+                    cc.tempo.Add(characterEnemy.velocita * z);
+                    cc.player.Add(newEnemy);
+                }
+                nUsatiEnemy.RemoveAt(enemX);
+            }
+            cc.TurnOrder(cc.tempo, cc.tempo.Count);
+        }
+        else if (stats.tipoIncontro == 1)
         {
             int enemX = Random.Range(0, nUsatiEnemy.Count);
             int enemY = Random.Range(0, 7);
-            int random2 = Random.Range(0, 3);
-            GameObject newEnemy = Instantiate(enemy[random2]);
-            newEnemy.name = enemy[random2].name+ " " + p;
+            GameObject newEnemy = Instantiate(boss1);
+            newEnemy.name = boss1.name;
             newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
             SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
             srEnemy.sortingOrder = 3;
@@ -93,7 +124,120 @@ public class BattleGrid : MonoBehaviour
             }
             nUsatiEnemy.RemoveAt(enemX);
         }
-        cc.TurnOrder(cc.tempo,cc.tempo.Count);
+        else if (stats.tipoIncontro == 2)
+        {
+            int enemX = Random.Range(0, nUsatiEnemy.Count);
+            int enemY = Random.Range(0, 7);
+            GameObject newEnemy = Instantiate(boss2);
+            newEnemy.name = boss2.name;
+            newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
+            SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
+            srEnemy.sortingOrder = 3;
+            Enemy characterEnemy = newEnemy.GetComponent<Enemy>();
+            characterEnemy.velocita = Random.Range(0.7f, 1.1f);
+            characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
+            cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
+            cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
+            cc.enemyLvl.Add(characterEnemy.level);
+            for (int z = 1; z < 100; z++)
+            {
+                cc.tempo.Add(characterEnemy.velocita * z);
+                cc.player.Add(newEnemy);
+            }
+            nUsatiEnemy.RemoveAt(enemX);
+        }
+        else if (stats.tipoIncontro == 3)
+        {
+            int enemX = Random.Range(0, nUsatiEnemy.Count);
+            int enemY = Random.Range(0, 7);
+            GameObject newEnemy = Instantiate(boss3);
+            newEnemy.name = boss3.name;
+            newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
+            SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
+            srEnemy.sortingOrder = 3;
+            Enemy characterEnemy = newEnemy.GetComponent<Enemy>();
+            characterEnemy.velocita = Random.Range(0.7f, 1.1f);
+            characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
+            cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
+            cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
+            cc.enemyLvl.Add(characterEnemy.level);
+            for (int z = 1; z < 100; z++)
+            {
+                cc.tempo.Add(characterEnemy.velocita * z);
+                cc.player.Add(newEnemy);
+            }
+            nUsatiEnemy.RemoveAt(enemX);
+        }
+        else if (stats.tipoIncontro == 4)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                int enemX = Random.Range(0, nUsatiEnemy.Count);
+                int enemY = Random.Range(0, 7);
+                if (i == 0)
+                {
+                    GameObject newEnemy = Instantiate(boss1);
+                    newEnemy.name = boss1.name;
+                    newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
+                    SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
+                    srEnemy.sortingOrder = 3;
+                    Enemy characterEnemy = newEnemy.GetComponent<Enemy>();
+                    characterEnemy.velocita = Random.Range(0.7f, 1.1f);
+                    characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
+                    cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
+                    cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
+                    cc.enemyLvl.Add(characterEnemy.level);
+                    for (int z = 1; z < 100; z++)
+                    {
+                        cc.tempo.Add(characterEnemy.velocita * z);
+                        cc.player.Add(newEnemy);
+                    }
+                    nUsatiEnemy.RemoveAt(enemX);
+                }
+                if (i == 1)
+                {
+                    GameObject newEnemy = Instantiate(boss2);
+                    newEnemy.name = boss2.name;
+                    newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
+                    SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
+                    srEnemy.sortingOrder = 3;
+                    Enemy characterEnemy = newEnemy.GetComponent<Enemy>();
+                    characterEnemy.velocita = Random.Range(0.7f, 1.1f);
+                    characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
+                    cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
+                    cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
+                    cc.enemyLvl.Add(characterEnemy.level);
+                    for (int z = 1; z < 100; z++)
+                    {
+                        cc.tempo.Add(characterEnemy.velocita * z);
+                        cc.player.Add(newEnemy);
+                    }
+                    nUsatiEnemy.RemoveAt(enemX);
+                }
+                if (i == 2)
+                {
+                    GameObject newEnemy = Instantiate(boss3);
+                    newEnemy.name = boss3.name;
+                    newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
+                    SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
+                    srEnemy.sortingOrder = 3;
+                    Enemy characterEnemy = newEnemy.GetComponent<Enemy>();
+                    characterEnemy.velocita = Random.Range(0.7f, 1.1f);
+                    characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
+                    cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
+                    cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
+                    cc.enemyLvl.Add(characterEnemy.level);
+                    for (int z = 1; z < 100; z++)
+                    {
+                        cc.tempo.Add(characterEnemy.velocita * z);
+                        cc.player.Add(newEnemy);
+                    }
+                    nUsatiEnemy.RemoveAt(enemX);
+                }
+
+            }
+
+        }
     }
 
 
