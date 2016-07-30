@@ -292,6 +292,7 @@ public class PlayerStatsControl : MonoBehaviour
     public Vector2 lastCheckpoint;
 
     public int nzona;
+    public int tipoIncontro; // 0 casuale 1 primo boss 2 secondo boss 3 terzo boss 4 tutti e tre i boss
     void Awake ()
     {
         DontDestroyOnLoad(this.gameObject);
