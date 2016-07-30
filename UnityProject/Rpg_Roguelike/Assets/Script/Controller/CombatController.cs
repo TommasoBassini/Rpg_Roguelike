@@ -89,6 +89,7 @@ public class CombatController : MonoBehaviour
         UpdateTurnPortrait();
         UiController ui = FindObjectOfType<UiController>();
         ui.SetUiToPlayer(player[turno]);
+        ui.MoveButton.Select();
     }
 
     public void UpdateTurnPortrait()
@@ -183,8 +184,8 @@ public class CombatController : MonoBehaviour
         else
         {
             Invoke("AggiornaRitrattoPlayer", 0.1f);
-            ui.SetUiToPlayer(player[turno]);
             ui.UI.SetActive(true);
+            ui.SetUiToPlayer(player[turno]);
             player[turno].GetComponent<Player>().StartTurn();
         }
     }

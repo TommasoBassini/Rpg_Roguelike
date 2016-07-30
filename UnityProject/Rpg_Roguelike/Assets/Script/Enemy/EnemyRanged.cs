@@ -15,6 +15,8 @@ public class EnemyRanged : Enemy
     public GameObject attaccoSprite;
     public Sprite attaccoSpriteBox;
 
+    public AudioClip audioAttaccoVeleno;
+
     public override void Ai()
     {
         Invoke("CheckPlayerNear", 0.5f);
@@ -73,6 +75,9 @@ public class EnemyRanged : Enemy
         effect1.transform.position = _player.transform.position;
         player.turniVeleno += nturni;
         player.percVeleno = percentualeVeleno;
+
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioAttaccoVeleno);
 
         //roba per ui
         UiController ui = FindObjectOfType<UiController>();

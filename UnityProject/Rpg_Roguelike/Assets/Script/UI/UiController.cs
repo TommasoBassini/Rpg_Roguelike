@@ -40,16 +40,16 @@ public class UiController : MonoBehaviour
     public AudioClip potionAudio;
     public AudioClip audioMovimentoDps;
 
+    public Camera cam;
     void Start ()
     {
         cc = FindObjectOfType<CombatController>();
-        Invoke("CoSetUi", 0.4f);
-        MoveButton.Select();
-	}
+    }
 
     void CoSetUi()
     {
         SetUiToPlayer(cc.player[cc.turno]);
+        MoveButton.Select();
     }
 
     void Update()
@@ -284,7 +284,7 @@ public class UiController : MonoBehaviour
 
     public void SetUiToPlayer(GameObject _player)
     {
-        Vector3 targetPos_screenSpace = Camera.main.WorldToScreenPoint(_player.transform.position);
+        Vector3 targetPos_screenSpace = cam.WorldToScreenPoint(_player.transform.position);
         UI.transform.position = targetPos_screenSpace;
     }
 

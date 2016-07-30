@@ -7,6 +7,7 @@ public class GameControl : MonoBehaviour
     public GameObject player;
     public Scene battleScene;
     public GameObject Canvas;
+    public GameObject cameraOBJ;
 	void Start ()
     {
         
@@ -18,11 +19,13 @@ public class GameControl : MonoBehaviour
 
         if (battleScene.isLoaded)
         {
+            cameraOBJ.SetActive(false);
             player.SetActive(false);
             Canvas.SetActive(false);
         }
         else
         {
+            cameraOBJ.SetActive(true);
             player.SetActive(true);
             Canvas.SetActive(true);
         }
@@ -31,9 +34,7 @@ public class GameControl : MonoBehaviour
     public void RandomEncounter()
     {
         SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
-        
         battleScene = SceneManager.GetSceneByName("Battle");
         SceneManager.SetActiveScene(battleScene);
     }
-
 }

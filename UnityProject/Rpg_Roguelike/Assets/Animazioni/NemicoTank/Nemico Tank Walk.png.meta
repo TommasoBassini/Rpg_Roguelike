@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 36612cb0f9c686345b12a6d5082e55a8
+timeCreated: 1469877748
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Nemico Tank Walk_0
+    21300002: Nemico Tank Walk_1
+    21300004: Nemico Tank Walk_2
+    21300006: Nemico Tank Walk_3
+    21300008: Nemico Tank Walk_4
+    21300010: Nemico Tank Walk_5
+    21300012: Nemico Tank Walk_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Nemico Tank Walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400.5
+        width: 400
+        height: 400.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88, y: 162.125}
+        - {x: 88, y: 181.125}
+        - {x: 61, y: 214.125}
+        - {x: 10, y: 232.125}
+        - {x: -58, y: 232.125}
+        - {x: -88, y: 216.125}
+        - {x: -93, y: 196.125}
+        - {x: -93, y: 158.125}
+        - {x: -60, y: 83.125}
+        - {x: -92, y: 28.125}
+        - {x: -74, y: -53.875}
+        - {x: -74, y: -98.875}
+        - {x: 39, y: -98.875}
+        - {x: 40, y: -79.875}
+        - {x: 68, y: 23.125}
+        - {x: 63, y: 119.125}
+    - name: Nemico Tank Walk_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400.5
+        width: 400
+        height: 400.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 67, y: 210.125}
+        - {x: 54, y: 213.125}
+        - {x: 51, y: 209.125}
+        - {x: 10, y: 227.125}
+        - {x: -26, y: 227.125}
+        - {x: -65, y: 223.125}
+        - {x: -82, y: 205.125}
+        - {x: -94, y: 191.125}
+        - {x: -94, y: -98.875}
+        - {x: 30, y: -98.875}
+        - {x: 51, y: -92.875}
+        - {x: 88, y: 13.125}
+        - {x: 88, y: 171.125}
+    - name: Nemico Tank Walk_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400.5
+        width: 400
+        height: 400.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 86, y: 143.125}
+        - {x: 86, y: 195.125}
+        - {x: 55, y: 207.125}
+        - {x: 22, y: 221.125}
+        - {x: -67, y: 221.125}
+        - {x: -74, y: 212.125}
+        - {x: -96, y: 179.125}
+        - {x: -96, y: 168.125}
+        - {x: -57, y: 67.125}
+        - {x: -85, y: 5.125}
+        - {x: -70, y: -96.875}
+        - {x: -53, y: -98.875}
+        - {x: 27, y: -98.875}
+        - {x: 37, y: -92.875}
+        - {x: 79, y: 32.125}
+        - {x: 78, y: 111.125}
+    - name: Nemico Tank Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400.5
+        width: 400
+        height: 400.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 55, y: 217.125}
+        - {x: 22, y: 231.125}
+        - {x: -67, y: 231.125}
+        - {x: -74, y: 222.125}
+        - {x: -96, y: 192.125}
+        - {x: -96, y: 170.125}
+        - {x: -64, y: 78.125}
+        - {x: -80, y: 4.125}
+        - {x: -73, y: -90.875}
+        - {x: -47, y: -98.875}
+        - {x: 39, y: -98.875}
+        - {x: 64, y: -33.875}
+        - {x: 86, y: 20.125}
+        - {x: 86, y: 195.125}
+    - name: Nemico Tank Walk_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400.5
+        width: 400
+        height: 400.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 59, y: 219.125}
+        - {x: 51, y: 215.125}
+        - {x: 28, y: 227.125}
+        - {x: 4, y: 234.125}
+        - {x: -55, y: 234.125}
+        - {x: -64, y: 232.125}
+        - {x: -91, y: 220.125}
+        - {x: -94, y: 202.125}
+        - {x: -94, y: 86.125}
+        - {x: -80, y: -95.875}
+        - {x: -64, y: -98.875}
+        - {x: 49, y: -98.875}
+        - {x: 51, y: -97.875}
+        - {x: 88, y: 31.125}
+        - {x: 88, y: 199.125}
+    - name: Nemico Tank Walk_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 400
+        height: 400.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 90, y: 149.125}
+        - {x: 90, y: 168.125}
+        - {x: 63, y: 226.125}
+        - {x: -61, y: 226.125}
+        - {x: -80, y: 209.125}
+        - {x: -91, y: 186.125}
+        - {x: -91, y: 171.125}
+        - {x: -62, y: 77.125}
+        - {x: -91, y: 17.125}
+        - {x: -91, y: 0.125}
+        - {x: -75, y: -98.875}
+        - {x: 36, y: -98.875}
+        - {x: 48, y: -79.875}
+        - {x: 80, y: 23.125}
+        - {x: 51, y: 105.125}
+    - name: Nemico Tank Walk_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0.5
+        width: 400
+        height: 400.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 78, y: 61.125}
+        - {x: 90, y: 122.125}
+        - {x: 90, y: 162.125}
+        - {x: 72, y: 200.125}
+        - {x: 58, y: 220.125}
+        - {x: -90, y: 220.125}
+        - {x: -91, y: 207.125}
+        - {x: -91, y: 72.125}
+        - {x: -89, y: 13.125}
+        - {x: -73, y: -90.875}
+        - {x: -47, y: -98.875}
+        - {x: 37, y: -98.875}
+        - {x: 48, y: -76.875}
+        - {x: 25, y: -52.875}
+        - {x: 67, y: -27.875}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

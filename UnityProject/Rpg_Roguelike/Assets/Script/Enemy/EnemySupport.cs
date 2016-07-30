@@ -16,6 +16,8 @@ public class EnemySupport : Enemy
     GameObject target;
     Vector2 targetPos;
 
+    public AudioClip audioCura;
+
     public override void Ai()
     {
         bool enemyInDifficolta = false;
@@ -76,7 +78,8 @@ public class EnemySupport : Enemy
         enemy.hp += cura;
         GameObject effect = Instantiate(curaEffect);
         effect.transform.position = _player.transform.position;
-
+        AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        audio.PlayOneShot(audioCura);
         //roba per ui
         UiController ui = FindObjectOfType<UiController>();
         ui.DamageText(_player, cura, Color.green);

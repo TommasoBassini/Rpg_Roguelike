@@ -26,6 +26,11 @@ public abstract class Enemy : Character
     public int difesa;
     public int att;
 
+
+    public AudioClip audioAttack;
+
+    public GameObject attackEffect;
+
     // liste debuff
     public List<int> nturnoDifesa = new List<int>();
     public List<int> debuffDifesa = new List<int>();
@@ -331,6 +336,19 @@ public abstract class Enemy : Character
         {
             anim.SetTrigger("AttackLeft");
         }
+        yield return new WaitForSeconds(0.5f);
+        if (attackEffect != null)
+        {
+            GameObject effect = Instantiate(attackEffect);
+            effect.transform.position = Target.transform.position;
+        }
+        // Suono
+        if (audioAttack != null)
+        {
+            AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+            audio.PlayOneShot(audioAttack);
+        }
+
         Player player = Target.GetComponent<Player>();
         player.SubisciDanno(att);
         yield return new WaitForSeconds(2);
