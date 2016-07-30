@@ -36,6 +36,8 @@ public class Potions : MonoBehaviour
         Grid grid = FindObjectOfType<Grid>();
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isSemiWall = true;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.sortingOrder = 100 - (int)pos.y;
     }
 
 

@@ -52,7 +52,9 @@ public class PlayerMovement : MonoBehaviour
             grid = GameObject.Find("Grid").GetComponent<Grid>();
             if (grid.cells[(int)_pos.x, (int)_pos.y].isWall == false && grid.cells[(int)_pos.x, (int)_pos.y].isSemiWall == false)
             {
-                
+
+                SpriteRenderer sr = GetComponent<SpriteRenderer>();
+                sr.sortingOrder = 100 - (int)_pos.y;
                 //this.transform.position = grid.cells[(int)_pos.x, (int)_pos.y].gameObject.transform.position;
                 playerPos = _pos;
                 isMoving = true;

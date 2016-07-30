@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: e2e5936d55a572e4da41353b97b338a6
+timeCreated: 1469888286
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TankTrequartiCamminataCasa_0
+    21300002: TankTrequartiCamminataCasa_1
+    21300004: TankTrequartiCamminataCasa_2
+    21300006: TankTrequartiCamminataCasa_3
+    21300008: TankTrequartiCamminataCasa_4
+    21300010: TankTrequartiCamminataCasa_5
+    21300012: TankTrequartiCamminataCasa_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: TankTrequartiCamminataCasa_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -98, y: 294}
+        - {x: -98, y: -49}
+        - {x: -66, y: -15}
+        - {x: -58, y: -6}
+        - {x: -58, y: 1}
+        - {x: -62, y: 3}
+        - {x: -72, y: 12}
+        - {x: -70, y: 21}
+        - {x: -71, y: 15}
+        - {x: -53, y: -4}
+        - {x: -44, y: -28}
+        - {x: -40, y: -37}
+        - {x: -35, y: -43}
+        - {x: -7, y: -67}
+        - {x: -61, y: -84}
+        - {x: -57, y: -100}
+        - {x: 36, y: -100}
+        - {x: 92, y: -46}
+        - {x: 92, y: 237}
+        - {x: 76, y: 294}
+      - - {x: 41, y: 7}
+        - {x: 48, y: 7}
+        - {x: 48, y: 14}
+        - {x: 47, y: 17}
+        - {x: 40, y: 17}
+        - {x: 40, y: 10}
+    - name: TankTrequartiCamminataCasa_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31, y: -81}
+        - {x: 21, y: -79}
+        - {x: 40, y: -81}
+        - {x: 49, y: -86}
+        - {x: 66, y: -93}
+        - {x: 64, y: -5}
+        - {x: 94, y: 25}
+        - {x: 94, y: 131}
+        - {x: 79, y: 211}
+        - {x: 51, y: 281}
+        - {x: -91, y: 281}
+        - {x: -91, y: -57}
+        - {x: -76, y: -100}
+        - {x: 40, y: -100}
+        - {x: 51, y: -96}
+        - {x: 49, y: -86}
+        - {x: 42, y: -82}
+    - name: TankTrequartiCamminataCasa_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 92, y: -95}
+        - {x: 72, y: -25}
+        - {x: 99, y: 22}
+        - {x: 99, y: 56}
+        - {x: 90, y: 85}
+        - {x: 77, y: 130}
+        - {x: 71, y: 219}
+        - {x: 35, y: 271}
+        - {x: 0, y: 271}
+        - {x: -83, y: 258}
+        - {x: -93, y: 189}
+        - {x: -93, y: 28}
+        - {x: -56, y: -80}
+        - {x: -66, y: -99}
+        - {x: -59, y: -100}
+        - {x: 53, y: -100}
+        - {x: 60, y: -94}
+        - {x: 56, y: -80}
+        - {x: 45, y: -75}
+      - - {x: -81, y: 5}
+        - {x: -84, y: 2}
+        - {x: -84, y: -2}
+        - {x: -80, y: -8}
+        - {x: -76, y: -8}
+        - {x: -74, y: -6}
+        - {x: -74, y: 0}
+        - {x: -77, y: 4}
+    - name: TankTrequartiCamminataCasa_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: -50}
+        - {x: 94, y: -29}
+        - {x: 94, y: 79}
+        - {x: 80, y: 116}
+        - {x: 81, y: 212}
+        - {x: 39, y: 260}
+        - {x: 39, y: 281}
+        - {x: -51, y: 281}
+        - {x: -75, y: 279}
+        - {x: -89, y: 215}
+        - {x: -91, y: 137}
+        - {x: -91, y: 44}
+        - {x: -47, y: -37}
+        - {x: -58, y: -95}
+        - {x: -43, y: -100}
+        - {x: 31, y: -100}
+        - {x: 46, y: -94}
+        - {x: 44, y: -85}
+        - {x: 28, y: -82}
+      - - {x: -80, y: 19}
+        - {x: -81, y: 16}
+        - {x: -81, y: 11}
+        - {x: -77, y: 7}
+        - {x: -74, y: 7}
+        - {x: -71, y: 8}
+        - {x: -71, y: 15}
+        - {x: -73, y: 19}
+    - name: TankTrequartiCamminataCasa_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -90, y: 294}
+        - {x: -90, y: 14}
+        - {x: -32, y: -80}
+        - {x: -27, y: -82}
+        - {x: -23, y: -82}
+        - {x: -18, y: -81}
+        - {x: -10, y: -77}
+        - {x: 1, y: -72}
+        - {x: 1, y: -63}
+        - {x: 9, y: -82}
+        - {x: -30, y: -82}
+        - {x: -40, y: -81}
+        - {x: -57, y: -87}
+        - {x: -55, y: -98}
+        - {x: -48, y: -100}
+        - {x: 37, y: -100}
+        - {x: 92, y: -12}
+        - {x: 92, y: 205}
+        - {x: 57, y: 294}
+      - - {x: 76, y: 15}
+        - {x: 74, y: 15}
+        - {x: 72, y: 14}
+        - {x: 72, y: 10}
+        - {x: 74, y: 5}
+        - {x: 78, y: 5}
+        - {x: 80, y: 7}
+        - {x: 80, y: 13}
+    - name: TankTrequartiCamminataCasa_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 94, y: 41}
+        - {x: 94, y: 63}
+        - {x: 89, y: 90}
+        - {x: 69, y: 137}
+        - {x: 78, y: 211}
+        - {x: 50, y: 281}
+        - {x: -60, y: 281}
+        - {x: -77, y: 268}
+        - {x: -91, y: 217}
+        - {x: -91, y: 40}
+        - {x: -86, y: 11}
+        - {x: -46, y: -31}
+        - {x: -60, y: -97}
+        - {x: -48, y: -100}
+        - {x: 46, y: -100}
+        - {x: 49, y: -60}
+        - {x: 55, y: 17}
+        - {x: 83, y: 30}
+      - - {x: 68, y: 16}
+        - {x: 68, y: 11}
+        - {x: 73, y: 8}
+        - {x: 75, y: 8}
+        - {x: 77, y: 9}
+        - {x: 77, y: 14}
+        - {x: 74, y: 18}
+        - {x: 70, y: 18}
+    - name: TankTrequartiCamminataCasa_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 99, y: 30}
+        - {x: 99, y: 54}
+        - {x: 92, y: 87}
+        - {x: 81, y: 102}
+        - {x: 71, y: 219}
+        - {x: 35, y: 250}
+        - {x: 36, y: 271}
+        - {x: 13, y: 271}
+        - {x: -9, y: 264}
+        - {x: -76, y: 264}
+        - {x: -88, y: 201}
+        - {x: -93, y: 154}
+        - {x: -93, y: -9}
+        - {x: -64, y: -37}
+        - {x: -45, y: -69}
+        - {x: -69, y: -100}
+        - {x: 36, y: -100}
+        - {x: 49, y: -94}
+        - {x: 60, y: -63}
+        - {x: 90, y: 21}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

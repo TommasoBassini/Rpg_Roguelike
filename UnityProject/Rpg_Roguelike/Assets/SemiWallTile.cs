@@ -16,5 +16,7 @@ public class SemiWallTile : MonoBehaviour
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = this.gameObject;
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isSemiWall = true;
         grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isWall = false;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.sortingOrder = 100 - (int)pos.y;
     }
 }

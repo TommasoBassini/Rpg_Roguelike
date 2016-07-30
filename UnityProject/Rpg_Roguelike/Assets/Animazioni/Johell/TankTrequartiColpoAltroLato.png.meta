@@ -1,0 +1,433 @@
+fileFormatVersion: 2
+guid: c2127b069ef72314ebaa1c2d45a7e333
+timeCreated: 1469888379
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TankTrequartiColpoAltroLato_0
+    21300002: TankTrequartiColpoAltroLato_1
+    21300004: TankTrequartiColpoAltroLato_2
+    21300006: TankTrequartiColpoAltroLato_3
+    21300008: TankTrequartiColpoAltroLato_4
+    21300010: TankTrequartiColpoAltroLato_5
+    21300012: TankTrequartiColpoAltroLato_6
+    21300014: TankTrequartiColpoAltroLato_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: TankTrequartiColpoAltroLato_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 186, y: 92}
+        - {x: 183, y: 95}
+        - {x: 110, y: 59}
+        - {x: 80, y: 63}
+        - {x: 78, y: 204}
+        - {x: 62, y: 262}
+        - {x: 46, y: 257}
+        - {x: 41, y: 265}
+        - {x: -50, y: 265}
+        - {x: -87, y: 196}
+        - {x: -75, y: 111}
+        - {x: -99, y: 73}
+        - {x: -99, y: 24}
+        - {x: -87, y: 4}
+        - {x: -43, y: -77}
+        - {x: -51, y: -100}
+        - {x: 63, y: -100}
+        - {x: 132, y: -46}
+        - {x: 116, y: -22}
+        - {x: 186, y: 55}
+      - - {x: 87, y: 72}
+        - {x: 88, y: 70}
+        - {x: 91, y: 70}
+        - {x: 93, y: 71}
+        - {x: 93, y: 73}
+        - {x: 91, y: 76}
+        - {x: 89, y: 76}
+        - {x: 87, y: 75}
+      - - {x: 98, y: 90}
+        - {x: 94, y: 88}
+        - {x: 92, y: 82}
+        - {x: 92, y: 78}
+        - {x: 94, y: 76}
+        - {x: 97, y: 78}
+        - {x: 99, y: 81}
+        - {x: 102, y: 88}
+        - {x: 100, y: 90}
+    - name: TankTrequartiColpoAltroLato_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 140, y: 85}
+        - {x: 140, y: 120}
+        - {x: 133, y: 125}
+        - {x: 100, y: 98}
+        - {x: 82, y: 107}
+        - {x: 85, y: 186}
+        - {x: 76, y: 242}
+        - {x: 20, y: 257}
+        - {x: -41, y: 257}
+        - {x: -83, y: 181}
+        - {x: -98, y: 71}
+        - {x: -98, y: 13}
+        - {x: -96, y: 10}
+        - {x: -59, y: -37}
+        - {x: -38, y: -57}
+        - {x: -51, y: -100}
+        - {x: 63, y: -100}
+        - {x: 66, y: -61}
+        - {x: 111, y: -22}
+        - {x: 138, y: 71}
+    - name: TankTrequartiColpoAltroLato_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 109, y: 74}
+        - {x: 109, y: 126}
+        - {x: 104, y: 145}
+        - {x: 86, y: 176}
+        - {x: 89, y: 236}
+        - {x: 41, y: 248}
+        - {x: -40, y: 248}
+        - {x: -78, y: 184}
+        - {x: -74, y: 97}
+        - {x: -90, y: 62}
+        - {x: -90, y: -3}
+        - {x: -42, y: -23}
+        - {x: -47, y: -100}
+        - {x: 46, y: -100}
+        - {x: 53, y: -97}
+        - {x: 101, y: -4}
+        - {x: 94, y: 53}
+      - - {x: -58, y: -23}
+        - {x: -58, y: -32}
+        - {x: -52, y: -32}
+        - {x: -50, y: -31}
+        - {x: -50, y: -25}
+        - {x: -54, y: -21}
+        - {x: -55, y: -21}
+    - name: TankTrequartiColpoAltroLato_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 35, y: -52}
+        - {x: 40, y: -56}
+        - {x: 52, y: -55}
+        - {x: 83, y: -45}
+        - {x: 98, y: -33}
+        - {x: 99, y: -27}
+        - {x: 99, y: 101}
+        - {x: 96, y: 123}
+        - {x: 67, y: 243}
+        - {x: 55, y: 240}
+        - {x: 48, y: 234}
+        - {x: 32, y: 249}
+        - {x: 17, y: 253}
+        - {x: -63, y: 253}
+        - {x: -83, y: 229}
+        - {x: -83, y: -100}
+        - {x: 56, y: -100}
+        - {x: 41, y: -60}
+        - {x: 35, y: -58}
+        - {x: 35, y: -50}
+      - - {x: -58, y: -23}
+        - {x: -58, y: -32}
+        - {x: -52, y: -32}
+        - {x: -50, y: -31}
+        - {x: -50, y: -25}
+        - {x: -54, y: -21}
+        - {x: -55, y: -21}
+    - name: TankTrequartiColpoAltroLato_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 94, y: 42}
+        - {x: 94, y: 69}
+        - {x: 79, y: 81}
+        - {x: 87, y: 189}
+        - {x: 70, y: 248}
+        - {x: 55, y: 242}
+        - {x: 48, y: 236}
+        - {x: 32, y: 251}
+        - {x: 17, y: 255}
+        - {x: -58, y: 255}
+        - {x: -93, y: 195}
+        - {x: -93, y: 118}
+        - {x: -58, y: -100}
+        - {x: 43, y: -100}
+        - {x: 49, y: -94}
+        - {x: 49, y: -87}
+        - {x: 55, y: -18}
+      - - {x: -58, y: -20}
+        - {x: -58, y: -29}
+        - {x: -52, y: -29}
+        - {x: -50, y: -28}
+        - {x: -50, y: -22}
+        - {x: -54, y: -18}
+        - {x: -55, y: -18}
+      - - {x: 62, y: -10}
+        - {x: 58, y: -14}
+        - {x: 58, y: -20}
+        - {x: 60, y: -22}
+        - {x: 62, y: -22}
+        - {x: 66, y: -20}
+        - {x: 68, y: -14}
+        - {x: 65, y: -10}
+      - - {x: 118, y: 54}
+        - {x: 114, y: 50}
+        - {x: 114, y: 47}
+        - {x: 118, y: 43}
+        - {x: 119, y: 43}
+        - {x: 122, y: 46}
+        - {x: 122, y: 50}
+        - {x: 119, y: 54}
+      - - {x: -75, y: 82}
+        - {x: -72, y: 83}
+        - {x: -72, y: 86}
+        - {x: -75, y: 87}
+        - {x: -77, y: 85}
+      - - {x: -86, y: 91}
+        - {x: -87, y: 88}
+        - {x: -84, y: 83}
+        - {x: -77, y: 83}
+        - {x: -77, y: 88}
+        - {x: -82, y: 91}
+    - name: TankTrequartiColpoAltroLato_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79, y: 228}
+        - {x: 75, y: 260}
+        - {x: -65, y: 260}
+        - {x: -83, y: 196}
+        - {x: -165, y: 175}
+        - {x: -169, y: 170}
+        - {x: -169, y: 149}
+        - {x: -85, y: 111}
+        - {x: -103, y: 55}
+        - {x: -71, y: -11}
+        - {x: -83, y: -80}
+        - {x: -80, y: -94}
+        - {x: -63, y: -100}
+        - {x: 45, y: -100}
+        - {x: 52, y: -84}
+        - {x: 66, y: 20}
+        - {x: 79, y: 45}
+      - - {x: -58, y: -15}
+        - {x: -58, y: -24}
+        - {x: -52, y: -24}
+        - {x: -50, y: -23}
+        - {x: -50, y: -17}
+        - {x: -54, y: -13}
+        - {x: -55, y: -13}
+      - - {x: 68, y: 2}
+        - {x: 66, y: -1}
+        - {x: 66, y: -9}
+        - {x: 67, y: -11}
+        - {x: 72, y: -11}
+        - {x: 75, y: -10}
+        - {x: 76, y: -8}
+        - {x: 76, y: 0}
+        - {x: 73, y: 2}
+      - - {x: -113, y: 100}
+        - {x: -113, y: 98}
+        - {x: -112, y: 96}
+        - {x: -108, y: 96}
+        - {x: -103, y: 99}
+        - {x: -104, y: 102}
+        - {x: -110, y: 102}
+      - - {x: -101, y: 99}
+        - {x: -98, y: 100}
+        - {x: -98, y: 103}
+        - {x: -101, y: 104}
+        - {x: -103, y: 102}
+      - - {x: -94, y: 100}
+        - {x: -91, y: 101}
+        - {x: -91, y: 104}
+        - {x: -94, y: 105}
+        - {x: -96, y: 103}
+    - name: TankTrequartiColpoAltroLato_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 94, y: 42}
+        - {x: 94, y: 69}
+        - {x: 79, y: 81}
+        - {x: 87, y: 189}
+        - {x: 70, y: 248}
+        - {x: 55, y: 242}
+        - {x: 48, y: 236}
+        - {x: 32, y: 251}
+        - {x: 17, y: 255}
+        - {x: -58, y: 255}
+        - {x: -93, y: 195}
+        - {x: -93, y: 118}
+        - {x: -58, y: -100}
+        - {x: 43, y: -100}
+        - {x: 49, y: -94}
+        - {x: 49, y: -87}
+        - {x: 55, y: -18}
+      - - {x: -58, y: -20}
+        - {x: -58, y: -29}
+        - {x: -52, y: -29}
+        - {x: -50, y: -28}
+        - {x: -50, y: -22}
+        - {x: -54, y: -18}
+        - {x: -55, y: -18}
+      - - {x: 62, y: -10}
+        - {x: 58, y: -14}
+        - {x: 58, y: -20}
+        - {x: 60, y: -22}
+        - {x: 62, y: -22}
+        - {x: 66, y: -20}
+        - {x: 68, y: -14}
+        - {x: 65, y: -10}
+      - - {x: 118, y: 54}
+        - {x: 114, y: 50}
+        - {x: 114, y: 47}
+        - {x: 118, y: 43}
+        - {x: 119, y: 43}
+        - {x: 122, y: 46}
+        - {x: 122, y: 50}
+        - {x: 119, y: 54}
+      - - {x: -75, y: 82}
+        - {x: -72, y: 83}
+        - {x: -72, y: 86}
+        - {x: -75, y: 87}
+        - {x: -77, y: 85}
+      - - {x: -86, y: 91}
+        - {x: -87, y: 88}
+        - {x: -84, y: 83}
+        - {x: -77, y: 83}
+        - {x: -77, y: 88}
+        - {x: -82, y: 91}
+    - name: TankTrequartiColpoAltroLato_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 140, y: 85}
+        - {x: 140, y: 120}
+        - {x: 133, y: 125}
+        - {x: 100, y: 98}
+        - {x: 82, y: 107}
+        - {x: 85, y: 186}
+        - {x: 76, y: 242}
+        - {x: 20, y: 257}
+        - {x: -41, y: 257}
+        - {x: -83, y: 181}
+        - {x: -98, y: 71}
+        - {x: -98, y: 13}
+        - {x: -96, y: 10}
+        - {x: -59, y: -37}
+        - {x: -38, y: -57}
+        - {x: -51, y: -100}
+        - {x: 63, y: -100}
+        - {x: 66, y: -61}
+        - {x: 111, y: -22}
+        - {x: 138, y: 71}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

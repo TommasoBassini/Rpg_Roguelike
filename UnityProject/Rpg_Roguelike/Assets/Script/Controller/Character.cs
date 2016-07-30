@@ -14,11 +14,17 @@ public abstract class Character : MonoBehaviour
     public BattleGrid grid;
     private Vector3 distance;
     private bool isMoving;
+    public bool movingAnim = false;
     private Vector3 direction;
+    private Animator anim;
+
+    public bool MoveRight = false;
+    public bool MoveLeft = false;    
 
     public void Start()
     {
         grid = FindObjectOfType<BattleGrid>();
+        anim = GetComponent<Animator>();
     }
 
     public void Move()
@@ -40,29 +46,40 @@ public abstract class Character : MonoBehaviour
             {
                 this.transform.position = new Vector3(grid.cells[(int)pos.x, (int)pos.y].transform.position.x, grid.cells[(int)pos.x, (int)pos.y].transform.position.y, 0);
                 isMoving = false;
+                MoveRight = false;
+                MoveLeft = false;
             }
         }
 
         if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x, pos.y + 1));
-
+            
         }
-
         if ((Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x, pos.y - 1));
+            
         }
 
         if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x + 1, pos.y));
+            MoveRight = true;
+            MoveLeft = false;
         }
 
         if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x - 1, pos.y));
+            MoveRight = false;
+            MoveLeft = true;                     
         }
+
+        anim.SetBool("IsMoving", isMoving);
+        anim.SetBool("MoveRight", MoveRight);
+        anim.SetBool("MoveLeft", MoveLeft);
+
     }
 
     public void PlayerMove(Vector2 _pos)

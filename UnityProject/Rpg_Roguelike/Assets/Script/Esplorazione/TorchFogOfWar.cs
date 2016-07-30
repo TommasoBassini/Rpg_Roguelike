@@ -25,7 +25,8 @@ public class TorchFogOfWar : MonoBehaviour
     {
         pos = new Vector2(pos.x, pos.y);
         pos = new Vector2(pos.x + 0.5f, pos.y + 0.5f);
-
+        SpriteRenderer srSorting = GetComponent<SpriteRenderer>();
+        srSorting.sortingOrder = 100 - (int)pos.y;
         int _x = (int)pos.x;
         int _y = (int)pos.y;
 

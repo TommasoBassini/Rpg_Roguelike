@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: 306fa6501ccb39b42898f6d9ec49071f
+timeCreated: 1469888243
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TankTrequartiAnimazioneIdle_0
+    21300002: TankTrequartiAnimazioneIdle_1
+    21300004: TankTrequartiAnimazioneIdle_2
+    21300006: TankTrequartiAnimazioneIdle_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: TankTrequartiAnimazioneIdle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30, y: -61}
+        - {x: 33, y: -70}
+        - {x: 60, y: -54}
+        - {x: 92, y: -9}
+        - {x: 92, y: 171}
+        - {x: 64, y: 265}
+        - {x: -38, y: 265}
+        - {x: -65, y: 256}
+        - {x: -75, y: 247}
+        - {x: -91, y: 167}
+        - {x: -91, y: -1}
+        - {x: -81, y: -40}
+        - {x: -54, y: -48}
+        - {x: -44, y: -36}
+        - {x: -48, y: -24}
+        - {x: -47, y: 6}
+        - {x: -42, y: -46}
+        - {x: -37, y: -70}
+        - {x: -56, y: -88}
+        - {x: -59, y: -100}
+        - {x: 40, y: -100}
+        - {x: 41, y: -87}
+        - {x: 26, y: -57}
+        - {x: 21, y: -52}
+    - name: TankTrequartiAnimazioneIdle_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 89, y: 181}
+        - {x: 56, y: 263}
+        - {x: -74, y: 263}
+        - {x: -91, y: 185}
+        - {x: -91, y: -13}
+        - {x: -66, y: -45}
+        - {x: -56, y: -41}
+        - {x: -49, y: -34}
+        - {x: -47, y: -27}
+        - {x: -56, y: -88}
+        - {x: -54, y: -97}
+        - {x: -51, y: -100}
+        - {x: 44, y: -100}
+        - {x: 67, y: -37}
+        - {x: 94, y: 23}
+        - {x: 94, y: 89}
+    - name: TankTrequartiAnimazioneIdle_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 95, y: 13}
+        - {x: 95, y: 55}
+        - {x: 78, y: 110}
+        - {x: 81, y: 190}
+        - {x: 62, y: 260}
+        - {x: -36, y: 260}
+        - {x: -75, y: 249}
+        - {x: -91, y: 194}
+        - {x: -92, y: 149}
+        - {x: -92, y: 1}
+        - {x: -88, y: -33}
+        - {x: -54, y: -45}
+        - {x: -49, y: -23}
+        - {x: -49, y: -72}
+        - {x: -64, y: -99}
+        - {x: -57, y: -100}
+        - {x: 36, y: -100}
+        - {x: 44, y: -95}
+        - {x: 54, y: -81}
+        - {x: 73, y: -20}
+    - name: TankTrequartiAnimazioneIdle_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 89, y: 181}
+        - {x: 56, y: 263}
+        - {x: -74, y: 263}
+        - {x: -91, y: 185}
+        - {x: -91, y: -13}
+        - {x: -66, y: -45}
+        - {x: -56, y: -41}
+        - {x: -49, y: -34}
+        - {x: -47, y: -27}
+        - {x: -56, y: -88}
+        - {x: -54, y: -97}
+        - {x: -51, y: -100}
+        - {x: 44, y: -100}
+        - {x: 67, y: -37}
+        - {x: 94, y: 23}
+        - {x: 94, y: 89}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

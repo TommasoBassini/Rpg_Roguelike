@@ -1,0 +1,218 @@
+fileFormatVersion: 2
+guid: 3f943011d3cb61742a919a8b0631dc01
+timeCreated: 1469888265
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TankTrequartiAnimazioneIdleAltroLato_0
+    21300002: TankTrequartiAnimazioneIdleAltroLato_1
+    21300004: TankTrequartiAnimazioneIdleAltroLato_2
+    21300006: TankTrequartiAnimazioneIdleAltroLato_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: TankTrequartiAnimazioneIdleAltroLato_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 170, y: 60}
+        - {x: 170, y: 111}
+        - {x: 155, y: 111}
+        - {x: 104, y: 69}
+        - {x: 89, y: 204}
+        - {x: 71, y: 249}
+        - {x: 68, y: 256}
+        - {x: 56, y: 257}
+        - {x: 47, y: 244}
+        - {x: 36, y: 255}
+        - {x: 8, y: 265}
+        - {x: -48, y: 265}
+        - {x: -83, y: 197}
+        - {x: -65, y: 111}
+        - {x: -89, y: 71}
+        - {x: -89, y: 15}
+        - {x: -45, y: -100}
+        - {x: 57, y: -100}
+        - {x: 62, y: -87}
+        - {x: 127, y: -49}
+        - {x: 157, y: 11}
+    - name: TankTrequartiAnimazioneIdleAltroLato_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 129, y: -5}
+        - {x: 179, y: 54}
+        - {x: 181, y: 67}
+        - {x: 181, y: 114}
+        - {x: 161, y: 117}
+        - {x: 98, y: 144}
+        - {x: 89, y: 198}
+        - {x: 75, y: 251}
+        - {x: 58, y: 256}
+        - {x: -2, y: 263}
+        - {x: -38, y: 263}
+        - {x: -77, y: 195}
+        - {x: -87, y: 78}
+        - {x: -91, y: 51}
+        - {x: -91, y: 25}
+        - {x: -43, y: -51}
+        - {x: -53, y: -89}
+        - {x: -34, y: -100}
+        - {x: 71, y: -100}
+        - {x: 56, y: -71}
+        - {x: 81, y: -71}
+        - {x: 127, y: -46}
+      - - {x: 90, y: 79}
+        - {x: 93, y: 80}
+        - {x: 93, y: 83}
+        - {x: 90, y: 84}
+        - {x: 88, y: 82}
+      - - {x: 92, y: 94}
+        - {x: 89, y: 93}
+        - {x: 89, y: 86}
+        - {x: 91, y: 84}
+        - {x: 92, y: 84}
+        - {x: 96, y: 88}
+        - {x: 96, y: 92}
+        - {x: 95, y: 94}
+    - name: TankTrequartiAnimazioneIdleAltroLato_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42, y: -44}
+        - {x: 42, y: -40}
+        - {x: 42, y: -42}
+        - {x: 53, y: -53}
+        - {x: 70, y: -65}
+        - {x: 142, y: -31}
+        - {x: 186, y: 76}
+        - {x: 186, y: 108}
+        - {x: 183, y: 114}
+        - {x: 136, y: 210}
+        - {x: 79, y: 260}
+        - {x: -51, y: 260}
+        - {x: -84, y: 176}
+        - {x: -92, y: 136}
+        - {x: -92, y: 7}
+        - {x: -41, y: -100}
+        - {x: 53, y: -100}
+        - {x: 60, y: -96}
+        - {x: 58, y: -86}
+        - {x: 45, y: -48}
+      - - {x: 89, y: 84}
+        - {x: 90, y: 81}
+        - {x: 93, y: 81}
+        - {x: 95, y: 83}
+        - {x: 94, y: 86}
+        - {x: 91, y: 86}
+      - - {x: 95, y: 87}
+        - {x: 98, y: 88}
+        - {x: 98, y: 91}
+        - {x: 95, y: 92}
+        - {x: 93, y: 90}
+      - - {x: 95, y: 99}
+        - {x: 94, y: 94}
+        - {x: 96, y: 92}
+        - {x: 100, y: 92}
+        - {x: 101, y: 98}
+        - {x: 101, y: 101}
+        - {x: 98, y: 102}
+    - name: TankTrequartiAnimazioneIdleAltroLato_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 69, y: -47}
+        - {x: 92, y: -18}
+        - {x: 94, y: -9}
+        - {x: 94, y: 142}
+        - {x: 89, y: 198}
+        - {x: 75, y: 251}
+        - {x: 58, y: 256}
+        - {x: -2, y: 263}
+        - {x: -38, y: 263}
+        - {x: -77, y: 195}
+        - {x: -91, y: 128}
+        - {x: -91, y: 5}
+        - {x: -49, y: -73}
+        - {x: -36, y: -98}
+        - {x: -21, y: -100}
+        - {x: 48, y: -100}
+        - {x: 60, y: -95}
+        - {x: 57, y: -86}
+        - {x: 44, y: -73}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
