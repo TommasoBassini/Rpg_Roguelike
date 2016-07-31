@@ -168,6 +168,8 @@ public class Tank : Player
     {
         PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();
         _stats.statsTank.hp = stats.hp;
+        _stats.statsTank.mp = stats.mp;
+
     }
 
     public override void Death()

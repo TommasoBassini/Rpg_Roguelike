@@ -240,18 +240,20 @@ public class CombatController : MonoBehaviour
             lvlTot += item;
         }
 
-        int exp = Mathf.RoundToInt((lvlTot * (Random.Range(20, 25))) * Random.Range(1.0f, 1.25f)* 10);
+        int exp = Mathf.RoundToInt((lvlTot * (Random.Range(3.0f, 5.0f))) * Random.Range(1.0f, 1.25f)* 10);
         int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(7, 10))) * Random.Range(1.0f, 1.25f)* 10);
         bool health = false;
         if (Random.Range(0f,100f) > 90f)
         {
             health = true;
+            stats.nPotionHealth++;
         }
 
         bool mana = false;
         if (Random.Range(0f, 100f) > 90f)
         {
             mana = true;
+            stats.nPotionMana++;
         }
 
         UiController ui = FindObjectOfType<UiController>();
@@ -275,7 +277,7 @@ public class CombatController : MonoBehaviour
         stats.statsDps.hp = 1;
         stats.statsMago.hp = 1;
         stats.statsTank.hp = 1;
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ProvaLooooollo"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainGame"));
         SceneManager.UnloadScene("Battle");
 
     }

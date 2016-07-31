@@ -155,6 +155,7 @@ public class Dps : Player
     {
         PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();
         _stats.statsDps.hp = stats.hp;
+        _stats.statsDps.mp = stats.mp;
     }
 
 

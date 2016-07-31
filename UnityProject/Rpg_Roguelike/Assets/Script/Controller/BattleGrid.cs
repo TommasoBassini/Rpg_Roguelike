@@ -92,7 +92,6 @@ public class BattleGrid : MonoBehaviour
                 characterEnemy.pos = new Vector2(nUsatiEnemy[enemX], enemY);
                 cells[nUsatiEnemy[enemX], enemY].isOccupied = true;
                 cells[nUsatiEnemy[enemX], enemY].occupier = newEnemy;
-                cc.enemyLvl.Add(characterEnemy.level);
                 for (int z = 1; z < 100; z++)
                 {
                     cc.tempo.Add(characterEnemy.velocita * z);

@@ -172,6 +172,8 @@ public class Mage : Player
     {
         PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();
         _stats.statsMago.hp = stats.hp;
+        _stats.statsMago.mp = stats.mp;
+
     }
 
     public override void Death()

@@ -866,7 +866,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsMago.livello++;
                     stats.statsMago.forza++;
                     stats.statsMago.hpMax += stats.incrementiMago.hpPerForza;
+                    stats.statsMago.hp += stats.incrementiMago.hpPerForza;
                     stats.statsMago.mpMax += stats.incrementiMago.mpPerForza;
+                    stats.statsMago.mp += stats.incrementiMago.mpPerForza;
                     stats.statsMago.attMelee += stats.incrementiMago.attMeleePerForza;
                     stats.statsMago.attDistanza += stats.incrementiMago.attDistanzaPerForza;
                     stats.statsMago.attMagico += stats.incrementiMago.attMagicoPerForza;
@@ -960,7 +962,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsTank.livello++;
                     stats.statsTank.forza++;
                     stats.statsTank.hpMax += stats.incrementiTank.hpPerForza;
+                    stats.statsTank.hp += stats.incrementiTank.hpPerForza;
                     stats.statsTank.mpMax += stats.incrementiTank.mpPerForza;
+                    stats.statsTank.mp += stats.incrementiTank.mpPerForza;
                     stats.statsTank.attMelee += stats.incrementiTank.attMeleePerForza;
                     stats.statsTank.attDistanza += stats.incrementiTank.attDistanzaPerForza;
                     stats.statsTank.attMagico += stats.incrementiTank.attMagicoPerForza;
@@ -1058,7 +1062,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsDps.livello++;
                     stats.statsDps.forza++;
                     stats.statsDps.hpMax += stats.incrementiDps.hpPerForza;
+                    stats.statsDps.hp += stats.incrementiDps.hpPerForza;
                     stats.statsDps.mpMax += stats.incrementiDps.mpPerForza;
+                    stats.statsDps.mp += stats.incrementiDps.mpPerForza;
                     stats.statsDps.attMelee += stats.incrementiDps.attMeleePerForza;
                     stats.statsDps.attDistanza += stats.incrementiDps.attDistanzaPerForza;
                     stats.statsDps.attMagico += stats.incrementiDps.attMagicoPerForza;
@@ -1181,7 +1187,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsMago.livello++;
                     stats.statsMago.destrezza++;
                     stats.statsMago.hpMax += stats.incrementiMago.hpPerDestrezza;
+                    stats.statsMago.hp += stats.incrementiMago.hpPerDestrezza;
                     stats.statsMago.mpMax += stats.incrementiMago.mpPerDestrezza;
+                    stats.statsMago.mp += stats.incrementiMago.mpPerDestrezza;
                     stats.statsMago.attMelee += stats.incrementiMago.attMeleePerDestrezza;
                     stats.statsMago.attDistanza += stats.incrementiMago.attDistanzaPerDestrezza;
                     stats.statsMago.attMagico += stats.incrementiMago.attMagicoPerDestrezza;
@@ -1278,7 +1286,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsTank.livello++;
                     stats.statsTank.destrezza++;
                     stats.statsTank.hpMax += stats.incrementiTank.hpPerDestrezza;
+                    stats.statsTank.hp += stats.incrementiTank.hpPerDestrezza;
                     stats.statsTank.mpMax += stats.incrementiTank.mpPerDestrezza;
+                    stats.statsTank.mp += stats.incrementiTank.mpPerDestrezza;
                     stats.statsTank.attMelee += stats.incrementiTank.attMeleePerDestrezza;
                     stats.statsTank.attDistanza += stats.incrementiTank.attDistanzaPerDestrezza;
                     stats.statsTank.attMagico += stats.incrementiTank.attMagicoPerDestrezza;
@@ -1375,7 +1385,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsDps.livello++;
                     stats.statsDps.destrezza++;
                     stats.statsDps.hpMax += stats.incrementiDps.hpPerDestrezza;
+                    stats.statsDps.hp += stats.incrementiDps.hpPerDestrezza;
                     stats.statsDps.mpMax += stats.incrementiDps.mpPerDestrezza;
+                    stats.statsDps.mp += stats.incrementiDps.mpPerDestrezza;
                     stats.statsDps.attMelee += stats.incrementiDps.attMeleePerDestrezza;
                     stats.statsDps.attDistanza += stats.incrementiDps.attDistanzaPerDestrezza;
                     stats.statsDps.attMagico += stats.incrementiDps.attMagicoPerDestrezza;
@@ -1497,7 +1509,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsMago.livello++;
                     stats.statsMago.Spirito++;
                     stats.statsMago.hpMax += stats.incrementiMago.hpPerSpirito;
+                    stats.statsMago.hp += stats.incrementiMago.hpPerSpirito;
                     stats.statsMago.mpMax += stats.incrementiMago.mpPerSpirito;
+                    stats.statsMago.mp += stats.incrementiMago.mpPerSpirito;
                     stats.statsMago.attMelee += stats.incrementiMago.attMeleePerSpirito;
                     stats.statsMago.attDistanza += stats.incrementiMago.attDistanzaPerSpirito;
                     stats.statsMago.attMagico += stats.incrementiMago.attMagicoPerSpirito;
@@ -1594,7 +1608,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsTank.livello++;
                     stats.statsTank.Spirito++;
                     stats.statsTank.hpMax += stats.incrementiTank.hpPerSpirito;
+                    stats.statsTank.hp += stats.incrementiTank.hpPerSpirito;
                     stats.statsTank.mpMax += stats.incrementiTank.mpPerSpirito;
+                    stats.statsTank.mp += stats.incrementiTank.mpPerSpirito;
                     stats.statsTank.attMelee += stats.incrementiTank.attMeleePerSpirito;
                     stats.statsTank.attDistanza += stats.incrementiTank.attDistanzaPerSpirito;
                     stats.statsTank.attMagico += stats.incrementiTank.attMagicoPerSpirito;
@@ -1691,7 +1707,9 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsDps.livello++;
                     stats.statsDps.Spirito++;
                     stats.statsDps.hpMax += stats.incrementiDps.hpPerSpirito;
+                    stats.statsDps.hp += stats.incrementiDps.hpPerSpirito;
                     stats.statsDps.mpMax += stats.incrementiDps.mpPerSpirito;
+                    stats.statsDps.mp += stats.incrementiDps.mpPerSpirito;
                     stats.statsDps.attMelee += stats.incrementiDps.attMeleePerSpirito;
                     stats.statsDps.attDistanza += stats.incrementiDps.attDistanzaPerSpirito;
                     stats.statsDps.attMagico += stats.incrementiDps.attMagicoPerSpirito;

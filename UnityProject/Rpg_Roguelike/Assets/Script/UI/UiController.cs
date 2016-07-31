@@ -154,7 +154,12 @@ public class UiController : MonoBehaviour
                         enemyInfoPanel.transform.Find("Att").gameObject.SetActive(false);
                         enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(false);
 
-                        faseUi = 2;
+                        foreach (Transform item in EnemyListPanel.transform)
+                        {
+                            Destroy(item);
+                        }
+
+                            faseUi = 2;
                         foreach (var item in attackBoxList)
                         {
                             Destroy(item);
@@ -734,7 +739,7 @@ public class UiController : MonoBehaviour
 
     IEnumerator SvuotaPanel()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.0f);
         UiController ui = FindObjectOfType<UiController>();
 
         Text textVita = enemyInfoPanel.transform.Find("HealthText").GetComponent<Text>();

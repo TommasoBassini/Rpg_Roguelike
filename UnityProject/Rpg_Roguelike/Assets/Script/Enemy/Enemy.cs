@@ -63,6 +63,8 @@ public abstract class Enemy : Character
         difesa += (incrementi.difesa * (level -1));
         difesaMagica += (incrementi.difesa * (level - 1));
         att += (incrementi.att * (level -1));
+        CombatController cc = FindObjectOfType<CombatController>();
+        cc.enemyLvl.Add(level);
     }
 
     public void FindNearestPlayer()

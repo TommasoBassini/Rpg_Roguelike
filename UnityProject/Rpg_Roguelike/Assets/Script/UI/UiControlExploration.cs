@@ -739,7 +739,7 @@ public class UiControlExploration : MonoBehaviour
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
         if (costo < stats.esperience && !stats.statsMago.abilitaSbloccate[i])
         {
-            stats.esperience -= costo;
+            stats.esperience -= costoAbilita[i];
             stats.statsMago.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
@@ -751,7 +751,7 @@ public class UiControlExploration : MonoBehaviour
 
         if (costo < stats.esperience && !stats.statsTank.abilitaSbloccate[i])
         {
-            stats.esperience -= costo;
+            stats.esperience -= costoAbilita[i];
             stats.statsTank.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
@@ -762,7 +762,7 @@ public class UiControlExploration : MonoBehaviour
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
         if (costo < stats.esperience && !stats.statsDps.abilitaSbloccate[i])
         {
-            stats.esperience -= costo;
+            stats.esperience -= costoAbilita[i];
             stats.statsDps.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }

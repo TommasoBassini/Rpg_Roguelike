@@ -10,6 +10,7 @@ public class GameControl : MonoBehaviour
     public GameObject cameraOBJ;
     public bool incontroON;
     public AudioClip ingaggioBattaglia;
+
 	void Update ()
     {
 
@@ -28,7 +29,6 @@ public class GameControl : MonoBehaviour
             Canvas.SetActive(true);
             cameraOBJ.SetActive(true);
             Animator anim = cameraOBJ.GetComponent<Animator>();
-            anim.SetTrigger("FineIncontro");
 
         }
     }
@@ -95,10 +95,12 @@ public class GameControl : MonoBehaviour
         Animator anim = cameraOBJ.GetComponent<Animator>();
         anim.SetTrigger("IncontroCasuale");
         
-        yield return new WaitForSeconds(0.5f);
-        
+        yield return new WaitForSeconds(1.0f);
+        anim.SetTrigger("FineIncontro");
+
         SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
         battleScene = SceneManager.GetSceneByName("Battle");
         SceneManager.SetActiveScene(battleScene);
+
     }
 }
