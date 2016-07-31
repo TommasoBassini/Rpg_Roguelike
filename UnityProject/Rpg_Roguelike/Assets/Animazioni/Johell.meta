@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f026f263c752bc648a60c0ffcabd95ff
 folderAsset: yes
 timeCreated: 1469700113
 licenseType: Pro
+=======
+guid: 4873fd490a2d7f04b89fdd68b62da963
+folderAsset: yes
+timeCreated: 1469898580
+licenseType: Free
+>>>>>>> Lollo_Hub
 DefaultImporter:
   userData: 
   assetBundleName: 

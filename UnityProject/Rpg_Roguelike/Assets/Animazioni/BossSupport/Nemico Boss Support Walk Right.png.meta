@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 088b8c64046e90a45bd70dffc2258b05
+timeCreated: 1469986722
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Nemico Boss Support Walk Right_0
+    21300002: Nemico Boss Support Walk Right_1
+    21300004: Nemico Boss Support Walk Right_2
+    21300006: Nemico Boss Support Walk Right_3
+    21300008: Nemico Boss Support Walk Right_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Nemico Boss Support Walk Right_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 99, y: -62}
+        - {x: 99, y: 19}
+        - {x: 53, y: 122}
+        - {x: -44, y: 122}
+        - {x: -83, y: 32}
+        - {x: -83, y: -70}
+        - {x: -23, y: -138}
+        - {x: -40, y: -180}
+        - {x: -42, y: -191}
+        - {x: -24, y: -200}
+        - {x: 55, y: -200}
+        - {x: 70, y: -190}
+        - {x: 70, y: -180}
+        - {x: 47, y: -152}
+    - name: Nemico Boss Support Walk Right_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 100, y: -34}
+        - {x: 51, y: 116}
+        - {x: -38, y: 116}
+        - {x: -73, y: 41}
+        - {x: -88, y: -2}
+        - {x: -88, y: -88}
+        - {x: -33, y: -145}
+        - {x: -55, y: -175}
+        - {x: -55, y: -200}
+        - {x: 53, y: -200}
+        - {x: 78, y: -194}
+        - {x: 47, y: -153}
+        - {x: 100, y: -81}
+    - name: Nemico Boss Support Walk Right_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 102, y: -100}
+        - {x: 102, y: -54}
+        - {x: 78, y: -2}
+        - {x: 62, y: 99}
+        - {x: 49, y: 110}
+        - {x: -26, y: 110}
+        - {x: -70, y: 88}
+        - {x: -89, y: 15}
+        - {x: -89, y: -87}
+        - {x: -41, y: -142}
+        - {x: -78, y: -186}
+        - {x: -58, y: -200}
+        - {x: 59, y: -200}
+        - {x: 70, y: -198}
+        - {x: 68, y: -177}
+        - {x: 30, y: -151}
+        - {x: 99, y: -113}
+    - name: Nemico Boss Support Walk Right_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31, y: -152}
+        - {x: 29, y: -156}
+        - {x: 28, y: -162}
+        - {x: 29, y: -157}
+        - {x: 29, y: -153}
+        - {x: 99, y: -132}
+        - {x: 99, y: 15}
+        - {x: 81, y: 118}
+        - {x: -68, y: 118}
+        - {x: -87, y: 95}
+        - {x: -87, y: -200}
+        - {x: 46, y: -200}
+        - {x: 74, y: -191}
+        - {x: 59, y: -166}
+        - {x: 40, y: -154}
+    - name: Nemico Boss Support Walk Right_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 93, y: 2}
+        - {x: 72, y: 125}
+        - {x: -33, y: 125}
+        - {x: -85, y: 45}
+        - {x: -85, y: -200}
+        - {x: -81, y: -200}
+        - {x: -53, y: -184}
+        - {x: -47, y: -177}
+        - {x: -30, y: -163}
+        - {x: -20, y: -153}
+        - {x: -38, y: -173}
+        - {x: -47, y: -178}
+        - {x: -53, y: -189}
+        - {x: -36, y: -200}
+        - {x: 50, y: -200}
+        - {x: 70, y: -190}
+        - {x: 64, y: -175}
+        - {x: 93, y: -96}
+      - - {x: 43, y: -149}
+        - {x: 41, y: -151}
+        - {x: 41, y: -158}
+        - {x: 41, y: -149}
+        - {x: 40, y: -147}
+        - {x: 37, y: -147}
+        - {x: 32, y: -149}
+        - {x: 32, y: -159}
+        - {x: 33, y: -164}
+        - {x: 37, y: -166}
+        - {x: 45, y: -166}
+        - {x: 48, y: -162}
+        - {x: 48, y: -151}
+        - {x: 47, y: -148}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

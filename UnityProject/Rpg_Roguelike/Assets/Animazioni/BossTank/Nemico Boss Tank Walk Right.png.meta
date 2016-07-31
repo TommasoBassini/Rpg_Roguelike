@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: c0cebfe253fc9054cbda2e61012184e8
+timeCreated: 1469987034
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Nemico Boss Tank Walk Right_0
+    21300002: Nemico Boss Tank Walk Right_1
+    21300004: Nemico Boss Tank Walk Right_2
+    21300006: Nemico Boss Tank Walk Right_3
+    21300008: Nemico Boss Tank Walk Right_4
+    21300010: Nemico Boss Tank Walk Right_5
+    21300012: Nemico Boss Tank Walk Right_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Nemico Boss Tank Walk Right_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 89, y: -43}
+        - {x: 89, y: 95}
+        - {x: 56, y: 136}
+        - {x: -18, y: 136}
+        - {x: -63, y: 122}
+        - {x: -92, y: 95}
+        - {x: -92, y: -79}
+        - {x: -30, y: -140}
+        - {x: -44, y: -181}
+        - {x: -39, y: -199}
+        - {x: -26, y: -200}
+        - {x: 46, y: -200}
+        - {x: 62, y: -193}
+        - {x: 54, y: -174}
+        - {x: 88, y: -65}
+    - name: Nemico Boss Tank Walk Right_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: 119}
+        - {x: 44, y: 104}
+        - {x: 44, y: 101}
+        - {x: 44, y: 103}
+        - {x: 30, y: 117}
+        - {x: -1, y: 131}
+        - {x: -5, y: 131}
+        - {x: -34, y: 112}
+        - {x: -42, y: 104}
+        - {x: -50, y: 91}
+        - {x: -55, y: 108}
+        - {x: -63, y: 131}
+        - {x: -86, y: 131}
+        - {x: -94, y: 105}
+        - {x: -94, y: -164}
+        - {x: -54, y: -200}
+        - {x: 88, y: -200}
+        - {x: 88, y: 131}
+        - {x: 59, y: 131}
+        - {x: 50, y: 128}
+      - - {x: 7, y: -144}
+        - {x: 4, y: -147}
+        - {x: 4, y: -150}
+        - {x: 7, y: -153}
+        - {x: 10, y: -153}
+        - {x: 15, y: -149}
+        - {x: 15, y: -148}
+        - {x: 11, y: -144}
+    - name: Nemico Boss Tank Walk Right_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 87, y: 7}
+        - {x: 87, y: 80}
+        - {x: 61, y: 125}
+        - {x: -21, y: 125}
+        - {x: -70, y: 117}
+        - {x: -95, y: 83}
+        - {x: -95, y: 44}
+        - {x: -74, y: 8}
+        - {x: -91, y: -46}
+        - {x: -93, y: -80}
+        - {x: -79, y: -171}
+        - {x: -45, y: -200}
+        - {x: 74, y: -200}
+        - {x: 61, y: -135}
+        - {x: 79, y: -96}
+        - {x: 85, y: -25}
+      - - {x: 1, y: -154}
+        - {x: -1, y: -155}
+        - {x: -1, y: -161}
+        - {x: 1, y: -163}
+        - {x: 6, y: -163}
+        - {x: 8, y: -162}
+        - {x: 8, y: -156}
+        - {x: 6, y: -154}
+    - name: Nemico Boss Tank Walk Right_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 87, y: 97}
+        - {x: 55, y: 135}
+        - {x: -42, y: 135}
+        - {x: -95, y: 98}
+        - {x: -95, y: -81}
+        - {x: -79, y: -166}
+        - {x: -70, y: -163}
+        - {x: -59, y: -155}
+        - {x: -52, y: -190}
+        - {x: -43, y: -197}
+        - {x: -29, y: -200}
+        - {x: 53, y: -200}
+        - {x: 68, y: -176}
+        - {x: 80, y: -22}
+        - {x: 87, y: 20}
+    - name: Nemico Boss Tank Walk Right_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88, y: 115}
+        - {x: 73, y: 138}
+        - {x: -33, y: 138}
+        - {x: -82, y: 111}
+        - {x: -94, y: 79}
+        - {x: -94, y: -57}
+        - {x: -57, y: -124}
+        - {x: -94, y: -180}
+        - {x: -85, y: -200}
+        - {x: 55, y: -200}
+        - {x: 69, y: -198}
+        - {x: 63, y: -182}
+        - {x: 53, y: -175}
+        - {x: 88, y: -75}
+    - name: Nemico Boss Tank Walk Right_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: 130}
+        - {x: -27, y: 130}
+        - {x: -59, y: 120}
+        - {x: -91, y: 73}
+        - {x: -91, y: 53}
+        - {x: -88, y: 47}
+        - {x: -55, y: -25}
+        - {x: -51, y: -33}
+        - {x: -62, y: -34}
+        - {x: -91, y: -42}
+        - {x: -91, y: -79}
+        - {x: -51, y: -200}
+        - {x: 81, y: -200}
+        - {x: 90, y: -123}
+        - {x: 90, y: 109}
+    - name: Nemico Boss Tank Walk Right_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 90, y: 25}
+        - {x: 90, y: 83}
+        - {x: 70, y: 124}
+        - {x: -51, y: 124}
+        - {x: -57, y: 121}
+        - {x: -91, y: 77}
+        - {x: -91, y: 29}
+        - {x: -70, y: -30}
+        - {x: -88, y: -66}
+        - {x: -39, y: -156}
+        - {x: -48, y: -192}
+        - {x: -40, y: -200}
+        - {x: 90, y: -200}
+        - {x: 90, y: -37}
+        - {x: 88, y: -30}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

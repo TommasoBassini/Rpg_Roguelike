@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: e51e4ff1247a8b94a8e9279fc2595778
+timeCreated: 1469996458
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Nemico Boss Support Attack Left_0
+    21300002: Nemico Boss Support Attack Left_1
+    21300004: Nemico Boss Support Attack Left_2
+    21300006: Nemico Boss Support Attack Left_3
+    21300008: Nemico Boss Support Attack Left_4
+    21300010: Nemico Boss Support Attack Left_5
+    21300012: Nemico Boss Support Attack Left_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Nemico Boss Support Attack Left_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 98, y: 6}
+        - {x: 79, y: 84}
+        - {x: 42, y: 109}
+        - {x: 27, y: 116}
+        - {x: 20, y: 118}
+        - {x: 16, y: 119}
+        - {x: -25, y: 119}
+        - {x: -106, y: 35}
+        - {x: -106, y: -46}
+        - {x: -64, y: -159}
+        - {x: -75, y: -199}
+        - {x: -70, y: -200}
+        - {x: 39, y: -200}
+        - {x: 71, y: -195}
+        - {x: 91, y: -78}
+        - {x: 94, y: -70}
+        - {x: 98, y: -63}
+    - name: Nemico Boss Support Attack Left_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60, y: 89}
+        - {x: 24, y: 115}
+        - {x: -29, y: 115}
+        - {x: -67, y: 80}
+        - {x: -91, y: 15}
+        - {x: -114, y: -7}
+        - {x: -114, y: -45}
+        - {x: -33, y: -145}
+        - {x: -69, y: -193}
+        - {x: -61, y: -200}
+        - {x: 79, y: -200}
+        - {x: 69, y: -104}
+        - {x: 98, y: -73}
+        - {x: 98, y: -11}
+    - name: Nemico Boss Support Attack Left_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97, y: -16}
+        - {x: 45, y: 101}
+        - {x: 15, y: 113}
+        - {x: -37, y: 113}
+        - {x: -64, y: 99}
+        - {x: -106, y: 12}
+        - {x: -117, y: -12}
+        - {x: -117, y: -70}
+        - {x: -33, y: -163}
+        - {x: -57, y: -178}
+        - {x: -49, y: -197}
+        - {x: -37, y: -200}
+        - {x: 51, y: -200}
+        - {x: 70, y: -190}
+        - {x: 61, y: -170}
+        - {x: 97, y: -85}
+    - name: Nemico Boss Support Attack Left_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97, y: -16}
+        - {x: 45, y: 101}
+        - {x: 15, y: 113}
+        - {x: -37, y: 113}
+        - {x: -64, y: 99}
+        - {x: -106, y: 12}
+        - {x: -117, y: -12}
+        - {x: -117, y: -70}
+        - {x: -33, y: -163}
+        - {x: -57, y: -178}
+        - {x: -49, y: -197}
+        - {x: -37, y: -200}
+        - {x: 51, y: -200}
+        - {x: 70, y: -190}
+        - {x: 61, y: -170}
+        - {x: 97, y: -85}
+    - name: Nemico Boss Support Attack Left_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 74, y: -65}
+        - {x: 71, y: -62}
+        - {x: 66, y: -62}
+        - {x: 67, y: -57}
+        - {x: 86, y: -76}
+        - {x: 98, y: -78}
+        - {x: 98, y: 61}
+        - {x: 50, y: 117}
+        - {x: -55, y: 117}
+        - {x: -56, y: 114}
+        - {x: -124, y: 53}
+        - {x: -124, y: -130}
+        - {x: -96, y: -200}
+        - {x: 50, y: -200}
+        - {x: 69, y: -190}
+        - {x: 60, y: -170}
+        - {x: 74, y: -67}
+    - name: Nemico Boss Support Attack Left_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 90, y: 119}
+        - {x: -18, y: 119}
+        - {x: -31, y: 114}
+        - {x: -63, y: 34}
+        - {x: -74, y: -37}
+        - {x: -74, y: 29}
+        - {x: -96, y: 44}
+        - {x: -148, y: 51}
+        - {x: -160, y: 18}
+        - {x: -160, y: -12}
+        - {x: -144, y: -28}
+        - {x: -75, y: -166}
+        - {x: -59, y: -173}
+        - {x: -60, y: -200}
+        - {x: 59, y: -200}
+        - {x: 61, y: -189}
+        - {x: 96, y: -158}
+        - {x: 96, y: 99}
+    - name: Nemico Boss Support Attack Left_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 90, y: 119}
+        - {x: -18, y: 119}
+        - {x: -31, y: 114}
+        - {x: -63, y: 34}
+        - {x: -74, y: -37}
+        - {x: -73, y: -42}
+        - {x: -82, y: -11}
+        - {x: -65, y: 21}
+        - {x: -136, y: 66}
+        - {x: -160, y: 37}
+        - {x: -160, y: -24}
+        - {x: -75, y: -166}
+        - {x: -59, y: -173}
+        - {x: -60, y: -200}
+        - {x: 59, y: -200}
+        - {x: 61, y: -189}
+        - {x: 96, y: -158}
+        - {x: 96, y: 99}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
