@@ -18,8 +18,10 @@ public abstract class Character : MonoBehaviour
     private Vector3 direction;
     private Animator anim;
 
-    public bool MoveRight = false;
-    public bool MoveLeft = false;    
+    public bool MovingRight = false;
+    public bool MovingLeft = false;
+    public bool facingRight = true;
+    public bool facingLeft = false;   
 
     public void Start()
     {
@@ -46,8 +48,8 @@ public abstract class Character : MonoBehaviour
             {
                 this.transform.position = new Vector3(grid.cells[(int)pos.x, (int)pos.y].transform.position.x, grid.cells[(int)pos.x, (int)pos.y].transform.position.y, 0);
                 isMoving = false;
-                MoveRight = false;
-                MoveLeft = false;
+                MovingRight = false;
+                MovingLeft = false;
             }
         }
 
@@ -65,20 +67,20 @@ public abstract class Character : MonoBehaviour
         if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x + 1, pos.y));
-            MoveRight = true;
-            MoveLeft = false;
+            MovingRight = true;
+            MovingLeft = false;
         }
 
         if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && isMovible && !isMoving)
         {
             PlayerMove(new Vector2(pos.x - 1, pos.y));
-            MoveRight = false;
-            MoveLeft = true;                     
+            MovingRight = false;
+            MovingLeft = true;                     
         }
 
         anim.SetBool("IsMoving", isMoving);
-        anim.SetBool("MoveRight", MoveRight);
-        anim.SetBool("MoveLeft", MoveLeft);
+        anim.SetBool("MovingRight", MovingRight);
+        anim.SetBool("MovingLeft", MovingLeft);
 
     }
 

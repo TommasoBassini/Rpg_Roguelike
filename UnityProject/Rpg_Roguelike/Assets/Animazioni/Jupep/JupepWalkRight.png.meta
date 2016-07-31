@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: 66629253448f7bd4f97ca9bdfba604f1
+timeCreated: 1469982564
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WightTreQuartiAnimazioneCamminataAltroLato_0
+    21300002: WightTreQuartiAnimazioneCamminataAltroLato_1
+    21300004: WightTreQuartiAnimazioneCamminataAltroLato_2
+    21300006: WightTreQuartiAnimazioneCamminataAltroLato_3
+    21300008: WightTreQuartiAnimazioneCamminataAltroLato_4
+    21300010: WightTreQuartiAnimazioneCamminataAltroLato_5
+    21300012: WightTreQuartiAnimazioneCamminataAltroLato_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WightTreQuartiAnimazioneCamminataAltroLato_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: -119}
+        - {x: 88, y: 23}
+        - {x: 88, y: 111}
+        - {x: 75, y: 155}
+        - {x: -78, y: 155}
+        - {x: -84, y: 122}
+        - {x: -84, y: -44}
+        - {x: -83, y: -55}
+        - {x: -73, y: -68}
+        - {x: -67, y: -69}
+        - {x: -68, y: -71}
+        - {x: -50, y: -198}
+        - {x: 39, y: -198}
+        - {x: 48, y: -193}
+        - {x: 46, y: -182}
+        - {x: 21, y: -178}
+    - name: WightTreQuartiAnimazioneCamminataAltroLato_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70, y: -27}
+        - {x: 85, y: 35}
+        - {x: 85, y: 78}
+        - {x: 70, y: 131}
+        - {x: 50, y: 146}
+        - {x: -23, y: 146}
+        - {x: -58, y: 137}
+        - {x: -66, y: 118}
+        - {x: -84, y: 84}
+        - {x: -84, y: 37}
+        - {x: -73, y: -32}
+        - {x: -84, y: -75}
+        - {x: -55, y: -113}
+        - {x: -61, y: -198}
+        - {x: 52, y: -198}
+        - {x: 58, y: -196}
+        - {x: 32, y: -162}
+        - {x: 58, y: -80}
+    - name: WightTreQuartiAnimazioneCamminataAltroLato_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 50, y: 125}
+        - {x: -31, y: 125}
+        - {x: -82, y: 97}
+        - {x: -82, y: -135}
+        - {x: -68, y: -178}
+        - {x: -60, y: -177}
+        - {x: -27, y: -171}
+        - {x: -22, y: -167}
+        - {x: -29, y: -178}
+        - {x: -42, y: -180}
+        - {x: -51, y: -185}
+        - {x: -53, y: -198}
+        - {x: 78, y: -198}
+        - {x: 89, y: -156}
+        - {x: 89, y: 89}
+        - {x: 74, y: 106}
+      - - {x: 188, y: 138}
+        - {x: 189, y: 134}
+        - {x: 200, y: 134}
+        - {x: 200, y: 141}
+        - {x: 189, y: 141}
+    - name: WightTreQuartiAnimazioneCamminataAltroLato_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: 145}
+        - {x: -84, y: 99}
+        - {x: -84, y: -136}
+        - {x: -81, y: -145}
+        - {x: -45, y: -151}
+        - {x: -21, y: -153}
+        - {x: -18, y: -152}
+        - {x: -16, y: -150}
+        - {x: -19, y: -155}
+        - {x: -31, y: -155}
+        - {x: -50, y: -184}
+        - {x: -48, y: -195}
+        - {x: -41, y: -198}
+        - {x: 45, y: -198}
+        - {x: 57, y: -196}
+        - {x: 90, y: 27}
+        - {x: 90, y: 72}
+        - {x: 60, y: 145}
+      - - {x: -69, y: -176}
+        - {x: -71, y: -177}
+        - {x: -71, y: -181}
+        - {x: -69, y: -185}
+        - {x: -65, y: -185}
+        - {x: -63, y: -183}
+        - {x: -63, y: -180}
+        - {x: -65, y: -176}
+    - name: WightTreQuartiAnimazioneCamminataAltroLato_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 85, y: 33}
+        - {x: 85, y: 93}
+        - {x: 66, y: 136}
+        - {x: 49, y: 156}
+        - {x: -39, y: 156}
+        - {x: -66, y: 151}
+        - {x: -84, y: 91}
+        - {x: -84, y: -55}
+        - {x: -72, y: -67}
+        - {x: -67, y: -69}
+        - {x: -68, y: -71}
+        - {x: -63, y: -89}
+        - {x: -58, y: -198}
+        - {x: 63, y: -198}
+        - {x: 32, y: -151}
+        - {x: 65, y: -67}
+    - name: WightTreQuartiAnimazioneCamminataAltroLato_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 84, y: 27}
+        - {x: 84, y: 111}
+        - {x: 43, y: 146}
+        - {x: -22, y: 146}
+        - {x: -58, y: 137}
+        - {x: -83, y: 86}
+        - {x: -83, y: 23}
+        - {x: -80, y: 0}
+        - {x: -83, y: -38}
+        - {x: -83, y: -81}
+        - {x: -59, y: -116}
+        - {x: -55, y: -185}
+        - {x: -46, y: -195}
+        - {x: -30, y: -198}
+        - {x: 32, y: -198}
+        - {x: 48, y: -197}
+        - {x: 63, y: -162}
+        - {x: 33, y: -156}
+        - {x: 59, y: -89}
+    - name: WightTreQuartiAnimazioneCamminataAltroLato_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70, y: 123}
+        - {x: -48, y: 123}
+        - {x: -83, y: 101}
+        - {x: -83, y: -106}
+        - {x: -47, y: -176}
+        - {x: -42, y: -180}
+        - {x: -39, y: -180}
+        - {x: -36, y: -177}
+        - {x: -34, y: -179}
+        - {x: -42, y: -181}
+        - {x: -48, y: -182}
+        - {x: -51, y: -191}
+        - {x: -40, y: -200}
+        - {x: 51, y: -200}
+        - {x: 61, y: -182}
+        - {x: 85, y: -90}
+        - {x: 85, y: 100}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
