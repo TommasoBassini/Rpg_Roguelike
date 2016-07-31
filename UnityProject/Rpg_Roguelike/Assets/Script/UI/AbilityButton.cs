@@ -100,6 +100,11 @@ public class AbilityButton : MonoBehaviour
     {
         Destroy(newTarget);
         Destroy(newAllyTarget);
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+        foreach (var item in targets)
+        {
+            Destroy(item);
+        }
     }
 
     public void SpawnAttackBox(int raggio)

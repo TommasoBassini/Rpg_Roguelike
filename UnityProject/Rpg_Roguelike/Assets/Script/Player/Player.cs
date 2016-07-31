@@ -31,9 +31,11 @@ public abstract class Player : Character
     public abstract void TakeStats();
     public abstract void EndBattle();
     public abstract void SubisciDanno(float danni);
+
     public abstract void SpawnAttackBox();
     public abstract void Attack(GameObject _enemy);
     public abstract void CheckAttack();
+    public abstract void Death();
     public List<GameObject> enemyDisp = new List<GameObject>();
     public GameObject uiInfo;
     public GameObject checkAttack;
@@ -104,6 +106,53 @@ public abstract class Player : Character
         }
     }
 
+    public void SubisciDannoMagico(float danni)
+    {
+        int danniSubiti = Mathf.RoundToInt(((((danni / stats.difMagica) * 100) * (danni / 2)) / 100) * (Random.Range(1, 1.125f)));
+        if (nTurnoProtezione > 0)
+        {
+            danniSubiti = (danniSubiti * 10) / 100;
+            //TODO aggiungere di cancellare l'effetto sprite qui
+            nTurnoProtezione = 0;
+        }
+
+        if (stats.hp - danniSubiti <= 0)
+        {
+            stats.hp = 0;
+            CombatController cc = FindObjectOfType<CombatController>();
+            List<int> n = new List<int>();
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = false;
+            base.grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = null;
+            //cc.player.RemoveAll(item => item == enemy);
+            for (int j = cc.turno + 1; j < cc.player.Count; j++)
+            {
+                if (cc.player[j] == this.gameObject)
+                    n.Add(j);
+            }
+            for (int i = n.Count - 1; i >= 0; i--)
+            {
+                cc.player.RemoveAt(n[i]);
+            }
+
+            if (cc.CheckLose())
+            {
+                cc.Lose();
+            }
+
+
+            UiController ui1 = FindObjectOfType<UiController>();
+            ui1.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
+            ui1.DamageText(this.gameObject, danniSubiti, Color.red);
+            Death();
+            Destroy(this.gameObject);
+        }
+        else
+            stats.hp = stats.hp - danniSubiti;
+        UiController ui = FindObjectOfType<UiController>();
+        ui.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
+        ui.DamageText(this.gameObject, danniSubiti, Color.red);
+    }
+
     void CheckVeleno()
     {
         UiController ui = FindObjectOfType<UiController>();
@@ -135,6 +184,7 @@ public abstract class Player : Character
             }
             else
                 cc.Lose();
+            Death();
             Destroy(this.gameObject);
 
         }

@@ -69,6 +69,7 @@ public class UiControlExploration : MonoBehaviour
             if (!isMenuOpen)
             {
                 isMenuOpen = true;
+                StartCoroutine(AnimImage());
                 player.isOpenMenu = true;
                 tankOpen = false;
                 dpsOpen = false;
@@ -90,6 +91,7 @@ public class UiControlExploration : MonoBehaviour
                 player.isOpenMenu = false;
                 menuStats.SetActive(false);
                 nCharacter = 1;
+                StopAllCoroutines();
             }
         }
 
@@ -128,9 +130,8 @@ public class UiControlExploration : MonoBehaviour
             {
                 nCharacter = 1;
             }
+
             Invoke("SwitchaChar", 0.01f);
-            menuStats.transform.Find("Button/Destrezza/DestrezzaButton").GetComponent<Button>().Select();
-            menuStats.transform.Find("Button/Forza/ForzaButton").GetComponent<Button>().Select();
 
             Text RbText = menuStats.transform.Find("Playermenu/RB/Text").GetComponent<Text>();
             Text LbText = menuStats.transform.Find("Playermenu/LB/Text").GetComponent<Text>();
@@ -157,7 +158,6 @@ public class UiControlExploration : MonoBehaviour
                 default:
                     break;
             }
-
         }
 
 
@@ -237,8 +237,7 @@ public class UiControlExploration : MonoBehaviour
                 nCharacter = 3;
             }
             Invoke("SwitchaChar", 0.01f);
-            menuStats.transform.Find("Button/Destrezza/DestrezzaButton").GetComponent<Button>().Select();
-            menuStats.transform.Find("Button/Forza/ForzaButton").GetComponent<Button>().Select();
+
             Text RbText = menuStats.transform.Find("Playermenu/RB/Text").GetComponent<Text>();
             Text LbText = menuStats.transform.Find("Playermenu/LB/Text").GetComponent<Text>();
             switch (nCharacter)
@@ -265,6 +264,7 @@ public class UiControlExploration : MonoBehaviour
                     break;
             }
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (!mageOpen)
@@ -466,7 +466,6 @@ public class UiControlExploration : MonoBehaviour
                         anim[i] = animMago[i];
                     }
 
-                    StartCoroutine(AnimImage());
                     int livello = stats.statsMago.forza + stats.statsMago.Spirito + stats.statsMago.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
 
@@ -475,15 +474,15 @@ public class UiControlExploration : MonoBehaviour
                     Destrezzalvl.text = (stats.statsMago.destrezza + 1).ToString();
                     Spiritolvl.text = (stats.statsMago.Spirito + 1).ToString();
                     //Button
-                    abilita1.onClick.AddListener(() => MageAbility(0, stats.statsMago.costoAbilita[0]));
-                    abilita1.image.sprite = AbilityMage[0];
+                    abilita1.onClick.AddListener(() => MageAbility(1, stats.statsMago.costoAbilita[1]));
+                    abilita1.image.sprite = AbilityMage[1];
                     Text abilitaText = menuStats.transform.Find("Button/Abilita1/Abilita1/Text").GetComponent<Text>();
-                    abilitaText.text = "Protezione";
+                    abilitaText.text = "Cura";
 
-                    abilita2.onClick.AddListener(() => MageAbility(1, stats.statsMago.costoAbilita[1]));
-                    abilita2.image.sprite = AbilityMage[1];
+                    abilita2.onClick.AddListener(() => MageAbility(0, stats.statsMago.costoAbilita[0]));
+                    abilita2.image.sprite = AbilityMage[0];
                     Text abilitaText2 = menuStats.transform.Find("Button/Abilita2/Abilita2/Text").GetComponent<Text>();
-                    abilitaText2.text = "Cura";
+                    abilitaText2.text = "Protezione";
 
                     abilita3.onClick.AddListener(() => MageAbility(2, stats.statsMago.costoAbilita[2]));
                     abilita3.image.sprite = AbilityMage[2];
@@ -501,6 +500,8 @@ public class UiControlExploration : MonoBehaviour
                     abilitaText5.text = "Ragnatela";
 
                     CheckButton();
+                    buttons[1].Select();
+                    buttons[0].Select();
                     break;
                 }
             case 2:
@@ -511,7 +512,6 @@ public class UiControlExploration : MonoBehaviour
                     {
                         anim[i] = animTank[i];
                     }
-                    StartCoroutine(AnimImage());
                     int livello = stats.statsTank.forza + stats.statsTank.Spirito + stats.statsTank.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
 
@@ -548,6 +548,8 @@ public class UiControlExploration : MonoBehaviour
 
                     // SetInteractable button
                     CheckButton();
+                    buttons[1].Select();
+                    buttons[0].Select();
                     break;
                 }
             case 3:
@@ -558,7 +560,6 @@ public class UiControlExploration : MonoBehaviour
                     {
                         anim[i] = animDps[i];
                     }
-                    StartCoroutine(AnimImage());
                     int livello = stats.statsDps.forza + stats.statsDps.Spirito + stats.statsDps.destrezza + 3;
                     textLvl.text = "Livello " + livello.ToString();
 
@@ -595,6 +596,8 @@ public class UiControlExploration : MonoBehaviour
 
                     // SetInteractable button
                     CheckButton();
+                    buttons[1].Select();
+                    buttons[0].Select();
                     break;
                 }
             }
@@ -612,13 +615,27 @@ public class UiControlExploration : MonoBehaviour
                     {
                         buttons[0].interactable = false;
                     }
+                    else if (stats.statsMago.costoForza <= stats.esperience)
+                    {
+                        buttons[0].interactable = true;
+                    }
+
                     if (stats.statsMago.costoDestrezza > stats.esperience)
                     {
                         buttons[1].interactable = false;
                     }
+                    else if (stats.statsMago.costoDestrezza <= stats.esperience)
+                    {
+                        buttons[1].interactable = true;
+                    }
+
                     if (stats.statsMago.costoSpirito > stats.esperience)
                     {
                         buttons[2].interactable = false;
+                    }
+                    else if (stats.statsMago.costoSpirito <= stats.esperience)
+                    {
+                        buttons[2].interactable = true;
                     }
 
                     for (int i = 0; i < stats.statsMago.costoAbilita.Length; i++)
@@ -638,13 +655,27 @@ public class UiControlExploration : MonoBehaviour
                     {
                         buttons[0].interactable = false;
                     }
+                    else if (stats.statsTank.costoForza <= stats.esperience)
+                    {
+                        buttons[0].interactable = true;
+                    }
+
                     if (stats.statsTank.costoDestrezza > stats.esperience)
                     {
                         buttons[1].interactable = false;
                     }
+                    else if (stats.statsTank.costoDestrezza <= stats.esperience)
+                    {
+                        buttons[1].interactable = true;
+                    }
+
                     if (stats.statsTank.costoSpirito > stats.esperience)
                     {
                         buttons[2].interactable = false;
+                    }
+                    else if (stats.statsTank.costoSpirito <= stats.esperience)
+                    {
+                        buttons[2].interactable = true;
                     }
 
                     for (int i = 0; i < stats.statsTank.costoAbilita.Length; i++)
@@ -664,13 +695,27 @@ public class UiControlExploration : MonoBehaviour
                     {
                         buttons[0].interactable = false;
                     }
+                    else if (stats.statsDps.costoForza <= stats.esperience)
+                    {
+                        buttons[0].interactable = true;
+                    }
+
                     if (stats.statsDps.costoDestrezza > stats.esperience)
                     {
                         buttons[1].interactable = false;
                     }
+                    else if (stats.statsDps.costoDestrezza <= stats.esperience)
+                    {
+                        buttons[1].interactable = true;
+                    }
+
                     if (stats.statsDps.costoSpirito > stats.esperience)
                     {
                         buttons[2].interactable = false;
+                    }
+                    else if (stats.statsDps.costoSpirito <= stats.esperience)
+                    {
+                        buttons[2].interactable = true;
                     }
 
                     for (int i = 0; i < stats.statsDps.costoAbilita.Length; i++)
@@ -687,9 +732,6 @@ public class UiControlExploration : MonoBehaviour
             default:
             break;
         }
-
-
-        
     }
 
     public void MageAbility(int i ,int costo)
@@ -738,8 +780,7 @@ public class UiControlExploration : MonoBehaviour
             }
             Image charImage = menuStats.transform.Find("Character/CharacterSprite").GetComponent<Image>();
             charImage.sprite = anim[i];
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.15f);
         }
-
     }
 }

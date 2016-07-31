@@ -16,7 +16,7 @@ public class BossManager : MonoBehaviour {
     private PlayerMovement player;
     public Scene battleScene;
     public int tipoIncontro;
-
+    private GameControl gc;
     void Awake()
     {
         if (textFile != null)
@@ -24,12 +24,12 @@ public class BossManager : MonoBehaviour {
             textRow = (textFile.text.Split('\n'));
             nRow = textRow.Length - 1;
         }
-
+        gc = FindObjectOfType<GameControl>();
     }
 
     void Update ()
     {
-        if (facingBoss == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && !isDIalogueStart)
+        if (facingBoss == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && !isDIalogueStart && !gc.incontroON)
         {
             player = FindObjectOfType<PlayerMovement>();
             player.isSpeaking = true;

@@ -19,6 +19,7 @@ public class Potions : MonoBehaviour
     public Sprite manaGrande;
 
     public AudioClip buyConfirm;
+    private GameControl gc;
 
     void Start ()
     {
@@ -26,6 +27,7 @@ public class Potions : MonoBehaviour
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = Color.clear;
         stats = FindObjectOfType<PlayerStatsControl>();
+        gc = FindObjectOfType<GameControl>();
     }
 
 
@@ -44,7 +46,7 @@ public class Potions : MonoBehaviour
     
     void Update ()
     {
-        if (oneTime == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
+        if (oneTime == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && !gc.incontroON)
         {
             if (isHpPotion == true && stats.soldi >= costo) // Al posto dello zero, verrà imposto come limite il prezzo della pozione
             {

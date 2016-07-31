@@ -71,7 +71,7 @@ public class Dps : Player
             UiController ui1 = FindObjectOfType<UiController>();
             ui1.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
             ui1.DamageText(this.gameObject, danniSubiti, Color.red);
-
+            Death();
             Destroy(this.gameObject);
         }
         else
@@ -169,11 +169,17 @@ public class Dps : Player
 
         AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         audio.PlayOneShot(attacco);
-        Debug.Log(audio);
+
         foreach (GameObject cell in checkboxAttack)
         {
             Destroy(cell);
         }
         checkboxAttack.Clear();
+    }
+
+    public override void Death()
+    {
+        PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();
+        _stats.statsDps.hp = 1;
     }
 }

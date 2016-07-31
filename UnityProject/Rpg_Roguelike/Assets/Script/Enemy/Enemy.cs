@@ -15,6 +15,7 @@ public abstract class Enemy : Character
 {
 
     public abstract void Ai();
+    public abstract IEnumerator Attack(GameObject Target);
     public List<CombatCell> cellToCross = new List<CombatCell>();
 
     public Sprite icona;
@@ -51,7 +52,7 @@ public abstract class Enemy : Character
     new void Start()
     {
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
-        level = Random.Range(stats.livelloNemici - 1, stats.livelloNemici + 1);
+        level = Random.Range(stats.livelloNemici - 1, stats.livelloNemici + 3);
         if (level == 0)
         {
             level = 1;
@@ -86,44 +87,54 @@ public abstract class Enemy : Character
                     }
                 }
             }
-            NearestCellToPlayer(base.pos, this.passi, nearestPlayer);
+            if (nearestPlayer != null)
+            {
+                NearestCellToPlayer(base.pos, this.passi, nearestPlayer);
+            }
+            else
+                FindNearestPlayer();
         }
     }
 
     public void NearestCellToPlayer(Vector2 _pos, int raggio, GameObject playerNear)
     {
-        Player player = playerNear.GetComponent<Player>();
-        CombatCell nearestCell = null;
-        int nearestCellDistance = 10000;
-
-        int _x = (int)_pos.x;
-        int _y = (int)_pos.y;
-
-        // incomincia a scansionare l'area
-        for (int i = (_x - raggio); i <= (_x + raggio); i++)
+        if (playerNear.GetComponent<Player>() != null)
         {
-            for (int y = (_y - raggio); y <= (_y + raggio); y++)
-            {
-                if (i < 0)
-                    continue;
-                if (y < 0)
-                    continue;
-                if (i > base.grid.width - 1)
-                    continue;
-                if (y > base.grid.height - 1)
-                    continue;
+            Player player = playerNear.GetComponent<Player>();
+            CombatCell nearestCell = null;
+            int nearestCellDistance = 10000;
 
-                int distance = Mathf.Abs(i - (int)player.pos.x) + Mathf.Abs(y - (int)player.pos.y);
-                if (distance <= nearestCellDistance && !base.grid.cells[i, y].isOccupied && Mathf.Abs(i - _x) + Mathf.Abs(y - _y) < raggio)
+            int _x = (int)_pos.x;
+            int _y = (int)_pos.y;
+
+            // incomincia a scansionare l'area
+            for (int i = (_x - raggio); i <= (_x + raggio); i++)
+            {
+                for (int y = (_y - raggio); y <= (_y + raggio); y++)
                 {
-                    nearestCellDistance = distance;
-                    nearestCell = base.grid.cells[i, y];
+                    if (i < 0)
+                        continue;
+                    if (y < 0)
+                        continue;
+                    if (i > base.grid.width - 1)
+                        continue;
+                    if (y > base.grid.height - 1)
+                        continue;
+
+                    int distance = Mathf.Abs(i - (int)player.pos.x) + Mathf.Abs(y - (int)player.pos.y);
+                    if (distance <= nearestCellDistance && !base.grid.cells[i, y].isOccupied && Mathf.Abs(i - _x) + Mathf.Abs(y - _y) < raggio)
+                    {
+                        nearestCellDistance = distance;
+                        nearestCell = base.grid.cells[i, y];
+                    }
                 }
             }
-        }
 
-        if (nearestCell != null)
-            StartCoroutine(GoToEndCell(_pos, nearestCell.pos));
+            if (nearestCell != null)
+                StartCoroutine(GoToEndCell(_pos, nearestCell.pos));
+        }
+        else
+            FindNearestPlayer();
     }
 
 
@@ -325,39 +336,7 @@ public abstract class Enemy : Character
         grid.cells[(int)this.pos.x, (int)this.pos.y].isOccupied = true;
         grid.cells[(int)this.pos.x, (int)this.pos.y].occupier = this.gameObject;
         cellToCross.Clear();
-        StartCoroutine(AttackPlayer(base.grid.cells[(int)oldPlayerPos.x, (int)oldPlayerPos.y].occupier));
-    }
-
-    public IEnumerator AttackPlayer(GameObject Target)
-    {
-        CombatController cc = FindObjectOfType<CombatController>();
-        Animator anim = GetComponent<Animator>();
-
-        if (Target.transform.position.x > this.transform.position.x)
-        {
-            anim.SetTrigger("AttackRight");
-        }
-        else
-        {
-            anim.SetTrigger("AttackLeft");
-        }
-        yield return new WaitForSeconds(0.5f);
-        if (attackEffect != null)
-        {
-            GameObject effect = Instantiate(attackEffect);
-            effect.transform.position = Target.transform.position;
-        }
-        // Suono
-        if (audioAttack != null)
-        {
-            AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
-            audio.PlayOneShot(audioAttack);
-        }
-
-        Player player = Target.GetComponent<Player>();
-        player.SubisciDanno(att);
-        yield return new WaitForSeconds(2);
-        cc.EndOfTurn();
+        StartCoroutine(Attack(base.grid.cells[(int)oldPlayerPos.x, (int)oldPlayerPos.y].occupier));
     }
 
     public void SubisciDannoMelee(int danni, GameObject enemy)
@@ -461,7 +440,10 @@ public abstract class Enemy : Character
             if (!cc.CheckWinner())
                 cc.UpdateTurnPortrait();
             else
+            {
+                cc.win = true;
                 cc.Win();
+            }
             Destroy(this.gameObject);
         }
         return danniTot;
@@ -495,7 +477,10 @@ public abstract class Enemy : Character
             if (!cc.CheckWinner())
                 cc.UpdateTurnPortrait();
             else
+            {
+                cc.win = true;
                 cc.Win();
+            }
             Destroy(this.gameObject);
         }
         Image vita = ui.enemyInfoPanel.transform.Find("Health").GetComponent<Image>();
@@ -579,7 +564,10 @@ public abstract class Enemy : Character
                 cc.EndOfTurn();
             }
             else
+            {
+                cc.win = true;
                 cc.Win();
+            }
             Destroy(this.gameObject);
 
         }

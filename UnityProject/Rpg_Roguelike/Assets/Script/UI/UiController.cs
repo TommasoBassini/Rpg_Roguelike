@@ -383,6 +383,10 @@ public class UiController : MonoBehaviour
     public void Action()
     {
         faseUi = 2;
+        foreach (Transform item in EnemyListPanel.transform)
+        {
+            Destroy(item.gameObject);
+        }
         MainPanel.SetActive(false);
         ActionPanel.SetActive(true);
         Player player = cc.player[cc.turno].GetComponent<Player>();

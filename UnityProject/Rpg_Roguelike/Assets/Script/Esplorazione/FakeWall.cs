@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FakeWall : MonoBehaviour {
+public class FakeWall : MonoBehaviour
+{
 
     public bool isClosed = true;
     public bool inFront = false;
+    private GameControl gc;
 
     void Start ()
     {
         Invoke("SetObjectToCell", 0.3f);
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = Color.clear;
+        gc = FindObjectOfType<GameControl>();
     }
-	
-	
-	void Update ()
+
+
+    void Update ()
     {
-        if (inFront == true && (Input.GetKey(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
+        if (inFront == true && (Input.GetKey(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && !gc.incontroON)
         {
             Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
             Grid grid = FindObjectOfType<Grid>();

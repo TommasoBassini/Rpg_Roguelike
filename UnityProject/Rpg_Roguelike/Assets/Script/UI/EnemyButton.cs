@@ -91,9 +91,8 @@ public class EnemyButton : MonoBehaviour
         CombatController cc = FindObjectOfType<CombatController>();
         Player player = cc.player[cc.turno].GetComponent<Player>();
         Destroy(newTarget);
-
+        GetComponent<Button>().interactable = false;
         player.Attack(enemy);
-
         StartCoroutine(attivaPanel());
     }
 
@@ -119,6 +118,12 @@ public class EnemyButton : MonoBehaviour
         ui.EnemyListPanel.SetActive(false);
         ui.MainPanel.SetActive(true);
         enemyInfoPanel.SetActive(false);
+
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+        foreach (var item in targets)
+        {
+            Destroy(item);
+        }
         foreach (Transform item in ui.MainPanel.transform)
         {
             if (item.gameObject.GetComponent<Button>().IsInteractable())

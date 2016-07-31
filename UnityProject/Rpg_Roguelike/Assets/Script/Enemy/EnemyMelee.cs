@@ -10,7 +10,38 @@ public class EnemyMelee : Enemy
     {
         Invoke("CheckPlayerNear", 0.5f);
     }
-    
+
+    public override IEnumerator Attack(GameObject Target)
+    {
+        CombatController cc = FindObjectOfType<CombatController>();
+        Animator anim = GetComponent<Animator>();
+
+        if (Target.transform.position.x > this.transform.position.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
+        yield return new WaitForSeconds(0.5f);
+        if (attackEffect != null)
+        {
+            GameObject effect = Instantiate(attackEffect);
+            effect.transform.position = Target.transform.position;
+        }
+        // Suono
+        if (audioAttack != null)
+        {
+            AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+            audio.PlayOneShot(audioAttack);
+        }
+
+        Player player = Target.GetComponent<Player>();
+        player.SubisciDanno(att);
+        yield return new WaitForSeconds(2);
+        cc.EndOfTurn();
+    }
 
     void CheckPlayerNear()
     {
@@ -19,7 +50,7 @@ public class EnemyMelee : Enemy
         {
             if (grid.isEnemyNearPlayer(targetPos, this.gameObject))
             {
-                StartCoroutine(AttackPlayer(grid.cells[(int)targetPos.x, (int)targetPos.y].occupier));
+                StartCoroutine(Attack(grid.cells[(int)targetPos.x, (int)targetPos.y].occupier));
             }
             else
                 StartCoroutine(GoToCellNearPlayer(this.pos, targetPos));

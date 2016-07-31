@@ -143,10 +143,10 @@ public class TankAbility : MonoBehaviour
     public void LanciaSasso(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 10;
+        int mp = costoAbilita[0];
 
         //calcola effetto
-        int danni = player.stats.attDistanza;
+        int danni = Mathf.RoundToInt(player.stats.attMelee * Random.Range(1.0f,1.25f));
         GameObject effect = Instantiate(lanciaSassoSprite);
         effect.transform.position = _enemy.transform.position;
         Enemy enemy = _enemy.GetComponent<Enemy>();
@@ -230,7 +230,7 @@ public class TankAbility : MonoBehaviour
     public void Demolisci(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 20;
+        int mp = costoAbilita[2];
         int nturni = 2;
         int percentualeDebuff = 35;
         int danni = player.stats.attMelee;
@@ -324,7 +324,7 @@ public class TankAbility : MonoBehaviour
     public void Disarma(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 15;
+        int mp = costoAbilita[3];
         int nturni = 2;
         int percentualeDebuff = 35;
         int danni = player.stats.attMelee;
@@ -418,7 +418,7 @@ public class TankAbility : MonoBehaviour
     public void SpaccaTeschi(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 30;
+        int mp = costoAbilita[4];
 
         //calcola effetto
         int danni = player.stats.attMelee + Mathf.RoundToInt(player.stats.attMelee /2);
@@ -505,7 +505,7 @@ public class TankAbility : MonoBehaviour
     public void Percuoti(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 25;
+        int mp = costoAbilita[1];
         float random = Random.Range(0.0f, 100.0f);
         if (random >= 0)
         {

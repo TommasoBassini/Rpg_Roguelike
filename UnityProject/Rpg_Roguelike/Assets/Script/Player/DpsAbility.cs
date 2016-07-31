@@ -83,7 +83,7 @@ public class DpsAbility : MonoBehaviour
     public void Esortazione()
     {
         //costo e variabili
-        int mp = 10;
+        int mp = costoAbilita[1];
         int nturni = 3;
         int percentualeDebuff = 25;
 
@@ -189,7 +189,7 @@ public class DpsAbility : MonoBehaviour
     public void FrecceGemelle(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 20;
+        int mp = costoAbilita[2]; 
 
         //calcola effetto
         int danni = player.stats.attDistanza + Mathf.RoundToInt(player.stats.attDistanza / 2);
@@ -273,7 +273,7 @@ public class DpsAbility : MonoBehaviour
     public void Veleno(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 15;
+        int mp = costoAbilita[3];
         int nturni = 3;
         int percentualeVeleno = 5;
         int danni = player.stats.attDistanza;
@@ -305,9 +305,11 @@ public class DpsAbility : MonoBehaviour
     // ABILITA Movimento Oscuro             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void MovimentoOscuro ()
     {
+        int mp = costoAbilita[0];
         UiController ui = FindObjectOfType<UiController>();
         ui.dpsAbilityPanel.SetActive(false);
         ui.MoveAbility();
+        player.stats.mp -= mp;
     }
 
 
@@ -381,7 +383,7 @@ public class DpsAbility : MonoBehaviour
         AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         audio.PlayOneShot(audioFreccia);
         //costo e variabili
-        int mp = 30;
+        int mp = costoAbilita[4];
         int danni = Mathf.RoundToInt(((player.stats.attDistanza) * 63) / 100);
         List <GameObject> targets = new List<GameObject>();
         // cerca i target
@@ -438,6 +440,11 @@ public class DpsAbility : MonoBehaviour
         player.stats.mp -= mp;
         // Roba UI
         ui.AggiornaMana(player.stats.mpMax, player.stats.mp, player.uiInfo);
+        GameObject[] targetss = GameObject.FindGameObjectsWithTag("Target");
+        foreach (var item in targetss)
+        {
+            Destroy(item);
+        }
         DestroyAttackBox();
         DestroyEnemyButton();
     }

@@ -2,18 +2,20 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class FountainManager : MonoBehaviour {
-
+public class FountainManager : MonoBehaviour
+{
     private Cell pos;
     public Vector2 checkpointPos;    
     public bool inRange = false;
     public GameObject interact;
+    private GameControl gc;
 
     void Start()
     {        
         Invoke("SetObjectToCell", 0.3f);
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = Color.clear;
+        gc = FindObjectOfType<GameControl>();
     }
 
 
@@ -30,7 +32,7 @@ public class FountainManager : MonoBehaviour {
     
     void Update()
     {
-        if (inRange == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
+        if (inRange == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && !gc.incontroON)
         {
             PlayerMovement pos = FindObjectOfType<PlayerMovement>();
             checkpointPos = pos.playerPos;

@@ -38,6 +38,13 @@ public class Tank : Player
     public override void SubisciDanno(float danni)
     {
         int danniSubiti = Mathf.RoundToInt(((((danni / stats.difFisica) * 100) * (danni / 2)) / 100) * (Random.Range(1, 1.125f)));
+        if (nTurnoProtezione > 0)
+        {
+            danniSubiti = (danniSubiti * 10) / 100;
+            //TODO aggiungere di cancellare l'effetto sprite qui
+            nTurnoProtezione = 0;
+        }
+
         if (stats.hp - danniSubiti <= 0)
         {
             stats.hp = 0;
@@ -65,6 +72,7 @@ public class Tank : Player
             ui1.AggiornaVita(stats.hpMax, stats.hp, uiInfo);
             ui1.DamageText(this.gameObject, danniSubiti, Color.red);
 
+            Death();
             Destroy(this.gameObject);
         }
         else
@@ -160,5 +168,11 @@ public class Tank : Player
     {
         PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();
         _stats.statsTank.hp = stats.hp;
+    }
+
+    public override void Death()
+    {
+        PlayerStatsControl _stats = FindObjectOfType<PlayerStatsControl>();
+        _stats.statsTank.hp = 1;
     }
 }

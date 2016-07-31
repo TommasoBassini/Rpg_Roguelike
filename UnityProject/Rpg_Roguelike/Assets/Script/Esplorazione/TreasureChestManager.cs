@@ -26,17 +26,19 @@ public class TreasureChestManager : MonoBehaviour
     public Sprite dpsPowerUpSprite;
     public Sprite soldiSprite;
     public AudioClip openChests;
+    private GameControl gc;
 
     void Start()
     {
         Invoke("SetObjectToCell", 0.3f);
         sr = GetComponent<SpriteRenderer>();
         sr.color = Color.clear;
+        gc = FindObjectOfType<GameControl>();
     }
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && isClosed == false)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && isClosed == false )
         {
             PlayerMovement player = FindObjectOfType<PlayerMovement>();
             player.isSpeaking = false;
@@ -44,7 +46,7 @@ public class TreasureChestManager : MonoBehaviour
             return;
         }
 
-         if (inFront == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button0)) && isClosed == true) 
+         if (inFront == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button0)) && isClosed == true && !gc.incontroON) 
         {
             GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(openChests);
             PlayerMovement player = FindObjectOfType<PlayerMovement>();

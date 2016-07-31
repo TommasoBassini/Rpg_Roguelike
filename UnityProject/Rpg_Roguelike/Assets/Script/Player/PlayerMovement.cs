@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
                     nPassi = 0;
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    gc.RandomEncounter(_pos);
+                    StartCoroutine (gc.RandomEncounter(_pos));
                 }
             }
         }

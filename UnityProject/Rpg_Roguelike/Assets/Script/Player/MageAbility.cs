@@ -140,7 +140,7 @@ public class MageAbility : MonoBehaviour
     public void Fulmine(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 20;
+        int mp = costoAbilita[4];
 
         GameObject effect = Instantiate(fulmine);
         effect.transform.position = _enemy.transform.position;
@@ -225,7 +225,7 @@ public class MageAbility : MonoBehaviour
     public void Ragnatela(GameObject _enemy)
     {
         //costo e variabili
-        int mp = 25;
+        int mp = costoAbilita[3];
         float random = Random.Range(0.0f, 100.0f);
         if (random >= 0)
         {
@@ -333,7 +333,7 @@ public class MageAbility : MonoBehaviour
     public void Protezione(GameObject _player)
     {
         //costo e variabili
-        int mp = 25;
+        int mp = costoAbilita[1];
         int nTurniBuff = 2;
         Player playerTarget = _player.GetComponent<Player>();
 
@@ -419,7 +419,7 @@ public class MageAbility : MonoBehaviour
     public void Cura(GameObject _player)
     {
         //costo e variabili
-        int mp = 25;
+        int mp = costoAbilita[0];
         Player playerTarget = _player.GetComponent<Player>();
         GameObject effect = Instantiate(ragnatela);
         effect.transform.position = _player.transform.position;
@@ -515,7 +515,7 @@ public class MageAbility : MonoBehaviour
 
         Enemy enemy = _enemy.GetComponent<Enemy>();
         GameObject effect = Instantiate(assorbiAnimaEnemy);
-        effect.transform.position = _enemy.transform.position;
+        effect.transform.position = new Vector3 (_enemy.transform.position.x, _enemy.transform.position.y + 0.5f, _enemy.transform.position.z);
         GameObject effect1 = Instantiate(assorbiAnimaPlayer);
         effect1.transform.position = player.transform.position;
         // Suono

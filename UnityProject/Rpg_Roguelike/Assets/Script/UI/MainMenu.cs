@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.anyKey)
         {
-            SceneManager.LoadScene("ProvaTommy");
+            SceneManager.LoadScene("MainGame");
         }
 	}
 }

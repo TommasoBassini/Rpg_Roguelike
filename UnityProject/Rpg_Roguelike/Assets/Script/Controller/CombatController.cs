@@ -21,6 +21,7 @@ public class CombatController : MonoBehaviour
     public bool changeReady;
 
     public Sprite[] campiBattaglia;
+    public bool win = false;
 
     void Start ()
     {
@@ -183,10 +184,13 @@ public class CombatController : MonoBehaviour
         }
         else
         {
-            Invoke("AggiornaRitrattoPlayer", 0.1f);
-            ui.UI.SetActive(true);
-            ui.SetUiToPlayer(player[turno]);
-            player[turno].GetComponent<Player>().StartTurn();
+            if (!win)
+            {
+                Invoke("AggiornaRitrattoPlayer", 0.1f);
+                ui.UI.SetActive(true);
+                ui.SetUiToPlayer(player[turno]);
+                player[turno].GetComponent<Player>().StartTurn();
+            }
         }
     }
 
@@ -229,7 +233,7 @@ public class CombatController : MonoBehaviour
     public void Win()
     {
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
-
+        win = true;
         int lvlTot = 0;
         foreach (var item in enemyLvl)
         {
@@ -294,6 +298,9 @@ public class CombatController : MonoBehaviour
         vita.color = new Color(vita.color.r, vita.color.g, vita.color.b, 1);
         Image BaseHealth = ui.enemyInfoPanel.transform.Find("BaseHealth").GetComponent<Image>();
         BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 1);
+        float _hp = (float)player[turno].GetComponent<Enemy>().hp;
+        float _hpMax = (float)player[turno].GetComponent<Enemy>().hpMax;
+        vita.fillAmount = ((100 * _hp) / _hpMax) / 100;
     }
 
     void AggiornaRitrattoPlayer()
@@ -314,6 +321,9 @@ public class CombatController : MonoBehaviour
         vita.color = new Color(vita.color.r, vita.color.g, vita.color.b, 1);
         Image BaseHealth = ui.enemyInfoPanel.transform.Find("BaseHealth").GetComponent<Image>();
         BaseHealth.color = new Color(BaseHealth.color.r, BaseHealth.color.g, BaseHealth.color.b, 1);
+        float _hp = (float)player[turno].GetComponent<Player>().stats.hp;
+        float _hpMax = (float)player[turno].GetComponent<Player>().stats.hpMax;
+        vita.fillAmount = ((100 * _hp) / _hpMax) / 100;
     }
 
     void AzzeraRitratto()

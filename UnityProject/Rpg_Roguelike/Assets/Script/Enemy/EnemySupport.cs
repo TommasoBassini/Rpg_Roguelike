@@ -18,6 +18,38 @@ public class EnemySupport : Enemy
 
     public AudioClip audioCura;
 
+    public override IEnumerator Attack(GameObject Target)
+    {
+        CombatController cc = FindObjectOfType<CombatController>();
+        Animator anim = GetComponent<Animator>();
+
+        if (Target.transform.position.x > this.transform.position.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
+        yield return new WaitForSeconds(0.5f);
+        if (attackEffect != null)
+        {
+            GameObject effect = Instantiate(attackEffect);
+            effect.transform.position = Target.transform.position;
+        }
+        // Suono
+        if (audioAttack != null)
+        {
+            AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+            audio.PlayOneShot(audioAttack);
+        }
+
+        Player player = Target.GetComponent<Player>();
+        player.SubisciDannoMagico(att);
+        yield return new WaitForSeconds(2);
+        cc.EndOfTurn();
+    }
+
     public override void Ai()
     {
         bool enemyInDifficolta = false;
@@ -60,7 +92,7 @@ public class EnemySupport : Enemy
         if (grid.EnemyCheckPlayer(this.pos, this.passi, this.gameObject, out targetPos))
         {
             StartCoroutine(Attacco((grid.cells[(int)targetPos.x, (int)targetPos.y].occupier)));
-            StartCoroutine(AttackPlayer(grid.cells[(int)targetPos.x, (int)targetPos.y].occupier));
+            StartCoroutine(Attack(grid.cells[(int)targetPos.x, (int)targetPos.y].occupier));
         }
         else
         {
