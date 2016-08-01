@@ -98,12 +98,12 @@ public class CombatController : MonoBehaviour
         string nome = "";
         for (int i = 0; i < turnImage.Length; i++)
         {
-            if (player[i].name == "Jopep")
+            if (player[i].name == "Jupep")
             {
                 turnImage[i].sprite = turnPortrait[0];
                 if(i == 0)
                 {
-                    nome = "Jopep";
+                    nome = "Jupep";
                 }
             }
             if (player[i ].name == "Elibeth")
@@ -127,7 +127,7 @@ public class CombatController : MonoBehaviour
                 turnImage[i].sprite = turnPortrait[3];
                 if (i == 0)
                 {
-                    nome = "Mage";
+                    nome = "Fehyder";
                 }
             }
             if (player[i].name.Contains("Melee"))
@@ -135,7 +135,7 @@ public class CombatController : MonoBehaviour
                 turnImage[i].sprite = turnPortrait[4];
                 if (i == 0)
                 {
-                    nome = "Melee";
+                    nome = "Simhiur";
                 }
             }
             if (player[i].name.Contains("Ranged"))
@@ -143,7 +143,7 @@ public class CombatController : MonoBehaviour
                 turnImage[i].sprite = turnPortrait[5];
                 if (i == 0)
                 {
-                    nome = "Ranged";
+                    nome = "Andryen";
                 }
             }
         }
@@ -219,7 +219,6 @@ public class CombatController : MonoBehaviour
                 n++;
             }
         }
-        Debug.Log(n);
         if (n == 1)
         {
             return true;

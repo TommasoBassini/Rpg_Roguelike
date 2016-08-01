@@ -20,7 +20,7 @@ public class MageAbility : MonoBehaviour
     public Button[] buttonAbilita = new Button[5];
 
     public GameObject protezione;
-    public GameObject cura;
+    public GameObject spriteCura;
     public GameObject assorbiAnimaEnemy;
     public GameObject assorbiAnimaPlayer;
     public GameObject ragnatela;
@@ -421,7 +421,7 @@ public class MageAbility : MonoBehaviour
         //costo e variabili
         int mp = costoAbilita[0];
         Player playerTarget = _player.GetComponent<Player>();
-        GameObject effect = Instantiate(ragnatela);
+        GameObject effect = Instantiate(spriteCura);
         effect.transform.position = _player.transform.position;
         // Suono
         AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
