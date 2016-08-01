@@ -122,6 +122,7 @@ public class BattleGrid : MonoBehaviour
                 cc.player.Add(newEnemy);
             }
             nUsatiEnemy.RemoveAt(enemX);
+            cc.TurnOrder(cc.tempo, cc.tempo.Count);
         }
         else if (stats.tipoIncontro == 2)
         {
@@ -144,6 +145,7 @@ public class BattleGrid : MonoBehaviour
                 cc.player.Add(newEnemy);
             }
             nUsatiEnemy.RemoveAt(enemX);
+            cc.TurnOrder(cc.tempo, cc.tempo.Count);
         }
         else if (stats.tipoIncontro == 3)
         {
@@ -166,6 +168,7 @@ public class BattleGrid : MonoBehaviour
                 cc.player.Add(newEnemy);
             }
             nUsatiEnemy.RemoveAt(enemX);
+            cc.TurnOrder(cc.tempo, cc.tempo.Count);
         }
         else if (stats.tipoIncontro == 4)
         {
@@ -192,6 +195,7 @@ public class BattleGrid : MonoBehaviour
                         cc.player.Add(newEnemy);
                     }
                     nUsatiEnemy.RemoveAt(enemX);
+
                 }
                 if (i == 1)
                 {
@@ -233,7 +237,7 @@ public class BattleGrid : MonoBehaviour
                     }
                     nUsatiEnemy.RemoveAt(enemX);
                 }
-
+                cc.TurnOrder(cc.tempo, cc.tempo.Count);
             }
 
         }

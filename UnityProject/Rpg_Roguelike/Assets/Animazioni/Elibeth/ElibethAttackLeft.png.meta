@@ -1,0 +1,331 @@
+fileFormatVersion: 2
+guid: 2f0c41014f3c1a8488713a4e349f63f4
+timeCreated: 1470065852
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ragnotrequartiColpo_0
+    21300002: ragnotrequartiColpo_1
+    21300004: ragnotrequartiColpo_2
+    21300006: ragnotrequartiColpo_3
+    21300008: ragnotrequartiColpo_4
+    21300010: ragnotrequartiColpo_5
+    21300012: ragnotrequartiColpo_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ragnotrequartiColpo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 50, y: 288}
+        - {x: 34, y: 275}
+        - {x: 9, y: 204}
+        - {x: 8, y: 194}
+        - {x: 9, y: 177}
+        - {x: 11, y: 168}
+        - {x: 18, y: 166}
+        - {x: -10, y: 157}
+        - {x: -44, y: 134}
+        - {x: -1, y: 178}
+        - {x: 8, y: 209}
+        - {x: -17, y: 283}
+        - {x: -28, y: 296}
+        - {x: -40, y: 296}
+        - {x: -46, y: 294}
+        - {x: -51, y: 278}
+        - {x: -55, y: 264}
+        - {x: -57, y: 250}
+        - {x: -90, y: 295}
+        - {x: -128, y: 210}
+        - {x: -128, y: 11}
+        - {x: -84, y: -94}
+        - {x: -72, y: -99}
+        - {x: 129, y: -99}
+        - {x: 129, y: 217}
+        - {x: 109, y: 252}
+    - name: ragnotrequartiColpo_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 133, y: 104}
+        - {x: 133, y: 235}
+        - {x: 127, y: 251}
+        - {x: 87, y: 288}
+        - {x: 68, y: 275}
+        - {x: 17, y: 185}
+        - {x: 27, y: 174}
+        - {x: 32, y: 170}
+        - {x: 3, y: 165}
+        - {x: -21, y: 154}
+        - {x: -39, y: 134}
+        - {x: 13, y: 191}
+        - {x: -10, y: 290}
+        - {x: -28, y: 299}
+        - {x: -52, y: 299}
+        - {x: -59, y: 276}
+        - {x: -117, y: 266}
+        - {x: -135, y: 239}
+        - {x: -136, y: 229}
+        - {x: -136, y: 105}
+        - {x: -120, y: 48}
+        - {x: -86, y: -92}
+        - {x: -79, y: -99}
+        - {x: 82, y: -99}
+        - {x: 85, y: -77}
+        - {x: 68, y: -37}
+        - {x: 126, y: 35}
+    - name: ragnotrequartiColpo_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 116, y: 4}
+        - {x: 141, y: 75}
+        - {x: 141, y: 125}
+        - {x: 136, y: 224}
+        - {x: 90, y: 222}
+        - {x: 66, y: 265}
+        - {x: 53, y: 270}
+        - {x: 37, y: 270}
+        - {x: 31, y: 259}
+        - {x: -1, y: 169}
+        - {x: -25, y: 267}
+        - {x: -30, y: 270}
+        - {x: -48, y: 270}
+        - {x: -55, y: 268}
+        - {x: -92, y: 229}
+        - {x: -128, y: 138}
+        - {x: -128, y: 36}
+        - {x: -43, y: -12}
+        - {x: -78, y: -78}
+        - {x: -78, y: -88}
+        - {x: -71, y: -93}
+        - {x: -46, y: -98}
+        - {x: 60, y: -98}
+        - {x: 84, y: -90}
+        - {x: 85, y: -77}
+        - {x: 54, y: -13}
+    - name: ragnotrequartiColpo_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60, y: -71}
+        - {x: 68, y: -49}
+        - {x: 65, y: -47}
+        - {x: 98, y: -6}
+        - {x: 134, y: 39}
+        - {x: 134, y: 135}
+        - {x: 105, y: 230}
+        - {x: 49, y: 266}
+        - {x: 27, y: 266}
+        - {x: 20, y: 254}
+        - {x: 9, y: 200}
+        - {x: -6, y: 266}
+        - {x: -20, y: 266}
+        - {x: -21, y: 265}
+        - {x: -53, y: 240}
+        - {x: -103, y: 234}
+        - {x: -131, y: 154}
+        - {x: -133, y: 139}
+        - {x: -133, y: 56}
+        - {x: -127, y: 37}
+        - {x: -54, y: -25}
+        - {x: -89, y: -93}
+        - {x: -73, y: -98}
+        - {x: -59, y: -99}
+        - {x: 62, y: -99}
+        - {x: 82, y: -89}
+        - {x: 82, y: -79}
+        - {x: 75, y: -74}
+    - name: ragnotrequartiColpo_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 112, y: 7}
+        - {x: 130, y: 57}
+        - {x: 135, y: 81}
+        - {x: 135, y: 116}
+        - {x: 121, y: 201}
+        - {x: 97, y: 224}
+        - {x: 58, y: 266}
+        - {x: 44, y: 266}
+        - {x: 33, y: 250}
+        - {x: 15, y: 163}
+        - {x: -10, y: 178}
+        - {x: -20, y: 261}
+        - {x: -26, y: 266}
+        - {x: -44, y: 266}
+        - {x: -69, y: 223}
+        - {x: -96, y: 232}
+        - {x: -129, y: 203}
+        - {x: -144, y: 123}
+        - {x: -144, y: 72}
+        - {x: -126, y: 20}
+        - {x: -53, y: -13}
+        - {x: -68, y: -56}
+        - {x: -83, y: -92}
+        - {x: -61, y: -100}
+        - {x: 50, y: -100}
+        - {x: 75, y: -99}
+        - {x: 86, y: -78}
+        - {x: 71, y: -58}
+        - {x: 50, y: -19}
+    - name: ragnotrequartiColpo_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 55, y: -16}
+        - {x: 118, y: 10}
+        - {x: 134, y: 74}
+        - {x: 134, y: 161}
+        - {x: 117, y: 229}
+        - {x: 75, y: 233}
+        - {x: 68, y: 261}
+        - {x: 59, y: 270}
+        - {x: 46, y: 268}
+        - {x: 37, y: 259}
+        - {x: -10, y: 268}
+        - {x: -18, y: 271}
+        - {x: -48, y: 271}
+        - {x: -73, y: 249}
+        - {x: -108, y: 229}
+        - {x: -133, y: 133}
+        - {x: -133, y: 64}
+        - {x: -130, y: 36}
+        - {x: -55, y: -11}
+        - {x: -60, y: -37}
+        - {x: -79, y: -91}
+        - {x: -63, y: -98}
+        - {x: -44, y: -99}
+        - {x: 62, y: -99}
+        - {x: 81, y: -92}
+        - {x: 84, y: -79}
+        - {x: 75, y: -48}
+    - name: ragnotrequartiColpo_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 133, y: 104}
+        - {x: 133, y: 235}
+        - {x: 127, y: 251}
+        - {x: 87, y: 288}
+        - {x: 68, y: 275}
+        - {x: 17, y: 185}
+        - {x: 27, y: 174}
+        - {x: 32, y: 170}
+        - {x: 3, y: 165}
+        - {x: -21, y: 154}
+        - {x: -39, y: 134}
+        - {x: 13, y: 191}
+        - {x: -10, y: 290}
+        - {x: -28, y: 299}
+        - {x: -52, y: 299}
+        - {x: -59, y: 276}
+        - {x: -117, y: 266}
+        - {x: -135, y: 239}
+        - {x: -136, y: 229}
+        - {x: -136, y: 105}
+        - {x: -120, y: 48}
+        - {x: -86, y: -92}
+        - {x: -79, y: -99}
+        - {x: 82, y: -99}
+        - {x: 85, y: -77}
+        - {x: 68, y: -37}
+        - {x: 126, y: 35}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

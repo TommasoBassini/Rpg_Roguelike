@@ -116,6 +116,10 @@ public class UiController : MonoBehaviour
                         {
                             Destroy(item);
                         }
+                        foreach (Transform item in EnemyListPanel.transform)
+                        {
+                            Destroy(item.gameObject);
+                        }
                         foreach (var item in buffBoxList)
                         {
                             Destroy(item);

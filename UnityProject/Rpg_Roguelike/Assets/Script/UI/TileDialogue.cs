@@ -38,7 +38,7 @@ public class TileDialogue : MonoBehaviour
             {
                 text.text = "";
                 panelDialogue.SetActive(false);
-                player.isSpeaking = false;
+                player.isSpeakingTwo = false;
                 isDIalogueStart = false;
                 Destroy(this.gameObject);
             }
@@ -52,7 +52,7 @@ public class TileDialogue : MonoBehaviour
             if (!isDIalogueStart)
             {
                 player = col.gameObject.GetComponent<PlayerMovement>();
-                player.isSpeaking = true;
+                player.isSpeakingTwo = true;
                 isDIalogueStart = true;
 
                 panelDialogue.SetActive(true);

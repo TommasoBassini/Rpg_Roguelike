@@ -163,7 +163,16 @@ public class Dps : Player
     {
         Invoke("DestroyButton", 0.6f);
         Enemy enemy = _enemy.GetComponent<Enemy>();
-        Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
+
+        if (enemy.pos.x >= this.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
+
         enemy.SubisciDannoMelee(stats.attDistanza, _enemy);
         GameObject effect = Instantiate(spriteAttacco);
         effect.transform.position = _enemy.transform.position;

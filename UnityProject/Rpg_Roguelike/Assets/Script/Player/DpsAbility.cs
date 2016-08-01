@@ -194,7 +194,15 @@ public class DpsAbility : MonoBehaviour
         //calcola effetto
         int danni = player.stats.attDistanza + Mathf.RoundToInt(player.stats.attDistanza / 2);
         Enemy enemy = _enemy.GetComponent<Enemy>();
-
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         GameObject effect = Instantiate(frecceGemelleSprite);
         effect.transform.position = _enemy.transform.position;
         // Suono
@@ -279,6 +287,15 @@ public class DpsAbility : MonoBehaviour
         int danni = player.stats.attDistanza;
         //calcola effetto
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         GameObject effect = Instantiate(dardoAvvelenato);
         effect.transform.position = _enemy.transform.position;
         GameObject effect1 = Instantiate(veleno);
@@ -389,6 +406,15 @@ public class DpsAbility : MonoBehaviour
         // cerca i target
         
         Enemy ene = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (ene.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         int _x = (int)ene.pos.x;
         int _y = (int)ene.pos.y;
 

@@ -1,0 +1,336 @@
+fileFormatVersion: 2
+guid: fd0418b369fecf8498757b00478be9ba
+timeCreated: 1470065969
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WightTreQuartiColpo_0
+    21300002: WightTreQuartiColpo_1
+    21300004: WightTreQuartiColpo_2
+    21300006: WightTreQuartiColpo_3
+    21300008: WightTreQuartiColpo_4
+    21300010: WightTreQuartiColpo_5
+    21300012: WightTreQuartiColpo_6
+    21300014: WightTreQuartiColpo_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WightTreQuartiColpo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 83, y: 173}
+        - {x: 67, y: 221}
+        - {x: 31, y: 236}
+        - {x: -39, y: 236}
+        - {x: -76, y: 203}
+        - {x: -86, y: 164}
+        - {x: -86, y: 139}
+        - {x: -77, y: 73}
+        - {x: -70, y: -2}
+        - {x: -86, y: -25}
+        - {x: -86, y: -53}
+        - {x: -48, y: -95}
+        - {x: -23, y: -100}
+        - {x: 19, y: -100}
+        - {x: 30, y: -99}
+        - {x: 46, y: -92}
+        - {x: 45, y: -82}
+        - {x: 83, y: 32}
+    - name: WightTreQuartiColpo_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 85, y: 176}
+        - {x: 68, y: 220}
+        - {x: 29, y: 236}
+        - {x: -44, y: 236}
+        - {x: -56, y: 232}
+        - {x: -107, y: 159}
+        - {x: -116, y: -6}
+        - {x: -116, y: -11}
+        - {x: -102, y: -32}
+        - {x: -77, y: -63}
+        - {x: -46, y: -51}
+        - {x: -52, y: -85}
+        - {x: -51, y: -93}
+        - {x: -38, y: -99}
+        - {x: 44, y: -99}
+        - {x: 54, y: -84}
+        - {x: 84, y: 20}
+        - {x: 85, y: 34}
+      - - {x: 73, y: 218}
+        - {x: 76, y: 219}
+        - {x: 76, y: 222}
+        - {x: 73, y: 223}
+        - {x: 71, y: 221}
+      - - {x: 20, y: 240}
+        - {x: 21, y: 237}
+        - {x: 25, y: 237}
+        - {x: 27, y: 239}
+        - {x: 26, y: 242}
+        - {x: 22, y: 242}
+    - name: WightTreQuartiColpo_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 89, y: 167}
+        - {x: 75, y: 212}
+        - {x: 44, y: 231}
+        - {x: -48, y: 231}
+        - {x: -93, y: 149}
+        - {x: -72, y: 61}
+        - {x: -113, y: 69}
+        - {x: -137, y: 23}
+        - {x: -137, y: -4}
+        - {x: -77, y: -49}
+        - {x: -55, y: -23}
+        - {x: -45, y: -68}
+        - {x: -58, y: -99}
+        - {x: 64, y: -99}
+        - {x: 84, y: 18}
+        - {x: 69, y: 41}
+        - {x: 89, y: 102}
+      - - {x: 79, y: 218}
+        - {x: 77, y: 216}
+        - {x: 77, y: 211}
+        - {x: 79, y: 209}
+        - {x: 82, y: 209}
+        - {x: 84, y: 211}
+        - {x: 84, y: 215}
+        - {x: 81, y: 218}
+    - name: WightTreQuartiColpo_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 76, y: 8}
+        - {x: 89, y: 33}
+        - {x: 98, y: 85}
+        - {x: 98, y: 182}
+        - {x: 53, y: 229}
+        - {x: -24, y: 229}
+        - {x: -66, y: 206}
+        - {x: -135, y: 38}
+        - {x: -135, y: 16}
+        - {x: -106, y: -11}
+        - {x: -85, y: -32}
+        - {x: -64, y: -8}
+        - {x: -64, y: -96}
+        - {x: -45, y: -99}
+        - {x: 71, y: -99}
+        - {x: 70, y: 3}
+        - {x: 69, y: 5}
+    - name: WightTreQuartiColpo_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 107, y: 84}
+        - {x: 107, y: 185}
+        - {x: 68, y: 225}
+        - {x: -9, y: 225}
+        - {x: -49, y: 200}
+        - {x: -75, y: 151}
+        - {x: -78, y: 92}
+        - {x: -126, y: 39}
+        - {x: -126, y: 20}
+        - {x: -85, y: -24}
+        - {x: -80, y: -21}
+        - {x: -61, y: -84}
+        - {x: -59, y: -99}
+        - {x: -50, y: -100}
+        - {x: 59, y: -100}
+        - {x: 71, y: -96}
+        - {x: 45, y: -53}
+        - {x: 83, y: 18}
+    - name: WightTreQuartiColpo_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 91, y: 189}
+        - {x: 83, y: 215}
+        - {x: 32, y: 232}
+        - {x: -35, y: 232}
+        - {x: -77, y: 187}
+        - {x: -92, y: 100}
+        - {x: -120, y: 73}
+        - {x: -131, y: 48}
+        - {x: -131, y: 29}
+        - {x: -104, y: -5}
+        - {x: -58, y: 11}
+        - {x: -49, y: -64}
+        - {x: -75, y: -97}
+        - {x: -55, y: -100}
+        - {x: 35, y: -100}
+        - {x: 55, y: -99}
+        - {x: 63, y: -84}
+        - {x: 79, y: 21}
+        - {x: 91, y: 119}
+      - - {x: -145, y: 3}
+        - {x: -148, y: 2}
+        - {x: -148, y: -1}
+        - {x: -144, y: -5}
+        - {x: -141, y: -5}
+        - {x: -138, y: -4}
+        - {x: -138, y: 0}
+        - {x: -139, y: 3}
+    - name: WightTreQuartiColpo_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 107, y: 90}
+        - {x: 107, y: 188}
+        - {x: 96, y: 206}
+        - {x: 47, y: 225}
+        - {x: -19, y: 225}
+        - {x: -27, y: 221}
+        - {x: -69, y: 156}
+        - {x: -114, y: 70}
+        - {x: -114, y: 10}
+        - {x: -84, y: -22}
+        - {x: -80, y: -21}
+        - {x: -62, y: -96}
+        - {x: -53, y: -100}
+        - {x: 50, y: -100}
+        - {x: 57, y: -84}
+        - {x: 69, y: -11}
+        - {x: 90, y: 37}
+      - - {x: -123, y: -26}
+        - {x: -127, y: -29}
+        - {x: -127, y: -32}
+        - {x: -125, y: -34}
+        - {x: -121, y: -34}
+        - {x: -118, y: -32}
+        - {x: -118, y: -29}
+        - {x: -119, y: -26}
+      - - {x: 102, y: 200}
+        - {x: 102, y: 196}
+        - {x: 104, y: 194}
+        - {x: 106, y: 194}
+        - {x: 108, y: 196}
+        - {x: 108, y: 198}
+        - {x: 105, y: 201}
+    - name: WightTreQuartiColpo_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 85, y: 187}
+        - {x: 41, y: 237}
+        - {x: -43, y: 237}
+        - {x: -89, y: 185}
+        - {x: -87, y: 157}
+        - {x: -75, y: 73}
+        - {x: -112, y: 5}
+        - {x: -116, y: -4}
+        - {x: -116, y: -9}
+        - {x: -89, y: -48}
+        - {x: -52, y: -85}
+        - {x: -51, y: -93}
+        - {x: -38, y: -99}
+        - {x: 44, y: -99}
+        - {x: 54, y: -84}
+        - {x: 84, y: 20}
+        - {x: 85, y: 34}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

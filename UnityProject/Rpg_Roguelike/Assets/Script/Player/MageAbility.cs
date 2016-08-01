@@ -152,6 +152,15 @@ public class MageAbility : MonoBehaviour
         //calcola effetto
         int danni = Mathf.RoundToInt  (((player.stats.attMagico) * 1.5f) * (Random.Range(1.0f,1.25f)));
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         //scala il danno dal nemico e gli mp al player
         enemy.SubisciDannoRanged(danni, _enemy);
         player.stats.mp -= mp;
@@ -260,6 +269,15 @@ public class MageAbility : MonoBehaviour
         //calcola effetto
         int danni = Mathf.RoundToInt(((1) * 1.5f) * (Random.Range(1.0f, 1.25f)));
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         //scala il danno dal nemico e gli mp al player
         enemy.SubisciDannoRanged(danni, _enemy);
         player.stats.mp -= mp;
@@ -336,7 +354,15 @@ public class MageAbility : MonoBehaviour
         int mp = costoAbilita[1];
         int nTurniBuff = 2;
         Player playerTarget = _player.GetComponent<Player>();
-
+        Animator anim = player.GetComponent<Animator>();
+        if (playerTarget.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         GameObject effect = Instantiate(protezione);
         effect.transform.position = new Vector3 (_player.transform.position.x, _player.transform.position.y + 0.5f, _player.transform.position.z);
         // Suono
@@ -434,6 +460,15 @@ public class MageAbility : MonoBehaviour
         }
         else
             playerTarget.stats.hp += cura;
+        Animator anim = player.GetComponent<Animator>();
+        if (playerTarget.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _player.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
@@ -514,6 +549,15 @@ public class MageAbility : MonoBehaviour
         int danni = player.stats.attDistanza;
 
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         GameObject effect = Instantiate(assorbiAnimaEnemy);
         effect.transform.position = new Vector3 (_enemy.transform.position.x, _enemy.transform.position.y + 0.5f, _enemy.transform.position.z);
         GameObject effect1 = Instantiate(assorbiAnimaPlayer);

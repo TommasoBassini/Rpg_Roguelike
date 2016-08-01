@@ -146,6 +146,31 @@ public class CombatController : MonoBehaviour
                     nome = "Andryen";
                 }
             }
+            if (player[i].name.Contains("BossMage"))
+            {
+                turnImage[i].sprite = turnPortrait[6];
+                if (i == 0)
+                {
+                    nome = "Lurehins";
+                }
+            }
+            if (player[i].name.Contains("BossRanged"))
+            {
+                turnImage[i].sprite = turnPortrait[7];
+                if (i == 0)
+                {
+                    nome = "Gevinna";
+                }
+                
+            }
+            if (player[i].name.Contains("BossTank"))
+            {
+                turnImage[i].sprite = turnPortrait[8];
+                if (i == 0)
+                {
+                    nome = "Taum";
+                }
+            }
         }
         Text text = GameObject.Find("Nome").GetComponent<Text>();
         text.text = nome.ToUpper();
@@ -240,7 +265,7 @@ public class CombatController : MonoBehaviour
         }
 
         int exp = Mathf.RoundToInt((lvlTot * (Random.Range(3.0f, 5.0f))) * Random.Range(1.0f, 1.25f)* 10);
-        int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(7, 10))) * Random.Range(1.0f, 1.25f)* 10);
+        int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(2.0f, 4.0f))) * Random.Range(1.0f, 1.25f)* 10);
         bool health = false;
         if (Random.Range(0f,100f) > 90f)
         {

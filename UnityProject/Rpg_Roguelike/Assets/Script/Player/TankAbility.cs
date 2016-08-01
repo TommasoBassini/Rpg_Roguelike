@@ -150,6 +150,15 @@ public class TankAbility : MonoBehaviour
         GameObject effect = Instantiate(lanciaSassoSprite);
         effect.transform.position = _enemy.transform.position;
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         // Suono
         AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         audio.PlayOneShot(lanciaSas);
@@ -240,6 +249,15 @@ public class TankAbility : MonoBehaviour
         effect1.transform.position = _enemy.transform.position;
         //calcola effetto
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         int debuffDifesa = Mathf.RoundToInt((enemy.difesa * percentualeDebuff) / 100);
         enemy.nturnoDifesa.Add(nturni);
         enemy.debuffDifesa.Add(debuffDifesa);
@@ -334,6 +352,15 @@ public class TankAbility : MonoBehaviour
         GameObject effect1 = Instantiate(attaccoFisico);
         effect1.transform.position = _enemy.transform.position;
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         int debuffAttacco = Mathf.RoundToInt((enemy.att * percentualeDebuff) / 100);
         enemy.nturnoAttacco.Add(nturni);
         enemy.debuffAttacco.Add(debuffAttacco);
@@ -427,6 +454,15 @@ public class TankAbility : MonoBehaviour
         GameObject effect1 = Instantiate(attaccoCasuale);
         effect1.transform.position = _enemy.transform.position;
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         //scala il danno dal nemico e gli mp al player
         SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
         sr.color = Color.white;
@@ -534,6 +570,15 @@ public class TankAbility : MonoBehaviour
         effect1.transform.position = _enemy.transform.position;
         int danni = Mathf.RoundToInt(((player.stats.attMelee)) * (Random.Range(1.0f, 1.20f)));
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        Animator anim = player.GetComponent<Animator>();
+        if (enemy.pos.x >= player.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         // Suono
         AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         audio.PlayOneShot(audioPercuotere);

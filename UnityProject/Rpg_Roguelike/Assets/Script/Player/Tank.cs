@@ -86,6 +86,14 @@ public class Tank : Player
     {
         Invoke("DestroyButton", 0.6f);
         Enemy enemy = _enemy.GetComponent<Enemy>();
+        if (enemy.pos.x >= this.pos.x)
+        {
+            anim.SetTrigger("AttackRight");
+        }
+        else
+        {
+            anim.SetTrigger("AttackLeft");
+        }
         Debug.Log("il player " + this.gameObject.name + " ha attaccato " + enemy.name);
         enemy.SubisciDannoMelee(stats.attMelee, _enemy);
         GameObject effect = Instantiate(spriteAttacco);
