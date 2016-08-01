@@ -474,27 +474,27 @@ public class UiControlExploration : MonoBehaviour
                     Destrezzalvl.text = (stats.statsMago.destrezza + 1).ToString();
                     Spiritolvl.text = (stats.statsMago.Spirito + 1).ToString();
                     //Button
-                    abilita1.onClick.AddListener(() => MageAbility(1, stats.statsMago.costoAbilita[1]));
+                    abilita1.onClick.AddListener(() => MageAbility(1, costoAbilita[0]));
                     abilita1.image.sprite = AbilityMage[1];
                     Text abilitaText = menuStats.transform.Find("Button/Abilita1/Abilita1/Text").GetComponent<Text>();
                     abilitaText.text = "Cura";
 
-                    abilita2.onClick.AddListener(() => MageAbility(0, stats.statsMago.costoAbilita[0]));
+                    abilita2.onClick.AddListener(() => MageAbility(0, costoAbilita[1]));
                     abilita2.image.sprite = AbilityMage[0];
                     Text abilitaText2 = menuStats.transform.Find("Button/Abilita2/Abilita2/Text").GetComponent<Text>();
                     abilitaText2.text = "Protezione";
 
-                    abilita3.onClick.AddListener(() => MageAbility(2, stats.statsMago.costoAbilita[2]));
+                    abilita3.onClick.AddListener(() => MageAbility(2, costoAbilita[2]));
                     abilita3.image.sprite = AbilityMage[2];
                     Text abilitaText3 = menuStats.transform.Find("Button/Abilita3/Abilita3/Text").GetComponent<Text>();
                     abilitaText3.text = "Assorbi anima";
 
-                    abilita4.onClick.AddListener(() => MageAbility(3, stats.statsMago.costoAbilita[3]));
+                    abilita4.onClick.AddListener(() => MageAbility(3, costoAbilita[3]));
                     abilita4.image.sprite = AbilityMage[3];
                     Text abilitaText4 = menuStats.transform.Find("Button/Abilita4/Abilita4/Text").GetComponent<Text>();
                     abilitaText4.text = "Fulmine";
 
-                    abilita5.onClick.AddListener(() => MageAbility(4, stats.statsMago.costoAbilita[4]));
+                    abilita5.onClick.AddListener(() => MageAbility(4, costoAbilita[4]));
                     abilita5.image.sprite = AbilityMage[4];
                     Text abilitaText5 = menuStats.transform.Find("Button/Abilita5/Abilita5/Text").GetComponent<Text>();
                     abilitaText5.text = "Ragnatela";
@@ -521,27 +521,27 @@ public class UiControlExploration : MonoBehaviour
                     Spiritolvl.text = (stats.statsTank.Spirito + 1).ToString();
 
                     //Button
-                    abilita1.onClick.AddListener(() => TankAbility(0, stats.statsTank.costoAbilita[0]));
+                    abilita1.onClick.AddListener(() => TankAbility(0, costoAbilita[0]));
                     abilita1.image.sprite = AbilityTank[0];
                     Text abilitaText = menuStats.transform.Find("Button/Abilita1/Abilita1/Text").GetComponent<Text>();
                     abilitaText.text = "Sassata";
 
-                    abilita2.onClick.AddListener(() => TankAbility(1, stats.statsTank.costoAbilita[1]));
+                    abilita2.onClick.AddListener(() => TankAbility(1, costoAbilita[1]));
                     abilita2.image.sprite = AbilityTank[1];
                     Text abilitaText2 = menuStats.transform.Find("Button/Abilita2/Abilita2/Text").GetComponent<Text>();
                     abilitaText2.text = "Percuotere";
 
-                    abilita3.onClick.AddListener(() => TankAbility(2, stats.statsTank.costoAbilita[2]));
+                    abilita3.onClick.AddListener(() => TankAbility(2, costoAbilita[2]));
                     abilita3.image.sprite = AbilityTank[2];
                     Text abilitaText3 = menuStats.transform.Find("Button/Abilita3/Abilita3/Text").GetComponent<Text>();
                     abilitaText3.text = "Frantuma Scudo";
 
-                    abilita4.onClick.AddListener(() => TankAbility(3, stats.statsTank.costoAbilita[3]));
+                    abilita4.onClick.AddListener(() => TankAbility(3, costoAbilita[3]));
                     abilita4.image.sprite = AbilityTank[3];
                     Text abilitaText4 = menuStats.transform.Find("Button/Abilita4/Abilita4/Text").GetComponent<Text>();
                     abilitaText4.text = "Spezza Arma";
 
-                    abilita5.onClick.AddListener(() => TankAbility(4, stats.statsTank.costoAbilita[4]));
+                    abilita5.onClick.AddListener(() => TankAbility(4, costoAbilita[4]));
                     abilita5.image.sprite = AbilityTank[4];
                     Text abilitaText5 = menuStats.transform.Find("Button/Abilita5/Abilita5/Text").GetComponent<Text>();
                     abilitaText5.text = "Spaccateschio";
@@ -569,27 +569,27 @@ public class UiControlExploration : MonoBehaviour
                     Spiritolvl.text = (stats.statsDps.Spirito + 1).ToString();
 
                     //Button
-                    abilita1.onClick.AddListener(() => DpsAbility(0, stats.statsDps.costoAbilita[0]));
+                    abilita1.onClick.AddListener(() => DpsAbility(0, costoAbilita[0]));
                     abilita1.image.sprite = AbilityDps[0];
                     Text abilitaText = menuStats.transform.Find("Button/Abilita1/Abilita1/Text").GetComponent<Text>();
                     abilitaText.text = "Movimento oscuro";
 
-                    abilita2.onClick.AddListener(() => DpsAbility(1, stats.statsDps.costoAbilita[1]));
+                    abilita2.onClick.AddListener(() => DpsAbility(1, costoAbilita[1]));
                     abilita2.image.sprite = AbilityDps[1];
                     Text abilitaText2 = menuStats.transform.Find("Button/Abilita2/Abilita2/Text").GetComponent<Text>();
                     abilitaText2.text = "Esortazione";
 
-                    abilita3.onClick.AddListener(() => DpsAbility(2, stats.statsDps.costoAbilita[2]));
+                    abilita3.onClick.AddListener(() => DpsAbility(2, costoAbilita[2]));
                     abilita3.image.sprite = AbilityDps[2];
                     Text abilitaText3 = menuStats.transform.Find("Button/Abilita3/Abilita3/Text").GetComponent<Text>();
                     abilitaText3.text = "Frecce gemelle";
 
-                    abilita4.onClick.AddListener(() => DpsAbility(3, stats.statsDps.costoAbilita[3]));
+                    abilita4.onClick.AddListener(() => DpsAbility(3, costoAbilita[3]));
                     abilita4.image.sprite = AbilityDps[3];
                     Text abilitaText4 = menuStats.transform.Find("Button/Abilita4/Abilita4/Text").GetComponent<Text>();
                     abilitaText4.text = "Dardo avvelenato";
 
-                    abilita5.onClick.AddListener(() => DpsAbility(4, stats.statsDps.costoAbilita[4]));
+                    abilita5.onClick.AddListener(() => DpsAbility(4, costoAbilita[4]));
                     abilita5.image.sprite = AbilityDps[4];
                     Text abilitaText5 = menuStats.transform.Find("Button/Abilita5/Abilita5/Text").GetComponent<Text>();
                     abilitaText5.text = "Pioggia di frecce";
@@ -739,7 +739,7 @@ public class UiControlExploration : MonoBehaviour
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
         if (costo < stats.esperience && !stats.statsMago.abilitaSbloccate[i])
         {
-            stats.esperience -= costoAbilita[i];
+            stats.esperience -= costo;
             stats.statsMago.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
@@ -751,7 +751,7 @@ public class UiControlExploration : MonoBehaviour
 
         if (costo < stats.esperience && !stats.statsTank.abilitaSbloccate[i])
         {
-            stats.esperience -= costoAbilita[i];
+            stats.esperience -= costo;
             stats.statsTank.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
@@ -762,7 +762,7 @@ public class UiControlExploration : MonoBehaviour
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
         if (costo < stats.esperience && !stats.statsDps.abilitaSbloccate[i])
         {
-            stats.esperience -= costoAbilita[i];
+            stats.esperience -= costo;
             stats.statsDps.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
