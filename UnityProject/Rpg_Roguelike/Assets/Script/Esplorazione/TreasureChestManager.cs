@@ -19,6 +19,7 @@ public class TreasureChestManager : MonoBehaviour
 
     public GameObject panelAvvisi;
 
+    public Sprite alpha;
     public Sprite vitaGrande;
     public Sprite manaGrande;
     public Sprite tankPowerUpSprite;
@@ -105,7 +106,7 @@ public class TreasureChestManager : MonoBehaviour
                 Image image = panelAvvisi.transform.Find("Image").GetComponent<Image>();
                 Text info = panelAvvisi.transform.Find("Info").GetComponent<Text>();
 
-                titolo.text = "Hai trovato: " + nSoldi.ToString() + " soldi";
+                titolo.text = "Hai trovato: " + nSoldi.ToString() + " gocce di sangue";
                 image.sprite = soldiSprite;
                 info.text = "Usali per acquistare pozioni";
             }
@@ -195,6 +196,18 @@ public class TreasureChestManager : MonoBehaviour
                 titolo.text = "Hai trovato: Runa della destrezza";
                 image.sprite = dpsPowerUpSprite;
                 info.text = "Questo oggetto ha aumentato la caratteristica destrezza di Jupep";
+            }
+            if (!dpsPowerUp && !tankPowerUp && !magePowerUp && !soldi && !hpPotion && !mpPotion)
+            {
+                panelAvvisi.SetActive(true);
+
+                Text titolo = panelAvvisi.transform.Find("Titolo").GetComponent<Text>();
+                Image image = panelAvvisi.transform.Find("Image").GetComponent<Image>();
+                Text info = panelAvvisi.transform.Find("Info").GetComponent<Text>();
+
+                titolo.text = "Il forziere è vuoto";
+                image.sprite = alpha;
+                info.text = "Sara' gia' stato razziato";
             }
             sr.sprite = openChest;
             return;

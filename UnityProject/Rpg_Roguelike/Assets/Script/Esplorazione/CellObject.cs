@@ -25,14 +25,16 @@ public class CellObject : MonoBehaviour
     {
         if (coll.gameObject.name == "Player")
         {
-            GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(dropKey);
-            PlayerMovement player = coll.gameObject.GetComponent<PlayerMovement>();
-            player.hasKey = true;
-            keys.nKeys++;
-            Debug.Log("Presa chiave");
             Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
+            PlayerMovement player = coll.gameObject.GetComponent<PlayerMovement>();
             Grid grid = FindObjectOfType<Grid>();
             grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = null;
+            GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(dropKey);
+            player.hasKey = true;
+            keys.nKeys++;
+
+            UiControlExploration ui = FindObjectOfType<UiControlExploration>();
+            ui.AggiornaKey();
             Destroy(this.gameObject);
         }
     }

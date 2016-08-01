@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip walk;
     public int nPassi = 0;
 
+    public bool isSpeakingTwo = false;
     public bool isOpenMenu = false;
 
     void Start ()
@@ -62,12 +63,12 @@ public class PlayerMovement : MonoBehaviour
 
                 nPassi++;
                 randomEncounterProbably += 5;
-                if (Random.Range(randomEncounterProbably, 300) > 295 && nPassi > 20)
+                if (Random.Range(randomEncounterProbably, 300) > 295 && nPassi > 26)
                 {
                     nPassi = 0;
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    StartCoroutine (gc.RandomEncounter(_pos));
+                    //StartCoroutine (gc.RandomEncounter(_pos));
                 }
             }
         }
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        if (!isSpeaking && !isOpenMenu)
+        if (!isSpeaking && !isOpenMenu && !isSpeakingTwo)
         {
             if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0.5f) && !isMoving)
             {
