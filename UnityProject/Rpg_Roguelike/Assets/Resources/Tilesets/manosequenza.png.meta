@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: c1ec7eeee0b693142a5e96d882bbfe72
+timeCreated: 1470060004
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: manosequenza_0
+    21300002: manosequenza_1
+    21300004: manosequenza_2
+    21300006: manosequenza_3
+    21300008: manosequenza_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: manosequenza_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 159, y: 47}
+        - {x: 59, y: 47}
+        - {x: 41, y: 20}
+        - {x: 51, y: 3}
+        - {x: 44, y: -3}
+        - {x: 47, y: 0}
+        - {x: 48, y: 4}
+        - {x: 38, y: 19}
+        - {x: -38, y: 47}
+        - {x: -63, y: 47}
+        - {x: -141, y: 26}
+        - {x: -149, y: 14}
+        - {x: -149, y: -121}
+        - {x: -135, y: -143}
+        - {x: 150, y: -143}
+        - {x: 191, y: -101}
+        - {x: 191, y: 0}
+        - {x: 182, y: 22}
+    - name: manosequenza_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 160, y: 47}
+        - {x: 55, y: 47}
+        - {x: 41, y: 20}
+        - {x: 51, y: 3}
+        - {x: 44, y: -3}
+        - {x: 47, y: 0}
+        - {x: 48, y: 4}
+        - {x: 38, y: 19}
+        - {x: -38, y: 47}
+        - {x: -63, y: 47}
+        - {x: -141, y: 26}
+        - {x: -149, y: 14}
+        - {x: -149, y: -121}
+        - {x: -135, y: -143}
+        - {x: 150, y: -143}
+        - {x: 191, y: -101}
+        - {x: 191, y: -2}
+        - {x: 182, y: 21}
+    - name: manosequenza_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 169, y: 47}
+        - {x: 64, y: 47}
+        - {x: 60, y: 46}
+        - {x: 37, y: 18}
+        - {x: 51, y: 3}
+        - {x: 44, y: -3}
+        - {x: 47, y: 0}
+        - {x: 47, y: 4}
+        - {x: 45, y: 8}
+        - {x: 37, y: 13}
+        - {x: -44, y: 47}
+        - {x: -54, y: 47}
+        - {x: -143, y: 28}
+        - {x: -149, y: 19}
+        - {x: -149, y: -120}
+        - {x: -135, y: -143}
+        - {x: 151, y: -143}
+        - {x: 191, y: -105}
+        - {x: 191, y: 6}
+        - {x: 175, y: 45}
+    - name: manosequenza_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 169, y: 47}
+        - {x: 64, y: 47}
+        - {x: 60, y: 46}
+        - {x: 37, y: 18}
+        - {x: 51, y: 3}
+        - {x: 44, y: -3}
+        - {x: 47, y: 0}
+        - {x: 47, y: 4}
+        - {x: 45, y: 8}
+        - {x: 37, y: 13}
+        - {x: -44, y: 47}
+        - {x: -54, y: 47}
+        - {x: -143, y: 28}
+        - {x: -149, y: 19}
+        - {x: -149, y: -120}
+        - {x: -135, y: -143}
+        - {x: 151, y: -143}
+        - {x: 191, y: -105}
+        - {x: 191, y: 6}
+        - {x: 175, y: 45}
+    - name: manosequenza_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 169, y: 47}
+        - {x: 64, y: 47}
+        - {x: 60, y: 46}
+        - {x: 37, y: 18}
+        - {x: 51, y: 3}
+        - {x: 44, y: -3}
+        - {x: 47, y: 0}
+        - {x: 47, y: 4}
+        - {x: 45, y: 8}
+        - {x: 37, y: 13}
+        - {x: -44, y: 47}
+        - {x: -54, y: 47}
+        - {x: -143, y: 28}
+        - {x: -149, y: 19}
+        - {x: -149, y: -120}
+        - {x: -135, y: -143}
+        - {x: 151, y: -143}
+        - {x: 191, y: -105}
+        - {x: 191, y: 6}
+        - {x: 175, y: 45}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

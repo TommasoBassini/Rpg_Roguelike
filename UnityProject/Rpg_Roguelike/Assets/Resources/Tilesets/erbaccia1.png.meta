@@ -1,0 +1,329 @@
+fileFormatVersion: 2
+guid: a5a44d7050fd8124d8c6e46f94e7ab56
+timeCreated: 1470061794
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: erbaccia1_0
+    21300002: erbaccia1_1
+    21300004: erbaccia1_2
+    21300006: erbaccia1_3
+    21300008: erbaccia1_4
+    21300010: erbaccia1_5
+    21300012: erbaccia1_6
+    21300014: erbaccia1_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: erbaccia1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 124}
+        - {x: -43, y: 90}
+        - {x: -56, y: 123}
+        - {x: -84, y: 185}
+        - {x: -100, y: 185}
+        - {x: -194, y: -15}
+        - {x: -194, y: -185}
+        - {x: -189, y: -193}
+        - {x: -26, y: -193}
+        - {x: 23, y: -143}
+        - {x: 23, y: -90}
+        - {x: 2, y: 126}
+      - - {x: -50, y: -93}
+        - {x: -50, y: -119}
+        - {x: 62, y: -119}
+        - {x: 63, y: -117}
+        - {x: 63, y: -97}
+        - {x: 59, y: -93}
+    - name: erbaccia1_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -73, y: -116}
+        - {x: 23, y: 41}
+        - {x: 23, y: 57}
+        - {x: -27, y: 157}
+        - {x: -97, y: 185}
+        - {x: -116, y: 185}
+        - {x: -118, y: 184}
+        - {x: -128, y: 86}
+        - {x: -194, y: -26}
+        - {x: -194, y: -188}
+        - {x: -191, y: -193}
+        - {x: -11, y: -193}
+        - {x: 23, y: -159}
+        - {x: 23, y: -121}
+        - {x: 5, y: -109}
+      - - {x: 56, y: -93}
+        - {x: -43, y: -93}
+        - {x: -51, y: -95}
+        - {x: -51, y: -114}
+        - {x: -49, y: -116}
+        - {x: -10, y: -119}
+        - {x: 50, y: -119}
+        - {x: 56, y: -118}
+        - {x: 63, y: -108}
+        - {x: 63, y: -101}
+    - name: erbaccia1_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: -119}
+        - {x: 10, y: -118}
+        - {x: 5, y: -118}
+        - {x: 4, y: -117}
+        - {x: 7, y: -118}
+        - {x: 13, y: -118}
+        - {x: 14, y: -119}
+        - {x: 37, y: -120}
+        - {x: 56, y: -118}
+        - {x: 63, y: -111}
+        - {x: 63, y: -77}
+        - {x: 28, y: 35}
+        - {x: -18, y: 141}
+        - {x: -60, y: 90}
+        - {x: -109, y: 184}
+        - {x: -131, y: 184}
+        - {x: -183, y: -29}
+        - {x: -191, y: -100}
+        - {x: -178, y: -100}
+        - {x: -153, y: -65}
+        - {x: -146, y: -47}
+        - {x: -130, y: -110}
+        - {x: -194, y: -125}
+        - {x: -194, y: -180}
+        - {x: -190, y: -193}
+        - {x: -30, y: -193}
+        - {x: 29, y: -134}
+        - {x: 22, y: -121}
+        - {x: 14, y: -119}
+    - name: erbaccia1_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -73, y: -116}
+        - {x: 23, y: 41}
+        - {x: 23, y: 57}
+        - {x: -27, y: 157}
+        - {x: -97, y: 185}
+        - {x: -116, y: 185}
+        - {x: -118, y: 184}
+        - {x: -128, y: 86}
+        - {x: -194, y: -26}
+        - {x: -194, y: -188}
+        - {x: -191, y: -193}
+        - {x: -11, y: -193}
+        - {x: 23, y: -159}
+        - {x: 23, y: -121}
+        - {x: 5, y: -109}
+      - - {x: 56, y: -93}
+        - {x: -43, y: -93}
+        - {x: -51, y: -95}
+        - {x: -51, y: -114}
+        - {x: -49, y: -116}
+        - {x: -10, y: -119}
+        - {x: 50, y: -119}
+        - {x: 56, y: -118}
+        - {x: 63, y: -108}
+        - {x: 63, y: -101}
+    - name: erbaccia1_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 124}
+        - {x: -43, y: 90}
+        - {x: -56, y: 123}
+        - {x: -84, y: 185}
+        - {x: -100, y: 185}
+        - {x: -194, y: -15}
+        - {x: -194, y: -185}
+        - {x: -189, y: -193}
+        - {x: -26, y: -193}
+        - {x: 23, y: -143}
+        - {x: 23, y: -90}
+        - {x: 2, y: 126}
+      - - {x: -50, y: -93}
+        - {x: -50, y: -119}
+        - {x: 62, y: -119}
+        - {x: 63, y: -117}
+        - {x: 63, y: -97}
+        - {x: 59, y: -93}
+    - name: erbaccia1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 52, y: -92}
+        - {x: 14, y: 124}
+        - {x: -2, y: 127}
+        - {x: -34, y: 75}
+        - {x: -47, y: 27}
+        - {x: -58, y: -27}
+        - {x: -77, y: -71}
+        - {x: -78, y: -75}
+        - {x: -78, y: -73}
+        - {x: -77, y: -72}
+        - {x: -77, y: -69}
+        - {x: -76, y: -68}
+        - {x: -64, y: -27}
+        - {x: -46, y: 66}
+        - {x: -22, y: 185}
+        - {x: -152, y: 185}
+        - {x: -194, y: 160}
+        - {x: -194, y: -188}
+        - {x: -192, y: -193}
+        - {x: -19, y: -193}
+        - {x: 37, y: -147}
+        - {x: 63, y: -120}
+        - {x: 63, y: -97}
+    - name: erbaccia1_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34, y: -79}
+        - {x: 28, y: 33}
+        - {x: 21, y: 142}
+        - {x: -49, y: 185}
+        - {x: -75, y: 185}
+        - {x: -92, y: 88}
+        - {x: -184, y: -3}
+        - {x: -191, y: -118}
+        - {x: -194, y: -122}
+        - {x: -194, y: -161}
+        - {x: -185, y: -189}
+        - {x: -161, y: -193}
+        - {x: -10, y: -193}
+        - {x: 63, y: -136}
+        - {x: 63, y: -93}
+    - name: erbaccia1_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 52, y: -92}
+        - {x: 14, y: 124}
+        - {x: -2, y: 127}
+        - {x: -34, y: 75}
+        - {x: -47, y: 27}
+        - {x: -58, y: -27}
+        - {x: -77, y: -71}
+        - {x: -78, y: -75}
+        - {x: -78, y: -73}
+        - {x: -77, y: -72}
+        - {x: -77, y: -69}
+        - {x: -76, y: -68}
+        - {x: -64, y: -27}
+        - {x: -46, y: 66}
+        - {x: -22, y: 185}
+        - {x: -152, y: 185}
+        - {x: -194, y: 160}
+        - {x: -194, y: -188}
+        - {x: -192, y: -193}
+        - {x: -19, y: -193}
+        - {x: 37, y: -147}
+        - {x: 63, y: -120}
+        - {x: 63, y: -97}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

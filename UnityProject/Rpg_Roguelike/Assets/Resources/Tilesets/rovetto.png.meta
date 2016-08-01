@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: e9a0d0a077a79b145a67e1a4c6fc6d2e
+timeCreated: 1470064711
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: rovetto_0
+    21300002: rovetto_1
+    21300004: rovetto_2
+    21300006: rovetto_3
+    21300008: rovetto_4
+    21300010: rovetto_5
+    21300012: rovetto_6
+    21300014: rovetto_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: rovetto_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 168, y: 37}
+        - {x: 93, y: 94}
+        - {x: 76, y: 94}
+        - {x: 41, y: 80}
+        - {x: -112, y: 35}
+        - {x: -121, y: 14}
+        - {x: -132, y: -19}
+        - {x: -132, y: -57}
+        - {x: 2, y: -94}
+        - {x: 90, y: -94}
+        - {x: 102, y: -93}
+        - {x: 170, y: -60}
+        - {x: 175, y: -51}
+        - {x: 175, y: -7}
+    - name: rovetto_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 136, y: 67}
+        - {x: 92, y: 93}
+        - {x: 70, y: 93}
+        - {x: 32, y: 74}
+        - {x: 9, y: 23}
+        - {x: -88, y: 52}
+        - {x: -120, y: 25}
+        - {x: -132, y: -16}
+        - {x: -132, y: -57}
+        - {x: 1, y: -94}
+        - {x: 90, y: -94}
+        - {x: 102, y: -93}
+        - {x: 170, y: -60}
+        - {x: 175, y: -56}
+        - {x: 175, y: 9}
+    - name: rovetto_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 156, y: 40}
+        - {x: 91, y: 66}
+        - {x: 88, y: 65}
+        - {x: 80, y: 58}
+        - {x: 83, y: 63}
+        - {x: 85, y: 67}
+        - {x: 73, y: 92}
+        - {x: 61, y: 92}
+        - {x: 23, y: 74}
+        - {x: -89, y: 43}
+        - {x: -132, y: 30}
+        - {x: -132, y: -63}
+        - {x: -45, y: -94}
+        - {x: 132, y: -94}
+        - {x: 175, y: -62}
+        - {x: 175, y: -38}
+    - name: rovetto_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 136, y: 67}
+        - {x: 92, y: 93}
+        - {x: 70, y: 93}
+        - {x: 32, y: 74}
+        - {x: 9, y: 23}
+        - {x: -88, y: 52}
+        - {x: -120, y: 25}
+        - {x: -132, y: -16}
+        - {x: -132, y: -57}
+        - {x: 1, y: -94}
+        - {x: 90, y: -94}
+        - {x: 102, y: -93}
+        - {x: 170, y: -60}
+        - {x: 175, y: -56}
+        - {x: 175, y: 9}
+    - name: rovetto_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 168, y: 37}
+        - {x: 93, y: 94}
+        - {x: 76, y: 94}
+        - {x: 41, y: 80}
+        - {x: -112, y: 35}
+        - {x: -121, y: 14}
+        - {x: -132, y: -19}
+        - {x: -132, y: -57}
+        - {x: 2, y: -94}
+        - {x: 90, y: -94}
+        - {x: 102, y: -93}
+        - {x: 170, y: -60}
+        - {x: 175, y: -51}
+        - {x: 175, y: -7}
+    - name: rovetto_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 113, y: 94}
+        - {x: 62, y: 94}
+        - {x: -49, y: 50}
+        - {x: -128, y: 27}
+        - {x: -122, y: -34}
+        - {x: -132, y: -42}
+        - {x: -132, y: -57}
+        - {x: 7, y: -94}
+        - {x: 86, y: -94}
+        - {x: 102, y: -93}
+        - {x: 135, y: -74}
+        - {x: 175, y: -65}
+        - {x: 175, y: 54}
+    - name: rovetto_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 96, y: 93}
+        - {x: 61, y: 78}
+        - {x: -98, y: 33}
+        - {x: -116, y: 24}
+        - {x: -109, y: 10}
+        - {x: -132, y: -22}
+        - {x: -132, y: -63}
+        - {x: -46, y: -94}
+        - {x: 109, y: -94}
+        - {x: 175, y: -81}
+        - {x: 175, y: 51}
+        - {x: 119, y: 93}
+    - name: rovetto_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 113, y: 94}
+        - {x: 62, y: 94}
+        - {x: -49, y: 50}
+        - {x: -128, y: 27}
+        - {x: -122, y: -34}
+        - {x: -132, y: -42}
+        - {x: -132, y: -57}
+        - {x: 7, y: -94}
+        - {x: 86, y: -94}
+        - {x: 102, y: -93}
+        - {x: 135, y: -74}
+        - {x: 175, y: -65}
+        - {x: 175, y: 54}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
