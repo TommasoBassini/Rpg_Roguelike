@@ -37,51 +37,90 @@ public abstract class Character : MonoBehaviour
 
     public void Update()
     {
-        if (isMoving)
+        if (!this.gameObject.CompareTag("Enemy"))
         {
-            distance = grid.cells[(int)pos.x, (int)pos.y].gameObject.transform.position - this.transform.position;
-            direction = distance.normalized;
-            this.transform.position = this.transform.position + direction * Time.deltaTime * 5;
-            SpriteRenderer sr = GetComponent<SpriteRenderer>();
-            sr.sortingOrder = 10 - (int)pos.y;
-            if (distance.sqrMagnitude < 0.01f)
+            if (isMoving)
             {
-                this.transform.position = new Vector3(grid.cells[(int)pos.x, (int)pos.y].transform.position.x, grid.cells[(int)pos.x, (int)pos.y].transform.position.y, 0);
-                isMoving = false;
+                distance = grid.cells[(int)pos.x, (int)pos.y].gameObject.transform.position - this.transform.position;
+                direction = distance.normalized;
+                this.transform.position = this.transform.position + direction * Time.deltaTime * 4;
+                SpriteRenderer sr = GetComponent<SpriteRenderer>();
+                sr.sortingOrder = 10 - (int)pos.y;
+                if (distance.sqrMagnitude < 0.01f)
+                {
+                    this.transform.position = new Vector3(grid.cells[(int)pos.x, (int)pos.y].transform.position.x, grid.cells[(int)pos.x, (int)pos.y].transform.position.y, 0);
+                    isMoving = false;
+
+                }
+            }
+
+            if (!isMoving && MovingRight == true)
+            {
+                facingRight = true;
                 MovingRight = false;
+            }
+
+            if (!isMoving && MovingLeft == true)
+            {
+                facingLeft = true;
                 MovingLeft = false;
             }
-        }
 
-        if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0) && isMovible && !isMoving)
-        {
-            PlayerMove(new Vector2(pos.x, pos.y + 1));
-            
-        }
-        if ((Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < 0) && isMovible && !isMoving)
-        {
-            PlayerMove(new Vector2(pos.x, pos.y - 1));
-            
-        }
+            if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0) && isMovible && !isMoving)
+            {
+                PlayerMove(new Vector2(pos.x, pos.y + 1));
 
-        if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && isMovible && !isMoving)
-        {
-            PlayerMove(new Vector2(pos.x + 1, pos.y));
-            MovingRight = true;
-            MovingLeft = false;
+                if (isMoving && facingRight == true)
+                {
+                    MovingRight = true;
+                }
+
+                if (isMoving && facingLeft == true)
+                {
+                    MovingLeft = true;
+                }
+
+            }
+            if ((Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < 0) && isMovible && !isMoving)
+            {
+                PlayerMove(new Vector2(pos.x, pos.y - 1));
+
+                if (isMoving && facingRight == true)
+                {
+                    MovingRight = true;
+                }
+
+                if (isMoving && facingLeft == true)
+                {
+                    MovingLeft = true;
+                }
+            }
+
+            if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && isMovible && !isMoving)
+            {
+                PlayerMove(new Vector2(pos.x + 1, pos.y));
+                MovingRight = true;
+                MovingLeft = false;
+                facingRight = true;
+                facingLeft = false;
+            }
+
+            if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && isMovible && !isMoving)
+            {
+                PlayerMove(new Vector2(pos.x - 1, pos.y));
+                MovingRight = false;
+                MovingLeft = true;
+                facingRight = false;
+                facingLeft = true;
+            }
+
+            anim.SetBool("IsMoving", isMoving);
+            anim.SetBool("MovingRight", MovingRight);
+            anim.SetBool("MovingLeft", MovingLeft);
+            anim.SetBool("IdleLeft", facingLeft);
+            anim.SetBool("IdleRight", facingRight);
+
         }
-
-        if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && isMovible && !isMoving)
-        {
-            PlayerMove(new Vector2(pos.x - 1, pos.y));
-            MovingRight = false;
-            MovingLeft = true;                     
-        }
-
-        anim.SetBool("IsMoving", isMoving);
-        anim.SetBool("MovingRight", MovingRight);
-        anim.SetBool("MovingLeft", MovingLeft);
-
     }
 
     public void PlayerMove(Vector2 _pos)
