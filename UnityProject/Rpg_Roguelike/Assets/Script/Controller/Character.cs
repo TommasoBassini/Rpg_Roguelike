@@ -16,7 +16,7 @@ public abstract class Character : MonoBehaviour
     private bool isMoving;
     public bool movingAnim = false;
     private Vector3 direction;
-    private Animator anim;
+    public Animator anim;
 
     public bool MovingRight = false;
     public bool MovingLeft = false;

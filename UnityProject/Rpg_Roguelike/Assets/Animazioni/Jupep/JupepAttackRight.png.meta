@@ -1,0 +1,303 @@
+fileFormatVersion: 2
+guid: 01c154c869432a641b6910b0d21bcefe
+timeCreated: 1470065984
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WightTreQuartiColpoAltroLato_0
+    21300002: WightTreQuartiColpoAltroLato_1
+    21300004: WightTreQuartiColpoAltroLato_2
+    21300006: WightTreQuartiColpoAltroLato_3
+    21300008: WightTreQuartiColpoAltroLato_4
+    21300010: WightTreQuartiColpoAltroLato_5
+    21300012: WightTreQuartiColpoAltroLato_6
+    21300014: WightTreQuartiColpoAltroLato_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WightTreQuartiColpoAltroLato_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 91, y: 214}
+        - {x: 49, y: 236}
+        - {x: -35, y: 236}
+        - {x: -60, y: 220}
+        - {x: -77, y: 172}
+        - {x: -77, y: 101}
+        - {x: -65, y: 54}
+        - {x: -75, y: 17}
+        - {x: -22, y: -60}
+        - {x: -42, y: -84}
+        - {x: -39, y: -95}
+        - {x: -6, y: -100}
+        - {x: 74, y: -100}
+        - {x: 85, y: -40}
+        - {x: 64, y: -16}
+        - {x: 91, y: 109}
+      - - {x: 81, y: 253}
+        - {x: 81, y: 252}
+        - {x: 83, y: 250}
+        - {x: 93, y: 251}
+        - {x: 95, y: 253}
+        - {x: 94, y: 256}
+        - {x: 84, y: 256}
+    - name: WightTreQuartiColpoAltroLato_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 93, y: 6}
+        - {x: 87, y: 14}
+        - {x: 93, y: 111}
+        - {x: 93, y: 158}
+        - {x: 79, y: 206}
+        - {x: 39, y: 238}
+        - {x: -35, y: 238}
+        - {x: -79, y: 182}
+        - {x: -79, y: 93}
+        - {x: -72, y: 45}
+        - {x: -79, y: 19}
+        - {x: -79, y: 9}
+        - {x: -38, y: -73}
+        - {x: -51, y: -98}
+        - {x: -29, y: -99}
+        - {x: 43, y: -99}
+        - {x: 58, y: -93}
+        - {x: 61, y: -83}
+        - {x: 93, y: -11}
+      - - {x: 99, y: -55}
+        - {x: 102, y: -58}
+        - {x: 105, y: -57}
+        - {x: 105, y: -55}
+        - {x: 102, y: -52}
+        - {x: 100, y: -52}
+    - name: WightTreQuartiColpoAltroLato_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 85, y: -34}
+        - {x: 111, y: 5}
+        - {x: 111, y: 50}
+        - {x: 103, y: 74}
+        - {x: 80, y: 203}
+        - {x: 34, y: 234}
+        - {x: -35, y: 234}
+        - {x: -83, y: 195}
+        - {x: -83, y: 100}
+        - {x: -81, y: 79}
+        - {x: -83, y: 36}
+        - {x: -83, y: 23}
+        - {x: -39, y: -50}
+        - {x: -50, y: -99}
+        - {x: 51, y: -99}
+        - {x: 58, y: -93}
+        - {x: 55, y: -83}
+        - {x: 42, y: -40}
+    - name: WightTreQuartiColpoAltroLato_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 53, y: -80}
+        - {x: 118, y: 12}
+        - {x: 118, y: 44}
+        - {x: 94, y: 61}
+        - {x: 87, y: 154}
+        - {x: 47, y: 224}
+        - {x: 23, y: 229}
+        - {x: -51, y: 229}
+        - {x: -92, y: 192}
+        - {x: -92, y: 64}
+        - {x: -54, y: -96}
+        - {x: -40, y: -99}
+        - {x: 48, y: -99}
+        - {x: 61, y: -92}
+        - {x: 61, y: -85}
+    - name: WightTreQuartiColpoAltroLato_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: -77}
+        - {x: 105, y: 29}
+        - {x: 105, y: 56}
+        - {x: 50, y: 202}
+        - {x: 7, y: 230}
+        - {x: -54, y: 230}
+        - {x: -100, y: 178}
+        - {x: -101, y: 169}
+        - {x: -101, y: 106}
+        - {x: -95, y: 61}
+        - {x: -54, y: -84}
+        - {x: -49, y: -95}
+        - {x: -33, y: -100}
+        - {x: 50, y: -100}
+        - {x: 57, y: -96}
+        - {x: 65, y: -92}
+        - {x: 62, y: -82}
+    - name: WightTreQuartiColpoAltroLato_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 112, y: 10}
+        - {x: 118, y: 52}
+        - {x: 118, y: 64}
+        - {x: 120, y: 73}
+        - {x: 120, y: 122}
+        - {x: 54, y: 232}
+        - {x: -41, y: 232}
+        - {x: -66, y: 211}
+        - {x: -85, y: 165}
+        - {x: -85, y: 104}
+        - {x: -68, y: 18}
+        - {x: -69, y: -94}
+        - {x: -52, y: -100}
+        - {x: 66, y: -100}
+        - {x: 72, y: -83}
+        - {x: 42, y: -74}
+        - {x: 51, y: -42}
+    - name: WightTreQuartiColpoAltroLato_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: -77}
+        - {x: 105, y: 29}
+        - {x: 105, y: 58}
+        - {x: 72, y: 162}
+        - {x: 37, y: 227}
+        - {x: 23, y: 228}
+        - {x: -60, y: 228}
+        - {x: -88, y: 197}
+        - {x: -101, y: 172}
+        - {x: -101, y: 81}
+        - {x: -39, y: -54}
+        - {x: -54, y: -84}
+        - {x: -49, y: -95}
+        - {x: -33, y: -100}
+        - {x: 50, y: -100}
+        - {x: 57, y: -96}
+        - {x: 65, y: -92}
+        - {x: 62, y: -82}
+    - name: WightTreQuartiColpoAltroLato_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 87, y: 7}
+        - {x: 71, y: 30}
+        - {x: 88, y: 100}
+        - {x: 88, y: 202}
+        - {x: 45, y: 239}
+        - {x: -20, y: 239}
+        - {x: -60, y: 218}
+        - {x: -79, y: 175}
+        - {x: -79, y: 43}
+        - {x: -75, y: 15}
+        - {x: -38, y: -73}
+        - {x: -51, y: -98}
+        - {x: -29, y: -99}
+        - {x: 43, y: -99}
+        - {x: 58, y: -93}
+        - {x: 61, y: -83}
+        - {x: 86, y: -30}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
