@@ -1,13 +1,17 @@
 fileFormatVersion: 2
 guid: 200399c9c41700a4a8fe86b1e3424be1
-timeCreated: 1469887425
-licenseType: Free
+timeCreated: 1470061029
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
     21300000: Nemico Boss Support Idle_0
     21300002: Nemico Boss Support Idle_1
     21300004: Nemico Boss Support Idle_2
     21300006: Nemico Boss Support Idle_3
+    21300008: Nemico Boss Support Idle Left_0
+    21300010: Nemico Boss Support Idle Left_1
+    21300012: Nemico Boss Support Idle Left_2
+    21300014: Nemico Boss Support Idle Left_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,7 +58,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Nemico Boss Support Idle_0
+    - name: Nemico Boss Support Idle Left_0
       rect:
         serializedVersion: 2
         x: 0
@@ -82,7 +86,7 @@ TextureImporter:
         - {x: 65, y: -93}
         - {x: 45, y: -59}
         - {x: 97, y: 25}
-    - name: Nemico Boss Support Idle_1
+    - name: Nemico Boss Support Idle Left_1
       rect:
         serializedVersion: 2
         x: 400
@@ -109,7 +113,7 @@ TextureImporter:
         - {x: 53, y: -91}
         - {x: 52, y: -80}
         - {x: 71, y: 5}
-    - name: Nemico Boss Support Idle_2
+    - name: Nemico Boss Support Idle Left_2
       rect:
         serializedVersion: 2
         x: 0
@@ -136,7 +140,7 @@ TextureImporter:
         - {x: 61, y: -75}
         - {x: 76, y: -5}
         - {x: 96, y: 19}
-    - name: Nemico Boss Support Idle_3
+    - name: Nemico Boss Support Idle Left_3
       rect:
         serializedVersion: 2
         x: 400

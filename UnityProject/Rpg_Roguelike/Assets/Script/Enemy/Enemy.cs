@@ -176,11 +176,11 @@ public abstract class Enemy : Character
         }
         int newX = (int)_pos.x;
         Animator anim = GetComponent<Animator>();
-        if (newX <= (int)endPos.x)
+        if (newX < (int)endPos.x)
         {
             anim.SetBool("WalkRight", true);
         }
-        if (newX > (int)endPos.x)
+        if (newX >= (int)endPos.x)
         {
             anim.SetBool("WalkLeft", true);
         }
@@ -293,11 +293,11 @@ public abstract class Enemy : Character
 
         int newX = (int)_pos.x;
         Animator anim = GetComponent<Animator>();
-        if (newX <= (int)PlayerPos.x)
+        if (newX < (int)PlayerPos.x)
         {
             anim.SetBool("WalkRight", true);
         }
-        if (newX > (int)PlayerPos.x)
+        if (newX >= (int)PlayerPos.x)
         {
             anim.SetBool("WalkLeft", true);
         }

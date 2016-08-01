@@ -146,6 +146,31 @@ public class CombatController : MonoBehaviour
                     nome = "Andryen";
                 }
             }
+            if (player[i].name.Contains("BossMage"))
+            {
+                turnImage[i].sprite = turnPortrait[6];
+                if (i == 0)
+                {
+                    nome = "Lurehins";
+                }
+            }
+            if (player[i].name.Contains("BossRanged"))
+            {
+                turnImage[i].sprite = turnPortrait[7];
+                if (i == 0)
+                {
+                    nome = "Gevinna";
+                }
+                
+            }
+            if (player[i].name.Contains("BossTank"))
+            {
+                turnImage[i].sprite = turnPortrait[8];
+                if (i == 0)
+                {
+                    nome = "Taum";
+                }
+            }
         }
         Text text = GameObject.Find("Nome").GetComponent<Text>();
         text.text = nome.ToUpper();
