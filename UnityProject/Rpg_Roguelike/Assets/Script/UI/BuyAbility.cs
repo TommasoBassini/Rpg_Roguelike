@@ -24,6 +24,8 @@ public class BuyAbility : MonoBehaviour
         Text richiede = ui.menuStats.transform.Find("LoaderBox/AbilityBox/Richiede").GetComponent<Text>();
 
         Image abilitySprite = ui.menuStats.transform.Find("LoaderBox/AbilityBox/AbilityImage").GetComponent<Image>();
+        Image acquistatoSprite = ui.menuStats.transform.Find("LoaderBox/AbilityBox/Acquistato").GetComponent<Image>();
+
         Text mp = ui.menuStats.transform.Find("LoaderBox/AbilityBox/Mp").GetComponent<Text>();
         Text info = ui.menuStats.transform.Find("LoaderBox/AbilityBox/Info/Text").GetComponent<Text>();
 
@@ -34,19 +36,33 @@ public class BuyAbility : MonoBehaviour
         {
             case 1:
                 {
+                    
                     nome.text = nomi[ui.nCharacter - 1];
-                    if (stats.statsMago.livello < step[nButton])
+                    if (!stats.statsMago.abilitaSbloccate[nButton])
                     {
-                        costoImage.enabled = false;
-                        richiede.text = "Richiede il livello " + (step[nButton] + 3);
-                        costo.text = "";
+                        if (stats.statsMago.livello < step[nButton])
+                        {
+                            costoImage.enabled = false;
+                            richiede.text = "Richiede il livello " + (step[nButton] + 3);
+                            costo.text = "";
+                            acquistatoSprite.enabled = false;
+                        }
+                        else
+                        {
+                            costoImage.enabled = true;
+                            costo.text = costoAbilita[nButton].ToString();
+                            richiede.text = "";
+                            acquistatoSprite.enabled = false;
+                        }
                     }
                     else
                     {
-                        costoImage.enabled = true;
-                        costo.text = costoAbilita[nButton].ToString();
+                        costo.text = "";
                         richiede.text = "";
+                        acquistatoSprite.enabled = true;
+                        costoImage.enabled = false;
                     }
+
 
                     abilitySprite.sprite = abilityGrande[ui.nCharacter - 1];
                     mp.text = stats.statsMago.costoAbilita[nButton].ToString() + " MP";
@@ -56,17 +72,29 @@ public class BuyAbility : MonoBehaviour
             case 2:
                 {
                     nome.text = nomi[ui.nCharacter - 1];
-                    if (stats.statsTank.livello < step[nButton])
+                    if (!stats.statsTank.abilitaSbloccate[nButton])
                     {
-                        costoImage.enabled = false;
-                        richiede.text = "Richiede il livello " + (step[nButton] + 3);
-                        costo.text = "";
+                        if (stats.statsTank.livello < step[nButton])
+                        {
+                            costoImage.enabled = false;
+                            richiede.text = "Richiede il livello " + (step[nButton] + 3);
+                            costo.text = "";
+                            acquistatoSprite.enabled = false;
+                        }
+                        else
+                        {
+                            costoImage.enabled = true;
+                            costo.text = costoAbilita[nButton].ToString();
+                            richiede.text = "";
+                            acquistatoSprite.enabled = false;
+                        }
                     }
                     else
                     {
-                        costoImage.enabled = true;
-                        costo.text = costoAbilita[nButton].ToString();
+                        costo.text = "";
                         richiede.text = "";
+                        acquistatoSprite.enabled = true;
+                        costoImage.enabled = false;
                     }
 
                     abilitySprite.sprite = abilityGrande[ui.nCharacter - 1];
@@ -77,17 +105,29 @@ public class BuyAbility : MonoBehaviour
             case 3:
                 {
                     nome.text = nomi[ui.nCharacter - 1];
-                    if (stats.statsDps.livello < step[nButton])
+                    if (!stats.statsDps.abilitaSbloccate[nButton])
                     {
-                        costoImage.enabled = false;
-                        richiede.text = "Richiede il livello " + (step[nButton] + 3);
-                        costo.text = "";
+                        if (stats.statsDps.livello < step[nButton])
+                        {
+                            costoImage.enabled = false;
+                            richiede.text = "Richiede il livello " + (step[nButton] + 3);
+                            costo.text = "";
+                            acquistatoSprite.enabled = false;
+                        }
+                        else
+                        {
+                            costoImage.enabled = true;
+                            costo.text = costoAbilita[nButton].ToString();
+                            richiede.text = "";
+                            acquistatoSprite.enabled = false;
+                        }
                     }
                     else
                     {
-                        costoImage.enabled = true;
-                        costo.text = costoAbilita[nButton].ToString();
+                        costo.text = "";
                         richiede.text = "";
+                        acquistatoSprite.enabled = true;
+                        costoImage.enabled = false;
                     }
 
                     abilitySprite.sprite = abilityGrande[ui.nCharacter - 1];

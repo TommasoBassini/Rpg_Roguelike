@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 84443006474ff2e4eba7377e711bef10
-timeCreated: 1469986279
+timeCreated: 1470110098
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,13 @@ TextureImporter:
     21300008: donnaCamminataBoss_4
     21300010: donnaCamminataBoss_5
     21300012: donnaCamminataBoss_6
+    21300014: BossDpsWalkLeft_0
+    21300016: BossDpsWalkLeft_1
+    21300018: BossDpsWalkLeft_2
+    21300020: BossDpsWalkLeft_3
+    21300022: BossDpsWalkLeft_4
+    21300024: BossDpsWalkLeft_5
+    21300026: BossDpsWalkLeft_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,205 +64,205 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: donnaCamminataBoss_0
+    - name: BossDpsWalkLeft_0
       rect:
         serializedVersion: 2
         x: 0
         y: 400
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 111, y: 43}
-        - {x: 110, y: 49}
-        - {x: 68, y: 125}
-        - {x: 66, y: 125}
-        - {x: 57, y: 117}
-        - {x: 14, y: 125}
-        - {x: -19, y: 125}
-        - {x: -71, y: 78}
-        - {x: -94, y: 55}
-        - {x: -94, y: 6}
-        - {x: -88, y: -15}
-        - {x: -39, y: -158}
-        - {x: -42, y: -197}
-        - {x: -39, y: -198}
-        - {x: 46, y: -198}
-        - {x: 62, y: -196}
-        - {x: 52, y: -183}
-        - {x: 58, y: -169}
-        - {x: 111, y: -34}
-    - name: donnaCamminataBoss_1
+      - - {x: 111, y: 143}
+        - {x: 110, y: 149}
+        - {x: 68, y: 225}
+        - {x: 66, y: 225}
+        - {x: 57, y: 217}
+        - {x: 14, y: 225}
+        - {x: -19, y: 225}
+        - {x: -71, y: 178}
+        - {x: -94, y: 155}
+        - {x: -94, y: 106}
+        - {x: -88, y: 85}
+        - {x: -39, y: -58}
+        - {x: -42, y: -97}
+        - {x: -39, y: -98}
+        - {x: 46, y: -98}
+        - {x: 62, y: -96}
+        - {x: 52, y: -83}
+        - {x: 58, y: -69}
+        - {x: 111, y: 66}
+    - name: BossDpsWalkLeft_1
       rect:
         serializedVersion: 2
         x: 400
         y: 400
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 110, y: -38}
-        - {x: 110, y: 44}
-        - {x: 69, y: 116}
-        - {x: 63, y: 116}
-        - {x: 45, y: 95}
-        - {x: -3, y: 116}
-        - {x: -20, y: 116}
-        - {x: -72, y: 69}
-        - {x: -95, y: 46}
-        - {x: -95, y: -3}
-        - {x: -74, y: -76}
-        - {x: -26, y: -165}
-        - {x: -42, y: -184}
-        - {x: -44, y: -198}
-        - {x: 74, y: -198}
-        - {x: 84, y: -176}
-        - {x: 92, y: -94}
-        - {x: 94, y: -84}
-    - name: donnaCamminataBoss_2
+      - - {x: 110, y: 62}
+        - {x: 110, y: 144}
+        - {x: 69, y: 216}
+        - {x: 63, y: 216}
+        - {x: 45, y: 195}
+        - {x: -3, y: 216}
+        - {x: -20, y: 216}
+        - {x: -72, y: 169}
+        - {x: -95, y: 146}
+        - {x: -95, y: 97}
+        - {x: -74, y: 24}
+        - {x: -26, y: -65}
+        - {x: -42, y: -84}
+        - {x: -44, y: -98}
+        - {x: 74, y: -98}
+        - {x: 84, y: -76}
+        - {x: 92, y: 6}
+        - {x: 94, y: 16}
+    - name: BossDpsWalkLeft_2
       rect:
         serializedVersion: 2
         x: 800
         y: 400
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 105, y: -111}
-        - {x: 105, y: 34}
-        - {x: 56, y: 105}
-        - {x: -31, y: 105}
-        - {x: -55, y: 91}
-        - {x: -84, y: 57}
-        - {x: -103, y: 16}
-        - {x: -103, y: -9}
-        - {x: -52, y: -122}
-        - {x: -20, y: -159}
-        - {x: -53, y: -196}
-        - {x: -28, y: -198}
-        - {x: 54, y: -198}
-        - {x: 64, y: -192}
-        - {x: 84, y: -179}
-        - {x: 87, y: -171}
-    - name: donnaCamminataBoss_3
+      - - {x: 105, y: -11}
+        - {x: 105, y: 134}
+        - {x: 56, y: 205}
+        - {x: -31, y: 205}
+        - {x: -55, y: 191}
+        - {x: -84, y: 157}
+        - {x: -103, y: 116}
+        - {x: -103, y: 91}
+        - {x: -52, y: -22}
+        - {x: -20, y: -59}
+        - {x: -53, y: -96}
+        - {x: -28, y: -98}
+        - {x: 54, y: -98}
+        - {x: 64, y: -92}
+        - {x: 84, y: -79}
+        - {x: 87, y: -71}
+    - name: BossDpsWalkLeft_3
       rect:
         serializedVersion: 2
         x: 1200
         y: 400
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 56, y: 113}
-        - {x: 52, y: 114}
-        - {x: -42, y: 114}
-        - {x: -87, y: 78}
-        - {x: -102, y: 39}
-        - {x: -102, y: -2}
-        - {x: -94, y: -14}
-        - {x: -87, y: -21}
-        - {x: -69, y: -58}
-        - {x: -61, y: -71}
-        - {x: -52, y: -78}
-        - {x: -62, y: -77}
-        - {x: -51, y: -115}
-        - {x: -44, y: -198}
-        - {x: 73, y: -198}
-        - {x: 102, y: -171}
-        - {x: 106, y: -112}
-        - {x: 106, y: 46}
-    - name: donnaCamminataBoss_4
+      - - {x: 56, y: 213}
+        - {x: 52, y: 214}
+        - {x: -42, y: 214}
+        - {x: -87, y: 178}
+        - {x: -102, y: 139}
+        - {x: -102, y: 98}
+        - {x: -94, y: 86}
+        - {x: -87, y: 79}
+        - {x: -69, y: 42}
+        - {x: -61, y: 29}
+        - {x: -52, y: 22}
+        - {x: -62, y: 23}
+        - {x: -51, y: -15}
+        - {x: -44, y: -98}
+        - {x: 73, y: -98}
+        - {x: 102, y: -71}
+        - {x: 106, y: -12}
+        - {x: 106, y: 146}
+    - name: BossDpsWalkLeft_4
       rect:
         serializedVersion: 2
         x: 1600
         y: 400
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 109, y: -68}
-        - {x: 109, y: 43}
-        - {x: 69, y: 125}
-        - {x: -23, y: 125}
-        - {x: -93, y: 95}
-        - {x: -97, y: 66}
-        - {x: -97, y: -20}
-        - {x: -59, y: -58}
-        - {x: -52, y: -64}
-        - {x: -66, y: -67}
-        - {x: -50, y: -101}
-        - {x: -46, y: -198}
-        - {x: 54, y: -198}
-        - {x: 62, y: -194}
-        - {x: 80, y: -157}
-        - {x: 106, y: -79}
-    - name: donnaCamminataBoss_5
+      - - {x: 109, y: 32}
+        - {x: 109, y: 143}
+        - {x: 69, y: 225}
+        - {x: -23, y: 225}
+        - {x: -93, y: 195}
+        - {x: -97, y: 166}
+        - {x: -97, y: 80}
+        - {x: -59, y: 42}
+        - {x: -52, y: 36}
+        - {x: -66, y: 33}
+        - {x: -50, y: -1}
+        - {x: -46, y: -98}
+        - {x: 54, y: -98}
+        - {x: 62, y: -94}
+        - {x: 80, y: -57}
+        - {x: 106, y: 21}
+    - name: BossDpsWalkLeft_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 68, y: 116}
-        - {x: -23, y: 116}
-        - {x: -30, y: 105}
-        - {x: -29, y: 100}
-        - {x: -100, y: 86}
-        - {x: -102, y: 63}
-        - {x: -102, y: -42}
-        - {x: -37, y: -165}
-        - {x: -36, y: -168}
-        - {x: -35, y: -167}
-        - {x: -40, y: -171}
-        - {x: -38, y: -179}
-        - {x: -37, y: -185}
-        - {x: -35, y: -194}
-        - {x: -31, y: -198}
-        - {x: 57, y: -198}
-        - {x: 72, y: -196}
-        - {x: 104, y: -96}
-        - {x: 105, y: -92}
-        - {x: 105, y: 65}
-    - name: donnaCamminataBoss_6
+      - - {x: 68, y: 216}
+        - {x: -23, y: 216}
+        - {x: -30, y: 205}
+        - {x: -29, y: 200}
+        - {x: -100, y: 186}
+        - {x: -102, y: 163}
+        - {x: -102, y: 58}
+        - {x: -37, y: -65}
+        - {x: -36, y: -68}
+        - {x: -35, y: -67}
+        - {x: -40, y: -71}
+        - {x: -38, y: -79}
+        - {x: -37, y: -85}
+        - {x: -35, y: -94}
+        - {x: -31, y: -98}
+        - {x: 57, y: -98}
+        - {x: 72, y: -96}
+        - {x: 104, y: 4}
+        - {x: 105, y: 8}
+        - {x: 105, y: 165}
+    - name: BossDpsWalkLeft_6
       rect:
         serializedVersion: 2
         x: 400
         y: 0
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 78, y: -123}
-        - {x: 102, y: -50}
-        - {x: 102, y: 29}
-        - {x: 55, y: 106}
-        - {x: -34, y: 106}
-        - {x: -75, y: 84}
-        - {x: -105, y: 29}
-        - {x: -105, y: -31}
-        - {x: -47, y: -179}
-        - {x: -35, y: -194}
-        - {x: -19, y: -198}
-        - {x: 49, y: -198}
-        - {x: 64, y: -193}
-        - {x: 61, y: -183}
-        - {x: 51, y: -181}
+      - - {x: 78, y: -23}
+        - {x: 102, y: 50}
+        - {x: 102, y: 129}
+        - {x: 55, y: 206}
+        - {x: -34, y: 206}
+        - {x: -75, y: 184}
+        - {x: -105, y: 129}
+        - {x: -105, y: 69}
+        - {x: -47, y: -79}
+        - {x: -35, y: -94}
+        - {x: -19, y: -98}
+        - {x: 49, y: -98}
+        - {x: 64, y: -93}
+        - {x: 61, y: -83}
+        - {x: 51, y: -81}
     outline: []
   spritePackingTag: 
   userData: 

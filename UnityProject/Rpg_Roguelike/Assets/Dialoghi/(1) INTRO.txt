@@ -1,19 +1,19 @@
 JUPEP: Casa! E' molto cambiata eh? E' cambiata!
-JUPEP: Molti piU'... morti! Molti piU'... soldati eh?
+JUPEP: Molti piU'... morti! Molti piu'... soldati eh?
 JOHELL: ...
 ELIBETH: Queste povere creature...
-JUPEP: Non morti, si... ora, molto piU'... morti! Nye he he!
+JUPEP: Non morti, si... ora, molto piu'... morti! Nye he he!
 JOHELL: Gli umani la pagheranno... 
 JUPEP: Una freccia nella gola! Una freccia nella testa! Nye he he he!
-ELIBETH: Dobbiamo salvare la nostra casa!
-ELIBETH: Dobbiamo salvare la nostra razza!
+ELIBETH: Siamo gli unici rimasti, com'e' possibile?
+ELIBETH: Dobbiamo dirigerci al tempio... in fretta!
 JOHELL: Che intendi dire, strega?
 JUPEP: Hai un piano? Eh? Hai un piano ragnetta?
-ELIBETH: ... Il cristallo delle anime. Si trova al centro della cripta.
-ELIBETH: Se lo raggiungessi, potrei apmlificare la mia magia.
-ELIBETH: Potrei riportare in vita chi è stato sconfitto.
+ELIBETH: ... Il cristallo delle anime, si trova al centro della cripta.
+ELIBETH: Se lo raggiungessi, potrei amplificare la mia magia.
+ELIBETH: Potrei riportare in vita chi e' stato sconfitto.
 JUPEP: Ma... ma... i soldati! La ragnetta dimentica i soldati!
-JOHELL: Di loro mi occuperò io.
+JOHELL: Di loro mi occupero' io.
 ELIBETH: Non abbiamo scelta... 
 ELIBETH: Dobbiamo raggiungere il cristallo prima che i vivi lo distruggano!
 ELIBETH: Sarebbe la fine....

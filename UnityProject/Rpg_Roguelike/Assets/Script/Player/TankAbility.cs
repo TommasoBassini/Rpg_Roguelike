@@ -163,9 +163,8 @@ public class TankAbility : MonoBehaviour
         AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         audio.PlayOneShot(lanciaSas);
         //scala il danno dal nemico e gli mp al player
-        SpriteRenderer sr = _enemy.GetComponent<SpriteRenderer>();
-        sr.color = Color.white;
-        enemy.SubisciDannoRanged(danni, _enemy);
+
+        enemy.SubisciDannoMelee(danni, _enemy);
         player.stats.mp -= mp;
         // Roba UI
         UiController ui = FindObjectOfType<UiController>();
@@ -583,7 +582,7 @@ public class TankAbility : MonoBehaviour
         AudioSource audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         audio.PlayOneShot(audioPercuotere);
         //scala il danno dal nemico e gli mp al player
-        enemy.SubisciDannoRanged(danni, _enemy);
+        enemy.SubisciDannoMelee(danni, _enemy);
         player.stats.mp -= mp;
         // Roba UI
         UiController ui = FindObjectOfType<UiController>();
@@ -647,8 +646,6 @@ public class TankAbility : MonoBehaviour
     void DestroyEnemyButton()
     {
         UiController ui = FindObjectOfType<UiController>();
-        ui.CoAttivaPanel();
-
         foreach (Transform item in ui.EnemyListPanel.transform)
         {
             Destroy(item.gameObject);

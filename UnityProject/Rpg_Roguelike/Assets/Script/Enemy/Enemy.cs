@@ -401,7 +401,6 @@ public abstract class Enemy : Character
             {
                 cc.player.RemoveAt(n[i]);
             }
-
             if (!cc.CheckWinner())
                 cc.UpdateTurnPortrait();
             else

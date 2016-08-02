@@ -1,4 +1,4 @@
-JOHELL: Non parlare Gheuseph!
+JOHELL: Non parlare Jupep!
 JUPEP: Io non ho detto niente! Non ho fiato!
 JUPEP: Non ho fiatato! Nye he he he
 JOHELL: Hai pensato di farlo.
@@ -9,5 +9,5 @@ JOHELL: ...
 JOHELL: Tutto questo silenzio. Sono stati tutti massacrati!
 JUPEP: Morti morti, si!
 ELIBETH: Possiamo salvarli, lo sai! Dobbiamo andare avanti!
-JOHELL: La crudeltà dei vivi non ha limite!
-ELIBETH: ...
+JOHELL: La crudelta' dei vivi non ha limite!
+ELIBETH: ... 

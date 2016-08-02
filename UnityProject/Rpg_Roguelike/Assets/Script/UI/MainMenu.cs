@@ -4,11 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-	void Update ()
+    public void NewGame()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.anyKey)
-        {
-            SceneManager.LoadScene("MainGame");
-        }
-	}
+        SceneManager.LoadScene("MainGame");
+    }
+
+    public void Credit()
+    {
+        SceneManager.LoadScene("Credit");
+    }
 }

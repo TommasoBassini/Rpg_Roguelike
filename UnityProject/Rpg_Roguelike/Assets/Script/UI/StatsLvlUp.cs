@@ -876,7 +876,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsMago.difMagica += stats.incrementiMago.difMagicaPerForza;
                     stats.statsMago.velocita += stats.incrementiMago.velocitaPerForza;
 
-                    stats.statsMago.costoForza = 100 + (stats.statsMago.forza * 50) + (stats.statsMago.forza * 10 * stats.statsMago.livello);
+                    stats.statsMago.costoForza = 100 + (stats.statsMago.forza * 50) + (stats.statsMago.forza * 15 * stats.statsMago.livello);
 
                     Text Forzalvl = ui.menuStats.transform.Find("Button/Forza/ForzaText/Value/Text").GetComponent<Text>();
                     Forzalvl.text = (stats.statsMago.forza + 1).ToString();
@@ -972,7 +972,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsTank.difMagica += stats.incrementiTank.difMagicaPerForza;
                     stats.statsTank.velocita += stats.incrementiTank.velocitaPerForza;
 
-                    stats.statsTank.costoForza = 100 + (stats.statsTank.forza * 50) + (stats.statsTank.forza * 10 * stats.statsTank.livello);
+                    stats.statsTank.costoForza = 100 + (stats.statsTank.forza * 50) + (stats.statsTank.forza * 15 * stats.statsTank.livello);
 
                     Text Forzalvl = ui.menuStats.transform.Find("Button/Forza/ForzaText/Value/Text").GetComponent<Text>();
                     Forzalvl.text = (stats.statsTank.forza + 1).ToString();
@@ -1072,7 +1072,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsDps.difMagica += stats.incrementiDps.difMagicaPerForza;
                     stats.statsDps.velocita += stats.incrementiDps.velocitaPerForza;
 
-                    stats.statsDps.costoForza = 100 + (stats.statsDps.forza * 50) + (stats.statsDps.forza * 10 * stats.statsDps.livello);
+                    stats.statsDps.costoForza = 100 + (stats.statsDps.forza * 50) + (stats.statsDps.forza * 15 * stats.statsDps.livello);
 
                     Text Forzalvl = ui.menuStats.transform.Find("Button/Forza/ForzaText/Value/Text").GetComponent<Text>();
                     Forzalvl.text = (stats.statsDps.forza + 1).ToString();
@@ -1197,7 +1197,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsMago.difMagica += stats.incrementiMago.difMagicaPerDestrezza;
                     stats.statsMago.velocita += stats.incrementiMago.velocitaPerDestrezza;
 
-                    stats.statsMago.costoDestrezza = 100 + (stats.statsMago.destrezza * 50) + (stats.statsMago.destrezza * 10 * stats.statsMago.livello);
+                    stats.statsMago.costoDestrezza = 100 + (stats.statsMago.destrezza * 50) + (stats.statsMago.destrezza * 15 * stats.statsMago.livello);
 
                     Text Destrezzalvl = ui.menuStats.transform.Find("Button/Destrezza/DestrezzaText/Value/Text").GetComponent<Text>();
                     Destrezzalvl.text = (stats.statsMago.destrezza + 1).ToString();
@@ -1296,7 +1296,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsTank.difMagica += stats.incrementiTank.difMagicaPerDestrezza;
                     stats.statsTank.velocita += stats.incrementiTank.velocitaPerDestrezza;
 
-                    stats.statsTank.costoDestrezza = 100 + (stats.statsTank.destrezza * 50) + (stats.statsTank.destrezza * 10 * stats.statsTank.livello);
+                    stats.statsTank.costoDestrezza = 100 + (stats.statsTank.destrezza * 50) + (stats.statsTank.destrezza * 15 * stats.statsTank.livello);
 
                     Text Destrezzalvl = ui.menuStats.transform.Find("Button/Destrezza/DestrezzaText/Value/Text").GetComponent<Text>();
                     Destrezzalvl.text = (stats.statsTank.destrezza + 1).ToString();
@@ -1395,7 +1395,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsDps.difMagica += stats.incrementiDps.difMagicaPerDestrezza;
                     stats.statsDps.velocita += stats.incrementiDps.velocitaPerDestrezza;
 
-                    stats.statsDps.costoDestrezza = 100 + (stats.statsDps.destrezza * 50) + (stats.statsDps.destrezza * 10 * stats.statsDps.livello);
+                    stats.statsDps.costoDestrezza = 100 + (stats.statsDps.destrezza * 50) + (stats.statsDps.destrezza * 15 * stats.statsDps.livello);
 
                     Text Destrezzalvl = ui.menuStats.transform.Find("Button/Destrezza/DestrezzaText/Value/Text").GetComponent<Text>();
                     Destrezzalvl.text = (stats.statsDps.destrezza + 1).ToString();
@@ -1519,7 +1519,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsMago.difMagica += stats.incrementiMago.difMagicaPerSpirito;
                     stats.statsMago.velocita += stats.incrementiMago.velocitaPerSpirito;
 
-                    stats.statsMago.costoSpirito = 100 + (stats.statsMago.Spirito * 50) + (stats.statsMago.Spirito * 10 * stats.statsMago.livello);
+                    stats.statsMago.costoSpirito = 100 + (stats.statsMago.Spirito * 50) + (stats.statsMago.Spirito * 15 * stats.statsMago.livello);
 
                     Text Spiritolvl = ui.menuStats.transform.Find("Button/Spirito/SpiritoText/Value/Text").GetComponent<Text>();
                     Spiritolvl.text = (stats.statsMago.Spirito + 1).ToString();
@@ -1618,7 +1618,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsTank.difMagica += stats.incrementiTank.difMagicaPerSpirito;
                     stats.statsTank.velocita += stats.incrementiTank.velocitaPerSpirito;
 
-                    stats.statsTank.costoSpirito = 100 + (stats.statsTank.Spirito * 50) + (stats.statsTank.Spirito * 10 * stats.statsTank.livello);
+                    stats.statsTank.costoSpirito = 100 + (stats.statsTank.Spirito * 50) + (stats.statsTank.Spirito * 15 * stats.statsTank.livello);
 
                     Text Spiritolvl = ui.menuStats.transform.Find("Button/Spirito/SpiritoText/Value/Text").GetComponent<Text>();
                     Spiritolvl.text = (stats.statsTank.Spirito + 1).ToString();
@@ -1717,7 +1717,7 @@ public class StatsLvlUp : MonoBehaviour
                     stats.statsDps.difMagica += stats.incrementiDps.difMagicaPerSpirito;
                     stats.statsDps.velocita += stats.incrementiDps.velocitaPerSpirito;
 
-                    stats.statsDps.costoSpirito = 100 + (stats.statsDps.Spirito * 50) + (stats.statsDps.Spirito * 10 * stats.statsDps.livello);
+                    stats.statsDps.costoSpirito = 100 + (stats.statsDps.Spirito * 50) + (stats.statsDps.Spirito * 15 * stats.statsDps.livello);
 
                     Text Spiritolvl = ui.menuStats.transform.Find("Button/Spirito/SpiritoText/Value/Text").GetComponent<Text>();
                     Spiritolvl.text = (stats.statsDps.Spirito + 1).ToString();

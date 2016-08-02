@@ -17,18 +17,36 @@ public class BossManager : MonoBehaviour {
     public Scene battleScene;
     public int tipoIncontro;
     private GameControl gc;
+    private PlayerStatsControl stats;
+    public int nBoss;
+    private bool oneTime;
+    public GameObject interact;
+
+
     void Awake()
     {
+        stats = FindObjectOfType<PlayerStatsControl>();
         if (textFile != null)
         {
             textRow = (textFile.text.Split('\n'));
             nRow = textRow.Length - 1;
         }
         gc = FindObjectOfType<GameControl>();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.color = Color.clear;
     }
 
     void Update ()
     {
+        if (stats.boss[nBoss])
+        {
+            Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
+            Grid grid = FindObjectOfType<Grid>();
+            grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().cellObject = null;
+            grid.cells[(int)pos.x, (int)pos.y].GetComponent<Cell>().isSemiWall = false;
+            Destroy(this.gameObject);
+        }
+
         if (facingBoss == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && !isDIalogueStart && !gc.incontroON)
         {
             player = FindObjectOfType<PlayerMovement>();
@@ -39,7 +57,7 @@ public class BossManager : MonoBehaviour {
             text.text = textRow[0];
             return;
         }
-        if (facingBoss == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && isDIalogueStart)
+        if (facingBoss == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && isDIalogueStart && !gc.incontroON)
         {
             currentLine++;
             if (currentLine < nRow)
@@ -50,9 +68,12 @@ public class BossManager : MonoBehaviour {
             {
                 text.text = "";
                 panelDialogue.SetActive(false);
-                player.isSpeaking = false;
-                isDIalogueStart = false;
-                StartBossBattle();
+                if (!oneTime)
+                {
+                    oneTime = true;
+                    StartBossBattle();
+                }
+                Invoke("ResetDialog", 10f);
             }
             return;
         }
@@ -60,28 +81,31 @@ public class BossManager : MonoBehaviour {
 
     public void StartBossBattle()
     {
-        PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
-        stats.tipoIncontro = tipoIncontro;
-        SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
-        battleScene = SceneManager.GetSceneByName("Battle");
-        SceneManager.SetActiveScene(battleScene);
+        GameControl gc = FindObjectOfType<GameControl>();
+        StartCoroutine (gc.RandomEncounter(new Vector2(120, 120), tipoIncontro));
     }
 
-
-
+    void ResetDialog()
+    {
+        oneTime = false;
+        isDIalogueStart = false;
+    }
 
     void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.name == "Player")
         {
             facingBoss = true;
+            Text text = interact.transform.Find("A/Text").GetComponent<Text>();
+            text.text = "Parla";
+            interact.SetActive(true);
         }
     }
 
     void OnTriggerExit2D(Collider2D coll)
     {
         facingBoss = false;
-        //interact.SetActive(false);
+        interact.SetActive(false);
     }
 
 

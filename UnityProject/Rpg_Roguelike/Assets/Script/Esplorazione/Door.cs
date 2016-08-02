@@ -31,6 +31,7 @@ public class Door : MonoBehaviour
 
         if (coll.gameObject.name == "Player" && player.hasKey && keys.nKeys > 0 )
         {
+            UiControlExploration ui = FindObjectOfType<UiControlExploration>();
             GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(openDoor);
             Vector2 pos = new Vector2(this.transform.position.x - 0.5f, this.transform.position.y - 0.5f);
             Grid grid = FindObjectOfType<Grid>();
@@ -38,6 +39,7 @@ public class Door : MonoBehaviour
                         
             player.hasKey = false;
             keys.nKeys--;
+            ui.AggiornaKey();
             sr.sprite = door;
             Collider2D thiscol = GetComponent<Collider2D>();
             thiscol.enabled = false;

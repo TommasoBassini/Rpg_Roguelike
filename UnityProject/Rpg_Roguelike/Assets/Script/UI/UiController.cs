@@ -762,6 +762,10 @@ public class UiController : MonoBehaviour
         enemyInfoPanel.transform.Find("Poison").gameObject.SetActive(false);
         enemyInfoPanel.transform.Find("Att").gameObject.SetActive(false);
         enemyInfoPanel.transform.Find("Dif").gameObject.SetActive(false);
+        foreach (Transform item in EnemyListPanel.transform)
+        {
+            Destroy(item.gameObject);
+        }
         EnemyListPanel.SetActive(false);
         MainPanel.SetActive(true);
         enemyInfoPanel.SetActive(false);
@@ -873,4 +877,5 @@ public class UiController : MonoBehaviour
 
         cc.changeReady = true;
     }
+
 }

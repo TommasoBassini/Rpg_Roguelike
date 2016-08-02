@@ -483,31 +483,42 @@ public class UiControlExploration : MonoBehaviour
                     Spiritolvl.text = (stats.statsMago.Spirito + 1).ToString();
                     //Button
                     abilita1.onClick.RemoveAllListeners();
-                    abilita1.onClick.AddListener(() => MageAbility(1, costoAbilita[0]));
+                    abilita1.onClick.AddListener(() => MageAbility(0, costoAbilita[0]));
+                    BuyAbility ability1 = abilita1.GetComponent<BuyAbility>();
+                    abilita1.onClick.AddListener(() => ability1.ShowInfo());
+
                     abilita1.image.sprite = AbilityMage[1];
                     Text abilitaText = menuStats.transform.Find("Button/Abilita1/Abilita1/Text").GetComponent<Text>();
                     abilitaText.text = "Cura";
 
                     abilita2.onClick.RemoveAllListeners();
-                    abilita2.onClick.AddListener(() => MageAbility(0, costoAbilita[1]));
+                    abilita2.onClick.AddListener(() => MageAbility(1, costoAbilita[1]));
                     abilita2.image.sprite = AbilityMage[0];
+                    BuyAbility ability2 = abilita1.GetComponent<BuyAbility>();
+                    abilita2.onClick.AddListener(() => ability2.ShowInfo());
                     Text abilitaText2 = menuStats.transform.Find("Button/Abilita2/Abilita2/Text").GetComponent<Text>();
                     abilitaText2.text = "Protezione";
 
                     abilita3.onClick.RemoveAllListeners();
                     abilita3.onClick.AddListener(() => MageAbility(2, costoAbilita[2]));
+                    BuyAbility ability3 = abilita1.GetComponent<BuyAbility>();
+                    abilita3.onClick.AddListener(() => ability3.ShowInfo());
                     abilita3.image.sprite = AbilityMage[2];
                     Text abilitaText3 = menuStats.transform.Find("Button/Abilita3/Abilita3/Text").GetComponent<Text>();
                     abilitaText3.text = "Assorbi anima";
 
                     abilita4.onClick.RemoveAllListeners();
                     abilita4.onClick.AddListener(() => MageAbility(3, costoAbilita[3]));
+                    BuyAbility ability4 = abilita1.GetComponent<BuyAbility>();
+                    abilita4.onClick.AddListener(() => ability4.ShowInfo());
                     abilita4.image.sprite = AbilityMage[3];
                     Text abilitaText4 = menuStats.transform.Find("Button/Abilita4/Abilita4/Text").GetComponent<Text>();
                     abilitaText4.text = "Fulmine";
 
                     abilita5.onClick.RemoveAllListeners();
                     abilita5.onClick.AddListener(() => MageAbility(4, costoAbilita[4]));
+                    BuyAbility ability5 = abilita1.GetComponent<BuyAbility>();
+                    abilita5.onClick.AddListener(() => ability5.ShowInfo());
                     abilita5.image.sprite = AbilityMage[4];
                     Text abilitaText5 = menuStats.transform.Find("Button/Abilita5/Abilita5/Text").GetComponent<Text>();
                     abilitaText5.text = "Ragnatela";
@@ -537,29 +548,39 @@ public class UiControlExploration : MonoBehaviour
                     abilita1.onClick.RemoveAllListeners();
                     abilita1.onClick.AddListener(() => TankAbility(0, costoAbilita[0]));
                     abilita1.image.sprite = AbilityTank[0];
+                    BuyAbility ability1 = abilita1.GetComponent<BuyAbility>();
+                    abilita1.onClick.AddListener(() => ability1.ShowInfo());
                     Text abilitaText = menuStats.transform.Find("Button/Abilita1/Abilita1/Text").GetComponent<Text>();
                     abilitaText.text = "Sassata";
 
                     abilita2.onClick.RemoveAllListeners();
                     abilita2.onClick.AddListener(() => TankAbility(1, costoAbilita[1]));
+                    BuyAbility ability2 = abilita1.GetComponent<BuyAbility>();
+                    abilita2.onClick.AddListener(() => ability2.ShowInfo());
                     abilita2.image.sprite = AbilityTank[1];
                     Text abilitaText2 = menuStats.transform.Find("Button/Abilita2/Abilita2/Text").GetComponent<Text>();
                     abilitaText2.text = "Percuotere";
 
                     abilita3.onClick.RemoveAllListeners();
                     abilita3.onClick.AddListener(() => TankAbility(2, costoAbilita[2]));
+                    BuyAbility ability3 = abilita1.GetComponent<BuyAbility>();
+                    abilita3.onClick.AddListener(() => ability3.ShowInfo());
                     abilita3.image.sprite = AbilityTank[2];
                     Text abilitaText3 = menuStats.transform.Find("Button/Abilita3/Abilita3/Text").GetComponent<Text>();
                     abilitaText3.text = "Frantuma Scudo";
 
                     abilita4.onClick.RemoveAllListeners();
                     abilita4.onClick.AddListener(() => TankAbility(3, costoAbilita[3]));
+                    BuyAbility ability4 = abilita1.GetComponent<BuyAbility>();
+                    abilita4.onClick.AddListener(() => ability4.ShowInfo());
                     abilita4.image.sprite = AbilityTank[3];
                     Text abilitaText4 = menuStats.transform.Find("Button/Abilita4/Abilita4/Text").GetComponent<Text>();
                     abilitaText4.text = "Spezza Arma";
 
                     abilita5.onClick.RemoveAllListeners();
                     abilita5.onClick.AddListener(() => TankAbility(4, costoAbilita[4]));
+                    BuyAbility ability5 = abilita1.GetComponent<BuyAbility>();
+                    abilita5.onClick.AddListener(() => ability5.ShowInfo());
                     abilita5.image.sprite = AbilityTank[4];
                     Text abilitaText5 = menuStats.transform.Find("Button/Abilita5/Abilita5/Text").GetComponent<Text>();
                     abilitaText5.text = "Spaccateschio";
@@ -589,30 +610,40 @@ public class UiControlExploration : MonoBehaviour
                     //Button
                     abilita1.onClick.RemoveAllListeners();
                     abilita1.onClick.AddListener(() => DpsAbility(0, costoAbilita[0]));
+                    BuyAbility ability1 = abilita1.GetComponent<BuyAbility>();
+                    abilita1.onClick.AddListener(() => ability1.ShowInfo());
                     abilita1.image.sprite = AbilityDps[0];
                     Text abilitaText = menuStats.transform.Find("Button/Abilita1/Abilita1/Text").GetComponent<Text>();
                     abilitaText.text = "Movimento oscuro";
 
                     abilita2.onClick.RemoveAllListeners();
                     abilita2.onClick.AddListener(() => DpsAbility(1, costoAbilita[1]));
+                    BuyAbility ability2 = abilita1.GetComponent<BuyAbility>();
+                    abilita2.onClick.AddListener(() => ability2.ShowInfo());
                     abilita2.image.sprite = AbilityDps[1];
                     Text abilitaText2 = menuStats.transform.Find("Button/Abilita2/Abilita2/Text").GetComponent<Text>();
                     abilitaText2.text = "Esortazione";
 
                     abilita3.onClick.RemoveAllListeners();
                     abilita3.onClick.AddListener(() => DpsAbility(2, costoAbilita[2]));
+                    BuyAbility ability3 = abilita1.GetComponent<BuyAbility>();
+                    abilita3.onClick.AddListener(() => ability3.ShowInfo());
                     abilita3.image.sprite = AbilityDps[2];
                     Text abilitaText3 = menuStats.transform.Find("Button/Abilita3/Abilita3/Text").GetComponent<Text>();
                     abilitaText3.text = "Frecce gemelle";
 
                     abilita4.onClick.RemoveAllListeners();
                     abilita4.onClick.AddListener(() => DpsAbility(3, costoAbilita[3]));
+                    BuyAbility ability4 = abilita1.GetComponent<BuyAbility>();
+                    abilita4.onClick.AddListener(() => ability4.ShowInfo());
                     abilita4.image.sprite = AbilityDps[3];
                     Text abilitaText4 = menuStats.transform.Find("Button/Abilita4/Abilita4/Text").GetComponent<Text>();
                     abilitaText4.text = "Dardo avvelenato";
 
                     abilita5.onClick.RemoveAllListeners();
                     abilita5.onClick.AddListener(() => DpsAbility(4, costoAbilita[4]));
+                    BuyAbility ability5 = abilita1.GetComponent<BuyAbility>();
+                    abilita5.onClick.AddListener(() => ability5.ShowInfo());
                     abilita5.image.sprite = AbilityDps[4];
                     Text abilitaText5 = menuStats.transform.Find("Button/Abilita5/Abilita5/Text").GetComponent<Text>();
                     abilitaText5.text = "Pioggia di frecce";
@@ -766,6 +797,10 @@ public class UiControlExploration : MonoBehaviour
             stats.statsMago.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
+
+        buttons[0].GetComponent<StatsLvlUp>().CheckCostForza();
+        buttons[1].GetComponent<StatsLvlUp>().CheckCostDestrezza();
+        buttons[2].GetComponent<StatsLvlUp>().CheckCostSpirito();
     }
 
     public void TankAbility(int i, int costo)
@@ -778,6 +813,9 @@ public class UiControlExploration : MonoBehaviour
             stats.statsTank.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
+        buttons[0].GetComponent<StatsLvlUp>().CheckCostForza();
+        buttons[1].GetComponent<StatsLvlUp>().CheckCostDestrezza();
+        buttons[2].GetComponent<StatsLvlUp>().CheckCostSpirito();
     }
 
     public void DpsAbility(int i, int costo)
@@ -789,6 +827,9 @@ public class UiControlExploration : MonoBehaviour
             stats.statsDps.abilitaSbloccate[i] = true;
             AggiornaAveri();
         }
+        buttons[0].GetComponent<StatsLvlUp>().CheckCostForza();
+        buttons[1].GetComponent<StatsLvlUp>().CheckCostDestrezza();
+        buttons[2].GetComponent<StatsLvlUp>().CheckCostSpirito();
     }
 
     IEnumerator AnimImage()

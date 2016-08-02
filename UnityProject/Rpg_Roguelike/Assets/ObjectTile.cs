@@ -6,7 +6,7 @@ public class ObjectTile : MonoBehaviour
 
     void Start()
     {
-        Invoke("SetObjectToCell", 0.3f);
+        Invoke("SetObjectToCell", 2.0f);
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = Color.clear;
     }

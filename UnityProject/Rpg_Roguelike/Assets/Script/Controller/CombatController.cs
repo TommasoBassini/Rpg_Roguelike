@@ -213,6 +213,10 @@ public class CombatController : MonoBehaviour
             {
                 Invoke("AggiornaRitrattoPlayer", 0.1f);
                 ui.UI.SetActive(true);
+                foreach (Transform item in ui.MainPanel.transform)
+                {
+                    item.GetComponent<Button>().interactable = true;
+                }
                 ui.SetUiToPlayer(player[turno]);
                 player[turno].GetComponent<Player>().StartTurn();
             }
@@ -223,7 +227,15 @@ public class CombatController : MonoBehaviour
     {
         
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length - 1 <= 0)
+        int nNemici = 0;
+        foreach (var item in enemies)
+        {
+            if (item.GetComponent<Enemy>() != null)
+            {
+                nNemici++;
+            }
+        }
+        if (nNemici - 1 <= 0)
         {
             return true;
         }
@@ -258,40 +270,119 @@ public class CombatController : MonoBehaviour
     {
         PlayerStatsControl stats = FindObjectOfType<PlayerStatsControl>();
         win = true;
-        int lvlTot = 0;
-        foreach (var item in enemyLvl)
+        CheckMusic music = FindObjectOfType<CheckMusic>();
+        music.EndBattleMusic();
+        if (stats.tipoIncontro == 0)
         {
-            lvlTot += item;
-        }
+            int lvlTot = 0;
+            foreach (var item in enemyLvl)
+            {
+                lvlTot += item;
+            }
 
-        int exp = Mathf.RoundToInt((lvlTot * (Random.Range(3.0f, 5.0f))) * Random.Range(1.0f, 1.25f)* 10);
-        int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(2.0f, 4.0f))) * Random.Range(1.0f, 1.25f)* 10);
-        bool health = false;
-        if (Random.Range(0f,100f) > 90f)
+            int exp = Mathf.RoundToInt((lvlTot * (Random.Range(3.0f, 5.0f))) * Random.Range(1.0f, 1.25f) * 10);
+            int sangue = Mathf.RoundToInt((lvlTot * (Random.Range(2.0f, 4.0f))) * Random.Range(1.0f, 1.25f) * 10);
+            bool health = false;
+            if (Random.Range(0f, 100f) > 90f)
+            {
+                health = true;
+                stats.nPotionHealth++;
+            }
+
+            bool mana = false;
+            if (Random.Range(0f, 100f) > 90f)
+            {
+                mana = true;
+                stats.nPotionMana++;
+            }
+
+            UiController ui = FindObjectOfType<UiController>();
+            StartCoroutine(ui.EndPanel(stats.esperience, exp, stats.soldi, sangue, health, mana));
+
+            Player[] players = FindObjectsOfType<Player>();
+
+            foreach (var item in players)
+            {
+                item.EndBattle();
+            }
+
+            stats.esperience += exp;
+            stats.soldi += sangue;
+
+        }
+        if (stats.tipoIncontro == 1)
         {
-            health = true;
+            stats.boss[1] = true;
+            int exp = 2000;
+            int sangue = 1000;
+            bool health = true;
+            bool mana = true;
             stats.nPotionHealth++;
-        }
+            stats.nPotionHealth++;
 
-        bool mana = false;
-        if (Random.Range(0f, 100f) > 90f)
+            UiController ui = FindObjectOfType<UiController>();
+            StartCoroutine(ui.EndPanel(stats.esperience, exp, stats.soldi, sangue, health, mana));
+
+            Player[] players = FindObjectsOfType<Player>();
+
+            foreach (var item in players)
+            {
+                item.EndBattle();
+            }
+
+            stats.esperience += exp;
+            stats.soldi += sangue;
+        }
+        if (stats.tipoIncontro == 2)
         {
-            mana = true;
-            stats.nPotionMana++;
+            stats.boss[2] = true;
+            int exp = 5000;
+            int sangue = 2500;
+            bool health = true;
+            bool mana = true;
+            stats.nPotionHealth++;
+            stats.nPotionHealth++;
+
+            UiController ui = FindObjectOfType<UiController>();
+            StartCoroutine(ui.EndPanel(stats.esperience, exp, stats.soldi, sangue, health, mana));
+
+            Player[] players = FindObjectsOfType<Player>();
+
+            foreach (var item in players)
+            {
+                item.EndBattle();
+            }
+
+            stats.esperience += exp;
+            stats.soldi += sangue;
         }
-
-        UiController ui = FindObjectOfType<UiController>();
-        StartCoroutine (ui.EndPanel(stats.esperience, exp, stats.soldi, sangue, health, mana));
-
-        Player[] players = FindObjectsOfType<Player>();
-
-        foreach (var item in players)
+        if (stats.tipoIncontro == 3)
         {
-            item.EndBattle();
-        }
+            stats.boss[3] = true;
+            int exp = 10000;
+            int sangue = 5000;
+            bool health = true;
+            bool mana = true;
+            stats.nPotionHealth++;
+            stats.nPotionHealth++;
 
-        stats.esperience += exp;
-        stats.soldi += sangue;
+            UiController ui = FindObjectOfType<UiController>();
+            StartCoroutine(ui.EndPanel(stats.esperience, exp, stats.soldi, sangue, health, mana));
+
+            Player[] players = FindObjectsOfType<Player>();
+
+            foreach (var item in players)
+            {
+                item.EndBattle();
+            }
+
+            stats.esperience += exp;
+            stats.soldi += sangue;
+        }
+        if (stats.tipoIncontro == 4)
+        {
+            SceneManager.LoadScene("CutScene");
+        }
     }
 
     public void Lose()
@@ -301,6 +392,7 @@ public class CombatController : MonoBehaviour
         stats.statsDps.hp = 1;
         stats.statsMago.hp = 1;
         stats.statsTank.hp = 1;
+        stats.death = true;
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainGame"));
         SceneManager.UnloadScene("Battle");
 

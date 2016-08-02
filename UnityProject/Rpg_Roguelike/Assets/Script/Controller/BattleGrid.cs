@@ -27,6 +27,9 @@ public class BattleGrid : MonoBehaviour
     public GameObject boss2;
     public GameObject boss3;
 
+    public GameObject boss1Last;
+    public GameObject boss2Last;
+    public GameObject boss3Last;
     void Start()
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Battle"));
@@ -178,7 +181,7 @@ public class BattleGrid : MonoBehaviour
                 int enemY = Random.Range(0, 7);
                 if (i == 0)
                 {
-                    GameObject newEnemy = Instantiate(boss1);
+                    GameObject newEnemy = Instantiate(boss1Last);
                     newEnemy.name = boss1.name;
                     newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
                     SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
@@ -199,7 +202,7 @@ public class BattleGrid : MonoBehaviour
                 }
                 if (i == 1)
                 {
-                    GameObject newEnemy = Instantiate(boss2);
+                    GameObject newEnemy = Instantiate(boss2Last);
                     newEnemy.name = boss2.name;
                     newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
                     SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();
@@ -219,7 +222,7 @@ public class BattleGrid : MonoBehaviour
                 }
                 if (i == 2)
                 {
-                    GameObject newEnemy = Instantiate(boss3);
+                    GameObject newEnemy = Instantiate(boss3Last);
                     newEnemy.name = boss3.name;
                     newEnemy.transform.position = cells[nUsatiEnemy[enemX], enemY].gameObject.transform.position;
                     SpriteRenderer srEnemy = newEnemy.GetComponent<SpriteRenderer>();

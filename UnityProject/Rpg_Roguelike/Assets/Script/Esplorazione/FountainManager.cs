@@ -9,6 +9,7 @@ public class FountainManager : MonoBehaviour
     public bool inRange = false;
     public GameObject interact;
     private GameControl gc;
+    public AudioClip audioFontana;
 
     void Start()
     {        
@@ -51,6 +52,7 @@ public class FountainManager : MonoBehaviour
 
             ui.AggiornaMana();
             ui.AggiornaVita();
+            GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(audioFontana);
             Debug.Log("Hai recuperato vita");                     
         }
     }

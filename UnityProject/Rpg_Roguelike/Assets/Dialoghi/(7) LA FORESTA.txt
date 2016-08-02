@@ -1,5 +1,5 @@
-ELIBETH: Aaaah, la foresta dei rovi.
-ELIBETH: Come stanno le mie belle piantine?
+ELIBETH: Ah, la foresta dei rovi.
+ELIBETH: Come stanno le mie piantine?
 JUPEP: Parla con le radici?!
 ELIBETH: I soldati vi hanno amputato? Vi hanno bruciato?!
 JOHELL: Sbrigati strega! La foresta è vasta...

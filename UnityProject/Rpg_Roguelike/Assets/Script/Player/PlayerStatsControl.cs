@@ -293,6 +293,10 @@ public class PlayerStatsControl : MonoBehaviour
 
     public int nzona;
     public int tipoIncontro; // 0 casuale 1 primo boss 2 secondo boss 3 terzo boss 4 tutti e tre i boss
+    public bool[] boss = {false,false,false,false};
+
+    public bool death = false;
+
     void Awake ()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -301,6 +305,7 @@ public class PlayerStatsControl : MonoBehaviour
         AggiornaStatsTank();
 	}
 	
+
     void AggiornaStatsDps()
     {
         statsDps.hpMax = 35 + (statsDps.forza * incrementiDps.hpPerForza) + (statsDps.destrezza * incrementiDps.hpPerDestrezza) + (statsDps.Spirito * incrementiDps.hpPerSpirito);
@@ -356,5 +361,14 @@ public class PlayerStatsControl : MonoBehaviour
         statsMago.evasione = 15 + (statsMago.forza * incrementiMago.evasionePerForza) + (statsMago.destrezza * incrementiMago.evasionePerDestrezza) + (statsMago.Spirito * incrementiMago.evasionePerSpirito);
         statsMago.precisione = 5 + (statsMago.forza * incrementiMago.precisionePerForza) + (statsMago.destrezza * incrementiMago.precisionePerDestrezza) + (statsMago.Spirito * incrementiMago.precisionePerSpirito);
         statsMago.velocita = 8 + (statsMago.forza * incrementiMago.velocitaPerForza) + (statsMago.destrezza * incrementiMago.velocitaPerDestrezza) + (statsMago.Spirito * incrementiMago.velocitaPerSpirito);        
+    }
+
+    public void SetPlayerPos()
+    {
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        player.playerPos = player.respawnPos;
+        player.transform.position = new Vector2 (player.respawnPos.x, player.respawnPos.y);
+        player.gameObject.GetComponent<FogOfWarManager>().Fog(player.playerPos);
+        death = false;
     }
 }

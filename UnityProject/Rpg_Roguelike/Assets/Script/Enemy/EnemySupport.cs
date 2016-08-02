@@ -71,7 +71,8 @@ public class EnemySupport : Enemy
         }
         if (enemyInDifficolta)
         {
-            if (grid.CheckTarget(this.pos, this.passi, targetPos))
+            int random = (int)Random.Range(0.0f, 100.0f);
+            if (grid.CheckTarget(this.pos, this.passi, targetPos) && random > 65)
             {
                 StartCoroutine(Cura(grid.cells[(int)targetPos.x, (int)targetPos.y].occupier));
             }

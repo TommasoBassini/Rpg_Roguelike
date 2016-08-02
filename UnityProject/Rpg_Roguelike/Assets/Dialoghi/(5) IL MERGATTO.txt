@@ -1,10 +1,10 @@
 ELIBETH: Heeeei, guarda chi c'e'!
 ELIBETH: Vieni qui piccolino!
 JUPEP: Un gatto... morto?! Nya ha ha ha!
-JUPEP: Mi sa tanto che non hai piu' nove vite eh?!
+JUPEP: Mi sa tanto che non hai più nove vite eh?!
 FILYS: Clienti, meow... finalmente!
 FILYS: Permettetemi di presentarmi, meow! 
-FILYS: Mi chiamo Filys... mergatto di professione!
+FILYS: Mi chiamo Filys, mergatto di professione!
 JOHELL: Un mergatto?
 FILYS: Vendo... cose... meow, si. Ma, mi serve il sangue!
 FILYS: Mi serve il vostro sangue, meow... 
@@ -12,5 +12,5 @@ FILYS: Avete del sangue?
 ELIBETH: si, beh... credo ma...
 FILYS: Allora! Allora, benvenuti! Toccate le ampolle che desiderate!
 FILYS: Toccatele, e saranno vostre! Ma attenti...
-FILYS: Ciò che toccate, è vostro! E non può essere rimborsato!
-FILYS: E'.... meow... un patto di sangue!
+FILYS: Cio' che toccate, e' vostro! E non può essere rimborsato!
+FILYS: E'... meow... un patto di sangue! 

@@ -1,17 +1,17 @@
-ELIBETH: Non ho mai visto la cripta così vuota!
+ELIBETH: Non ho mai visto la cripta cosi' vuota!
 ELIBETH: Mi si spezza il cuore... 
 JUPEP: E' un mortorio, si! Nye he he 
 JUPEP: Magia, è stato il mago a mangiare le anime eh?
-JOHELL: Gli mozzerò la gola con la mia spada... 
-ELIBETH: Questo luogo custodisce molta magia...
+JOHELL: Gli mozzero' la gola con la mia spada!
+ELIBETH: Questo luogo custodisce molto potere...
 ELIBETH: Le anime sono le fonti della magia.
 ELIBETH: Per questo il cristallo le ha imprigionate.
 JUPEP: La mia anima nel cristallo?!
-ELIBETH: Si, tutte le nostre anime risiedono lì.
-ELIBETH: Il cristallo è come la mia tela, impedisce alle prede di fuggire.
+ELIBETH: Si', tutte le nostre anime risiedono li'.
+ELIBETH: Il cristallo e' come la mia tela, impedisce alle prede di fuggire.
 ELIBETH: Le sue prede, sono le anime di coloro che si sacrificano. 
-JOHELL: Ciò che ci impedisce di morire.
-ELIBETH: Esatto. In cambio di questo sacrificio, il cristallo ci dona la volontà
+JOHELL: Cio' che ci impedisce di morire.
+ELIBETH: Esatto. In cambio di questo sacrificio, il cristallo ci dona la volonta'
 ELIBETH: E muta i nostri vecchi corpi per permetterci di vivere senz'anima. 
 JUPEP: Bla Bla Bla... Andiamo?!
 JUPEP: Ho già sentito la lezioncina di storia! 500 Anni fa! Nye!

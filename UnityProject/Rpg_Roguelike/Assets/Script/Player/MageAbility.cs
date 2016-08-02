@@ -636,7 +636,6 @@ public class MageAbility : MonoBehaviour
     void DestroyEnemyButton()
     {
         UiController ui = FindObjectOfType<UiController>();
-        ui.CoAttivaPanel();
 
         foreach (Transform item in ui.EnemyListPanel.transform)
         {

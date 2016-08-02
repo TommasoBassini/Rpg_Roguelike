@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     public bool facingUp = false;
     public bool facingDown = false;
     public int nKeys = 0;
-    public AudioClip walk;
     public int nPassi = 0;
 
     public bool isSpeakingTwo = false;
@@ -30,9 +29,18 @@ public class PlayerMovement : MonoBehaviour
     {
         fog = this.GetComponent<FogOfWarManager>();
         Invoke("CoFog", 0.1f);
-        Debug.Log(GetComponent<SpriteRenderer>().color);
     }
 
+    void OnEnable()
+    {
+        Invoke("CoAggiornaPotion", 1);
+    }
+
+    void CoAggiornaPotion()
+    {
+        UiControlExploration ui = FindObjectOfType<UiControlExploration>();
+        ui.AggiornaPotion();
+    }
     // Imposta la posizione iniziale del giocatore all'interno della griglia
     public void SetPlayerPosition()
     {
@@ -68,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
                     nPassi = 0;
                     GameControl gc = FindObjectOfType<GameControl>();
                     randomEncounterProbably = 0;
-                    //StartCoroutine (gc.RandomEncounter(_pos));
+                    StartCoroutine (gc.RandomEncounter(_pos,0));
                 }
             }
         }

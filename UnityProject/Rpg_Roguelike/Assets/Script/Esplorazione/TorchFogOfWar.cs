@@ -13,7 +13,7 @@ public class TorchFogOfWar : MonoBehaviour
     void Start()
     {
         grid = FindObjectOfType<Grid>();
-        Invoke("CoFog", 0.3f);
+        Invoke("CoFog", 1f);
     }
 
     void CoFog()
